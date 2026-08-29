@@ -1,0 +1,23 @@
+{
+  "name": "aws-documentdb",
+  "displayName": "Amazon DocumentDB",
+  "description": "Amazon DocumentDB integration for MongoDB-compatible document database operations",
+  "homepage": "https://aws.amazon.com/documentdb/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "aws-documentdb": {
+      "command": "uvx",
+      "args": [
+        "awslabs.documentdb-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

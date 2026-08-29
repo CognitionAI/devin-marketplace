@@ -1,0 +1,15 @@
+{
+  "name": "contentsquare",
+  "displayName": "Contentsquare",
+  "description": "Contentsquare integration for digital experience analytics",
+  "homepage": "https://www.contentsquare.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "contentsquare": {
+      "url": "https://api.contentsquare.com/mcp"
+    }
+  }
+}

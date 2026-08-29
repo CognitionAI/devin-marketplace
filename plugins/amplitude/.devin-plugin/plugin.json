@@ -1,0 +1,16 @@
+{
+  "name": "amplitude",
+  "displayName": "Amplitude",
+  "description": "Analyze product data, experiments, and user behavior in Amplitude: query and create charts, dashboards, experiments, cohorts, and session replays using natural language.",
+  "homepage": "https://amplitude.com/",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "amplitude": {
+      "url": "https://mcp.amplitude.com/mcp"
+    }
+  }
+}

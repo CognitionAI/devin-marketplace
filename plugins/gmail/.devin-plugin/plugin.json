@@ -1,0 +1,16 @@
+{
+  "name": "gmail",
+  "displayName": "Gmail",
+  "description": "Developer Preview: access requires enrollment in the Google Workspace Developer Preview Program. Official Gmail remote MCP server for searching, reading, drafting, and organizing email. Google does not support automatic client registration, so you must provide your own OAuth client credentials: in the Google Cloud console, enable the Gmail API and Gmail MCP API, create an OAuth client (web application), and add Devin's OAuth callback URL (https://api.devin.ai/mcp/oauth/callback, or the equivalent for your Devin environment) as an authorized redirect URI. Then enter the OAuth client ID and secret when installing this server.",
+  "homepage": "https://mail.google.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "gmail": {
+      "url": "https://gmailmcp.googleapis.com/mcp/v1"
+    }
+  }
+}

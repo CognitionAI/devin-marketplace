@@ -1,0 +1,15 @@
+{
+  "name": "clerk",
+  "displayName": "Clerk",
+  "description": "Clerk integration to add authentication, organizations, and billing",
+  "homepage": "https://clerk.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "clerk": {
+      "url": "https://mcp.clerk.com/mcp"
+    }
+  }
+}

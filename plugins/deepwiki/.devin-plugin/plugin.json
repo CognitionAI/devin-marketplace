@@ -1,0 +1,16 @@
+{
+  "name": "deepwiki",
+  "displayName": "DeepWiki",
+  "description": "Access comprehensive documentation for GitHub repositories with AI-powered insights",
+  "homepage": "https://devin.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Essentials",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "deepwiki": {
+      "url": "https://mcp.deepwiki.com/mcp"
+    }
+  }
+}

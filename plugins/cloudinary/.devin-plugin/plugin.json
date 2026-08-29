@@ -1,0 +1,15 @@
+{
+  "name": "cloudinary",
+  "displayName": "Cloudinary",
+  "description": "Cloudinary integration to manage, transform, and deliver images and videos",
+  "homepage": "https://cloudinary.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "cloudinary": {
+      "url": "https://asset-management.mcp.cloudinary.com/sse"
+    }
+  }
+}

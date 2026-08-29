@@ -1,0 +1,23 @@
+{
+  "name": "google-analytics",
+  "displayName": "Google Analytics",
+  "description": "Access Google Analytics 4 data: run reports, get property details, and query metrics via MCP",
+  "homepage": "https://analytics.google.com",
+  "repository": "https://github.com/googleanalytics/google-analytics-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "google-analytics": {
+      "command": "pipx",
+      "args": [
+        "run",
+        "--spec",
+        "git+https://github.com/googleanalytics/google-analytics-mcp.git",
+        "google-analytics-mcp"
+      ]
+    }
+  }
+}

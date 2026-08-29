@@ -1,0 +1,24 @@
+{
+  "name": "slack",
+  "displayName": "Slack (STDIO)",
+  "description": "Manage Slack workspaces: list channels and users; post messages; reply in threads; add reactions; fetch channel history and thread replies.",
+  "homepage": "https://slack.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Communication"
+  ],
+  "mcpServers": {
+    "slack": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-slack"
+      ],
+      "env": {
+        "SLACK_BOT_TOKEN": "${MCP_SLACK_BOT_TOKEN}",
+        "SLACK_TEAM_ID": "${MCP_SLACK_TEAM_ID}",
+        "SLACK_CHANNEL_IDS": "${MCP_SLACK_CHANNEL_IDS}"
+      }
+    }
+  }
+}

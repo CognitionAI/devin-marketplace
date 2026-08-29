@@ -1,0 +1,16 @@
+{
+  "name": "calendly",
+  "displayName": "Calendly",
+  "description": "Calendly integration for scheduling meetings, managing events, and automating calendar workflows",
+  "homepage": "https://calendly.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "calendly": {
+      "url": "https://mcp.calendly.com"
+    }
+  }
+}

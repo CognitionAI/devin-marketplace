@@ -1,0 +1,15 @@
+{
+  "name": "graphos-tools",
+  "displayName": "Apollo GraphOS",
+  "description": "Apollo GraphOS integration to search Apollo docs, specs, and best practices",
+  "homepage": "https://www.apollographql.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "graphos-tools": {
+      "url": "https://mcp.apollographql.com"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "newrelic-remote",
+  "displayName": "New Relic (OAuth)",
+  "description": "Query New Relic telemetry with NRQL, and investigate entities, APM services, logs, alerts, incidents, deployments, and dashboards.",
+  "homepage": "https://newrelic.com/",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "newrelic-remote": {
+      "url": "https://mcp.newrelic.com/mcp/"
+    }
+  }
+}

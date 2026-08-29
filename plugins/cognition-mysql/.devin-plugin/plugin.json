@@ -1,0 +1,41 @@
+{
+  "name": "cognition-mysql",
+  "displayName": "MySQL",
+  "description": "MySQL integration for data management and SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-mysql": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "MYSQL_HOST",
+        "-e",
+        "MYSQL_DATABASE",
+        "-e",
+        "MYSQL_USER",
+        "-e",
+        "MYSQL_PASSWORD",
+        "-e",
+        "MYSQL_PORT",
+        "us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest",
+        "--prebuilt",
+        "mysql",
+        "--stdio"
+      ],
+      "env": {
+        "MYSQL_HOST": "${MCP_MYSQL_HOST}",
+        "MYSQL_DATABASE": "${MCP_MYSQL_DATABASE}",
+        "MYSQL_USER": "${MCP_MYSQL_USER}",
+        "MYSQL_PASSWORD": "${MCP_MYSQL_PASSWORD}",
+        "MYSQL_PORT": "${MCP_MYSQL_PORT}"
+      }
+    }
+  }
+}

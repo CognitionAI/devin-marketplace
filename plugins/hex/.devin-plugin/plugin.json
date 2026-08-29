@@ -1,0 +1,16 @@
+{
+  "name": "hex",
+  "displayName": "Hex",
+  "description": "Hex integration to answer questions about your data with the Hex agent",
+  "homepage": "https://hex.tech",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Databases"
+  ],
+  "mcpServers": {
+    "hex": {
+      "url": "https://app.hex.tech/mcp"
+    }
+  }
+}

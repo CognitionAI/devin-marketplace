@@ -1,0 +1,26 @@
+{
+  "name": "cortex",
+  "displayName": "Cortex",
+  "description": "Cortex integration for service catalog, scorecards, and engineering insights",
+  "homepage": "https://www.cortex.io",
+  "repository": "https://github.com/cortexapps/cortex-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "cortex": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--env",
+        "CORTEX_API_TOKEN=${MCP_CORTEX_API_TOKEN}",
+        "--env",
+        "CORTEX_API_BASE_URL=${MCP_CORTEX_API_BASE_URL}",
+        "ghcr.io/cortexapps/cortex-mcp:latest"
+      ]
+    }
+  }
+}

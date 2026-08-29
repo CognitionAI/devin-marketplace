@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-radar",
+  "displayName": "Cloudflare Radar",
+  "description": "Get global Internet traffic insights, trends, URL scans, and other utilities via Cloudflare Radar MCP",
+  "homepage": "https://www.cloudflare.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cloudflare-radar": {
+      "url": "https://radar.mcp.cloudflare.com/mcp"
+    }
+  }
+}

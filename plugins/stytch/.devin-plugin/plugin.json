@@ -1,0 +1,15 @@
+{
+  "name": "stytch",
+  "displayName": "Stytch",
+  "description": "Stytch integration to manage your Stytch project",
+  "homepage": "https://stytch.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "stytch": {
+      "url": "https://mcp.stytch.dev/mcp"
+    }
+  }
+}

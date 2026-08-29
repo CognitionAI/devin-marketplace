@@ -1,0 +1,15 @@
+{
+  "name": "intercom",
+  "displayName": "Intercom",
+  "description": "Intercom integration for customer support and messaging",
+  "homepage": "https://www.intercom.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "intercom": {
+      "url": "https://mcp.intercom.com/mcp"
+    }
+  }
+}

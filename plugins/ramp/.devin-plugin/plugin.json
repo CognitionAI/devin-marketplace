@@ -1,0 +1,15 @@
+{
+  "name": "ramp",
+  "displayName": "Ramp",
+  "description": "Ramp integration to access corporate cards, transactions, and spend data",
+  "homepage": "https://ramp.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "ramp": {
+      "url": "https://mcp.ramp.com/mcp"
+    }
+  }
+}

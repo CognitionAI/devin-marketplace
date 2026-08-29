@@ -1,0 +1,15 @@
+{
+  "name": "prisma",
+  "displayName": "Prisma",
+  "description": "Manage Prisma Postgres databases; create, list, and restore backups; generate and revoke connection strings; execute SQL queries and introspect schemas.",
+  "homepage": "https://www.prisma.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "prisma": {
+      "url": "https://mcp.prisma.io/mcp"
+    }
+  }
+}

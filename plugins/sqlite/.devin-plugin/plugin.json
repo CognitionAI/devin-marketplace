@@ -1,0 +1,23 @@
+{
+  "name": "sqlite",
+  "displayName": "SQLite",
+  "description": "SQLite database integration for data management and business intelligence",
+  "homepage": "https://www.sqlite.org",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "sqlite": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "${MCP_DATABASE_DB_PATH}:/data/database.db",
+        "mcp/sqlite"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "lunarcrush",
+  "displayName": "LunarCrush",
+  "description": "LunarCrush integration to add real-time social media data to your searches",
+  "homepage": "https://lunarcrush.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "lunarcrush": {
+      "url": "https://lunarcrush.ai/mcp"
+    }
+  }
+}

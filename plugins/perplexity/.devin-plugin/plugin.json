@@ -1,0 +1,19 @@
+{
+  "name": "perplexity",
+  "displayName": "Perplexity",
+  "description": "Perplexity integration for web search, deep research, and reasoning over live sources",
+  "homepage": "https://www.perplexity.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "perplexity": {
+      "url": "https://api.perplexity.ai/mcp",
+      "headers": {
+        "Authorization": "${MCP_PERPLEXITY_AUTHORIZATION}"
+      }
+    }
+  }
+}

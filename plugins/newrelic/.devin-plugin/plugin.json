@@ -1,0 +1,18 @@
+{
+  "name": "newrelic",
+  "displayName": "New Relic (API key)",
+  "description": "Query New Relic telemetry with NRQL, and investigate entities, APM services, logs, alerts, incidents, deployments, and dashboards.",
+  "homepage": "https://newrelic.com/",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "newrelic": {
+      "url": "https://mcp.newrelic.com/mcp/",
+      "headers": {
+        "Api-Key": "${MCP_NEWRELIC_API_KEY}"
+      }
+    }
+  }
+}

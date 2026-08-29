@@ -1,0 +1,15 @@
+{
+  "name": "paypal",
+  "displayName": "PayPal",
+  "description": "Manage PayPal commerce operations; handle disputes; issue and send invoices; create orders, captures, and refunds; list transactions; track shipments; and manage subscriptions.",
+  "homepage": "https://www.paypal.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "paypal": {
+      "url": "https://mcp.paypal.com/mcp"
+    }
+  }
+}

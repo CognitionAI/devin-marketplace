@@ -1,0 +1,17 @@
+{
+  "name": "cloudflare-logpush",
+  "displayName": "Cloudflare Logpush",
+  "description": "Get quick summaries for Logpush job health",
+  "homepage": "https://www.cloudflare.com",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/logpush",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cloudflare-logpush": {
+      "url": "https://logs.mcp.cloudflare.com/mcp"
+    }
+  }
+}

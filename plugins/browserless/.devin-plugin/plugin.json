@@ -1,0 +1,15 @@
+{
+  "name": "browserless",
+  "displayName": "Browserless",
+  "description": "Browser automation in the cloud: smart scraping, web search, crawling, Lighthouse audits, and custom Puppeteer code execution with no infrastructure required.",
+  "homepage": "https://www.browserless.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "browserless": {
+      "url": "https://mcp.browserless.io/mcp"
+    }
+  }
+}

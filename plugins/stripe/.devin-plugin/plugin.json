@@ -1,0 +1,15 @@
+{
+  "name": "stripe",
+  "displayName": "Stripe",
+  "description": "Create and manage customers, products, prices, subscriptions, invoices, coupons, payment links, payouts, and refunds in Stripe; read balances, disputes, docs and more.",
+  "homepage": "https://stripe.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "stripe": {
+      "url": "https://mcp.stripe.com"
+    }
+  }
+}

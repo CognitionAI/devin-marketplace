@@ -1,0 +1,22 @@
+{
+  "name": "heroku",
+  "displayName": "Heroku",
+  "description": "List, create, and manage Heroku apps, dynos, pipelines, add\u2011ons, teams, and spaces; enable maintenance mode and fetch app logs. Also deploy apps, trigger pipelines, validate configs, and manage Heroku Postgres databases.",
+  "homepage": "https://www.heroku.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "heroku": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@heroku/mcp-server"
+      ],
+      "env": {
+        "HEROKU_API_KEY": "${MCP_HEROKU_API_KEY}"
+      }
+    }
+  }
+}

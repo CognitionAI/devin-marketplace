@@ -1,0 +1,16 @@
+{
+  "name": "airtable",
+  "displayName": "Airtable",
+  "description": "Airtable integration for managing bases, tables, records, and automating workflows",
+  "homepage": "https://airtable.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Databases"
+  ],
+  "mcpServers": {
+    "airtable": {
+      "url": "https://mcp.airtable.com"
+    }
+  }
+}

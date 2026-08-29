@@ -1,0 +1,33 @@
+{
+  "name": "cognition-bigquery",
+  "displayName": "BigQuery",
+  "description": "BigQuery integration for analytics queries and dataset management",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-bigquery": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "BIGQUERY_PROJECT",
+        "-e",
+        "BIGQUERY_DATASET",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/bigquery:main",
+        "--stdio"
+      ],
+      "env": {
+        "BIGQUERY_PROJECT": "${MCP_BIGQUERY_PROJECT}",
+        "BIGQUERY_DATASET": "${MCP_BIGQUERY_DATASET}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

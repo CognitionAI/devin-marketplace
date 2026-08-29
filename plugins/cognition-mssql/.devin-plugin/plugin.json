@@ -1,0 +1,41 @@
+{
+  "name": "cognition-mssql",
+  "displayName": "SQL Server",
+  "description": "SQL Server integration for data management and T-SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-mssql": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "MSSQL_HOST",
+        "-e",
+        "MSSQL_DATABASE",
+        "-e",
+        "MSSQL_USER",
+        "-e",
+        "MSSQL_PASSWORD",
+        "-e",
+        "MSSQL_PORT",
+        "us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest",
+        "--prebuilt",
+        "mssql",
+        "--stdio"
+      ],
+      "env": {
+        "MSSQL_HOST": "${MCP_MSSQL_HOST}",
+        "MSSQL_DATABASE": "${MCP_MSSQL_DATABASE}",
+        "MSSQL_USER": "${MCP_MSSQL_USER}",
+        "MSSQL_PASSWORD": "${MCP_MSSQL_PASSWORD}",
+        "MSSQL_PORT": "${MCP_MSSQL_PORT}"
+      }
+    }
+  }
+}

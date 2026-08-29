@@ -1,0 +1,15 @@
+{
+  "name": "fireflies",
+  "displayName": "Fireflies",
+  "description": "Fireflies integration for meeting data retrieval and analysis\u2014such as transcripts, summaries, action items, and more metadata",
+  "homepage": "https://fireflies.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "fireflies": {
+      "url": "https://api.fireflies.ai/mcp"
+    }
+  }
+}

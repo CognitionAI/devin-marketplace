@@ -1,0 +1,15 @@
+{
+  "name": "cello",
+  "displayName": "Cello",
+  "description": "Query your Cello referral program: check integration health, inspect events, find top referrers, and review program performance",
+  "homepage": "https://cello.so",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "cello": {
+      "url": "https://mcp.cello.so/mcp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "mixpanel",
+  "displayName": "Mixpanel",
+  "description": "Mixpanel integration to analyze, query, and manage your product analytics data",
+  "homepage": "https://mixpanel.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "mixpanel": {
+      "url": "https://mcp.mixpanel.com/mcp"
+    }
+  }
+}

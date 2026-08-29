@@ -1,0 +1,15 @@
+{
+  "name": "mintlify-index",
+  "displayName": "Mintlify Index",
+  "description": "Mintlify Index integration to search publisher-maintained docs across all Mintlify sites",
+  "homepage": "https://www.mintlify.com/search-index",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mintlify-index": {
+      "url": "https://index.mintlify.com"
+    }
+  }
+}

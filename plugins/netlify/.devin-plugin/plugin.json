@@ -1,0 +1,23 @@
+{
+  "name": "netlify",
+  "displayName": "Netlify",
+  "description": "Create, manage, and deploy Netlify projects; modify access controls; manage Netlify extensions. Also enable and manage form submissions, and create env variables and secrets.",
+  "homepage": "https://www.netlify.com",
+  "repository": "https://github.com/netlify/mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "netlify": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@netlify/mcp"
+      ],
+      "env": {
+        "NETLIFY_PERSONAL_ACCESS_TOKEN": "${MCP_NETLIFY_PERSONAL_ACCESS_TOKEN}"
+      }
+    }
+  }
+}

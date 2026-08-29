@@ -1,0 +1,15 @@
+{
+  "name": "cloudflare-docs",
+  "displayName": "Cloudflare Documentation",
+  "description": "Access up-to-date Cloudflare reference information via MCP",
+  "homepage": "https://www.cloudflare.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "cloudflare-docs": {
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    }
+  }
+}

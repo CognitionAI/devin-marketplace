@@ -1,0 +1,15 @@
+{
+  "name": "gamma",
+  "displayName": "Gamma",
+  "description": "Generate presentations, documents, webpages, and social posts in Gamma; browse and read existing gammas, check generation status, and export to PDF, PPTX, or PNG.",
+  "homepage": "https://gamma.app",
+  "logo": "logo.jpg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "gamma": {
+      "url": "https://mcp.gamma.app/mcp"
+    }
+  }
+}

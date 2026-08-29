@@ -1,0 +1,15 @@
+{
+  "name": "mobbin",
+  "displayName": "Mobbin",
+  "description": "Mobbin integration giving AI agents design reference from 600,000+ real product screens to search apps, flows, and UI patterns",
+  "homepage": "https://mobbin.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "mobbin": {
+      "url": "https://api.mobbin.com/mcp"
+    }
+  }
+}

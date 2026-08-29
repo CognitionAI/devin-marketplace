@@ -1,0 +1,24 @@
+{
+  "name": "aws-redshift",
+  "displayName": "Amazon Redshift (IAM Auth)",
+  "description": "Amazon Redshift integration for data warehouse operations and analytics",
+  "homepage": "https://aws.amazon.com/redshift/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "aws-redshift": {
+      "command": "uvx",
+      "args": [
+        "awslabs.redshift-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "canva",
+  "displayName": "Canva",
+  "description": "Official Canva integration for design creation, template management, and visual content generation",
+  "homepage": "https://www.canva.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "canva": {
+      "url": "https://mcp.canva.com/mcp"
+    }
+  }
+}

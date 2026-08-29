@@ -1,0 +1,17 @@
+{
+  "name": "cloudflare-workers-builds",
+  "displayName": "Cloudflare Workers Builds",
+  "description": "Get insights and manage your Cloudflare Workers Builds",
+  "homepage": "https://www.cloudflare.com",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/workers-builds",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "cloudflare-workers-builds": {
+      "url": "https://builds.mcp.cloudflare.com/mcp"
+    }
+  }
+}

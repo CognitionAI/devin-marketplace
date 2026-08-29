@@ -1,0 +1,18 @@
+{
+  "name": "corridor",
+  "displayName": "Corridor",
+  "description": "Corridor adds AI code security guardrails directly into your development workflow, helping to identify and fix security vulnerabilities as you code.",
+  "homepage": "https://corridor.dev",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "corridor": {
+      "url": "https://app.corridor.dev/api/mcp",
+      "headers": {
+        "Authorization": "${MCP_CORRIDOR_AUTHORIZATION}"
+      }
+    }
+  }
+}

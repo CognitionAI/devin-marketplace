@@ -1,0 +1,23 @@
+{
+  "name": "aws-lambda",
+  "displayName": "AWS Lambda",
+  "description": "AWS Lambda integration for serverless function management and deployment",
+  "homepage": "https://aws.amazon.com/lambda/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "aws-lambda": {
+      "command": "uvx",
+      "args": [
+        "awslabs.lambda-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

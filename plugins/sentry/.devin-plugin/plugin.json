@@ -1,0 +1,16 @@
+{
+  "name": "sentry",
+  "displayName": "Sentry",
+  "description": "Retrieve detailed Sentry issue data and full stack traces. Also search and filter issues, update issue status, assignments, tags, bookmarks, and alerts.",
+  "homepage": "https://sentry.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "sentry": {
+      "url": "https://mcp.sentry.dev/mcp"
+    }
+  }
+}

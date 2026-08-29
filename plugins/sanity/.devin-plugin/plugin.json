@@ -1,0 +1,15 @@
+{
+  "name": "sanity",
+  "displayName": "Sanity",
+  "description": "Sanity integration to create, query, and manage structured content",
+  "homepage": "https://www.sanity.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "sanity": {
+      "url": "https://mcp.sanity.io"
+    }
+  }
+}

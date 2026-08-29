@@ -1,0 +1,16 @@
+{
+  "name": "asana",
+  "displayName": "Asana",
+  "description": "Official Asana integration for task management, project tracking, and team collaboration",
+  "homepage": "https://asana.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "asana": {
+      "url": "https://mcp.asana.com/mcp"
+    }
+  }
+}

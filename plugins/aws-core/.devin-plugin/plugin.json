@@ -1,0 +1,23 @@
+{
+  "name": "aws-core",
+  "displayName": "AWS Core",
+  "description": "AWS Core integration providing foundational AWS services and operations",
+  "homepage": "https://aws.amazon.com/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "aws-core": {
+      "command": "uvx",
+      "args": [
+        "awslabs.core-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

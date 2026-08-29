@@ -1,0 +1,15 @@
+{
+  "name": "mintlify",
+  "displayName": "Mintlify",
+  "description": "Mintlify integration to search, read, and edit your documentation",
+  "homepage": "https://mintlify.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mintlify": {
+      "url": "https://mcp.mintlify.com"
+    }
+  }
+}

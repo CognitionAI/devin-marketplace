@@ -1,0 +1,17 @@
+{
+  "name": "tavily",
+  "displayName": "Tavily",
+  "description": "Real-time web search and content extraction optimized for AI agents",
+  "homepage": "https://tavily.com",
+  "repository": "https://github.com/tavily-ai/tavily-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "tavily": {
+      "url": "https://mcp.tavily.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "pulumi",
+  "displayName": "Pulumi",
+  "description": "Manage cloud infrastructure with Pulumi using MCP tools; preview and update stacks and manage configs across AWS and more.",
+  "homepage": "https://www.pulumi.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "pulumi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pulumi/mcp-server",
+        "stdio"
+      ],
+      "env": {
+        "PULUMI_ACCESS_TOKEN": "${MCP_PULUMI_ACCESS_TOKEN}",
+        "AWS_ACCESS_KEY_ID": "${MCP_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${MCP_AWS_SECRET_ACCESS_KEY}",
+        "AWS_SESSION_TOKEN": "${MCP_AWS_SESSION_TOKEN}"
+      }
+    }
+  }
+}

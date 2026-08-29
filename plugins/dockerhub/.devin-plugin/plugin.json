@@ -1,0 +1,28 @@
+{
+  "name": "dockerhub",
+  "displayName": "Docker Hub",
+  "description": "Retrieve and manage Docker Hub repositories and tags with ease: check repo/tag existence, list namespaces, repositories, tags, and Docker Hardened Images and more.",
+  "homepage": "https://hub.docker.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "dockerhub": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "HUB_PAT_TOKEN",
+        "mcp/dockerhub",
+        "--transport=stdio",
+        "--username=${MCP_DOCKERHUB_USERNAME}"
+      ],
+      "env": {
+        "HUB_PAT_TOKEN": "${MCP_HUB_PAT_TOKEN}"
+      }
+    }
+  }
+}

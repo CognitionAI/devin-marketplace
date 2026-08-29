@@ -1,0 +1,16 @@
+{
+  "name": "context7",
+  "displayName": "Context7",
+  "description": "Access up-to-date documentation for 1000+ npm packages and frameworks",
+  "homepage": "https://upstash.com",
+  "repository": "https://github.com/upstash/context7",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}

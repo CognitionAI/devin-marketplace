@@ -1,0 +1,23 @@
+{
+  "name": "aws-iam",
+  "displayName": "AWS IAM",
+  "description": "AWS IAM integration for identity and access management operations",
+  "homepage": "https://aws.amazon.com/iam/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "aws-iam": {
+      "command": "uvx",
+      "args": [
+        "awslabs.iam-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

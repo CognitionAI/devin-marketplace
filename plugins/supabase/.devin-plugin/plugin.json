@@ -1,0 +1,24 @@
+{
+  "name": "supabase",
+  "displayName": "Supabase (STDIO)",
+  "description": "List, create, pause, and restore Supabase projects; execute SQL, apply migrations, deploy Edge Functions, handle branching, update storage buckets and configs; get URLs or API Keys for projects and more.",
+  "homepage": "https://supabase.com",
+  "repository": "https://github.com/supabase-community/supabase-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--read-only"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "${MCP_SUPABASE_ACCESS_TOKEN}"
+      }
+    }
+  }
+}

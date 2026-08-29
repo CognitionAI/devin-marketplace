@@ -1,0 +1,31 @@
+{
+  "name": "dbt",
+  "displayName": "dbt",
+  "description": "Supports two setup modes: (1) CLI-only with DBT_PROJECT_DIR and DBT_PATH for local dbt projects, or (2) dbt Platform with DBT_HOST and DBT_TOKEN for Discovery API, Semantic Layer, and Admin API access. Join #tools-dbt-mcp in the dbt Community Slack (https://www.getdbt.com/community/join-the-community) for support.",
+  "homepage": "https://www.getdbt.com",
+  "repository": "https://github.com/dbt-labs/dbt-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "dbt": {
+      "command": "uvx",
+      "args": [
+        "dbt-mcp"
+      ],
+      "env": {
+        "DBT_PROJECT_DIR": "${MCP_DBT_PROJECT_DIR}",
+        "DBT_PATH": "${MCP_DBT_PATH}",
+        "DBT_HOST": "${MCP_DBT_HOST}",
+        "MULTICELL_ACCOUNT_PREFIX": "${MCP_MULTICELL_ACCOUNT_PREFIX}",
+        "DBT_TOKEN": "${MCP_DBT_TOKEN}",
+        "DBT_PROD_ENV_ID": "${MCP_DBT_PROD_ENV_ID}",
+        "DBT_DEV_ENV_ID": "${MCP_DBT_DEV_ENV_ID}",
+        "DBT_ACCOUNT_ID": "${MCP_DBT_ACCOUNT_ID}",
+        "DBT_USER_ID": "${MCP_DBT_USER_ID}"
+      }
+    }
+  }
+}

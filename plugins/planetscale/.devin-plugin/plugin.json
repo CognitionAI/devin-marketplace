@@ -1,0 +1,15 @@
+{
+  "name": "planetscale",
+  "displayName": "PlanetScale",
+  "description": "PlanetScale integration for authenticated access to your Postgres and MySQL databases",
+  "homepage": "https://planetscale.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "planetscale": {
+      "url": "https://mcp.pscale.dev/mcp/planetscale"
+    }
+  }
+}

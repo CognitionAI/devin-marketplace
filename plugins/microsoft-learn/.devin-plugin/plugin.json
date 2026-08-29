@@ -1,0 +1,15 @@
+{
+  "name": "microsoft-learn",
+  "displayName": "Microsoft Learn",
+  "description": "Microsoft Learn integration to search trusted Microsoft documentation",
+  "homepage": "https://learn.microsoft.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "microsoft-learn": {
+      "url": "https://learn.microsoft.com/api/mcp"
+    }
+  }
+}

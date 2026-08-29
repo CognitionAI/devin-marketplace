@@ -1,0 +1,21 @@
+{
+  "name": "azure",
+  "displayName": "Azure",
+  "description": "Azure integration for cloud services and resource management",
+  "homepage": "https://azure.microsoft.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "azure": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/azure"
+      ]
+    }
+  }
+}

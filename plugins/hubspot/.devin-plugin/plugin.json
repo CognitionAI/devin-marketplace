@@ -1,0 +1,22 @@
+{
+  "name": "hubspot",
+  "displayName": "HubSpot",
+  "description": "List, retrieve, create, and update HubSpot CRM objects; manage associations, properties, and schemas; create notes and tasks; list workflows; fetch user or account context and more.",
+  "homepage": "https://www.hubspot.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "hubspot": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@hubspot/mcp-server"
+      ],
+      "env": {
+        "PRIVATE_APP_ACCESS_TOKEN": "${MCP_PRIVATE_APP_ACCESS_TOKEN}"
+      }
+    }
+  }
+}

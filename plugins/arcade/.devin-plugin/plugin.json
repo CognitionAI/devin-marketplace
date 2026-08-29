@@ -1,0 +1,15 @@
+{
+  "name": "arcade",
+  "displayName": "Arcade",
+  "description": "Arcade AI platform integration for building and deploying AI-powered tools and workflows",
+  "homepage": "https://arcade.dev",
+  "logo": "logo.jpg",
+  "keywords": [
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "arcade": {
+      "url": "https://api.arcade.dev"
+    }
+  }
+}

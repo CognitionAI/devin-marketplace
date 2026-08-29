@@ -1,0 +1,16 @@
+{
+  "name": "quicknode",
+  "displayName": "QuickNode",
+  "description": "QuickNode integration to manage your blockchain infrastructure",
+  "homepage": "https://www.quicknode.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "quicknode": {
+      "url": "https://mcp.quicknode.com/mcp"
+    }
+  }
+}

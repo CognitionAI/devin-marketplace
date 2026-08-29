@@ -1,0 +1,43 @@
+{
+  "name": "cognition-redshift",
+  "displayName": "Amazon Redshift (Password Auth)",
+  "description": "Amazon Redshift integration with username/password authentication for data warehouse operations",
+  "homepage": "https://aws.amazon.com/redshift/",
+  "repository": "https://github.com/cognitionai/database-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cognition-redshift": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "REDSHIFT_HOST",
+        "-e",
+        "REDSHIFT_DATABASE",
+        "-e",
+        "REDSHIFT_USER",
+        "-e",
+        "REDSHIFT_PASSWORD",
+        "-e",
+        "REDSHIFT_PORT",
+        "-e",
+        "REDSHIFT_SSL_MODE",
+        "ghcr.io/cognitionai/database-toolbox/redshift:main"
+      ],
+      "env": {
+        "REDSHIFT_HOST": "${MCP_REDSHIFT_HOST}",
+        "REDSHIFT_DATABASE": "${MCP_REDSHIFT_DATABASE}",
+        "REDSHIFT_USER": "${MCP_REDSHIFT_USER}",
+        "REDSHIFT_PASSWORD": "${MCP_REDSHIFT_PASSWORD}",
+        "REDSHIFT_PORT": "${MCP_REDSHIFT_PORT}",
+        "REDSHIFT_SSL_MODE": "${MCP_REDSHIFT_SSL_MODE}"
+      }
+    }
+  }
+}

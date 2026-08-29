@@ -1,0 +1,32 @@
+{
+  "name": "grafana",
+  "displayName": "Grafana",
+  "description": "Grafana integration for monitoring dashboards and visualization",
+  "homepage": "https://grafana.com",
+  "repository": "https://github.com/grafana/mcp-grafana",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "grafana": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "GRAFANA_URL",
+        "-e",
+        "GRAFANA_API_KEY",
+        "mcp/grafana",
+        "-t",
+        "stdio"
+      ],
+      "env": {
+        "GRAFANA_URL": "${MCP_GRAFANA_URL}",
+        "GRAFANA_API_KEY": "${MCP_GRAFANA_API_KEY}"
+      }
+    }
+  }
+}

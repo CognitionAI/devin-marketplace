@@ -1,0 +1,15 @@
+{
+  "name": "motion",
+  "displayName": "Motion Creative Analytics",
+  "description": "Motion integration to analyze ad creative and competitor ad libraries",
+  "homepage": "https://motionapp.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "motion": {
+      "url": "https://projects.motionapp.com/mcp"
+    }
+  }
+}

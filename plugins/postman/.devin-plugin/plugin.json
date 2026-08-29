@@ -1,0 +1,16 @@
+{
+  "name": "postman",
+  "displayName": "Postman",
+  "description": "Postman integration to give API context to your coding agents",
+  "homepage": "https://www.postman.com",
+  "repository": "https://github.com/postmanlabs/postman-mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "postman": {
+      "url": "https://mcp.postman.com/minimal"
+    }
+  }
+}

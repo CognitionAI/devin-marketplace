@@ -1,0 +1,19 @@
+{
+  "name": "axiom-api-key",
+  "displayName": "Axiom (API key)",
+  "description": "Query logs, traces, and events in Axiom using APL. List datasets, explore schemas, and monitor alerts via the official Axiom MCP server.",
+  "homepage": "https://axiom.co",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "axiom-api-key": {
+      "url": "https://mcp.axiom.co/mcp",
+      "headers": {
+        "Authorization": "${MCP_AXIOM_API_KEY_AUTHORIZATION}",
+        "x-axiom-org-id": "${MCP_AXIOM_API_KEY_X_AXIOM_ORG_ID}"
+      }
+    }
+  }
+}

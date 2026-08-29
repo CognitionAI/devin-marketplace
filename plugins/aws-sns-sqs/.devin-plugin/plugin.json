@@ -1,0 +1,23 @@
+{
+  "name": "aws-sns-sqs",
+  "displayName": "Amazon SNS SQS",
+  "description": "Amazon SNS and SQS integration for messaging and notification services",
+  "homepage": "https://aws.amazon.com/sns/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Communication"
+  ],
+  "mcpServers": {
+    "aws-sns-sqs": {
+      "command": "uvx",
+      "args": [
+        "awslabs.amazon-sns-sqs-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

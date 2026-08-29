@@ -1,0 +1,16 @@
+{
+  "name": "miro",
+  "displayName": "Miro",
+  "description": "Miro integration to build boards, visualize ideas, and act on feedback",
+  "homepage": "https://miro.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "miro": {
+      "url": "https://mcp.miro.com/"
+    }
+  }
+}

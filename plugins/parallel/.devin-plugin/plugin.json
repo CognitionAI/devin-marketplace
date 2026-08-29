@@ -1,0 +1,19 @@
+{
+  "name": "parallel",
+  "displayName": "Parallel",
+  "description": "AI-powered web search and research capabilities through Parallel's MCP server",
+  "homepage": "https://parallel.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "parallel": {
+      "url": "https://mcp.parallel.ai/alpha/search_mcp/",
+      "headers": {
+        "x-api-key": "${MCP_PARALLEL_X_API_KEY}"
+      }
+    }
+  }
+}

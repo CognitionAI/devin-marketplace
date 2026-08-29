@@ -1,0 +1,15 @@
+{
+  "name": "fathom",
+  "displayName": "Fathom",
+  "description": "Fathom integration for meeting data retrieval and analysis\u2014such as recordings, transcripts, AI summaries, action items, and team activity",
+  "homepage": "https://fathom.video",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "fathom": {
+      "url": "https://api.fathom.ai/mcp"
+    }
+  }
+}

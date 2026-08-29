@@ -1,0 +1,23 @@
+{
+  "name": "ref-tools",
+  "displayName": "Ref.tools",
+  "description": "Agentic search for documentation with intelligent context filtering and minimal token usage",
+  "homepage": "https://ref.tools",
+  "repository": "https://github.com/ref-tools/ref-tools-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "ref-tools": {
+      "command": "npx",
+      "args": [
+        "ref-tools-mcp@latest"
+      ],
+      "env": {
+        "REF_API_KEY": "${MCP_REF_API_KEY}"
+      }
+    }
+  }
+}

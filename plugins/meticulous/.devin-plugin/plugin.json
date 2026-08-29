@@ -1,0 +1,15 @@
+{
+  "name": "meticulous",
+  "displayName": "Meticulous",
+  "description": "Meticulous integration to inspect test runs, replay diffs, and coverage for frontend changes",
+  "homepage": "https://meticulous.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "meticulous": {
+      "url": "https://app.meticulous.ai/api/mcp"
+    }
+  }
+}

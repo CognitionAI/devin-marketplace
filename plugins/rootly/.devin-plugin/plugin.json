@@ -1,0 +1,16 @@
+{
+  "name": "rootly",
+  "displayName": "Rootly",
+  "description": "Rootly integration to investigate and manage incidents, alerts, on-call schedules, and retrospectives",
+  "homepage": "https://rootly.com",
+  "repository": "https://github.com/rootlyhq/rootly-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "rootly": {
+      "url": "https://mcp.rootly.com/mcp"
+    }
+  }
+}

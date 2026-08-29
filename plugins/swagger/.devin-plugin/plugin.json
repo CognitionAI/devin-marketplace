@@ -1,0 +1,15 @@
+{
+  "name": "swagger",
+  "displayName": "Swagger",
+  "description": "Swagger integration to build, govern, and document APIs",
+  "homepage": "https://swagger.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "swagger": {
+      "url": "https://swagger.mcp.smartbear.com/mcp"
+    }
+  }
+}

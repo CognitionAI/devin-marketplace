@@ -1,0 +1,16 @@
+{
+  "name": "phoenix",
+  "displayName": "Phoenix by HG Insights",
+  "description": "Phoenix by HG Insights integration for B2B data intelligence and analytics",
+  "homepage": "https://hginsights.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "phoenix": {
+      "url": "https://phoenix.hginsights.com/api/ai/mcp"
+    }
+  }
+}

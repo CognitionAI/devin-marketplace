@@ -1,0 +1,15 @@
+{
+  "name": "attio",
+  "displayName": "Attio",
+  "description": "Attio CRM integration for managing contacts, companies, deals, tasks, notes, and pipeline data through natural language",
+  "homepage": "https://attio.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "attio": {
+      "url": "https://mcp.attio.com/mcp"
+    }
+  }
+}

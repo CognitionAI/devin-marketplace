@@ -1,0 +1,28 @@
+{
+  "name": "sonarqube",
+  "displayName": "SonarQube",
+  "description": "SonarQube integration for code quality analysis and issue management",
+  "homepage": "https://www.sonarsource.com/products/sonarqube/",
+  "repository": "https://github.com/SonarSource/sonarqube-mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "sonarqube": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "SONARQUBE_TOKEN=${MCP_SONARQUBE_TOKEN}",
+        "-e",
+        "SONARQUBE_ORG=${MCP_SONARQUBE_ORG}",
+        "-e",
+        "SONARQUBE_URL=${MCP_SONARQUBE_URL}",
+        "mcp/sonarqube"
+      ]
+    }
+  }
+}

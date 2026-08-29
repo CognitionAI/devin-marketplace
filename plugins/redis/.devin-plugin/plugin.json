@@ -1,0 +1,31 @@
+{
+  "name": "redis",
+  "displayName": "Redis",
+  "description": "Interact with Redis using natural language: get/set keys, manage strings, hashes, lists, sets, streams, keys and JSON data; perform pub/sub operations; and retrieve server stats and client info.",
+  "homepage": "https://redis.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "redis": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "--name",
+        "redis-mcp-server",
+        "-i",
+        "-e",
+        "REDIS_HOST=${MCP_REDIS_HOST}",
+        "-e",
+        "REDIS_PORT=${MCP_REDIS_PORT}",
+        "-e",
+        "REDIS_USERNAME=${MCP_REDIS_USERNAME}",
+        "-e",
+        "REDIS_PWD=${MCP_REDIS_PWD}",
+        "mcp/redis"
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "aws-neptune",
+  "displayName": "Amazon Neptune",
+  "description": "Amazon Neptune integration for managed graph database operations",
+  "homepage": "https://aws.amazon.com/neptune/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "aws-neptune": {
+      "command": "uvx",
+      "args": [
+        "awslabs.amazon-neptune-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "cognition-snowflake",
+  "displayName": "Snowflake",
+  "description": "Snowflake data warehouse integration with password and key-pair authentication support",
+  "homepage": "https://www.snowflake.com",
+  "repository": "https://github.com/cognitionai/database-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cognition-snowflake": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "SNOWFLAKE_ACCOUNT",
+        "-e",
+        "SNOWFLAKE_USER",
+        "-e",
+        "SNOWFLAKE_PASSWORD",
+        "-e",
+        "SNOWFLAKE_PRIVATE_KEY",
+        "-e",
+        "SNOWFLAKE_PRIVATE_KEY_FILE_PWD",
+        "-e",
+        "SNOWFLAKE_ROLE",
+        "-e",
+        "SNOWFLAKE_WAREHOUSE",
+        "-e",
+        "SNOWFLAKE_DATABASE",
+        "-e",
+        "SNOWFLAKE_SCHEMA",
+        "ghcr.io/cognitionai/database-toolbox/snowflake-mcp:main"
+      ],
+      "env": {
+        "SNOWFLAKE_ACCOUNT": "${MCP_SNOWFLAKE_ACCOUNT}",
+        "SNOWFLAKE_USER": "${MCP_SNOWFLAKE_USER}",
+        "SNOWFLAKE_PASSWORD": "${MCP_SNOWFLAKE_PASSWORD}",
+        "SNOWFLAKE_PRIVATE_KEY": "${MCP_SNOWFLAKE_PRIVATE_KEY}",
+        "SNOWFLAKE_PRIVATE_KEY_FILE_PWD": "${MCP_SNOWFLAKE_PRIVATE_KEY_FILE_PWD}",
+        "SNOWFLAKE_ROLE": "${MCP_SNOWFLAKE_ROLE}",
+        "SNOWFLAKE_WAREHOUSE": "${MCP_SNOWFLAKE_WAREHOUSE}",
+        "SNOWFLAKE_DATABASE": "${MCP_SNOWFLAKE_DATABASE}",
+        "SNOWFLAKE_SCHEMA": "${MCP_SNOWFLAKE_SCHEMA}"
+      }
+    }
+  }
+}

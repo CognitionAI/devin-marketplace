@@ -1,0 +1,16 @@
+{
+  "name": "linear",
+  "displayName": "Linear",
+  "description": "List, create, update, and query Linear objects\u2014issues, projects, initiatives, cycles, comments, and more",
+  "homepage": "https://linear.app",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "linear": {
+      "url": "https://mcp.linear.app/mcp"
+    }
+  }
+}

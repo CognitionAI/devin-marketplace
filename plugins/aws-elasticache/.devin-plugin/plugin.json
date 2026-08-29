@@ -1,0 +1,23 @@
+{
+  "name": "aws-elasticache",
+  "displayName": "Amazon ElastiCache",
+  "description": "Amazon ElastiCache integration for managed Redis and Memcached operations",
+  "homepage": "https://aws.amazon.com/elasticache/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "aws-elasticache": {
+      "command": "uvx",
+      "args": [
+        "awslabs.elasticache-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

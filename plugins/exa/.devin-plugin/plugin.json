@@ -1,0 +1,20 @@
+{
+  "name": "exa",
+  "displayName": "Exa",
+  "description": "Exa web search for AI agents \u2014 search the web, run advanced filtered searches, and fetch full page content as clean markdown",
+  "homepage": "https://exa.ai",
+  "repository": "https://github.com/exa-labs/exa-mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "headers": {
+        "x-api-key": "${MCP_EXA_X_API_KEY}"
+      }
+    }
+  }
+}

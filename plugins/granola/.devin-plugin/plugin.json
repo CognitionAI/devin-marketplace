@@ -1,0 +1,15 @@
+{
+  "name": "granola",
+  "displayName": "Granola",
+  "description": "Connect your AI tools to your Granola meeting notes - search meetings, find topics, extract action items, and answer questions from your meeting history",
+  "homepage": "https://granola.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "granola": {
+      "url": "https://mcp.granola.ai/mcp"
+    }
+  }
+}

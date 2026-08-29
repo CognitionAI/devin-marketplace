@@ -1,0 +1,41 @@
+{
+  "name": "cognition-postgres",
+  "displayName": "PostgreSQL",
+  "description": "PostgreSQL integration for data management and SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-postgres": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "POSTGRES_HOST",
+        "-e",
+        "POSTGRES_DATABASE",
+        "-e",
+        "POSTGRES_USER",
+        "-e",
+        "POSTGRES_PASSWORD",
+        "-e",
+        "POSTGRES_PORT",
+        "us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest",
+        "--prebuilt",
+        "postgres",
+        "--stdio"
+      ],
+      "env": {
+        "POSTGRES_HOST": "${MCP_POSTGRES_HOST}",
+        "POSTGRES_DATABASE": "${MCP_POSTGRES_DATABASE}",
+        "POSTGRES_USER": "${MCP_POSTGRES_USER}",
+        "POSTGRES_PASSWORD": "${MCP_POSTGRES_PASSWORD}",
+        "POSTGRES_PORT": "${MCP_POSTGRES_PORT}"
+      }
+    }
+  }
+}

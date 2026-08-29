@@ -1,0 +1,15 @@
+{
+  "name": "mercury",
+  "displayName": "Mercury",
+  "description": "Mercury integration to access banking balances, transactions, and cash flow data",
+  "homepage": "https://mercury.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "mercury": {
+      "url": "https://mcp.mercury.com/mcp"
+    }
+  }
+}

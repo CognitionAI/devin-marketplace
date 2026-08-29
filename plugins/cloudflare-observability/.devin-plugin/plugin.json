@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-observability",
+  "displayName": "Cloudflare Observability",
+  "description": "Debug and get insights into application logs and analytics via Cloudflare MCP",
+  "homepage": "https://www.cloudflare.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cloudflare-observability": {
+      "url": "https://observability.mcp.cloudflare.com/mcp"
+    }
+  }
+}

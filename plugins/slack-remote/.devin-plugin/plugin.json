@@ -1,0 +1,16 @@
+{
+  "name": "slack-remote",
+  "displayName": "Slack",
+  "description": "Search channels and messages, send and read messages, manage canvases, and access user profiles via the official Slack MCP server. Uses user-level OAuth \u2014 if connected with organization-wide access, all org members share the same user identity. We recommend using personal access.",
+  "homepage": "https://slack.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Communication"
+  ],
+  "mcpServers": {
+    "slack-remote": {
+      "url": "https://mcp.slack.com/mcp"
+    }
+  }
+}

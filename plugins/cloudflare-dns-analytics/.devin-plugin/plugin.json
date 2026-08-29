@@ -1,0 +1,17 @@
+{
+  "name": "cloudflare-dns-analytics",
+  "displayName": "Cloudflare DNS Analytics",
+  "description": "Optimize DNS performance and debug issues based on current set up",
+  "homepage": "https://www.cloudflare.com",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/dns-analytics",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "cloudflare-dns-analytics": {
+      "url": "https://dns-analytics.mcp.cloudflare.com/mcp"
+    }
+  }
+}

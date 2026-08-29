@@ -1,0 +1,15 @@
+{
+  "name": "honeycomb",
+  "displayName": "Honeycomb",
+  "description": "Honeycomb integration to query and explore observability data and SLOs",
+  "homepage": "https://www.honeycomb.io",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "honeycomb": {
+      "url": "https://mcp.honeycomb.io/mcp"
+    }
+  }
+}

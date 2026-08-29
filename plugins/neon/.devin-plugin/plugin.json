@@ -1,0 +1,16 @@
+{
+  "name": "neon",
+  "displayName": "Neon",
+  "description": "List, create, and delete Neon Postgres projects and branches; execute SQL queries, inspect tables and schemas. Also perform safe schema migrations, manage compute endpoints, and provision Neon Auth.",
+  "homepage": "https://neon.tech",
+  "repository": "https://github.com/neondatabase-labs/mcp-server-neon",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "neon": {
+      "url": "https://mcp.neon.tech/mcp"
+    }
+  }
+}

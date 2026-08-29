@@ -1,0 +1,15 @@
+{
+  "name": "hugging-face",
+  "displayName": "Hugging Face",
+  "description": "Hugging Face integration to access the Hub and thousands of Gradio apps",
+  "homepage": "https://huggingface.co",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "hugging-face": {
+      "url": "https://huggingface.co/mcp"
+    }
+  }
+}

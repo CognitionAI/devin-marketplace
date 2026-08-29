@@ -1,0 +1,15 @@
+{
+  "name": "incident-io",
+  "displayName": "incident.io",
+  "description": "incident.io integration to see and manage everything in incident.io",
+  "homepage": "https://incident.io",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "incident-io": {
+      "url": "https://mcp.incident.io/mcp"
+    }
+  }
+}

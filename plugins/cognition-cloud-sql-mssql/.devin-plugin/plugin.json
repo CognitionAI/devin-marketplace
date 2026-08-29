@@ -1,0 +1,48 @@
+{
+  "name": "cognition-cloud-sql-mssql",
+  "displayName": "Cloud SQL (SQL Server)",
+  "description": "Cloud SQL for SQL Server integration for data management and T-SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-cloud-sql-mssql": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "CLOUD_SQL_MSSQL_PROJECT",
+        "-e",
+        "CLOUD_SQL_MSSQL_REGION",
+        "-e",
+        "CLOUD_SQL_MSSQL_INSTANCE",
+        "-e",
+        "CLOUD_SQL_MSSQL_DATABASE",
+        "-e",
+        "CLOUD_SQL_MSSQL_USER",
+        "-e",
+        "CLOUD_SQL_MSSQL_IP_ADDRESS",
+        "-e",
+        "CLOUD_SQL_MSSQL_PASSWORD",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/cloud-sql-mssql:main",
+        "--stdio"
+      ],
+      "env": {
+        "CLOUD_SQL_MSSQL_PROJECT": "${MCP_CLOUD_SQL_MSSQL_PROJECT}",
+        "CLOUD_SQL_MSSQL_REGION": "${MCP_CLOUD_SQL_MSSQL_REGION}",
+        "CLOUD_SQL_MSSQL_INSTANCE": "${MCP_CLOUD_SQL_MSSQL_INSTANCE}",
+        "CLOUD_SQL_MSSQL_DATABASE": "${MCP_CLOUD_SQL_MSSQL_DATABASE}",
+        "CLOUD_SQL_MSSQL_USER": "${MCP_CLOUD_SQL_MSSQL_USER}",
+        "CLOUD_SQL_MSSQL_IP_ADDRESS": "${MCP_CLOUD_SQL_MSSQL_IP_ADDRESS}",
+        "CLOUD_SQL_MSSQL_PASSWORD": "${MCP_CLOUD_SQL_MSSQL_PASSWORD}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

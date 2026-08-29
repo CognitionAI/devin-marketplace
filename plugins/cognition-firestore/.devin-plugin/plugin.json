@@ -1,0 +1,33 @@
+{
+  "name": "cognition-firestore",
+  "displayName": "Firestore",
+  "description": "Firestore integration for document database operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-firestore": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "FIRESTORE_PROJECT",
+        "-e",
+        "FIRESTORE_DATABASE",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/firestore:main",
+        "--stdio"
+      ],
+      "env": {
+        "FIRESTORE_PROJECT": "${MCP_FIRESTORE_PROJECT}",
+        "FIRESTORE_DATABASE": "${MCP_FIRESTORE_DATABASE}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

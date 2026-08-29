@@ -1,0 +1,48 @@
+{
+  "name": "cognition-cloud-sql-postgres",
+  "displayName": "Cloud SQL (PostgreSQL)",
+  "description": "Cloud SQL for PostgreSQL integration for data management and SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-cloud-sql-postgres": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "CLOUD_SQL_POSTGRES_PROJECT",
+        "-e",
+        "CLOUD_SQL_POSTGRES_REGION",
+        "-e",
+        "CLOUD_SQL_POSTGRES_INSTANCE",
+        "-e",
+        "CLOUD_SQL_POSTGRES_DATABASE",
+        "-e",
+        "CLOUD_SQL_POSTGRES_USER",
+        "-e",
+        "CLOUD_SQL_POSTGRES_IP_ADDRESS",
+        "-e",
+        "CLOUD_SQL_POSTGRES_PASSWORD",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/cloud-sql-postgres:main",
+        "--stdio"
+      ],
+      "env": {
+        "CLOUD_SQL_POSTGRES_PROJECT": "${MCP_CLOUD_SQL_POSTGRES_PROJECT}",
+        "CLOUD_SQL_POSTGRES_REGION": "${MCP_CLOUD_SQL_POSTGRES_REGION}",
+        "CLOUD_SQL_POSTGRES_INSTANCE": "${MCP_CLOUD_SQL_POSTGRES_INSTANCE}",
+        "CLOUD_SQL_POSTGRES_DATABASE": "${MCP_CLOUD_SQL_POSTGRES_DATABASE}",
+        "CLOUD_SQL_POSTGRES_USER": "${MCP_CLOUD_SQL_POSTGRES_USER}",
+        "CLOUD_SQL_POSTGRES_PASSWORD": "${MCP_CLOUD_SQL_POSTGRES_PASSWORD}",
+        "CLOUD_SQL_POSTGRES_IP_ADDRESS": "${MCP_CLOUD_SQL_POSTGRES_IP_ADDRESS}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

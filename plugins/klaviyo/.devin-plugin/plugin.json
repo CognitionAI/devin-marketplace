@@ -1,0 +1,15 @@
+{
+  "name": "klaviyo",
+  "displayName": "Klaviyo",
+  "description": "Klaviyo integration to manage email and SMS marketing campaigns, flows, and audiences",
+  "homepage": "https://www.klaviyo.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "klaviyo": {
+      "url": "https://mcp.klaviyo.com/mcp"
+    }
+  }
+}

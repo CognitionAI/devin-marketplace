@@ -1,0 +1,15 @@
+{
+  "name": "aura",
+  "displayName": "Aura",
+  "description": "Aura integration for company intelligence and workforce analytics",
+  "homepage": "https://www.getaura.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "aura": {
+      "url": "https://mcp.auraintelligence.com/mcp"
+    }
+  }
+}

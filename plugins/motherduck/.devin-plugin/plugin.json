@@ -1,0 +1,15 @@
+{
+  "name": "motherduck",
+  "displayName": "MotherDuck",
+  "description": "MotherDuck integration to get answers from your data with DuckDB",
+  "homepage": "https://motherduck.com",
+  "logo": "logo.jpg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "motherduck": {
+      "url": "https://api.motherduck.com/mcp"
+    }
+  }
+}

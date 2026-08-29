@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-casb",
+  "displayName": "Cloudflare One CASB",
+  "description": "Quickly identify any security misconfigurations for SaaS applications to safeguard users & data",
+  "homepage": "https://www.cloudflare.com",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/cloudflare-one-casb",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "cloudflare-casb": {
+      "url": "https://casb.mcp.cloudflare.com/mcp"
+    }
+  }
+}

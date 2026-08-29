@@ -1,0 +1,15 @@
+{
+  "name": "peec-ai",
+  "displayName": "Peec AI",
+  "description": "Peec AI integration to analyze your brand's visibility across LLMs",
+  "homepage": "https://peec.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "peec-ai": {
+      "url": "https://api.peec.ai/mcp"
+    }
+  }
+}

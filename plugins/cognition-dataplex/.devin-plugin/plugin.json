@@ -1,0 +1,33 @@
+{
+  "name": "cognition-dataplex",
+  "displayName": "Dataplex",
+  "description": "Dataplex Universal Catalog integration for asset discovery and governance",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-dataplex": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "DATAPLEX_PROJECT",
+        "-e",
+        "DATAPLEX_LOCATION",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/dataplex:main",
+        "--stdio"
+      ],
+      "env": {
+        "DATAPLEX_PROJECT": "${MCP_DATAPLEX_PROJECT}",
+        "DATAPLEX_LOCATION": "${MCP_DATAPLEX_LOCATION}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

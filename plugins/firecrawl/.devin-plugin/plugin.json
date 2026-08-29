@@ -1,0 +1,23 @@
+{
+  "name": "firecrawl",
+  "displayName": "Firecrawl",
+  "description": "Discover and extract web content at scale with Firecrawl's MCP server: map sites, scrape single or multiple URLs, perform web search and deep research, and extract structured data.",
+  "homepage": "https://firecrawl.dev",
+  "repository": "https://github.com/mendableai/firecrawl-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "firecrawl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "${MCP_FIRECRAWL_API_KEY}"
+      }
+    }
+  }
+}

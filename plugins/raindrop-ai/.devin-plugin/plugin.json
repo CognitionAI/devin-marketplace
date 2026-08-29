@@ -1,0 +1,15 @@
+{
+  "name": "raindrop-ai",
+  "displayName": "Raindrop",
+  "description": "Raindrop observability platform for AI agents \u2014 investigate issues, search events, inspect traces, and quantify signals through natural language",
+  "homepage": "https://raindrop.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "raindrop-ai": {
+      "url": "https://mcp.raindrop.ai/mcp"
+    }
+  }
+}

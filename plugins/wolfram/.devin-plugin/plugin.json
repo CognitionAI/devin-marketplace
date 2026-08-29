@@ -1,0 +1,15 @@
+{
+  "name": "wolfram",
+  "displayName": "Wolfram",
+  "description": "Wolfram integration to inject precise, real-time computation and knowledge",
+  "homepage": "https://www.wolfram.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "wolfram": {
+      "url": "https://agenttools.wolfram.com/mcp"
+    }
+  }
+}

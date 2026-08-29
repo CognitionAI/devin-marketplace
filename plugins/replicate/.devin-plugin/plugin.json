@@ -1,0 +1,23 @@
+{
+  "name": "replicate",
+  "displayName": "Replicate",
+  "description": "Run and deploy AI models from thousands of community-contributed models",
+  "homepage": "https://replicate.com",
+  "repository": "https://github.com/replicate/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "replicate": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "replicate-mcp"
+      ],
+      "env": {
+        "REPLICATE_API_TOKEN": "${MCP_REPLICATE_API_TOKEN}"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "enterpret",
+  "displayName": "Enterpret",
+  "description": "Enterpret integration to get answers from unified customer feedback",
+  "homepage": "https://www.enterpret.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "enterpret": {
+      "url": "https://wisdom-api.enterpret.com/server/mcp"
+    }
+  }
+}

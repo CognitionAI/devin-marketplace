@@ -1,0 +1,15 @@
+{
+  "name": "jotform",
+  "displayName": "Jotform",
+  "description": "Jotform integration to create forms and analyze submissions",
+  "homepage": "https://www.jotform.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "jotform": {
+      "url": "https://mcp.jotform.com/mcp-app"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "eraser",
+  "displayName": "Eraser",
+  "description": "Eraser integration to generate, manage, and update diagrams and docs",
+  "homepage": "https://www.eraser.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "eraser": {
+      "url": "https://app.eraser.io/api/mcp"
+    }
+  }
+}

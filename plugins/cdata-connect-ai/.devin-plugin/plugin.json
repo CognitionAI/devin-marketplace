@@ -1,0 +1,15 @@
+{
+  "name": "cdata-connect-ai",
+  "displayName": "CData Connect AI",
+  "description": "CData Connect AI integration for querying 350+ data sources through a managed MCP platform",
+  "homepage": "https://www.cdata.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cdata-connect-ai": {
+      "url": "https://mcp.cloud.cdata.com/mcp"
+    }
+  }
+}

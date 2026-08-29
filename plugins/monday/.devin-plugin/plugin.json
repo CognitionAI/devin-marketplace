@@ -1,0 +1,15 @@
+{
+  "name": "monday",
+  "displayName": "monday.com",
+  "description": "monday.com integration to manage boards, items, and work-management workflows",
+  "homepage": "https://monday.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "monday": {
+      "url": "https://mcp.monday.com/mcp"
+    }
+  }
+}

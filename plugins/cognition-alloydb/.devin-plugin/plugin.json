@@ -1,0 +1,48 @@
+{
+  "name": "cognition-alloydb",
+  "displayName": "AlloyDB",
+  "description": "AlloyDB integration for data management and SQL operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-alloydb": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "ALLOYDB_POSTGRES_PROJECT",
+        "-e",
+        "ALLOYDB_POSTGRES_REGION",
+        "-e",
+        "ALLOYDB_POSTGRES_CLUSTER",
+        "-e",
+        "ALLOYDB_POSTGRES_INSTANCE",
+        "-e",
+        "ALLOYDB_POSTGRES_DATABASE",
+        "-e",
+        "ALLOYDB_POSTGRES_USER",
+        "-e",
+        "ALLOYDB_POSTGRES_PASSWORD",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/alloydb-postgres:main",
+        "--stdio"
+      ],
+      "env": {
+        "ALLOYDB_POSTGRES_PROJECT": "${MCP_ALLOYDB_POSTGRES_PROJECT}",
+        "ALLOYDB_POSTGRES_REGION": "${MCP_ALLOYDB_POSTGRES_REGION}",
+        "ALLOYDB_POSTGRES_CLUSTER": "${MCP_ALLOYDB_POSTGRES_CLUSTER}",
+        "ALLOYDB_POSTGRES_INSTANCE": "${MCP_ALLOYDB_POSTGRES_INSTANCE}",
+        "ALLOYDB_POSTGRES_DATABASE": "${MCP_ALLOYDB_POSTGRES_DATABASE}",
+        "ALLOYDB_POSTGRES_USER": "${MCP_ALLOYDB_POSTGRES_USER}",
+        "ALLOYDB_POSTGRES_PASSWORD": "${MCP_ALLOYDB_POSTGRES_PASSWORD}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

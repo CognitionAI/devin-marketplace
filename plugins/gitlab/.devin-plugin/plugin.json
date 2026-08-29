@@ -1,0 +1,15 @@
+{
+  "name": "gitlab",
+  "displayName": "GitLab",
+  "description": "GitLab integration to securely connect AI tools to your GitLab data",
+  "homepage": "https://gitlab.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "gitlab": {
+      "url": "https://gitlab.com/api/v4/mcp"
+    }
+  }
+}

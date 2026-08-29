@@ -1,0 +1,17 @@
+{
+  "name": "jam",
+  "displayName": "Jam",
+  "description": "Debug faster with Jam recordings - automatically load video, user events, console logs, errors and network requests into AI context for bug analysis",
+  "homepage": "https://jam.dev",
+  "logo": "logo.png",
+  "keywords": [
+    "Essentials",
+    "Development Tools",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "jam": {
+      "url": "https://mcp.jam.dev/mcp"
+    }
+  }
+}

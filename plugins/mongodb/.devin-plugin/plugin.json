@@ -1,0 +1,25 @@
+{
+  "name": "mongodb",
+  "displayName": "MongoDB",
+  "description": "MongoDB integration for document database operations and Atlas management",
+  "homepage": "https://www.mongodb.com",
+  "repository": "https://github.com/mongodb-js/mongodb-mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "mongodb": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server"
+      ],
+      "env": {
+        "MDB_MCP_CONNECTION_STRING": "${MCP_MDB_MCP_CONNECTION_STRING}",
+        "MDB_MCP_API_CLIENT_ID": "${MCP_MDB_MCP_API_CLIENT_ID}",
+        "MDB_MCP_API_CLIENT_SECRET": "${MCP_MDB_MCP_API_CLIENT_SECRET}"
+      }
+    }
+  }
+}

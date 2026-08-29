@@ -1,0 +1,17 @@
+{
+  "name": "cloudflare-autorag",
+  "displayName": "Cloudflare AutoRAG",
+  "description": "List and search documents on your AutoRAGs",
+  "homepage": "https://www.cloudflare.com",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/autorag",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure",
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "cloudflare-autorag": {
+      "url": "https://autorag.mcp.cloudflare.com/mcp"
+    }
+  }
+}

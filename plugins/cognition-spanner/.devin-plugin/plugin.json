@@ -1,0 +1,36 @@
+{
+  "name": "cognition-spanner",
+  "displayName": "Spanner",
+  "description": "Spanner integration for globally distributed relational operations",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-spanner": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "SPANNER_PROJECT",
+        "-e",
+        "SPANNER_INSTANCE",
+        "-e",
+        "SPANNER_DATABASE",
+        "-e",
+        "GOOGLE_SERVICE_ACCOUNT_JSON",
+        "ghcr.io/cognitionai/database-toolbox/spanner:main",
+        "--stdio"
+      ],
+      "env": {
+        "SPANNER_PROJECT": "${MCP_SPANNER_PROJECT}",
+        "SPANNER_INSTANCE": "${MCP_SPANNER_INSTANCE}",
+        "SPANNER_DATABASE": "${MCP_SPANNER_DATABASE}",
+        "GOOGLE_SERVICE_ACCOUNT_JSON": "${MCP_GOOGLE_SERVICE_ACCOUNT_JSON}"
+      }
+    }
+  }
+}

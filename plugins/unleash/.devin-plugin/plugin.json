@@ -1,0 +1,27 @@
+{
+  "name": "unleash",
+  "displayName": "Unleash",
+  "description": "Manage Unleash feature flags: evaluate code changes for flag usage, create flags with best-practice validation, configure rollouts, toggle environments, and wrap code in flag checks",
+  "homepage": "https://www.getunleash.io",
+  "repository": "https://github.com/Unleash/unleash-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "unleash": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@unleash/mcp@latest",
+        "--log-level",
+        "error"
+      ],
+      "env": {
+        "UNLEASH_BASE_URL": "${MCP_UNLEASH_BASE_URL}",
+        "UNLEASH_PAT": "${MCP_UNLEASH_PAT}",
+        "UNLEASH_DEFAULT_PROJECT": "${MCP_UNLEASH_DEFAULT_PROJECT}"
+      }
+    }
+  }
+}

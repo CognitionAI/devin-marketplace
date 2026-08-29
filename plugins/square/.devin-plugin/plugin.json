@@ -1,0 +1,18 @@
+{
+  "name": "square",
+  "displayName": "Square",
+  "description": "Manage payments, orders, inventory, customers, invoices, subscriptions, and loyalty programs in Square; fetch service and type metadata to discover and structure API calls.",
+  "homepage": "https://squareup.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "square": {
+      "url": "https://mcp.squareup.com/mcp",
+      "headers": {
+        "Authorization": "${MCP_SQUARE_AUTHORIZATION}"
+      }
+    }
+  }
+}

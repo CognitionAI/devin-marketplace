@@ -1,0 +1,15 @@
+{
+  "name": "similarweb",
+  "displayName": "Similarweb",
+  "description": "Similarweb integration for real-time web, mobile app, and market data",
+  "homepage": "https://www.similarweb.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "similarweb": {
+      "url": "https://mcp.similarweb.com"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "pylon",
+  "displayName": "Pylon",
+  "description": "Pylon customer support integration for searching, reading, and updating issues, accounts, and contacts through natural language",
+  "homepage": "https://usepylon.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "pylon": {
+      "url": "https://mcp.usepylon.com"
+    }
+  }
+}

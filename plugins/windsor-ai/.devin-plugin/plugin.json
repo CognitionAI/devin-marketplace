@@ -1,0 +1,15 @@
+{
+  "name": "windsor-ai",
+  "displayName": "Windsor.ai",
+  "description": "Windsor.ai integration to connect 320+ marketing data sources",
+  "homepage": "https://windsor.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "windsor-ai": {
+      "url": "https://mcp.windsor.ai/"
+    }
+  }
+}

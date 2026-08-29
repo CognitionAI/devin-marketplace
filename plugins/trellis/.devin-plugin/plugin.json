@@ -1,0 +1,15 @@
+{
+  "name": "trellis",
+  "displayName": "Trellis",
+  "description": "Trellis integration for trial court litigation research",
+  "homepage": "https://trellis.law",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "trellis": {
+      "url": "https://mcp.trellis.law/anthropic"
+    }
+  }
+}

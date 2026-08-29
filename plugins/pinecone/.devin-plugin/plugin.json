@@ -1,0 +1,23 @@
+{
+  "name": "pinecone",
+  "displayName": "Pinecone",
+  "description": "Pinecone vector database integration for semantic search and AI applications",
+  "homepage": "https://www.pinecone.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases",
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "pinecone": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pinecone-database/mcp"
+      ],
+      "env": {
+        "PINECONE_API_KEY": "${MCP_PINECONE_API_KEY}"
+      }
+    }
+  }
+}

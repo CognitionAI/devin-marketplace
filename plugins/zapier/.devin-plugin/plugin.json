@@ -1,0 +1,19 @@
+{
+  "name": "zapier",
+  "displayName": "Zapier",
+  "description": "Trigger actions across 8,000+ apps with Zapier: send Slack messages, update Sheets, create calendar events, tasks, and more.",
+  "homepage": "https://zapier.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "zapier": {
+      "url": "https://mcp.zapier.com/api/mcp/mcp",
+      "headers": {
+        "Authorization": "${MCP_ZAPIER_AUTHORIZATION}"
+      }
+    }
+  }
+}

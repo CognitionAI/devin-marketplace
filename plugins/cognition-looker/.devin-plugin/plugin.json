@@ -1,0 +1,35 @@
+{
+  "name": "cognition-looker",
+  "displayName": "Looker",
+  "description": "Looker integration for BI queries and content management",
+  "homepage": "https://github.com/googleapis/genai-toolbox",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cognition-looker": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "LOOKER_BASE_URL",
+        "-e",
+        "LOOKER_CLIENT_ID",
+        "-e",
+        "LOOKER_CLIENT_SECRET",
+        "us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest",
+        "--prebuilt",
+        "looker",
+        "--stdio"
+      ],
+      "env": {
+        "LOOKER_BASE_URL": "${MCP_LOOKER_BASE_URL}",
+        "LOOKER_CLIENT_ID": "${MCP_LOOKER_CLIENT_ID}",
+        "LOOKER_CLIENT_SECRET": "${MCP_LOOKER_CLIENT_SECRET}"
+      }
+    }
+  }
+}

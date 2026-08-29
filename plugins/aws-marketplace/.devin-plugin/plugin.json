@@ -1,0 +1,15 @@
+{
+  "name": "aws-marketplace",
+  "displayName": "AWS Marketplace",
+  "description": "AWS Marketplace integration to discover, evaluate, and buy cloud solutions",
+  "homepage": "https://aws.amazon.com/marketplace",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "aws-marketplace": {
+      "url": "https://marketplace-mcp.us-east-1.api.aws/"
+    }
+  }
+}

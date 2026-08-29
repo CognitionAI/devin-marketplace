@@ -1,0 +1,17 @@
+{
+  "name": "pg-aiguide",
+  "displayName": "pg-aiguide",
+  "description": "pg-aiguide integration to search Postgres and Tiger docs and learn database skills",
+  "homepage": "https://www.tigerdata.com",
+  "repository": "https://github.com/timescale/pg-aiguide",
+  "logo": "logo.png",
+  "keywords": [
+    "Databases",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "pg-aiguide": {
+      "url": "https://mcp.tigerdata.com/docs"
+    }
+  }
+}

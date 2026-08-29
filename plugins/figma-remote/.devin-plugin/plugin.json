@@ -1,0 +1,16 @@
+{
+  "name": "figma-remote",
+  "displayName": "Figma",
+  "description": "Complete Figma API integration: get files/nodes/images, manage comments and reactions, handle components/styles, create webhooks, and access library analytics with full API functionality",
+  "homepage": "https://www.figma.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Essentials",
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "figma-remote": {
+      "url": "https://mcp.figma.com/mcp"
+    }
+  }
+}

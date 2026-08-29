@@ -1,0 +1,23 @@
+{
+  "name": "aws-dynamodb",
+  "displayName": "Amazon DynamoDB",
+  "description": "Amazon DynamoDB integration for NoSQL database operations and management",
+  "homepage": "https://aws.amazon.com/dynamodb/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "aws-dynamodb": {
+      "command": "uvx",
+      "args": [
+        "awslabs.dynamodb-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "aws-aurora-dsql",
+  "displayName": "Amazon Aurora DSQL",
+  "description": "Amazon Aurora DSQL integration for serverless distributed SQL database operations",
+  "homepage": "https://aws.amazon.com/rds/aurora/",
+  "repository": "https://github.com/awslabs/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "aws-aurora-dsql": {
+      "command": "uvx",
+      "args": [
+        "awslabs.aurora-dsql-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
+        "AWS_REGION": "${MCP_AWS_REGION}"
+      }
+    }
+  }
+}
