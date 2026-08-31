@@ -15,7 +15,7 @@ this repo:
   "requiredPlugins": [
     {
       "source": "git-subdir",
-      "url": "https://github.com/usacognition/devin-marketplace.git",
+      "url": "https://github.com/CognitionAI/devin-marketplace.git",
       "path": "plugins/notion",
       "sha": "<commit>"
     }

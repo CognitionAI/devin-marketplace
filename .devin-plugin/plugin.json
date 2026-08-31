@@ -1,8 +1,8 @@
 {
   "name": "devin-marketplace",
   "description": "Devin's plugin marketplace: a plugin for every MCP server Devin hosts, plus third-party plugins pinned to reviewed commits.",
-  "homepage": "https://github.com/usacognition/devin-marketplace",
-  "repository": "https://github.com/usacognition/devin-marketplace",
+  "homepage": "https://github.com/CognitionAI/devin-marketplace",
+  "repository": "https://github.com/CognitionAI/devin-marketplace",
   "skills": [],
   "optionalPlugins": [
     "./plugins/airtable",
