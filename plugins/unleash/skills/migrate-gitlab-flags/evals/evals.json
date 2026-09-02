@@ -1,0 +1,122 @@
+{
+  "_usage": "Each case is fixture-agnostic: 'fixture_requirements' describes the app shape a fixture must provide; 'expected_behavior' is what a grader agent checks after running the skill against that fixture. Run each case in an isolated session/agent. Case selection is prompt-driven: an eval-run prompt may say 'skip: <ids or shapes>' or 'only: <ids or shapes>' and the runner MUST honor it, reporting skipped cases as SKIPPED — never silently dropping them.",
+  "cases": [
+    {
+      "id": "direct-sdk-inline-userids",
+      "shape": "direct SDK calls, old version pin, inline userWithId",
+      "fixture_requirements": "A backend app calling an Unleash-compatible SDK directly (no wrapper), pinned to an old SDK major solely for instance-id auth, with one always-on flag (default strategy) and one flag targeting specific user IDs via userWithId.",
+      "expected_behavior": [
+        "Both flags exist on the target with translated strategies and are enabled in the mapped environments (state parity)",
+        "userWithId is re-expressed as a 100% gradual rollout with a userId IN constraint; the same identities evaluate true/false as before",
+        "SDK config uses the Unleash URL and an Authorization backend token; every instance-id knob is deleted and the SDK pin is lifted to a current release",
+        "The app starts with all GitLab-pointing env vars unset and its captured behavior table diffs empty against the before-state oracle",
+        "The remnant grep (feature_flags/unleash, UNLEASH-INSTANCEID, instance_id variants) is clean outside prose docs and vendored deps"
+      ]
+    },
+    {
+      "id": "header-hack-inactive-flag",
+      "shape": "v6-generation SDK with UNLEASH-INSTANCEID header workaround, inactive flag",
+      "fixture_requirements": "A backend app on a modern SDK generation that authenticates to GitLab via a customHeaders UNLEASH-INSTANCEID workaround, with at least one flag whose GitLab active bit is false.",
+      "expected_behavior": [
+        "The header workaround is removed, replaced by Authorization token auth — not left as dead config",
+        "The inactive flag exists on the target with its translated strategy present but disabled in every mapped environment (carried over, not dropped)",
+        "The app's wrapper/module boundaries are unchanged; call sites outside the SDK-aware file are untouched",
+        "Behavior parity holds for the identity matrix including rollout bucket membership"
+      ]
+    },
+    {
+      "id": "openfeature-provider",
+      "shape": "OpenFeature provider (hand-written or community) over a GitLab-pointed client",
+      "fixture_requirements": "A worker or service whose flag access goes through OpenFeature, with the provider wrapping a GitLab-pointed Unleash client; ideally short-lived/one-shot execution.",
+      "expected_behavior": [
+        "Evaluation call sites (getBooleanValue / BooleanValue) are byte-identical; only the provider internals or wrapped options changed",
+        "Serve-default-on-timeout fallback semantics survive; a first sweep returning all defaults is treated as a readiness race and fixed with a bounded fail-closed ready-wait, not ignored",
+        "GitLab-claiming provider names/files are renamed; context mapping (targetingKey → userId) is preserved and re-verified"
+      ]
+    },
+    {
+      "id": "spa-proxy-deletion",
+      "shape": "browser SPA behind Unleash Proxy",
+      "fixture_requirements": "A browser app whose flags flow through an Unleash Proxy instance (container or process) pointed at GitLab, with at least one sessionId-stickiness rollout.",
+      "expected_behavior": [
+        "The proxy and its secrets are deleted (container/compose definition gone, not just unused)",
+        "The browser SDK points at the Unleash frontend API with a frontend token; the backend/client token appears nowhere in browser-delivered code or config",
+        "The sessionId rollout bucket membership is identical before/after (groupId carried verbatim)",
+        "Anonymous probes are treated as non-deterministic (the proxy and the frontend API both invent a sessionId) and gated statistically"
+      ]
+    },
+    {
+      "id": "user-list-segment",
+      "shape": "gitlabUserList → centrally-managed segment",
+      "fixture_requirements": "An app with a flag targeted via a GitLab user list (not inline IDs), inventoried from the management API (the wire inlines lists and cannot distinguish them).",
+      "expected_behavior": [
+        "The cohort becomes an Unleash segment named for the cohort, referenced by the flag's strategy via segments[] with empty inline constraints",
+        "Editing the cohort requires only a segment update — no flag or strategy change",
+        "The exact member identities evaluate true and non-members false, matching the before-state"
+      ]
+    },
+    {
+      "id": "legacy-gradual-rollout",
+      "shape": "gradualRolloutUserId translation",
+      "fixture_requirements": "An app with a flag on the legacy gradualRolloutUserId strategy (percentage + groupId).",
+      "expected_behavior": [
+        "The strategy becomes flexibleRollout with userId stickiness, the same percentage, and the groupId carried verbatim",
+        "Per-user outcomes are identical, including anonymous identities evaluating false (legacy anonymous exclusion preserved)"
+      ]
+    },
+    {
+      "id": "random-stickiness-worker",
+      "shape": "random-stickiness rollout on a worker",
+      "fixture_requirements": "A worker/one-shot job with a flexibleRollout flag using random stickiness.",
+      "expected_behavior": [
+        "The strategy parameters (stickiness random, groupId) are carried verbatim to the target",
+        "The parity oracle masks exactly the random flag's value (decided before capture) and gates it statistically: observed true-rate consistent with the rollout percentage over ≥100 evaluations, with every identity observing both values (still per-evaluation, not silently sticky)",
+        "Deterministic flags in the same app diff byte-identically"
+      ]
+    },
+    {
+      "id": "ops-scripts",
+      "shape": "GitLab management REST tooling → Unleash Admin API",
+      "fixture_requirements": "Shell/CLI tooling (not an SDK consumer) that performs flag CRUD against the GitLab management REST API with PAT auth.",
+      "expected_behavior": [
+        "Each script keeps its CLI contract (name, arguments, output intent) but calls the Unleash Admin API with an Authorization token",
+        "The global active-bit operation maps to per-environment enable/disable with the environment-targeting decision documented in the tooling itself",
+        "User-list edit operations mutate the replacing segment idempotently",
+        "A full round trip (create → read → update rollout → disable → enable → delete) succeeds against the target",
+        "No PRIVATE-TOKEN or GitLab endpoint remnants remain in the scripts"
+      ]
+    },
+    {
+      "id": "config-only",
+      "shape": "modern SDK, config-only migration",
+      "fixture_requirements": "An app whose SDK generation already speaks modern Unleash and whose surrounding code is GitLab-agnostic (no GitLab-branded wrapper).",
+      "expected_behavior": [
+        "No SDK swap: only the URL, the auth lines (env-var checks and client kwargs count as config), and pointer docs change",
+        "Flag definitions are provisioned with exact state parity, including any inactive flag arriving disabled",
+        "The app connects with an Authorization token and all GitLab-pointing configuration removed"
+      ]
+    },
+    {
+      "id": "mechanism-and-least-privilege",
+      "shape": "inputs discipline: mechanism choice, topology, credentials",
+      "fixture_requirements": "Any fixture app; the check targets the skill's Inputs behavior, not the migration result.",
+      "expected_behavior": [
+        "Before provisioning, the skill checks for a session-connected Unleash MCP server and asks the user to choose a provisioning mechanism (MCP / import files / direct Admin API) and confirm project topology, rather than assuming",
+        "On an OSS target it uses the existing project and does not attempt to create projects or environments; on Enterprise/Cloud it proposes a project per service",
+        "It never requests broader credentials than the chosen mechanism needs, never assumes an admin token, and recommends a project+environment-scoped backend token for the app"
+      ]
+    },
+    {
+      "id": "import-files-path",
+      "shape": "governed-instance path: import-file generation without credentials",
+      "fixture_requirements": "Any fixture app, with the user choosing the import-files mechanism and withholding Unleash credentials from the assistant for the generation phase.",
+      "expected_behavior": [
+        "No Admin API mutations occur during generation; the import schema is derived empirically from an export, never guessed",
+        "One validated import JSON per target environment carries flags, strategies, and per-environment enabled state matching the inventory exactly",
+        "Segment definitions are delivered separately with create-first instructions (import files only reference segments)",
+        "The apply step (whoever runs it) uses a PAT/service account — the import endpoint rejects admin tokens even though validate accepts them",
+        "The handover includes the app's backend-token spec and deferred verification steps"
+      ]
+    }
+  ]
+}
