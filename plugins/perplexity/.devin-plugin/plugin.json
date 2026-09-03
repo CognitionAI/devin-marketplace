@@ -12,7 +12,7 @@
     "perplexity": {
       "url": "https://api.perplexity.ai/mcp",
       "headers": {
-        "Authorization": "${MCP_PERPLEXITY_AUTHORIZATION}"
+        "Authorization": "${PERPLEXITY_AUTHORIZATION}"
       }
     }
   }

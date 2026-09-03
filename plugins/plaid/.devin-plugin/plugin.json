@@ -11,7 +11,7 @@
     "plaid": {
       "url": "https://api.dashboard.plaid.com/mcp",
       "headers": {
-        "Authorization": "${MCP_PLAID_AUTHORIZATION}"
+        "Authorization": "${PLAID_AUTHORIZATION}"
       }
     }
   }

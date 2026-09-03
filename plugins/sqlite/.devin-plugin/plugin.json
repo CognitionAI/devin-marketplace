@@ -15,7 +15,7 @@
         "--rm",
         "-i",
         "-v",
-        "${MCP_DATABASE_DB_PATH}:/data/database.db",
+        "${DATABASE_DB_PATH}:/data/database.db",
         "mcp/sqlite"
       ]
     }

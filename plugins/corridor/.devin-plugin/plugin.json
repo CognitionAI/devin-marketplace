@@ -11,7 +11,7 @@
     "corridor": {
       "url": "https://app.corridor.dev/api/mcp",
       "headers": {
-        "Authorization": "${MCP_CORRIDOR_AUTHORIZATION}"
+        "Authorization": "${CORRIDOR_AUTHORIZATION}"
       }
     }
   }
