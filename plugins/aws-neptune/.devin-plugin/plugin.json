@@ -15,8 +15,8 @@
         "awslabs.amazon-neptune-mcp-server@latest"
       ],
       "env": {
-        "AWS_PROFILE": "${MCP_AWS_PROFILE}",
-        "AWS_REGION": "${MCP_AWS_REGION}"
+        "AWS_PROFILE": "${AWS_PROFILE}",
+        "AWS_REGION": "${AWS_REGION}"
       }
     }
   }

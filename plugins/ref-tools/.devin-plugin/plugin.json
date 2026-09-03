@@ -16,7 +16,7 @@
         "ref-tools-mcp@latest"
       ],
       "env": {
-        "REF_API_KEY": "${MCP_REF_API_KEY}"
+        "REF_API_KEY": "${REF_API_KEY}"
       }
     }
   }

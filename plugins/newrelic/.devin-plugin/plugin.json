@@ -11,7 +11,7 @@
     "newrelic": {
       "url": "https://mcp.newrelic.com/mcp/",
       "headers": {
-        "Api-Key": "${MCP_NEWRELIC_API_KEY}"
+        "Api-Key": "${NEWRELIC_API_KEY}"
       }
     }
   }

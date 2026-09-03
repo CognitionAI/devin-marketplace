@@ -12,7 +12,7 @@
     "zapier": {
       "url": "https://mcp.zapier.com/api/mcp/mcp",
       "headers": {
-        "Authorization": "${MCP_ZAPIER_AUTHORIZATION}"
+        "Authorization": "${ZAPIER_AUTHORIZATION}"
       }
     }
   }

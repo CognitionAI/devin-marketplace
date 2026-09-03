@@ -15,7 +15,7 @@
         "@hubspot/mcp-server"
       ],
       "env": {
-        "PRIVATE_APP_ACCESS_TOKEN": "${MCP_PRIVATE_APP_ACCESS_TOKEN}"
+        "PRIVATE_APP_ACCESS_TOKEN": "${PRIVATE_APP_ACCESS_TOKEN}"
       }
     }
   }
