@@ -30,11 +30,11 @@
         "--stdio"
       ],
       "env": {
-        "MSSQL_HOST": "${MCP_MSSQL_HOST}",
-        "MSSQL_DATABASE": "${MCP_MSSQL_DATABASE}",
-        "MSSQL_USER": "${MCP_MSSQL_USER}",
-        "MSSQL_PASSWORD": "${MCP_MSSQL_PASSWORD}",
-        "MSSQL_PORT": "${MCP_MSSQL_PORT}"
+        "MSSQL_HOST": "${MSSQL_HOST}",
+        "MSSQL_DATABASE": "${MSSQL_DATABASE}",
+        "MSSQL_USER": "${MSSQL_USER}",
+        "MSSQL_PASSWORD": "${MSSQL_PASSWORD}",
+        "MSSQL_PORT": "${MSSQL_PORT}"
       }
     }
   }

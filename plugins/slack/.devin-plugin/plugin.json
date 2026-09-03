@@ -15,9 +15,9 @@
         "@modelcontextprotocol/server-slack"
       ],
       "env": {
-        "SLACK_BOT_TOKEN": "${MCP_SLACK_BOT_TOKEN}",
-        "SLACK_TEAM_ID": "${MCP_SLACK_TEAM_ID}",
-        "SLACK_CHANNEL_IDS": "${MCP_SLACK_CHANNEL_IDS}"
+        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+        "SLACK_TEAM_ID": "${SLACK_TEAM_ID}",
+        "SLACK_CHANNEL_IDS": "${SLACK_CHANNEL_IDS}"
       }
     }
   }

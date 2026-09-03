@@ -11,7 +11,7 @@
     "square": {
       "url": "https://mcp.squareup.com/mcp",
       "headers": {
-        "Authorization": "${MCP_SQUARE_AUTHORIZATION}"
+        "Authorization": "${SQUARE_AUTHORIZATION}"
       }
     }
   }

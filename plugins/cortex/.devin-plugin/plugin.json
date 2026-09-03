@@ -16,9 +16,9 @@
         "--rm",
         "-i",
         "--env",
-        "CORTEX_API_TOKEN=${MCP_CORTEX_API_TOKEN}",
+        "CORTEX_API_TOKEN=${CORTEX_API_TOKEN}",
         "--env",
-        "CORTEX_API_BASE_URL=${MCP_CORTEX_API_BASE_URL}",
+        "CORTEX_API_BASE_URL=${CORTEX_API_BASE_URL}",
         "ghcr.io/cortexapps/cortex-mcp:latest"
       ]
     }

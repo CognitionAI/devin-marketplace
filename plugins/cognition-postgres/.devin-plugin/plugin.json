@@ -30,11 +30,11 @@
         "--stdio"
       ],
       "env": {
-        "POSTGRES_HOST": "${MCP_POSTGRES_HOST}",
-        "POSTGRES_DATABASE": "${MCP_POSTGRES_DATABASE}",
-        "POSTGRES_USER": "${MCP_POSTGRES_USER}",
-        "POSTGRES_PASSWORD": "${MCP_POSTGRES_PASSWORD}",
-        "POSTGRES_PORT": "${MCP_POSTGRES_PORT}"
+        "POSTGRES_HOST": "${POSTGRES_HOST}",
+        "POSTGRES_DATABASE": "${POSTGRES_DATABASE}",
+        "POSTGRES_USER": "${POSTGRES_USER}",
+        "POSTGRES_PASSWORD": "${POSTGRES_PASSWORD}",
+        "POSTGRES_PORT": "${POSTGRES_PORT}"
       }
     }
   }

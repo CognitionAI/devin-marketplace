@@ -16,15 +16,15 @@
         "dbt-mcp"
       ],
       "env": {
-        "DBT_PROJECT_DIR": "${MCP_DBT_PROJECT_DIR}",
-        "DBT_PATH": "${MCP_DBT_PATH}",
-        "DBT_HOST": "${MCP_DBT_HOST}",
-        "MULTICELL_ACCOUNT_PREFIX": "${MCP_MULTICELL_ACCOUNT_PREFIX}",
-        "DBT_TOKEN": "${MCP_DBT_TOKEN}",
-        "DBT_PROD_ENV_ID": "${MCP_DBT_PROD_ENV_ID}",
-        "DBT_DEV_ENV_ID": "${MCP_DBT_DEV_ENV_ID}",
-        "DBT_ACCOUNT_ID": "${MCP_DBT_ACCOUNT_ID}",
-        "DBT_USER_ID": "${MCP_DBT_USER_ID}"
+        "DBT_PROJECT_DIR": "${DBT_PROJECT_DIR}",
+        "DBT_PATH": "${DBT_PATH}",
+        "DBT_HOST": "${DBT_HOST}",
+        "MULTICELL_ACCOUNT_PREFIX": "${MULTICELL_ACCOUNT_PREFIX}",
+        "DBT_TOKEN": "${DBT_TOKEN}",
+        "DBT_PROD_ENV_ID": "${DBT_PROD_ENV_ID}",
+        "DBT_DEV_ENV_ID": "${DBT_DEV_ENV_ID}",
+        "DBT_ACCOUNT_ID": "${DBT_ACCOUNT_ID}",
+        "DBT_USER_ID": "${DBT_USER_ID}"
       }
     }
   }

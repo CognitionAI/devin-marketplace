@@ -18,10 +18,10 @@
         "HUB_PAT_TOKEN",
         "mcp/dockerhub",
         "--transport=stdio",
-        "--username=${MCP_DOCKERHUB_USERNAME}"
+        "--username=${DOCKERHUB_USERNAME}"
       ],
       "env": {
-        "HUB_PAT_TOKEN": "${MCP_HUB_PAT_TOKEN}"
+        "HUB_PAT_TOKEN": "${HUB_PAT_TOKEN}"
       }
     }
   }

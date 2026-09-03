@@ -16,7 +16,7 @@
         "@pinecone-database/mcp"
       ],
       "env": {
-        "PINECONE_API_KEY": "${MCP_PINECONE_API_KEY}"
+        "PINECONE_API_KEY": "${PINECONE_API_KEY}"
       }
     }
   }

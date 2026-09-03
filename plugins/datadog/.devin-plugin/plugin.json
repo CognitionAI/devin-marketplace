@@ -12,8 +12,8 @@
     "datadog": {
       "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=core,apm,dbm,software-delivery&omit_tools=apm_search_spans,apm_search_watchdog_stories,apm_get_watchdog_story,semantic_search_change_stories,apm_search_recommendations,apm_get_recommendation,get_datadog_database_recommendations,optimize_datadog_database_query,update_datadog_flaky_test_states,get_datadog_code_coverage_branch_summary,get_datadog_code_coverage_commit_summary,get_datadog_code_coverage_pr_summary,get_datadog_code_coverage_files,get_datadog_test_optimization_settings,get_datadog_flaky_tests_management_policies,search_dora_deployments,aggregate_dora_deployments,search_dora_events,aggregate_dora_events,retry_datadog_ci_job,search_datadog_test_events,aggregate_datadog_test_events,search_pr_insights,get_dora_fields,get_prs_by_head_branch",
       "headers": {
-        "DD-API-KEY": "${MCP_DATADOG_DD_API_KEY}",
-        "DD-APPLICATION-KEY": "${MCP_DATADOG_DD_APPLICATION_KEY}"
+        "DD-API-KEY": "${DATADOG_DD_API_KEY}",
+        "DD-APPLICATION-KEY": "${DATADOG_DD_APPLICATION_KEY}"
       }
     }
   }

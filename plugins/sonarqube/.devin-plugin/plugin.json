@@ -16,11 +16,11 @@
         "--rm",
         "-i",
         "-e",
-        "SONARQUBE_TOKEN=${MCP_SONARQUBE_TOKEN}",
+        "SONARQUBE_TOKEN=${SONARQUBE_TOKEN}",
         "-e",
-        "SONARQUBE_ORG=${MCP_SONARQUBE_ORG}",
+        "SONARQUBE_ORG=${SONARQUBE_ORG}",
         "-e",
-        "SONARQUBE_URL=${MCP_SONARQUBE_URL}",
+        "SONARQUBE_URL=${SONARQUBE_URL}",
         "mcp/sonarqube"
       ]
     }

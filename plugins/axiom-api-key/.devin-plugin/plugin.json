@@ -11,8 +11,8 @@
     "axiom-api-key": {
       "url": "https://mcp.axiom.co/mcp",
       "headers": {
-        "Authorization": "${MCP_AXIOM_API_KEY_AUTHORIZATION}",
-        "x-axiom-org-id": "${MCP_AXIOM_API_KEY_X_AXIOM_ORG_ID}"
+        "Authorization": "${AXIOM_API_KEY_AUTHORIZATION}",
+        "x-axiom-org-id": "${AXIOM_API_KEY_X_AXIOM_ORG_ID}"
       }
     }
   }

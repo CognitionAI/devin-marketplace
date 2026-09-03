@@ -17,7 +17,7 @@
         "--read-only"
       ],
       "env": {
-        "SUPABASE_ACCESS_TOKEN": "${MCP_SUPABASE_ACCESS_TOKEN}"
+        "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
       }
     }
   }

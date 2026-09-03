@@ -21,8 +21,12 @@ this and CI runs it.
      cards never load images from a third-party host.
    * `mcpServers` declares exactly one server, keyed by the slug: `command` +
      `args` + `env` for stdio, or `url` (+ `headers`) for HTTP.
-   * Never check in a credential. Anything a user supplies is `${MCP_<NAME>}`;
-     the runtime drops placeholders that are not `MCP_`-prefixed.
+   * Never check in a credential. Anything a user supplies is a plain
+     `${<NAME>}` placeholder, resolved from the credentials saved on the
+     user's installation (no `MCP_` prefix). A stdio `env` value must
+     reference its own key (`"AWS_PROFILE": "${AWS_PROFILE}"`) because a saved
+     credential replaces the env entry with the same key; in `args` and
+     `headers` the placeholder is the credential's only name.
 2. Add `"./plugins/<slug>"` to `optionalPlugins` in `.devin-plugin/plugin.json`.
 
 ## A third-party plugin

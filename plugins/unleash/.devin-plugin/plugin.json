@@ -18,9 +18,9 @@
         "error"
       ],
       "env": {
-        "UNLEASH_BASE_URL": "${MCP_UNLEASH_BASE_URL}",
-        "UNLEASH_PAT": "${MCP_UNLEASH_PAT}",
-        "UNLEASH_DEFAULT_PROJECT": "${MCP_UNLEASH_DEFAULT_PROJECT}"
+        "UNLEASH_BASE_URL": "${UNLEASH_BASE_URL}",
+        "UNLEASH_PAT": "${UNLEASH_PAT}",
+        "UNLEASH_DEFAULT_PROJECT": "${UNLEASH_DEFAULT_PROJECT}"
       }
     }
   }
