@@ -12,7 +12,7 @@
     "parallel": {
       "url": "https://mcp.parallel.ai/alpha/search_mcp/",
       "headers": {
-        "x-api-key": "${MCP_PARALLEL_X_API_KEY}"
+        "x-api-key": "${PARALLEL_X_API_KEY}"
       }
     }
   }

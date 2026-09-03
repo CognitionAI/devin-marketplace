@@ -22,8 +22,8 @@
         "stdio"
       ],
       "env": {
-        "ES_URL": "${MCP_ES_URL}",
-        "ES_API_KEY": "${MCP_ES_API_KEY}"
+        "ES_URL": "${ES_URL}",
+        "ES_API_KEY": "${ES_API_KEY}"
       }
     }
   }

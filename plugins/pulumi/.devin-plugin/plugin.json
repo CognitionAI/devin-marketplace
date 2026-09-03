@@ -16,10 +16,10 @@
         "stdio"
       ],
       "env": {
-        "PULUMI_ACCESS_TOKEN": "${MCP_PULUMI_ACCESS_TOKEN}",
-        "AWS_ACCESS_KEY_ID": "${MCP_AWS_ACCESS_KEY_ID}",
-        "AWS_SECRET_ACCESS_KEY": "${MCP_AWS_SECRET_ACCESS_KEY}",
-        "AWS_SESSION_TOKEN": "${MCP_AWS_SESSION_TOKEN}"
+        "PULUMI_ACCESS_TOKEN": "${PULUMI_ACCESS_TOKEN}",
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
+        "AWS_SESSION_TOKEN": "${AWS_SESSION_TOKEN}"
       }
     }
   }

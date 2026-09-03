@@ -31,12 +31,12 @@
         "ghcr.io/cognitionai/database-toolbox/redshift:main"
       ],
       "env": {
-        "REDSHIFT_HOST": "${MCP_REDSHIFT_HOST}",
-        "REDSHIFT_DATABASE": "${MCP_REDSHIFT_DATABASE}",
-        "REDSHIFT_USER": "${MCP_REDSHIFT_USER}",
-        "REDSHIFT_PASSWORD": "${MCP_REDSHIFT_PASSWORD}",
-        "REDSHIFT_PORT": "${MCP_REDSHIFT_PORT}",
-        "REDSHIFT_SSL_MODE": "${MCP_REDSHIFT_SSL_MODE}"
+        "REDSHIFT_HOST": "${REDSHIFT_HOST}",
+        "REDSHIFT_DATABASE": "${REDSHIFT_DATABASE}",
+        "REDSHIFT_USER": "${REDSHIFT_USER}",
+        "REDSHIFT_PASSWORD": "${REDSHIFT_PASSWORD}",
+        "REDSHIFT_PORT": "${REDSHIFT_PORT}",
+        "REDSHIFT_SSL_MODE": "${REDSHIFT_SSL_MODE}"
       }
     }
   }

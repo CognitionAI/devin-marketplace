@@ -24,6 +24,8 @@ NAME_RE = re.compile(r"^[a-z0-9]+([.-][a-z0-9]+)*$")
 URL_RE = re.compile(r"^https://[^\s/]+/[^\s]+\.git$")
 LOCAL_RE = re.compile(r"^\./plugins/([a-z0-9]+([.-][a-z0-9]+)*)$")
 PLACEHOLDER_RE = re.compile(r"\$\{([^}]*)\}")
+CREDENTIAL_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+RUNTIME_PLACEHOLDERS = {"CLAUDE_PLUGIN_ROOT", "PLUGIN_ROOT"}
 LOGO_RE = re.compile(r"^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*\.(svg|png|jpg|jpeg|webp)$")
 TOP_LEVEL_KEYS = {"name", "description", "homepage", "repository", "skills", "optionalPlugins"}
 UPSTREAM_KEYS = {"source", "url", "path", "sha"}
@@ -85,8 +87,21 @@ def check_entry(index: int, plugin: object, errors: list[str]) -> None:
 
 def check_placeholders(where: str, value: str, errors: list[str]) -> None:
     for name in PLACEHOLDER_RE.findall(value):
-        if not name.startswith("MCP_") and name not in ("CLAUDE_PLUGIN_ROOT", "PLUGIN_ROOT"):
-            errors.append(f"{where}: placeholder ${{{name}}} is dropped by the runtime")
+        if name in RUNTIME_PLACEHOLDERS:
+            continue
+        if not CREDENTIAL_NAME_RE.match(name):
+            errors.append(f"{where}: placeholder ${{{name}}} is not a credential name the runtime can resolve")
+        elif name.startswith("MCP_"):
+            errors.append(f"{where}: placeholder ${{{name}}} uses the retired MCP_ prefix; name the credential ${{{name[4:]}}}")
+
+
+def check_env_placeholders(where: str, env: dict[str, object], errors: list[str]) -> None:
+    for key, value in env.items():
+        if not isinstance(value, str):
+            continue
+        for name in PLACEHOLDER_RE.findall(value):
+            if name not in RUNTIME_PLACEHOLDERS and name != key:
+                errors.append(f"{where}: env {key} references ${{{name}}}; a saved credential is matched by the env key, so it must be ${{{key}}}")
 
 
 def check_server(where: str, slug: str, config: object, errors: list[str]) -> None:
@@ -108,6 +123,7 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
             errors.append(f"{where}: server '{slug}' env must be an object")
             return
         strings = [config["command"], *args, *env.values()]
+        check_env_placeholders(f"{where} ({slug})", env, errors)
     else:
         url = config.get("url")
         headers = config.get("headers", {})

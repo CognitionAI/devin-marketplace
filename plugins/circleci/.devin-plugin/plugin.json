@@ -15,8 +15,8 @@
         "@circleci/mcp-server-circleci"
       ],
       "env": {
-        "CIRCLECI_TOKEN": "${MCP_CIRCLECI_TOKEN}",
-        "CIRCLECI_BASE_URL": "${MCP_CIRCLECI_BASE_URL}"
+        "CIRCLECI_TOKEN": "${CIRCLECI_TOKEN}",
+        "CIRCLECI_BASE_URL": "${CIRCLECI_BASE_URL}"
       }
     }
   }

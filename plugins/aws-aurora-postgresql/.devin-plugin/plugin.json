@@ -23,24 +23,24 @@
         "AWS_REGION",
         "awslabs/postgres-mcp-server:latest",
         "--resource_arn",
-        "${MCP_AWS_RESOURCE_ARN}",
+        "${AWS_RESOURCE_ARN}",
         "--secret_arn",
-        "${MCP_AWS_SECRET_ARN}",
+        "${AWS_SECRET_ARN}",
         "--database",
-        "${MCP_AWS_DATABASE}",
+        "${AWS_DATABASE}",
         "--region",
-        "${MCP_AWS_DATABASE_REGION}",
+        "${AWS_DATABASE_REGION}",
         "--readonly",
         "True"
       ],
       "env": {
-        "AWS_ACCESS_KEY_ID": "${MCP_AWS_ACCESS_KEY_ID}",
-        "AWS_SECRET_ACCESS_KEY": "${MCP_AWS_SECRET_ACCESS_KEY}",
-        "AWS_REGION": "${MCP_AWS_REGION}",
-        "AWS_RESOURCE_ARN": "${MCP_AWS_RESOURCE_ARN}",
-        "AWS_SECRET_ARN": "${MCP_AWS_SECRET_ARN}",
-        "AWS_DATABASE": "${MCP_AWS_DATABASE}",
-        "AWS_DATABASE_REGION": "${MCP_AWS_DATABASE_REGION}"
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
+        "AWS_REGION": "${AWS_REGION}",
+        "AWS_RESOURCE_ARN": "${AWS_RESOURCE_ARN}",
+        "AWS_SECRET_ARN": "${AWS_SECRET_ARN}",
+        "AWS_DATABASE": "${AWS_DATABASE}",
+        "AWS_DATABASE_REGION": "${AWS_DATABASE_REGION}"
       }
     }
   }

@@ -24,8 +24,8 @@
         "stdio"
       ],
       "env": {
-        "GRAFANA_URL": "${MCP_GRAFANA_URL}",
-        "GRAFANA_API_KEY": "${MCP_GRAFANA_API_KEY}"
+        "GRAFANA_URL": "${GRAFANA_URL}",
+        "GRAFANA_API_KEY": "${GRAFANA_API_KEY}"
       }
     }
   }

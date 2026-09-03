@@ -26,9 +26,9 @@
         "--stdio"
       ],
       "env": {
-        "LOOKER_BASE_URL": "${MCP_LOOKER_BASE_URL}",
-        "LOOKER_CLIENT_ID": "${MCP_LOOKER_CLIENT_ID}",
-        "LOOKER_CLIENT_SECRET": "${MCP_LOOKER_CLIENT_SECRET}"
+        "LOOKER_BASE_URL": "${LOOKER_BASE_URL}",
+        "LOOKER_CLIENT_ID": "${LOOKER_CLIENT_ID}",
+        "LOOKER_CLIENT_SECRET": "${LOOKER_CLIENT_SECRET}"
       }
     }
   }

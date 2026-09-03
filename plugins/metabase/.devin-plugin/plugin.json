@@ -16,10 +16,10 @@
         "@cognitionai/metabase-mcp-server"
       ],
       "env": {
-        "METABASE_URL": "${MCP_METABASE_URL}",
-        "METABASE_API_KEY": "${MCP_METABASE_API_KEY}",
-        "METABASE_USERNAME": "${MCP_METABASE_USERNAME}",
-        "METABASE_PASSWORD": "${MCP_METABASE_PASSWORD}"
+        "METABASE_URL": "${METABASE_URL}",
+        "METABASE_API_KEY": "${METABASE_API_KEY}",
+        "METABASE_USERNAME": "${METABASE_USERNAME}",
+        "METABASE_PASSWORD": "${METABASE_PASSWORD}"
       }
     }
   }

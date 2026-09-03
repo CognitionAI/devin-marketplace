@@ -17,13 +17,13 @@
         "redis-mcp-server",
         "-i",
         "-e",
-        "REDIS_HOST=${MCP_REDIS_HOST}",
+        "REDIS_HOST=${REDIS_HOST}",
         "-e",
-        "REDIS_PORT=${MCP_REDIS_PORT}",
+        "REDIS_PORT=${REDIS_PORT}",
         "-e",
-        "REDIS_USERNAME=${MCP_REDIS_USERNAME}",
+        "REDIS_USERNAME=${REDIS_USERNAME}",
         "-e",
-        "REDIS_PWD=${MCP_REDIS_PWD}",
+        "REDIS_PWD=${REDIS_PWD}",
         "mcp/redis"
       ]
     }
