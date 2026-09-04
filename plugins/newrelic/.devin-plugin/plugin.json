@@ -9,7 +9,7 @@
   ],
   "mcpServers": {
     "newrelic": {
-      "url": "https://mcp.newrelic.com/mcp/",
+      "url": "https://${NEWRELIC_MCP_DOMAIN}/mcp/",
       "headers": {
         "Api-Key": "${NEWRELIC_API_KEY}"
       }
