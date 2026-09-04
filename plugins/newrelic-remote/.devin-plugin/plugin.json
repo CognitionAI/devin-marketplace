@@ -9,7 +9,7 @@
   ],
   "mcpServers": {
     "newrelic-remote": {
-      "url": "https://mcp.newrelic.com/mcp/"
+      "url": "https://${NEWRELIC_MCP_DOMAIN}/mcp/"
     }
   }
 }
