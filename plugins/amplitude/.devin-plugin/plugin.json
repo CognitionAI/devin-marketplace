@@ -10,7 +10,7 @@
   ],
   "mcpServers": {
     "amplitude": {
-      "url": "https://mcp.amplitude.com/mcp"
+      "url": "https://${AMPLITUDE_MCP_DOMAIN}/mcp"
     }
   }
 }
