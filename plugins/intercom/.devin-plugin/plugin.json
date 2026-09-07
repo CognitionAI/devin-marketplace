@@ -9,7 +9,10 @@
   ],
   "mcpServers": {
     "intercom": {
-      "url": "https://mcp.intercom.com/mcp"
+      "url": "https://mcp.intercom.com/mcp",
+      "headers": {
+        "Authorization": "${INTERCOM_AUTHORIZATION}"
+      }
     }
   }
 }
