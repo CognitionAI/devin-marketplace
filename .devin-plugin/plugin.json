@@ -29,6 +29,7 @@
     "./plugins/axiom",
     "./plugins/axiom-api-key",
     "./plugins/azure",
+    "./plugins/blackduck",
     "./plugins/browserless",
     "./plugins/calendly",
     "./plugins/canva",
