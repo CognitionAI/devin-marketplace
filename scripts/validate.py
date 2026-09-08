@@ -85,8 +85,14 @@ def check_entry(index: int, plugin: object, errors: list[str]) -> None:
     errors.append(f"{where}: must be a './plugins/<slug>' string or a pinned upstream object")
 
 
+def placeholder_name(reference: str) -> str:
+    # `${NAME:-default}` falls back to `default` when NAME has no saved value.
+    return reference.split(":-", 1)[0]
+
+
 def check_placeholders(where: str, value: str, errors: list[str]) -> None:
-    for name in PLACEHOLDER_RE.findall(value):
+    for reference in PLACEHOLDER_RE.findall(value):
+        name = placeholder_name(reference)
         if name in RUNTIME_PLACEHOLDERS:
             continue
         if not CREDENTIAL_NAME_RE.match(name):
@@ -99,7 +105,8 @@ def check_env_placeholders(where: str, env: dict[str, object], errors: list[str]
     for key, value in env.items():
         if not isinstance(value, str):
             continue
-        for name in PLACEHOLDER_RE.findall(value):
+        for reference in PLACEHOLDER_RE.findall(value):
+            name = placeholder_name(reference)
             if name not in RUNTIME_PLACEHOLDERS and name != key:
                 errors.append(f"{where}: env {key} references ${{{name}}}; a saved credential is matched by the env key, so it must be ${{{key}}}")
 
