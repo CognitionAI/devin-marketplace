@@ -94,6 +94,7 @@
     "./plugins/grafana",
     "./plugins/granola",
     "./plugins/graphos-tools",
+    "./plugins/gryz",
     "./plugins/heroku",
     "./plugins/hex",
     "./plugins/honeycomb",
