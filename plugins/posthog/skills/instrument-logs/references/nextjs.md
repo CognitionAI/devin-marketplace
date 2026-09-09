@@ -1,0 +1,201 @@
+> AI agents: this is one page from PostHog's docs. Full index of Markdown docs for LLMs: https://posthog.com/llms.txt
+
+# Next.js Logs installation - Docs
+
+Copy page
+
+# Next.js Logs installation - Docs
+
+1.  1
+
+    ## Install OpenTelemetry packages
+
+    Required
+
+    Terminal
+
+    PostHog AI
+
+    ```bash
+    npm install @opentelemetry/sdk-logs @opentelemetry/exporter-logs-otlp-http @opentelemetry/api-logs @opentelemetry/resources
+    ```
+
+2.  2
+
+    ## Get your project token
+
+    Required
+
+    You'll need your PostHog project token to authenticate log requests. This is the same key you use for capturing events and exceptions with the PostHog SDK.
+
+    > **Important:** Use your **project token** which starts with `phc_`. Do **not** use a personal API key (which starts with `phx_`).
+
+    You can find your project token in [Project Settings](https://app.posthog.com/settings/project).
+
+3.  3
+
+    ## Enable instrumentation in Next.js
+
+    Required
+
+    > **Note:** This step is only needed on Next.js 13.2–14.x. For Next.js 15 and later, `instrumentation.ts` is enabled by default and the `experimental.instrumentationHook` option is deprecated — remove it from your config if it's set.
+
+    On Next.js 14 and earlier, add the following to your `next.config.js` (or `next.config.mjs`) to enable the instrumentation hook:
+
+    JavaScript
+
+    PostHog AI
+
+    ```javascript
+    /** @type {import('next').NextConfig} */
+    const nextConfig = {
+      experimental: {
+        instrumentationHook: true,
+      },
+    }
+    module.exports = nextConfig
+    ```
+
+4.  4
+
+    ## Create the instrumentation file
+
+    Required
+
+    Create an `instrumentation.ts` (or `instrumentation.js`) file in the root of your project (or inside `src/` if you use that folder).
+
+    typescript
+
+    PostHog AI
+
+    ```typescript
+    import { BatchLogRecordProcessor, LoggerProvider } from '@opentelemetry/sdk-logs'
+    import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-http'
+    import { logs } from '@opentelemetry/api-logs'
+    import { resourceFromAttributes } from '@opentelemetry/resources'
+    // Create LoggerProvider outside register() so it can be exported and flushed in route handlers
+    export const loggerProvider = new LoggerProvider({
+      resource: resourceFromAttributes({ 'service.name': 'my-nextjs-app' }),
+      processors: [
+        new BatchLogRecordProcessor(
+          new OTLPLogExporter({
+            url: 'https://us.i.posthog.com/i/v1/logs',
+            headers: {
+              Authorization: 'Bearer <ph_project_token>',
+              'Content-Type': 'application/json',
+            },
+          })
+        ),
+      ],
+    })
+    export function register() {
+      if (process.env.NEXT_RUNTIME === 'nodejs') {
+        logs.setGlobalLoggerProvider(loggerProvider)
+      }
+    }
+    ```
+
+    > **Note:** The `loggerProvider` is created outside of `register()` so it can be exported and used to flush logs in route handlers. This pattern is necessary because Route Handlers complete execution before batched logs have a chance to be sent to the collector. By exporting the provider, we can manually flush logs at the end of each request.
+
+    > **Important:** The `Content-Type: application/json` header is required.
+
+    Alternatively, you can pass the API key as a query parameter:
+
+    typescript
+
+    PostHog AI
+
+    ```typescript
+    new OTLPLogExporter({
+      url: 'https://us.i.posthog.com/i/v1/logs?token=<ph_project_token>',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    ```
+
+5.  5
+
+    ## Use OpenTelemetry logging
+
+    Required
+
+    Now you can use OpenTelemetry logging in your server-side code (API routes, Server Components, etc.):
+
+    typescript
+
+    PostHog AI
+
+    ```typescript
+    import { SeverityNumber } from '@opentelemetry/api-logs'
+    import { after } from 'next/server'
+    import { loggerProvider } from '@/instrumentation'
+    const logger = loggerProvider.getLogger('my-nextjs-app')
+    export async function GET() {
+      logger.emit({
+        body: 'API request received',
+        severityNumber: SeverityNumber.INFO,
+        attributes: {
+          endpoint: '/api/example',
+          method: 'GET',
+        },
+      })
+      // Ensure logs are flushed before the serverless function freezes
+      after(async () => {
+        await loggerProvider.forceFlush()
+      })
+      return Response.json({ success: true })
+    }
+    ```
+
+    > **Important:** Without calling `forceFlush()`, your logs may not be sent. Route Handlers complete execution before the OpenTelemetry batch processor has a chance to send logs to the collector. The `after()` function from `next/server` runs code after the response is sent, ensuring logs are flushed before the serverless function freezes.
+
+    > **Note:** `after()` is stable in Next.js 15.1+ (available as `unstable_after` in 15.0). On Next.js 14 and earlier, it doesn't exist — flush before returning instead:
+    >
+    > typescript
+    >
+    > PostHog AI
+    >
+    > ```typescript
+    > await loggerProvider.forceFlush()
+    > return Response.json({ success: true })
+    > ```
+
+6.  6
+
+    ## Test your setup
+
+    Recommended
+
+    Once everything is configured, test that logs are flowing into PostHog:
+
+    1.  Send a test log from your application
+    2.  Check the PostHog Logs interface for your log entries
+    3.  Verify the logs appear in your project
+
+    [View your logs in PostHog](https://app.posthog.com/logs)
+
+8.  ## Next steps
+
+    Checkpoint
+
+    *What you can do with your logs*
+
+    | Action | Description |
+    | --- | --- |
+    | [Why you need logs](/docs/logs/basics.md) | What logs show you that nothing else does |
+    | [Search logs](/docs/logs/search.md) | Use the search interface to find specific log entries |
+    | Filter by level | Filter by INFO, WARN, ERROR, etc. |
+    | [Link session replay](/docs/logs/link-session-replay.md) | Connect logs to users and session replays by passing posthogDistinctId and sessionId |
+    | [Link logs to a person](/docs/logs/link-person.md) | Surface every log emitted on behalf of a user on their PostHog person profile |
+    | [Logging best practices](/docs/logs/best-practices.md) | Learn what to log, how to structure logs, and patterns that make logs useful in production |
+
+    [Troubleshoot common issues](/docs/logs/troubleshooting.md)
+
+### Still have questions?
+
+Ask PostHog AI
+
+### Was this page useful?
+
+HelpfulCould be better
