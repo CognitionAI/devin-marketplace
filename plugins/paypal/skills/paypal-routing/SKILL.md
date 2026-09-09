@@ -91,13 +91,13 @@ Pack values: `paypal-checkout/standard-checkout`, `paypal-checkout/expanded-chec
 
 ## When to Use MCP Tools Directly
 
-Only use `mcp__paypal-sandbox__*` tools directly when:
+Only use `mcp__paypal__*` tools directly when:
 - The user asks to perform a specific PayPal action (create an order, send an invoice, list disputes, capture a payment)
 - The user explicitly asks to call an MCP tool
 - The task is a one-off API operation that doesn't match any command workflow
 
 Examples of direct MCP tool usage:
-- "Create an order for $50" — call `mcp__paypal-sandbox__create_order` directly
-- "Send an invoice to john@example.com" — call `mcp__paypal-sandbox__create_invoice`, then call `mcp__paypal-sandbox__send_invoice` with the invoice ID
-- "Show my recent transactions" — call `mcp__paypal-sandbox__list_transactions` directly
-- "List my open disputes" — call `mcp__paypal-sandbox__list_disputes` directly
+- "Create an order for $50" — call `mcp__paypal__create_order` directly
+- "Send an invoice to john@example.com" — call `mcp__paypal__create_invoice`, then call `mcp__paypal__send_invoice` with the invoice ID
+- "Show my recent transactions" — call `mcp__paypal__list_transactions` directly
+- "List my open disputes" — call `mcp__paypal__list_disputes` directly

@@ -133,7 +133,7 @@ If the user wants a cross-tab (e.g. "by rep AND by sequence", "broken down by st
 - Specific user by Apollo user ID → `filters: { user_ids: ["<user_id>"] }` (can combine: `["current", "user_id_1"]`)
 - "team" / no user mention → omit filters entirely (returns team-wide data)
 - Filter by team/subteam → `filters: { team_ids: ["<subteam_id>"] }`
-- Filter by sequence name → first call `mcp__claude_ai_Apollo_MCP__apollo_emailer_campaigns_search` to resolve the name to an ID, then pass `filters: { emailer_campaign_ids: ["<id>"] }`
+- Filter by sequence name → first call `mcp__apollo-io__apollo_emailer_campaigns_search` to resolve the name to an ID, then pass `filters: { emailer_campaign_ids: ["<id>"] }`
 
 ---
 
@@ -153,7 +153,7 @@ Two constraints:
 
 ## Step 2 — Call the Analytics Tool
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_analytics_sync_report` with the parameters determined above.
+Use `mcp__apollo-io__apollo_analytics_sync_report` with the parameters determined above.
 
 If the question spans multiple independent dimensions (e.g. "show me email metrics by rep AND separately by sequence"), make two sequential calls.
 

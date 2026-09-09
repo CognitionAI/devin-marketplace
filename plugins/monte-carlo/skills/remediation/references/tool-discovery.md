@@ -16,8 +16,8 @@ For example:
 - `mcp__github__create_pull_request` — a GitHub MCP tool
 
 Monte Carlo's own tools are bundled by this plugin and namespaced under the plugin server — see the **Monte Carlo tool routing** block at the top of the skill. Examples:
-- `mcp__plugin_mc-agent-toolkit_monte-carlo-mcp__get_alerts`
-- `mcp__plugin_mc-agent-toolkit_monte-carlo-mcp__search`
+- `mcp__monte-carlo__get_alerts`
+- `mcp__monte-carlo__search`
 
 Scan your tool list for any `mcp__*__*` patterns and group by server name.
 
