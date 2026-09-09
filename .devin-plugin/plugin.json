@@ -102,6 +102,7 @@
     "./plugins/incident-io",
     "./plugins/intercom",
     "./plugins/jam",
+    "./plugins/jmeter-docs",
     "./plugins/jotform",
     "./plugins/klaviyo",
     "./plugins/kpler",
