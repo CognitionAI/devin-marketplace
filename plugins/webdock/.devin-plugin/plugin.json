@@ -1,0 +1,15 @@
+{
+  "name": "webdock",
+  "displayName": "Webdock",
+  "description": "Manage Webdock cloud servers, accounts, provisioning, billing, snapshots, monitoring, and other Webdock resources through the official Webdock MCP server.",
+  "homepage": "https://webdock.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "webdock": {
+      "url": "https://mcp.webdock.io"
+    }
+  }
+}
