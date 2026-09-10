@@ -175,6 +175,11 @@
     "./plugins/wolfram",
     "./plugins/zapier",
     {
+      "source": "url",
+      "url": "https://github.com/afonsoft/skills.git",
+      "sha": "f010a5448fc2d53117f556a9fdceb55fb06cd6f0"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
