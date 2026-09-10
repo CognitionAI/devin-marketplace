@@ -176,6 +176,12 @@
     "./plugins/zapier",
     {
       "source": "git-subdir",
+      "url": "https://github.com/askgina/plugins.git",
+      "path": "plugins/ask-gina",
+      "sha": "9a77d04fc4b1524a2b56bd343a4732a22b57e867"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
