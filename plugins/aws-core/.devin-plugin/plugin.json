@@ -1,9 +1,9 @@
 {
   "name": "aws-core",
   "displayName": "AWS Core",
-  "description": "AWS Core integration providing foundational AWS services and operations",
-  "homepage": "https://aws.amazon.com/",
-  "repository": "https://github.com/awslabs/mcp",
+  "description": "AWS MCP Server via the Agent Toolkit for AWS: run AWS CLI commands, search AWS documentation, and follow curated AWS skills, authenticated with your local AWS credentials (SigV4)",
+  "homepage": "https://aws.amazon.com/products/developer-tools/agent-toolkit-for-aws/",
+  "repository": "https://github.com/aws/mcp-proxy-for-aws",
   "logo": "logo.svg",
   "keywords": [
     "Development Tools"
@@ -12,7 +12,8 @@
     "aws-core": {
       "command": "uvx",
       "args": [
-        "awslabs.core-mcp-server@latest"
+        "mcp-proxy-for-aws-cli@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp"
       ],
       "env": {
         "AWS_PROFILE": "${AWS_PROFILE}",
