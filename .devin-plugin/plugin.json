@@ -162,6 +162,7 @@
     "./plugins/sqlite",
     "./plugins/square",
     "./plugins/stripe",
+    "./plugins/stripe-link",
     "./plugins/stytch",
     "./plugins/supabase",
     "./plugins/supabase-remote",

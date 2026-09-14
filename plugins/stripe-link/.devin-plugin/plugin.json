@@ -1,0 +1,15 @@
+{
+  "name": "stripe-link",
+  "displayName": "Stripe Link",
+  "description": "Search products and merchants, and read your Link wallet's payment sources, balances, transactions, and recurring payments.",
+  "homepage": "https://link.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "stripe-link": {
+      "url": "https://mcp.link.com"
+    }
+  }
+}
