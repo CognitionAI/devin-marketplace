@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-tiktok",
+  "displayName": "TikTok MCP Server",
+  "description": "Public TikTok profiles, an account's videos, video comments and reply threads, and keyword search over videos or creators, as structured JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/tiktok-scraper-api",
+  "repository": "https://github.com/HasData/tiktok-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-tiktok": {
+      "url": "https://mcp.hasdata.com/mcp?apis=tiktok",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}

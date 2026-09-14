@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-airbnb",
+  "displayName": "Airbnb MCP Server",
+  "description": "Search Airbnb stays by location and dates, and read a single listing in full, as structured JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/airbnb-api",
+  "repository": "https://github.com/HasData/airbnb-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-airbnb": {
+      "url": "https://mcp.hasdata.com/mcp?apis=airbnb",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}
