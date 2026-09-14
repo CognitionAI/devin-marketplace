@@ -168,6 +168,7 @@
     "./plugins/supermetrics",
     "./plugins/swagger",
     "./plugins/tavily",
+    "./plugins/testflight",
     "./plugins/trellis",
     "./plugins/unleash",
     "./plugins/vercel",

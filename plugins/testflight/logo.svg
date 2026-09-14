@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TestFlight">
+  <rect width="64" height="64" rx="14" fill="#0B84FE"/>
+  <path d="M14 34.5 47.5 17 33.5 49.5l-5.8-12.2L14 34.5Z" fill="#fff"/>
+  <path d="M27.7 37.3 47.5 17l-14 32.5-5.8-12.2Z" fill="#CFE6FF"/>
+</svg>

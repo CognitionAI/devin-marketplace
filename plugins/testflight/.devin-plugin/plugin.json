@@ -1,0 +1,24 @@
+{
+  "name": "testflight",
+  "displayName": "TestFlight",
+  "description": "Build an iOS app, upload it to TestFlight and hand back a public tester link, using an App Store Connect API key supplied when the plugin is installed.",
+  "homepage": "https://developer.apple.com/testflight/",
+  "repository": "https://github.com/CognitionAI/devin-marketplace",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "testflight": {
+      "command": "python3",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/server/testflight_mcp.py"
+      ],
+      "env": {
+        "ASC_KEY_ID": "${ASC_KEY_ID}",
+        "ASC_ISSUER_ID": "${ASC_ISSUER_ID}",
+        "ASC_PRIVATE_KEY": "${ASC_PRIVATE_KEY}"
+      }
+    }
+  }
+}
