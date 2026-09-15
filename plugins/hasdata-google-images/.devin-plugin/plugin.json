@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-google-images",
+  "displayName": "Google Images MCP Server",
+  "description": "Google Images results, 100 a call, with source pages, thumbnails and full-resolution URLs, filtered by size, colour and type. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/google-images-api",
+  "repository": "https://github.com/HasData/google-images-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-google-images": {
+      "url": "https://mcp.hasdata.com/mcp?apis=google_images",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}
