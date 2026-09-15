@@ -1,0 +1,16 @@
+{
+  "name": "grafana-remote",
+  "displayName": "Grafana (OAuth)",
+  "description": "Grafana Cloud integration for dashboards, datasources, alerts, and incidents via Grafana's hosted MCP server (OAuth).",
+  "homepage": "https://grafana.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "grafana-remote": {
+      "url": "https://mcp.grafana.com/mcp"
+    }
+  },
+  "repository": "https://github.com/grafana/mcp-grafana"
+}

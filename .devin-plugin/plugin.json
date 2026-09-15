@@ -92,6 +92,7 @@
     "./plugins/google-drive",
     "./plugins/google-maps",
     "./plugins/grafana",
+    "./plugins/grafana-remote",
     "./plugins/granola",
     "./plugins/graphos-tools",
     "./plugins/heroku",
