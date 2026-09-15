@@ -5,6 +5,7 @@
   "repository": "https://github.com/CognitionAI/devin-marketplace",
   "skills": [],
   "optionalPlugins": [
+    "./plugins/activecampaign",
     "./plugins/airtable",
     "./plugins/amplitude",
     "./plugins/angellist",

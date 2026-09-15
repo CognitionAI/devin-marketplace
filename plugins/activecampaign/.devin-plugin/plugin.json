@@ -1,0 +1,16 @@
+{
+  "name": "activecampaign",
+  "displayName": "ActiveCampaign",
+  "description": "Marketing automation and CRM: manage contacts, lists, tags, and custom fields, plan and report on email campaigns, build automations, and operate deal pipelines through natural language",
+  "homepage": "https://www.activecampaign.com",
+  "repository": "https://github.com/ActiveCampaign/activecampaign-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "activecampaign": {
+      "url": "https://mcp.app-us1.com/http"
+    }
+  }
+}
