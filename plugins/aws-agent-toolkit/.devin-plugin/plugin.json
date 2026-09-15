@@ -1,7 +1,7 @@
 {
   "name": "aws-agent-toolkit",
   "displayName": "Agent Toolkit for AWS",
-  "description": "Agent Toolkit for AWS: call AWS APIs, search AWS documentation, and follow curated AWS skills. Credentials resolve through the standard AWS chain (environment variables, shared config, SSO, instance roles); set AWS_MCP_PROXY_PROFILES to one or more profile names to pin the default profile and allow per-call switching, and AWS_REGION to supply a region when your profile does not set one.",
+  "description": "Agent Toolkit for AWS: call AWS APIs, search AWS documentation, and follow curated AWS skills. Credentials resolve through the standard AWS chain (environment variables, shared config, SSO, instance roles); set AWS_MCP_PROXY_PROFILES to one or more profile names to pin the default profile and allow per-call switching, and AWS_REGION to supply a region when your profile does not set one. To pass keys directly instead, set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY together (plus AWS_SESSION_TOKEN for temporary credentials); these take precedence over any profile.",
   "homepage": "https://aws.amazon.com/products/developer-tools/agent-toolkit-for-aws/",
   "repository": "https://github.com/aws/mcp-proxy-for-aws",
   "logo": "logo.svg",
@@ -16,8 +16,11 @@
         "https://aws-mcp.us-east-1.api.aws/mcp"
       ],
       "env": {
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID:-}",
         "AWS_MCP_PROXY_PROFILES": "${AWS_MCP_PROXY_PROFILES:-}",
-        "AWS_REGION": "${AWS_REGION:-}"
+        "AWS_REGION": "${AWS_REGION:-}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY:-}",
+        "AWS_SESSION_TOKEN": "${AWS_SESSION_TOKEN:-}"
       }
     }
   }
