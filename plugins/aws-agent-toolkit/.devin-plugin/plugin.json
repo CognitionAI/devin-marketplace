@@ -1,7 +1,7 @@
 {
   "name": "aws-agent-toolkit",
   "displayName": "Agent Toolkit for AWS",
-  "description": "Agent Toolkit for AWS: call AWS APIs, search AWS documentation, and follow curated AWS skills. Credentials resolve through the standard AWS chain (environment variables, shared config, SSO, instance roles); set AWS_MCP_PROXY_PROFILES to pin or switch profiles and AWS_REGION to override the region.",
+  "description": "Agent Toolkit for AWS: call AWS APIs, search AWS documentation, and follow curated AWS skills. Credentials resolve through the standard AWS chain (environment variables, shared config, SSO, instance roles); set AWS_MCP_PROXY_PROFILES to one or more profile names to pin the default profile and allow per-call switching, and AWS_REGION to supply a region when your profile does not set one.",
   "homepage": "https://aws.amazon.com/products/developer-tools/agent-toolkit-for-aws/",
   "repository": "https://github.com/aws/mcp-proxy-for-aws",
   "logo": "logo.svg",
