@@ -1,0 +1,16 @@
+{
+  "name": "microsoft-365-todo",
+  "displayName": "Microsoft 365 To Do",
+  "description": "List, create, update, complete, and delete Microsoft To Do tasks via the Microsoft 365 To Do MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
+  "homepage": "https://www.microsoft.com/microsoft-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "microsoft-365-todo": {
+      "url": "https://microsoft-365-mcp.devin.ai/todo/mcp"
+    }
+  }
+}

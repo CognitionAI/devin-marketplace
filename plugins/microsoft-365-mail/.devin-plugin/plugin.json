@@ -1,0 +1,16 @@
+{
+  "name": "microsoft-365-mail",
+  "displayName": "Microsoft 365 Mail",
+  "description": "Read, organize, and send Outlook mail and manage personal contacts via the Microsoft 365 Mail MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
+  "homepage": "https://www.microsoft.com/microsoft-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "microsoft-365-mail": {
+      "url": "https://microsoft-365-mcp.devin.ai/mail/mcp"
+    }
+  }
+}
