@@ -22,15 +22,15 @@ Teams, tasks and people lookups live behind separate endpoints.
 
 ## Tool signatures
 
-| Tool                                                                             | Notes                                                                           |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `files_list(path="", max?, next?)`                                               | Children of a folder; `""` or `"/"` is the drive root.                          |
-| `files_stat(path)`                                                               | Metadata: name, size, folder/file, timestamps.                                  |
-| `files_get_content(path, max_bytes=65536)`                                       | Bounded content; `1 <= max_bytes <= 10485760` (10 MiB).                         |
-| `files_get_shared_content(share_url, max_bytes=65536)`                           | Same bounds and response as `files_get_content`, plus `drive_id` and `item_id`. |
-| `files_upload(path, content, content_encoding="utf-8"\|"base64", confirm=false)` | Simple upload, **overwrites** an existing file at that path.                    |
-| `files_mkdir(path, confirm=false)`                                               | Fails if the folder already exists.                                             |
-| `files_delete(path, confirm=false)`                                              | Deletes a file or folder.                                                       |
+| Tool                                                                             | Notes                                                                                                                                                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `files_list(path="", max?, next?)`                                               | Children of a folder; `""` or `"/"` is the drive root.                                                                                                                                                         |
+| `files_stat(path)`                                                               | Metadata: name, size, folder/file, timestamps.                                                                                                                                                                 |
+| `files_get_content(path, max_bytes=65536, format?, width?, height?)`             | Bounded content; `1 <= max_bytes <= 10485760` (10 MiB). Optional Graph conversion: `format="pdf"` (Office/md/html/rtf…), `"html"` (Loop/Fluid/Whiteboard only), `"jpg"` (requires `width`+`height`, 1..10000). |
+| `files_get_shared_content(share_url, max_bytes=65536)`                           | Same bounds and response as `files_get_content`, plus `drive_id` and `item_id`.                                                                                                                                |
+| `files_upload(path, content, content_encoding="utf-8"\|"base64", confirm=false)` | Simple upload, **overwrites** an existing file at that path.                                                                                                                                                   |
+| `files_mkdir(path, confirm=false)`                                               | Fails if the folder already exists.                                                                                                                                                                            |
+| `files_delete(path, confirm=false)`                                              | Deletes a file or folder.                                                                                                                                                                                      |
 
 ## Paths (the most common source of errors)
 
@@ -59,6 +59,15 @@ is no search tool, so confirm the location with the user if listing does not fin
   file, tell the user it cannot be read whole rather than looping.
 - It refuses folders and items whose size the drive did not report.
 - Binary content comes back base64-encoded; do not try to interpret it as text.
+- Pass `format` when the bytes you want are a conversion, not the file itself:
+  `format="pdf"` renders Office/markdown/rtf and similar documents as a PDF
+  (useful for binary formats you cannot parse from raw bytes); `format="jpg"`
+  renders a page image and requires `width` and `height`; `format="html"` only
+  works on Loop/Fluid/Whiteboard items. Omit `format` for the original bytes.
+  The result echoes which `format` was returned (`null` = original bytes).
+- A converted result larger than `max_bytes` **fails** instead of truncating — a
+  truncated PDF/JPG is unusable — so raise `max_bytes` or ask the user; do not
+  treat the failure as a partial read.
 
 ## Sharing links (a URL the user pasted)
 
