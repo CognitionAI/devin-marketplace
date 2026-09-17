@@ -1,7 +1,7 @@
 {
   "name": "microsoft-365-directory",
-  "displayName": "Microsoft 365 Directory",
-  "description": "Search and read Microsoft Entra directory users, managers, and your own profile via the Microsoft 365 Directory MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
+  "displayName": "Microsoft 365 Directory (Entra ID)",
+  "description": "Search and read Microsoft Entra directory users, managers, and your own profile via the Microsoft 365 Directory (Entra ID) MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
   "homepage": "https://www.microsoft.com/microsoft-365",
   "logo": "logo.svg",
   "keywords": [
