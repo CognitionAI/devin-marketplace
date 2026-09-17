@@ -1,3 +1,8 @@
+---
+name: microsoft-365-calendar-mcp
+description: "Use the Microsoft 365 Calendar MCP tools (calendar_*) to list events in a date range, read an event, and create, update or delete events and meetings with attendees. Invoke whenever a task involves the user's calendar: it gives exact tool signatures, how to express start/end times and time zones, how to find event IDs, paging rules, the preview-then-confirm flow required before invitations or cancellations go out, and how to interpret confirmed / confirmed_but_unreadable / rejected / indeterminate results."
+---
+
 # Microsoft 365 Calendar (MCP tools)
 
 Connect to the calendar endpoint `/calendar/mcp`. It exposes only `calendar_*` tools — mail,

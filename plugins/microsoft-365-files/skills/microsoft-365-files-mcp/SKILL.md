@@ -1,3 +1,8 @@
+---
+name: microsoft-365-files-mcp
+description: "Use the Microsoft 365 Files MCP tools (files_*) to browse OneDrive/SharePoint folders, stat items, read bounded file content, read a file the user shared as a SharePoint/OneDrive link, upload files, create folders and delete items. Invoke whenever a task involves the user's drive files or a sharing URL they pasted: it gives exact tool signatures, the drive-relative path rules, sharing-link rules, content and upload size limits, paging rules, the preview-then-confirm flow for writes, and how to interpret confirmed / confirmed_but_unreadable / rejected / indeterminate results."
+---
+
 # Microsoft 365 Files (MCP tools)
 
 Connect to the files endpoint `/files/mcp`. It exposes only `files_*` tools — mail, calendar,

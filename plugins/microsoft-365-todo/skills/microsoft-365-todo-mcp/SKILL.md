@@ -1,3 +1,8 @@
+---
+name: microsoft-365-todo-mcp
+description: "Use the Microsoft 365 To Do MCP tools (todo_*) to browse task lists, read tasks, and create, update, complete or delete tasks. Invoke whenever a task involves the user's Microsoft To Do reminders or task lists: it gives exact tool signatures, the two IDs every task operation needs, the dateTimeTimeZone shape for due dates, paging rules, the confirm-before-write flow, and how to interpret confirmed / confirmed_but_unreadable / rejected / indeterminate results."
+---
+
 # Microsoft 365 To Do (MCP tools)
 
 Connect to the To Do endpoint `/todo/mcp`. It exposes only `todo_*` tools — mail, calendar,

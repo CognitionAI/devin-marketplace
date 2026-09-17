@@ -1,3 +1,8 @@
+---
+name: microsoft-365-directory-mcp
+description: "Use the Microsoft 365 Directory MCP tools (directory_*) to look people up in Entra ID: search users by display name, fetch a user by object ID or UPN, get a user's manager, and identify the signed-in user. Invoke whenever a task needs someone's identity, email address or Entra object ID (for example before DMing them in Teams or inviting them to a meeting): it gives exact tool signatures, what each returns, paging rules, and how to resolve ambiguous matches safely. Directory is read-only."
+---
+
 # Microsoft 365 Directory (MCP tools)
 
 Connect to the directory endpoint `/directory/mcp`. It exposes only `directory_*` tools, all

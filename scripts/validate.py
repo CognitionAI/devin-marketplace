@@ -185,17 +185,10 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     if logo is not None:
         check_logo(where, slug, logo, errors)
     servers = data.get("mcpServers")
-    if not isinstance(servers, dict) or not servers:
-        errors.append(f"{where}: mcpServers must be a non-empty object")
+    if not isinstance(servers, dict) or len(servers) != 1 or slug not in servers:
+        errors.append(f"{where}: mcpServers must declare exactly one server named '{slug}'")
         return
-    bad = [key for key in servers if key != slug and not key.startswith(f"{slug}-")]
-    if bad:
-        errors.append(
-            f"{where}: mcpServers keys must be '{slug}' or start with '{slug}-', got {sorted(bad)}"
-        )
-        return
-    for server_slug, config in servers.items():
-        check_server(where, server_slug, config, errors)
+    check_server(where, slug, servers[slug], errors)
 
 
 def canonical(data: dict) -> str:

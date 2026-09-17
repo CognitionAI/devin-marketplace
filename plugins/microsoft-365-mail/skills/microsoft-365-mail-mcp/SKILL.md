@@ -1,3 +1,8 @@
+---
+name: microsoft-365-mail-mcp
+description: "Use the Microsoft 365 Mail MCP tools (mail_*) to read Outlook mail, browse folders, send mail, create drafts, archive/move/mark messages, and manage personal contacts. Invoke whenever a task involves the user's mailbox or contacts: it gives exact tool signatures and arguments, how to discover folder/message/contact IDs, paging rules, the preview-then-confirm flow required for every write, and how to interpret confirmed / confirmed_but_unreadable / rejected / indeterminate results."
+---
+
 # Microsoft 365 Mail (MCP tools)
 
 Connect to the mail endpoint `/mail/mcp`. It exposes only `mail_*` tools — calendar, files,

@@ -1,3 +1,8 @@
+---
+name: microsoft-365-collaboration-mcp
+description: "Use the Microsoft 365 Collaboration MCP tools (collaboration_*) to list Teams teams, channels and chats, list chat members, and send messages to a channel, an existing chat or a 1:1 DM. Invoke whenever a task involves posting in Microsoft Teams: it gives exact tool signatures, how to find team/channel/chat IDs and the Entra object ID a DM needs, mention syntax, the confirm-before-send flow, and how to interpret confirmed / confirmed_but_unreadable / rejected / indeterminate results. Chat message history is not readable — never plan to read a conversation."
+---
+
 # Microsoft 365 Collaboration / Teams (MCP tools)
 
 Connect to the collaboration endpoint `/collaboration/mcp`. It exposes only `collaboration_*`
