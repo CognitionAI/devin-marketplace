@@ -1,0 +1,16 @@
+{
+  "name": "strix",
+  "displayName": "Strix",
+  "description": "Run AI penetration tests and PR security reviews, then triage, fix, and retest the findings. List scans, vulnerabilities, PR review findings, assets, schedules, and supply-chain risk for your Strix workspace.",
+  "homepage": "https://strix.ai",
+  "repository": "https://github.com/usestrix/strix",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "strix": {
+      "url": "https://app.strix.ai/mcp"
+    }
+  }
+}
