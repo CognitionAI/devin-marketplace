@@ -65,6 +65,18 @@ is no search tool, so confirm the location with the user if listing does not fin
   renders a page image and requires `width` and `height`; `format="html"` only
   works on Loop/Fluid/Whiteboard items. Omit `format` for the original bytes.
   The result echoes which `format` was returned (`null` = original bytes).
+- What Graph actually returns for a conversion can differ from the request:
+  - `format="jpg"` has come back as **PNG** bytes (`\x89PNG`) while still echoing
+    `format: "jpg"`; check the magic bytes before naming or decoding the file.
+  - `width`/`height` are a **bounding box**, not the output size: a small image is
+    not upscaled (an 8x8 PNG stayed 8x8 at 200x100) and the aspect ratio is kept.
+  - `format="html"` also renders Markdown files (`<h1>`, `<strong>`…); on an
+    `.html` file it returns the original bytes.
+  - Formats Graph cannot convert (e.g. csv or png to `pdf`) fail with a generic
+    `The preauthenticated file download endpoint rejected the request.` — treat
+    that error after a `format` call as "conversion not supported" and fall back
+    to the original bytes rather than retrying.
+  - `width`/`height` are rejected unless `format="jpg"`.
 - A converted result larger than `max_bytes` **fails** instead of truncating — a
   truncated PDF/JPG is unusable — so raise `max_bytes` or ask the user; do not
   treat the failure as a partial read.
