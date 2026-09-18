@@ -28,21 +28,24 @@ Teams, tasks and people lookups live behind separate endpoints.
 | `mail_get(message_id)`                                                                                                                     | Full message including body.                                           |
 | `mail_folders(limit?, cursor?)`                                                                                                            | Folder ids, display names, unread counts.                              |
 | `mail_send_mail(subject, body, to[], body_type="Text"\|"HTML", cc?, bcc?, save_to_sent_items=true, confirm=false)`                         | Sends only with `confirm=true`.                                        |
-| `mail_create_draft(subject, body, to[], body_type?, cc?, bcc?, confirm=false)`                                                             | Creates a draft; it is never sent.                                     |
+| `mail_create_draft(subject, body, to[], body_type?, cc?, bcc?, confirm=false)`                                                             | Creates a draft; it is never sent. Recipients are not validated.       |
 | `mail_archive(message_id, confirm=false)`                                                                                                  | Moves to the well-known archive folder.                                |
 | `mail_move(message_id, destination_id, confirm=false)`                                                                                     | `destination_id` comes from `mail_folders`.                            |
 | `mail_mark_read(message_id, confirm=false)`                                                                                                | Marks read.                                                            |
-| `mail_contacts_list(email_address?, limit?, cursor?)`                                                                                      | Filter is an **exact** address match, not a name search.               |
+| `mail_contacts_list(email_address?, limit?, cursor?)`                                                                                      | Filter is an **exact**, case-insensitive address match, not a name search. |
 | `mail_contacts_get(contact_id)`                                                                                                            | One contact.                                                           |
-| `mail_contacts_create(given_name?, surname?, email_addresses?, business_phones?, mobile_phone?, job_title?, company_name?, confirm=false)` | At least one field required.                                           |
-| `mail_contacts_update(contact_id, ...same fields, confirm=false)`                                                                          | Omitted fields stay unchanged; an empty patch is rejected.             |
+| `mail_contacts_create(given_name?, surname?, email_addresses?, business_phones?, mobile_phone?, job_title?, company_name?, confirm=false)` | At least one field required. Addresses are not validated.              |
+| `mail_contacts_update(contact_id, ...same fields, confirm=false)`                                                                          | Omitted fields stay unchanged; at least one field required.            |
 | `mail_contacts_delete(contact_id, confirm=false)`                                                                                          | Deletes.                                                               |
 
 ## Discovering ids
 
-- Folder id → `mail_folders`, then pass it as `folder_id` / `destination_id`. Never invent one;
-  for archiving prefer `mail_archive` over `mail_move` with a guessed id.
-- Message id → `mail_list` or `mail_get`. Ids are immutable, so they stay valid after a move.
+- Folder id → `mail_folders`, then pass it as `folder_id` / `destination_id`. The well-known
+  names `inbox`, `drafts`, `sentitems`, `deleteditems`, `junkemail` and `archive` are accepted
+  too. Never invent any other id; for archiving prefer `mail_archive` over `mail_move`.
+- Message id → `mail_list` or `mail_get`. **A move or archive changes the id**: the old id
+  returns not found afterwards, so use `body.id` from the `mail_move` / `mail_archive` result
+  for any follow-up call.
 - Contact id → `mail_contacts_list`.
 
 ## Reading and paging
@@ -51,11 +54,14 @@ Teams, tasks and people lookups live behind separate endpoints.
   through a mailbox hunting for something.
 - `search` + `unread_only` together raises an error; pick one. `search` also drops the
   newest-first ordering.
-- Every list returns `{ "items": [...], "next": <cursor|null> }`. To get more, call the same
-  tool with `cursor` set to `next` **verbatim** and no other arguments changed. Never edit or
-  build a cursor URL yourself. A short page does not mean the end — only `next: null` does.
-  `limit` defaults to 25, max 200.
-- Results are narrow projections; use the fields returned rather than assuming Graph extras.
+- Every list returns `{ "items": [...], "next": <cursor|null> }`. To get more, repeat the call
+  with the **same arguments** (keep `folder_id`, `search`, `unread_only`, `email_address`) plus
+  `cursor` set to `next` **verbatim**; a cursor without the `folder_id` it came from is rejected
+  as not matching the collection. Never edit or build a cursor URL yourself. A short page does
+  not mean the end — only `next: null` does. `limit` defaults to 25; larger values than 200 are
+  capped.
+- Results are narrow projections in Graph's camelCase (`displayName`, `parentFolderId`,
+  `isRead`, `receivedDateTime`); list items carry `body: null` — use `mail_get` for the body.
 
 ## Writing: preview → approval → confirm
 
@@ -88,6 +94,9 @@ Read `status` on the result:
 - Confirm inferred addresses with the user before sending. `mail_contacts_list` matches an
   address exactly and cannot search by name.
 - `body_type` is `"Text"` (default) or `"HTML"`. Markdown is not rendered.
+- Only `mail_send_mail` validates addresses (a malformed or empty `to` is `rejected`).
+  `mail_create_draft` accepts an empty `to` or `not-an-email` and returns `confirmed`, and
+  `mail_contacts_create` stores such an address — check addresses before confirming.
 - Never paste the bearer token, and never quote raw Graph error bodies to the user.
 
 ## Examples
@@ -96,7 +105,7 @@ Read `status` on the result:
 // Read unread inbox mail, then page
 mail_folders { }
 mail_list { "folder_id": "AAMk...Inbox", "unread_only": true, "limit": 25 }
-mail_list { "cursor": "https://graph.microsoft.com/v1.0/me/messages?$skiptoken=..." }
+mail_list { "folder_id": "AAMk...Inbox", "unread_only": true, "limit": 25, "cursor": "https://graph.microsoft.com/v1.0/me/mailFolders/AAMk.../messages?$skiptoken=..." }
 
 // Send: preview, ask, then confirm
 mail_send_mail { "subject": "Q3 review", "body": "Notes attached.", "to": ["ana@contoso.com"] }
@@ -106,6 +115,7 @@ mail_send_mail { "subject": "Q3 review", "body": "Notes attached.", "to": ["ana@
 
 // Tidy up
 mail_archive { "message_id": "AAMk...", "confirm": true }
+//  -> { "status": "confirmed", "body": { "id": "AAMk...NEW", ... } }   use the new id from now on
 ```
 
 ## Not available — don't promise these
@@ -114,6 +124,8 @@ mail_archive { "message_id": "AAMk...", "confirm": true }
 - Reply / reply-all / forward tools — compose a new message instead.
 - Attachments (adding, reading or downloading them).
 - Rules, categories, and shared or delegated mailboxes; only the signed-in user's mailbox.
+- Deleting messages or marking them unread. To clean up, `mail_move` to `deleteditems`; the
+  item stays there until the user empties the folder.
 
 ## When something fails
 
@@ -125,8 +137,10 @@ mail_archive { "message_id": "AAMk...", "confirm": true }
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.
 - **429 / `retryable`** → wait `retry_after` before retrying, and retry reads only.
 - **`invalid_graph_url`** → the cursor was altered; restart from the first page.
-- **Validation errors** (`search` + `unread_only`, empty contact fields, empty patch) mean
-  nothing was sent; fix the arguments.
+- **Validation errors** (`search` + `unread_only`, `limit: 0`) mean nothing was sent; fix the
+  arguments. `mail_contacts_create` / `mail_contacts_update` with no fields fail as a tool error
+  ("At least one contact field is required.") rather than a `rejected` status — same meaning,
+  nothing was written.
 - **Ambiguity** (several plausible recipients, unclear folder) → ask the user before writing.
 
 ## Golden path

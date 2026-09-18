@@ -24,7 +24,7 @@ files, Teams and people lookups live behind separate endpoints.
 
 | Tool                                                                                                     | Notes                                                    |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `todo_lists(max_items=100, next_link?)`                                                                  | Lists with `id`, `display_name`, `wellknown_list_name`.  |
+| `todo_lists(max_items=100, next_link?)`                                                                  | Lists with `id`, `displayName`, `wellknownListName`.     |
 | `todo_list_tasks(list_id, max_items=100, next_link?)`                                                    | Tasks in one list.                                       |
 | `todo_get_task(list_id, task_id)`                                                                        | One task.                                                |
 | `todo_create_task(list_id, title, body?, due_date_time?, importance?, status?, confirm=false)`           | Creates only with `confirm=true`.                        |
@@ -37,15 +37,23 @@ Enumerations: `importance` ∈ `low`, `normal`, `high`. `status` ∈ `notStarted
 
 Structured arguments:
 
-- `due_date_time`: `{"date_time": "2026-09-03T17:00:00", "time_zone": "Europe/Madrid"}` — **both
-  fields required**, `date_time` is a naive local timestamp (no `Z`, no offset).
-- `body`: `{"content": "...", "content_type": "text"}` (or `"html"`) — both fields required.
+- `due_date_time`: `{"date_time": "2026-09-03T00:00:00", "time_zone": "Europe/Madrid"}` — **both
+  fields required**, `date_time` is a naive local timestamp (no `Z`, no offset). To Do due dates
+  are **date-only**: the time of day is dropped and the task is due at local midnight of that
+  date, so never promise the user a due time.
+- `body`: `{"content": "...", "content_type": "text"}` — both fields required. To Do stores
+  plain text: `"html"` is accepted but converted to text, so formatting is lost.
+
+Responses use Graph's camelCase field names, not the snake_case of the arguments: lists have
+`displayName`, `wellknownListName`, `isOwner`, `isShared`; tasks have `title`, `status`,
+`importance`, `dueDateTime.dateTime` / `dueDateTime.timeZone`, `body.contentType`,
+`completedDateTime`.
 
 ## Discovering ids
 
 **Every task operation needs two ids** and there is no "default list" shortcut:
 
-1. `todo_lists` → pick the `list_id` (match on `display_name`; if several plausibly match, ask
+1. `todo_lists` → pick the `list_id` (match on `displayName`; if several plausibly match, ask
    the user).
 2. `todo_list_tasks(list_id)` → pick the `task_id`.
 
@@ -55,7 +63,9 @@ Never guess or reuse an id across lists.
 
 - Lists return `{ "items": [...], "next": <cursor|null> }`. For more, repeat the call with
   `next_link` set to `next` **verbatim** and nothing else changed; never edit or build the URL.
-  Only `next: null` means the collection is exhausted. `max_items` is 1–100 (default 100).
+  Only `next: null` means the collection is exhausted — the last page can be empty with
+  `next: null` even though the page before it still had a `next`. `max_items` is 1–100
+  (default 100).
 - Filter client-side on what the tools return; there is no server-side search over tasks.
 
 ## Writing: describe → approval → confirm
@@ -82,14 +92,14 @@ once after you verify state; `todo_create_task` is not.
 
 ## Best practices
 
-- Built-in lists (those whose `wellknown_list_name` is not `none`, e.g. `flaggedEmails`) have
+- Built-in lists (those whose `wellknownListName` is not `none`, e.g. `flaggedEmails`) have
   mutability limits. A write against them can fail with a hint to use a custom list — surface
   that hint to the user instead of retrying.
 - Completing a task is `todo_complete_task`, not `todo_update_task` with a status string; use
   the dedicated tool.
 - An empty patch (`update_task` with no field) returns `rejected` / `invalid_request`; there is
   no way to clear a field.
-- State the time zone you used for a due date back to the user.
+- State the due date and the time zone you used back to the user (a date, not a time).
 - Never paste the bearer token, and never quote raw Graph error bodies to the user.
 
 ## Examples
@@ -97,14 +107,14 @@ once after you verify state; `todo_create_task` is not.
 ```jsonc
 // Find the list, then the task
 todo_lists { }
-//  -> items: [{ "id": "AQMkAD...", "display_name": "Tasks", "wellknown_list_name": "defaultList" }]
+//  -> items: [{ "id": "AQMkAD...", "displayName": "Tasks", "wellknownListName": "defaultList" }]
 todo_list_tasks { "list_id": "AQMkAD...", "max_items": 50 }
 todo_list_tasks { "list_id": "AQMkAD...", "next_link": "https://graph.microsoft.com/v1.0/me/todo/lists/AQMkAD.../tasks?$skiptoken=..." }
 
 // Add a task: describe, ask, confirm
 todo_create_task {
   "list_id": "AQMkAD...", "title": "Send Q3 review",
-  "due_date_time": { "date_time": "2026-09-03T17:00:00", "time_zone": "Europe/Madrid" },
+  "due_date_time": { "date_time": "2026-09-03T00:00:00", "time_zone": "Europe/Madrid" },
   "importance": "high"
 }
 //  -> { "status": "rejected", ... confirmation_required }   nothing was created

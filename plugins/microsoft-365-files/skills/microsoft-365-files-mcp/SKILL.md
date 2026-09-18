@@ -29,7 +29,7 @@ Teams, tasks and people lookups live behind separate endpoints.
 | `files_get_content(path, max_bytes=65536, format?, width?, height?)`             | Bounded content; `1 <= max_bytes <= 10485760` (10 MiB). Optional Graph conversion: `format="pdf"` (Office/md/html/rtf…), `"html"` (Loop/Fluid/Whiteboard only), `"jpg"` (requires `width`+`height`, 1..10000). |
 | `files_get_shared_content(share_url, max_bytes=65536)`                           | Same bounds and response as `files_get_content`, plus `drive_id` and `item_id`.                                                                                                                                |
 | `files_upload(path, content, content_encoding="utf-8"\|"base64", confirm=false)` | Simple upload, **overwrites** an existing file at that path.                                                                                                                                                   |
-| `files_mkdir(path, confirm=false)`                                               | Fails if the folder already exists.                                                                                                                                                                            |
+| `files_mkdir(path, confirm=false)`                                               | Fails if the folder already exists; creates missing intermediate folders (`a/b/c` from nothing works).                                                                                                         |
 | `files_delete(path, confirm=false)`                                              | Deletes a file or folder.                                                                                                                                                                                      |
 
 ## Paths (the most common source of errors)
@@ -91,8 +91,8 @@ identifiers if you need a follow-up call instead of passing the link again.
 ## Paging
 
 `files_list` returns `{ "items": [...], "next": <cursor|null> }`. For more, repeat the call with
-`next` set to that value **verbatim** and **no `path`** (passing both is rejected). Never edit or
-build the URL. Only `next: null` means the folder is exhausted; `max` defaults to 25, max 200.
+`next` set to that value **verbatim** and the **same `path`** as the first call (a `next` without
+its `path` is rejected as not matching the collection). Never edit or build the URL. Only `next: null` means the folder is exhausted; `max` defaults to 25, max 200.
 
 ## Writing: preview → approval → confirm
 
@@ -113,6 +113,10 @@ Read `status` on the result:
 | `rejected`                 | Nothing happened (no `confirm`, invalid path, or a 4xx). | Fix the arguments and retry safely.                                                                                |
 | `indeterminate`            | It **may** have happened (timeout / server error).       | **Do not re-upload.** `files_stat` the path and compare size/timestamp first, then tell the user it is unverified. |
 
+Uploading to a path that is an existing **folder** currently comes back as `indeterminate`
+(`graph_unavailable`), although nothing was written. `files_stat` the target before uploading so
+you never hit it.
+
 `files_mkdir` and `files_delete` at the same path may be retried once after verifying state; an
 upload must not be blindly repeated.
 
@@ -130,7 +134,7 @@ upload must not be blindly repeated.
 ```jsonc
 // Browse, then read
 files_list { "path": "Documents/2026" }
-files_list { "next": "https://graph.microsoft.com/v1.0/me/drive/items/01ABC.../children?$skiptoken=..." }
+files_list { "path": "Documents/2026", "next": "https://graph.microsoft.com/v1.0/me/drive/items/01ABC.../children?$skiptoken=..." }
 files_stat { "path": "Documents/2026/plan.md" }
 files_get_content { "path": "Documents/2026/plan.md", "max_bytes": 65536 }
 //  -> { "content": "# Plan\n", "truncated": false, "returned_bytes": 7, "total_bytes": 7 }
@@ -167,8 +171,8 @@ files_mkdir { "path": "Documents/2026/archive", "confirm": true }
   report it rather than working around it.
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.
 - **429 / `retryable`** → wait `retry_after`, and retry reads only.
-- **`invalid_graph_url`** → the `next` cursor was altered, or you passed `next` together with a
-  `path`; restart from the first page.
+- **`invalid_graph_url`** → the `next` cursor was altered, or you passed it without the `path` it
+  came from (or with a different one); restart from the first page.
 - **Validation errors** (bad path, `max_bytes` out of range, oversized upload) mean nothing was
   sent; fix the arguments.
 - **Not found** → re-`files_list` the parent folder; do not guess a neighbouring path.

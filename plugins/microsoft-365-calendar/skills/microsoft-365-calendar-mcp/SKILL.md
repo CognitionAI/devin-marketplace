@@ -31,8 +31,9 @@ files, Teams, tasks and people lookups live behind separate endpoints.
 ## Times and time zones (get this right)
 
 - Write times are `{"date_time": "2026-09-02T10:00:00", "time_zone": "Europe/Madrid"}`: a
-  **naive local timestamp** plus an IANA or Windows zone. No `Z` and no offset inside
-  `date_time`. Omitting `time_zone` means UTC. An ISO 8601 string with an explicit offset
+  **naive local timestamp** plus an IANA or Windows zone. Do not put a `Z` or an offset inside
+  `date_time`: the server does not reject it, and combined with a non-UTC `time_zone` the result
+  is ambiguous. Omitting `time_zone` means UTC. An ISO 8601 string with an explicit offset
   (`"2026-09-02T10:00:00Z"`) is accepted too and read as that UTC instant; a string without
   an offset is rejected rather than guessed.
 - `list_events` `start`/`end` are plain ISO 8601 instants (`"2026-09-01T00:00:00Z"`), and
@@ -84,7 +85,9 @@ never be blindly retried.
 
 - `attendees` is a list of
   `{"address": "ana@contoso.com", "name"?: "Ana", "kind": "required"|"optional"|"resource"}`;
-  `kind` defaults to `required`.
+  `kind` defaults to `required`. Addresses are **not validated**: a malformed one (`not-an-email`)
+  is saved as-is and the call still returns `confirmed`, so check every address before
+  confirming.
 - `update_event` **replaces** the attendee list you send — include everyone who should stay.
 - A patch that changes `attendees` together with the reminder properties is sent as two
   sequential requests (everything else first, attendees second). If the first succeeds and
