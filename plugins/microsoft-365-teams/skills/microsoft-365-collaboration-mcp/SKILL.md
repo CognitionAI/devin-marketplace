@@ -22,15 +22,15 @@ tools — mail, calendar, files, tasks and people lookups live behind separate e
 
 ## Tool signatures
 
-| Tool                                                                                         | Notes                                                                              |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `collaboration_list_teams(cursor?)`                                                          | Teams the user has joined.                                                         |
-| `collaboration_list_channels(team_id, cursor?)`                                              | Channels of a team.                                                                |
+| Tool                                                                                         | Notes                                                                                       |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `collaboration_list_teams(cursor?)`                                                          | Teams the user has joined.                                                                  |
+| `collaboration_list_channels(team_id, cursor?)`                                              | Channels of a team.                                                                         |
 | `collaboration_list_chats(limit?, cursor?)`                                                  | Chat **metadata only** — id, topic, type, timestamps. No messages. `limit` is capped at 50. |
-| `collaboration_list_chat_members(chat_id, cursor?)`                                          | Members of a chat.                                                                 |
-| `collaboration_send_channel_message(team_id, channel_id, content, mentions?, confirm=false)` | Posts only with `confirm=true`.                                                    |
-| `collaboration_send_chat_message(chat_id, content, mentions?, confirm=false)`                | Posts only with `confirm=true`.                                                    |
-| `collaboration_send_dm(user_id, content, mentions?, confirm=false)`                          | Finds or creates a verified 1:1 chat with `user_id`, then sends.                   |
+| `collaboration_list_chat_members(chat_id, cursor?)`                                          | Members of a chat.                                                                          |
+| `collaboration_send_channel_message(team_id, channel_id, content, mentions?, confirm=false)` | Posts only with `confirm=true`.                                                             |
+| `collaboration_send_chat_message(chat_id, content, mentions?, confirm=false)`                | Posts only with `confirm=true`.                                                             |
+| `collaboration_send_dm(user_id, content, mentions?, confirm=false)`                          | Finds or creates a verified 1:1 chat with `user_id`, then sends.                            |
 
 ## You cannot read messages
 

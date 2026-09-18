@@ -22,21 +22,21 @@ Teams, tasks and people lookups live behind separate endpoints.
 
 ## Tool signatures
 
-| Tool                                                                                                                                       | Notes                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
-| `mail_list(folder_id?, search?, unread_only=false, limit?, cursor?)`                                                                       | One page, newest first. `search` and `unread_only` cannot be combined. |
-| `mail_get(message_id)`                                                                                                                     | Full message including body.                                           |
-| `mail_folders(limit?, cursor?)`                                                                                                            | Folder ids, display names, unread counts.                              |
-| `mail_send_mail(subject, body, to[], body_type="Text"\|"HTML", cc?, bcc?, save_to_sent_items=true, confirm=false)`                         | Sends only with `confirm=true`.                                        |
-| `mail_create_draft(subject, body, to[], body_type?, cc?, bcc?, confirm=false)`                                                             | Creates a draft; it is never sent. Recipients are not validated.       |
-| `mail_archive(message_id, confirm=false)`                                                                                                  | Moves to the well-known archive folder.                                |
-| `mail_move(message_id, destination_id, confirm=false)`                                                                                     | `destination_id` comes from `mail_folders`.                            |
-| `mail_mark_read(message_id, confirm=false)`                                                                                                | Marks read.                                                            |
+| Tool                                                                                                                                       | Notes                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| `mail_list(folder_id?, search?, unread_only=false, limit?, cursor?)`                                                                       | One page, newest first. `search` and `unread_only` cannot be combined.     |
+| `mail_get(message_id)`                                                                                                                     | Full message including body.                                               |
+| `mail_folders(limit?, cursor?)`                                                                                                            | Folder ids, display names, unread counts.                                  |
+| `mail_send_mail(subject, body, to[], body_type="Text"\|"HTML", cc?, bcc?, save_to_sent_items=true, confirm=false)`                         | Sends only with `confirm=true`.                                            |
+| `mail_create_draft(subject, body, to[], body_type?, cc?, bcc?, confirm=false)`                                                             | Creates a draft; it is never sent. Recipients are not validated.           |
+| `mail_archive(message_id, confirm=false)`                                                                                                  | Moves to the well-known archive folder.                                    |
+| `mail_move(message_id, destination_id, confirm=false)`                                                                                     | `destination_id` comes from `mail_folders`.                                |
+| `mail_mark_read(message_id, confirm=false)`                                                                                                | Marks read.                                                                |
 | `mail_contacts_list(email_address?, limit?, cursor?)`                                                                                      | Filter is an **exact**, case-insensitive address match, not a name search. |
-| `mail_contacts_get(contact_id)`                                                                                                            | One contact.                                                           |
-| `mail_contacts_create(given_name?, surname?, email_addresses?, business_phones?, mobile_phone?, job_title?, company_name?, confirm=false)` | At least one field required. Addresses are not validated.              |
-| `mail_contacts_update(contact_id, ...same fields, confirm=false)`                                                                          | Omitted fields stay unchanged; at least one field required.            |
-| `mail_contacts_delete(contact_id, confirm=false)`                                                                                          | Deletes.                                                               |
+| `mail_contacts_get(contact_id)`                                                                                                            | One contact.                                                               |
+| `mail_contacts_create(given_name?, surname?, email_addresses?, business_phones?, mobile_phone?, job_title?, company_name?, confirm=false)` | At least one field required. Addresses are not validated.                  |
+| `mail_contacts_update(contact_id, ...same fields, confirm=false)`                                                                          | Omitted fields stay unchanged; at least one field required.                |
+| `mail_contacts_delete(contact_id, confirm=false)`                                                                                          | Deletes.                                                                   |
 
 ## Discovering ids
 
