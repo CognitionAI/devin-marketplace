@@ -91,7 +91,7 @@ directory_get_manager { "user_id": "6f1e...-guid" }
 - **429 / `retryable`** → wait `retry_after` before retrying.
 - **`invalid_graph_url`** → the cursor was altered; restart from the first page.
 - **Empty `query`** is rejected; supply a real name.
-- **No manager** (top of the org, or an org contact) is a valid answer — report it as such.
+- **No manager** (top of the org, or an org contact) comes back as a not-found error (`Resource 'manager' does not exist`), not an empty result. It is a valid answer — report "no manager", don't treat it as a failure.
 
 ## Golden path
 
