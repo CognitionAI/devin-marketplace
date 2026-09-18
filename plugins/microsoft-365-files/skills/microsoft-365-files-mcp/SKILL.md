@@ -73,9 +73,11 @@ is no search tool, so confirm the location with the user if listing does not fin
   - `format="html"` also renders Markdown files (`<h1>`, `<strong>`…); on an
     `.html` file it returns the original bytes.
   - Formats Graph cannot convert (e.g. csv or png to `pdf`) fail with a generic
-    `The preauthenticated file download endpoint rejected the request.` — treat
-    that error after a `format` call as "conversion not supported" and fall back
-    to the original bytes rather than retrying.
+    `The preauthenticated file download endpoint rejected the request.` The same
+    message is used for any failed converted download, including transient ones
+    (throttling, 5xx), so it alone does not prove the format is unsupported: retry
+    once, and if it fails again treat it as "conversion not supported" and fall
+    back to the original bytes.
   - `width`/`height` are rejected unless `format="jpg"`.
 - A converted result larger than `max_bytes` **fails** instead of truncating — a
   truncated PDF/JPG is unusable — so raise `max_bytes` or ask the user; do not
