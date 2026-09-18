@@ -1,5 +1,5 @@
 ---
-name: strix-fix-finding
+name: fix-finding
 description: >
   Fix a vulnerability that Strix found and prove the fix. Use when the user
   gives a Strix finding id or link, says "fix this Strix finding", "patch the
@@ -16,7 +16,7 @@ Turn one Strix vulnerability into a reviewed code change, then let Strix confirm
 - The user names a finding id, a Strix vulnerability URL, or a scan plus a finding title.
 - The finding has a code location in a repository you can edit.
 
-Do not use this skill to triage a list of findings (strix-triage-findings) or to start a new scan (strix-run-scan).
+Do not use this skill to triage a list of findings (triage-findings) or to start a new scan (run-scan).
 
 ## How
 

@@ -1,5 +1,5 @@
 ---
-name: strix-run-scan
+name: run-scan
 description: >
   Start or rerun a Strix penetration test against a verified domain or a
   connected repository. Use when the user says "pentest this", "scan
@@ -15,7 +15,7 @@ Propose a scan configuration, get confirmation, and start the scan.
 
 - The user wants a new penetration test, a code security review of a repository, or a repeat of an earlier scan.
 
-Do not use this skill to review a pull request (strix-pr-review-status) or to retest one finding (strix-fix-finding).
+Do not use this skill to review a pull request (pr-review-status) or to retest one finding (fix-finding).
 
 ## How
 

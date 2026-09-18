@@ -1,5 +1,5 @@
 ---
-name: strix-triage-findings
+name: triage-findings
 description: >
   Review and prioritize open Strix vulnerabilities. Use when the user asks
   "what did Strix find", "triage the open findings", "what should we fix
@@ -16,7 +16,7 @@ Load the open findings, group them, and propose the order of fixes.
 - The user wants an overview of open findings across the workspace or for one scan.
 - The user wants to know which finding to fix first.
 
-Do not use this skill to change code (strix-fix-finding) or to write a periodic report (strix-security-report).
+Do not use this skill to change code (fix-finding) or to write a periodic report (security-report).
 
 ## How
 

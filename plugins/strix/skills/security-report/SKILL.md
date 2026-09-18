@@ -1,5 +1,5 @@
 ---
-name: strix-security-report
+name: security-report
 description: >
   Compile a security posture report from Strix data. Use when the user asks
   for a weekly or monthly security report, a summary of scan activity, new
@@ -15,7 +15,7 @@ Write a periodic security report from scans, findings, PR reviews, and supply-ch
 
 - The user wants a report for a period, for example the last 7 or 30 days.
 
-Do not use this skill to summarize one scan (call `get_scan` directly) or to triage findings (strix-triage-findings).
+Do not use this skill to summarize one scan (call `get_scan` directly) or to triage findings (triage-findings).
 
 ## How
 

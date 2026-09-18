@@ -1,5 +1,5 @@
 ---
-name: strix-pr-review-status
+name: pr-review-status
 description: >
   Report Strix pull request security reviews and the findings that block a
   merge. Use when the user asks "did Strix review my PR", "what is blocking
@@ -16,7 +16,7 @@ Report review verdicts and the open findings on pull requests.
 - The user wants the security status of one or more pull requests.
 - The user wants Strix to review a pull request that has no review yet.
 
-Do not use this skill for scan findings (strix-triage-findings).
+Do not use this skill for scan findings (triage-findings).
 
 ## How
 
