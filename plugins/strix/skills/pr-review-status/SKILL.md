@@ -34,3 +34,4 @@ Do not use this skill for scan findings (triage-findings).
 ## Starting a review
 
 - Call `start_pr_review` only when the user asks for a review of a specific pull request. The repository must be connected in Strix. Check with `list_repositories` first.
+- `start_pr_review` requires four arguments: `provider` (`github`, `gitlab`, or `bitbucket`), `installation_id` (the provider installation that has access to the repository, an integer), `repository_full_name` (`owner/name`), and `pr_number`. Read `provider` and `installation_id` from the repository record that `list_repositories` returns.
