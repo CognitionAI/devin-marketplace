@@ -187,6 +187,30 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/igmarin/agent-profiles.git",
+      "path": "plugins/elixir-developer",
+      "sha": "bd820dd5ab1aeb8ce8aace87c798df0cb990491d"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/igmarin/agent-profiles.git",
+      "path": "plugins/project-planning",
+      "sha": "bd820dd5ab1aeb8ce8aace87c798df0cb990491d"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/igmarin/agent-profiles.git",
+      "path": "plugins/ruby-developer",
+      "sha": "bd820dd5ab1aeb8ce8aace87c798df0cb990491d"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/igmarin/agent-profiles.git",
+      "path": "plugins/rust-developer",
+      "sha": "bd820dd5ab1aeb8ce8aace87c798df0cb990491d"
     }
   ]
 }
