@@ -179,6 +179,7 @@
     "./plugins/trellis",
     "./plugins/unleash",
     "./plugins/vercel",
+    "./plugins/webdock",
     "./plugins/windsor-ai",
     "./plugins/wolfram",
     "./plugins/zapier",
