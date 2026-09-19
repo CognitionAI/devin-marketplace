@@ -183,6 +183,11 @@
     "./plugins/wolfram",
     "./plugins/zapier",
     {
+      "source": "url",
+      "url": "https://github.com/60fps-Design/plugin.git",
+      "sha": "d7e9ceb04e99105abef1ae6bcd059e5002c03cc1"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
