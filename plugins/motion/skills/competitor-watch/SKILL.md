@@ -17,9 +17,9 @@ allowed-tools:
   - "mcp__motion__search_brands"
   - "mcp__motion__get_brand_by_domain"
   - "mcp__motion__get_workspace_brand"
-  - mcp__a8f5bb61-0837-408d-a165-744ad0d8d236__slack_create_canvas
-  - mcp__a8f5bb61-0837-408d-a165-744ad0d8d236__slack_send_message
-  - mcp__a8f5bb61-0837-408d-a165-744ad0d8d236__slack_search_channels
+  - mcp__motion__slack_create_canvas
+  - mcp__motion__slack_send_message
+  - mcp__motion__slack_search_channels
   - mcp__scheduled-tasks__create_scheduled_task
   - mcp__scheduled-tasks__list_scheduled_tasks
 model: opus
