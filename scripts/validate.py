@@ -41,6 +41,8 @@ PLUGIN_KEYS = {
 }
 STDIO_KEYS = {"command", "args", "env"}
 HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
+SKILL_NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+FRONTMATTER_LINE_RE = re.compile(r"^([A-Za-z][A-Za-z0-9_-]*):(?:\s+(.*))?$")
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -161,6 +163,51 @@ def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
         errors.append(f"{where}: logo '{logo}' does not exist in the plugin directory")
 
 
+def skill_frontmatter(text: str) -> dict[str, str] | None:
+    """Top-level ``key: value`` pairs of the YAML frontmatter, or None if absent."""
+    if not text.startswith("---\n"):
+        return None
+    body = text[4:]
+    end = body.find("\n---\n")
+    if end < 0:
+        return None
+    fields: dict[str, str] = {}
+    for line in body[:end].splitlines():
+        match = FRONTMATTER_LINE_RE.match(line)
+        if match:
+            fields[match.group(1)] = (match.group(2) or "").strip()
+    return fields
+
+
+def check_skills(where: str, slug: str, errors: list[str]) -> int:
+    """Validate plugins/<slug>/skills/*/SKILL.md; return how many skills there are."""
+    skills_dir = PLUGINS / slug / "skills"
+    if not skills_dir.is_dir():
+        return 0
+    count = 0
+    for entry in sorted(skills_dir.iterdir()):
+        here = f"{where}/skills/{entry.name}"
+        if not entry.is_dir():
+            errors.append(f"{here}: skills/ may only contain skill directories")
+            continue
+        count += 1
+        if not SKILL_NAME_RE.match(entry.name) or len(entry.name) > 64:
+            errors.append(f"{here}: skill directory must be 1-64 lowercase letters, digits and hyphens")
+        skill_md = entry / "SKILL.md"
+        if not skill_md.is_file():
+            errors.append(f"{here}: missing SKILL.md")
+            continue
+        fields = skill_frontmatter(skill_md.read_text(encoding="utf-8"))
+        if fields is None:
+            errors.append(f"{here}: SKILL.md must start with a --- frontmatter block")
+            continue
+        if fields.get("name") != entry.name:
+            errors.append(f"{here}: frontmatter name must match the directory ({entry.name})")
+        if not fields.get("description"):
+            errors.append(f"{here}: frontmatter needs a non-empty description")
+    return count
+
+
 def check_local_plugin(slug: str, errors: list[str]) -> None:
     where = f"plugins/{slug}"
     path = PLUGINS / slug / ".devin-plugin" / "plugin.json"
@@ -185,6 +232,10 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     if logo is not None:
         check_logo(where, slug, logo, errors)
     servers = data.get("mcpServers")
+    if servers is None:
+        if not check_skills(where, slug, errors):
+            errors.append(f"{where}: must declare mcpServers or ship at least one skills/<name>/SKILL.md")
+        return
     if not isinstance(servers, dict) or len(servers) != 1 or slug not in servers:
         errors.append(f"{where}: mcpServers must declare exactly one server named '{slug}'")
         return

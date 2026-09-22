@@ -29,6 +29,20 @@ this and CI runs it.
      `headers` the placeholder is the credential's only name.
 2. Add `"./plugins/<slug>"` to `optionalPlugins` in `.devin-plugin/plugin.json`.
 
+## Skills we author (no MCP server)
+
+1. Create `plugins/<slug>/.devin-plugin/plugin.json` with `name`, `displayName`,
+   `description` and `keywords` as above, and no `mcpServers`.
+2. Put each skill at `plugins/<slug>/skills/<name>/SKILL.md`: `<name>` is 1-64
+   lowercase letters, digits and hyphens, and the frontmatter `name` must equal
+   it and carry a non-empty `description`. Keep provenance in the frontmatter
+   (`metadata.devin.*`), never in the body.
+3. When the skills are generated from another repository (e.g.
+   `plugins/community-playbooks` comes from devin-webapp's
+   `scripts/export_community_playbooks_plugin.py`), regenerate the whole
+   directory with that tool instead of hand-editing files here.
+4. Add `"./plugins/<slug>"` to `optionalPlugins`.
+
 ## A third-party plugin
 
 1. Review the vendor and the exact upstream commit you are endorsing.

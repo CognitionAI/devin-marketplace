@@ -78,6 +78,7 @@
     "./plugins/cognition-redshift",
     "./plugins/cognition-snowflake",
     "./plugins/cognition-spanner",
+    "./plugins/community-playbooks",
     "./plugins/confidence",
     "./plugins/confidence-docs",
     "./plugins/contentsquare",
