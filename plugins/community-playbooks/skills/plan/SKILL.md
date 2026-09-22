@@ -28,7 +28,7 @@ Think about the full user intent. Tickets are sometimes sparse. Make sure you di
 
 1. Fetch the ticket details using the Linear MCP `get_issue` tool with the ticket ID
 2. **Review all comments and attachments on the ticket** - comments often contain critical context, clarifications, design decisions, or updated requirements that aren't in the main description. Attachments may include designs, specifications, or technical documents.
-3. Before diving into code: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_question` to learn about the relevant systems – send queries for multiple repos that could be relevant to get the full picture. Use `read_wiki_contents` to then get a better understanding how different parts of the codebase connect to each other.
+3. Before diving into code: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_wiki_question` to learn about the relevant systems – send queries for multiple repos that could be relevant to get the full picture. Use `read_wiki_contents` to then get a better understanding how different parts of the codebase connect to each other.
 4. Gather additional context to understand what the ticket means and refers to:
    - Look at past tickets in the same project and from the same author to understand patterns and terminology
    - Search for related commits and PRs (by author and content) that may provide context on the affected systems
@@ -52,7 +52,7 @@ Think about the full user intent. Tickets are sometimes sparse. Make sure you di
 <phase name="Research" id="2">
 ## Research Phase
 
-1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Progress" (or equivalent) using `update_issue`
+1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Progress" (or equivalent) using `save_issue`
 2. Identify all relevant files and modules:
    - Search for files that will need to be modified
    - Identify related configuration files, tests, and documentation
@@ -84,7 +84,7 @@ Think about the full user intent. Tickets are sometimes sparse. Make sure you di
 ## Summary Phase
 
 1. Compile a concise implementation plan overview using the Output Format below
-2. Update the ticket using `update_issue` to add a comment with the implementation plan summary
+2. Add a comment to the ticket using `save_comment` with the implementation plan summary
 3. Send a brief message to the user with the compiled overview
 
 ## Output Format
@@ -168,16 +168,16 @@ Only every create the todo list for the current phase. Once you fully moved to t
 ### Linear MCP
 - `get_issue`: Fetch issue details. Parameter: `id` (the issue identifier like "ENG-123")
 - `list_issue_statuses`: List available statuses. Parameter: `team` (team name or ID, not `teamId`)
-- `update_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc.
-  - When adding resource links, first read the issue to collect existing links and include them in the update so you do not overwrite prior links.
+- `save_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc. `links` is a list of `{url, title}` and is append-only: existing links are kept, so pass only the new ones
+- `save_comment`: Add a comment to an issue. Parameters: `issueId` (the issue identifier) and `body` (Markdown)
 
 ### Devin MCP
 Use for high-level codebase understanding. Available tools:
 - `read_wiki_structure`: Get documentation topics. Parameter: `repoName` (e.g., "owner/repo")
 - `read_wiki_contents`: View documentation. Parameter: `repoName`
-- `ask_question`: Ask about a repo. Parameters: `repoName` and `question`
+- `ask_wiki_question`: Ask about a repo. Parameters: `repoName` and `question`
 
-Note: There is no `search` tool on the Devin MCP. Use `ask_question` instead.
+Note: There is no `search` tool on the Devin MCP. Use `ask_wiki_question` instead.
 IMPORTANT: there is also a deepwiki MCP that is similar. DO NOT USE IT. Only use the Devin MCP. Because the Devin MCP allows you to access your private repos. The Deepwiki MCP only does public repos.
 
 ## Advice and Pointers

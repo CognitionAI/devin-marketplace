@@ -34,7 +34,7 @@ Think about the full scope of the bug. Tickets are sometimes sparse. Make sure y
    - Affected users, accounts, or entities
    - Timestamps of when the issue occurred
    - Any reproduction steps or conditions mentioned
-4. Before diving into logs: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_question` to learn about the relevant systems – send queries for multiple repos that could be relevant to get the full picture. Use `read_wiki_contents` to then get a better understanding how different parts of the codebase connect to each other.
+4. Before diving into logs: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_wiki_question` to learn about the relevant systems – send queries for multiple repos that could be relevant to get the full picture. Use `read_wiki_contents` to then get a better understanding how different parts of the codebase connect to each other.
 5. Identify the scope of investigation:
    - Which services or components are likely involved?
    - What time range should be searched?
@@ -55,7 +55,7 @@ Think about the full scope of the bug. Tickets are sometimes sparse. Make sure y
 <phase name="Investigation" id="2">
 ## Investigation Phase
 
-1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Progress" (or equivalent) using `update_issue`
+1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Progress" (or equivalent) using `save_issue`
 2. If available: Search logs using MCPs like Sentry, Datadog, etc.
    - Search with relevant query filters (ticket ID, error status, timestamps)
    - Search for error and warning logs
@@ -95,7 +95,7 @@ Think about the full scope of the bug. Tickets are sometimes sparse. Make sure y
    - **Suggested Fix**: Brief description of how to address the issue
 2. If multiple root causes are plausible, rank them by likelihood based on evidence
 3. Identify any gaps in the investigation that could be filled with additional access or information
-4. Update the ticket using `update_issue` to add a comment with the root cause analysis summary
+4. Add a comment to the ticket using `save_comment` with the root cause analysis summary
 5. Send a brief message to the user with all strongly plausible root causes and supporting evidence
 
 ## Output Format
@@ -163,19 +163,19 @@ Only every create the todo list for the current phase. Once you fully moved to t
 ### Linear MCP
 - `get_issue`: Fetch issue details. Parameter: `id` (the issue identifier like "ENG-123")
 - `list_issue_statuses`: List available statuses. Parameter: `team` (team name or ID, not `teamId`)
-- `update_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc.
-  - When adding resource links, first read the issue to collect existing links and include them in the update so you do not overwrite prior links.
+- `save_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc. `links` is a list of `{url, title}` and is append-only: existing links are kept, so pass only the new ones
+- `save_comment`: Add a comment to an issue. Parameters: `issueId` (the issue identifier) and `body` (Markdown)
 
 ### Devin MCP
 Use for high-level codebase understanding. Available tools:
 - `read_wiki_structure`: Get documentation topics. Parameter: `repoName` (e.g., "owner/repo")
 - `read_wiki_contents`: View documentation. Parameter: `repoName`
-- `ask_question`: Ask about a repo. Parameters: `repoName` and `question`
+- `ask_wiki_question`: Ask about a repo. Parameters: `repoName` and `question`
 
 
 Use other MCPs relevant for this task such as Datadog or Sentry if available.
 
-Note: There is no `search` tool on the Devin MCP. Use `ask_question` instead.
+Note: There is no `search` tool on the Devin MCP. Use `ask_wiki_question` instead.
 IMPORTANT: there is also a deepwiki MCP that is similar. DO NOT USE IT. Only use the Devin MCP. Because the Devin MCP allows you to access your private repos. The Deepwiki MCP only does public repos.
 
 ## Advice and Pointers

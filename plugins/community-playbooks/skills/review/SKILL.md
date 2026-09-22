@@ -35,7 +35,7 @@ Understand the ticket requirements and locate the PR to review.
    - What is the expected behavior or outcome?
    - Are there specific acceptance criteria?
    - What was the original intent of the ticket creator?
-5. Before reviewing code: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_question` to learn about the relevant systems. Use `read_wiki_contents` to understand how different parts of the codebase connect.
+5. Before reviewing code: use the devin MCP to get a high-level understanding of the relevant systems and architecture. Use `ask_wiki_question` to learn about the relevant systems. Use `read_wiki_contents` to understand how different parts of the codebase connect.
 6. Look for coding standards and guidelines:
    - Search for knowledge/md files in the repository meant for agents or developers
    - Check for CONTRIBUTING.md, CODING_STANDARDS.md, or similar files
@@ -56,7 +56,7 @@ Understand the ticket requirements and locate the PR to review.
 <phase name="Code Review" id="2">
 ## Code Review Phase
 
-1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Review" (or equivalent) using `update_issue`
+1. Use `list_issue_statuses` with the team from the issue to discover available status names, then update the ticket status to "In Review" (or equivalent) using `save_issue`
 2. Check out the PR branch and review the diff:
    - Understand the scope of changes (files modified, lines added/removed)
    - Identify the main areas of the codebase being modified
@@ -107,7 +107,7 @@ Understand the ticket requirements and locate the PR to review.
    - **Major**: Should be fixed, significantly impacts code quality
    - **Minor**: Nice to have, stylistic or minor improvements
    - **Nitpick**: Optional suggestions, won't block approval
-3. Update the ticket using `update_issue` to add a comment with the review summary
+3. Add a comment to the ticket using `save_comment` with the review summary
 4. Post review comments directly on the PR if GitHub access is available
 5. Send a brief message to the user with the review summary and recommendation (approve/request changes)
 
@@ -168,16 +168,16 @@ Only every create the todo list for the current phase. Once you fully moved to t
 ### Linear MCP
 - `get_issue`: Fetch issue details. Parameter: `id` (the issue identifier like "ENG-123")
 - `list_issue_statuses`: List available statuses. Parameter: `team` (team name or ID, not `teamId`)
-- `update_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc.
-  - When adding resource links, first read the issue to collect existing links and include them in the update so you do not overwrite prior links.
+- `save_issue`: Update an issue. Parameter: `id` for the issue, plus `state`, `links`, etc. `links` is a list of `{url, title}` and is append-only: existing links are kept, so pass only the new ones
+- `save_comment`: Add a comment to an issue. Parameters: `issueId` (the issue identifier) and `body` (Markdown)
 
 ### Devin MCP
 Use for high-level codebase understanding. Available tools:
 - `read_wiki_structure`: Get documentation topics. Parameter: `repoName` (e.g., "owner/repo")
 - `read_wiki_contents`: View documentation. Parameter: `repoName`
-- `ask_question`: Ask about a repo. Parameters: `repoName` and `question`
+- `ask_wiki_question`: Ask about a repo. Parameters: `repoName` and `question`
 
-Note: There is no `search` tool on the Devin MCP. Use `ask_question` instead.
+Note: There is no `search` tool on the Devin MCP. Use `ask_wiki_question` instead.
 IMPORTANT: there is also a deepwiki MCP that is similar. DO NOT USE IT. Only use the Devin MCP. Because the Devin MCP allows you to access your private repos. The Deepwiki MCP only does public repos.
 
 ### Other MCPs
