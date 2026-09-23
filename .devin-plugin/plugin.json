@@ -180,6 +180,7 @@
     "./plugins/trellis",
     "./plugins/unleash",
     "./plugins/vercel",
+    "./plugins/wealthnow",
     "./plugins/windsor-ai",
     "./plugins/wolfram",
     "./plugins/zapier",
