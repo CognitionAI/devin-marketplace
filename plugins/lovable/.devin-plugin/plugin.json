@@ -10,7 +10,7 @@
   ],
   "mcpServers": {
     "lovable": {
-      "url": "https://mcp.lovable.dev/?src=cc-plugin"
+      "url": "https://mcp.lovable.dev"
     }
   }
 }
