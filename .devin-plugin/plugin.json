@@ -8,7 +8,6 @@
     "./plugins/activecampaign",
     "./plugins/airtable",
     "./plugins/airwallex",
-    "./plugins/airwallex-sandbox",
     "./plugins/aiven",
     "./plugins/amplemarket",
     "./plugins/amplitude",
@@ -208,7 +207,6 @@
     "./plugins/slack",
     "./plugins/slack-remote",
     "./plugins/sonarqube",
-    "./plugins/sp-global-kfinance",
     "./plugins/sqlite",
     "./plugins/square",
     "./plugins/statsig",
@@ -241,7 +239,6 @@
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
     "./plugins/zapier",
-    "./plugins/zoho-catalyst",
     {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
