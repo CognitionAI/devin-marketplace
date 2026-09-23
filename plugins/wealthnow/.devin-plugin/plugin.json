@@ -1,0 +1,16 @@
+{
+  "name": "wealthnow",
+  "displayName": "Wealthnow",
+  "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets for Devin. Get live quotes and price history for stocks and crypto, pull full financial statements and key metrics, screen stocks and compare peers, read structured extracts from 10-K, 10-Q and 8-K filings, and follow insider, institutional and congressional trading. Sign in with a Wealthnow account; the free plan includes 1,000 credits a month. Every tool is read-only. Data and structured signals, not investment advice.",
+  "homepage": "https://wealthnow.io/api",
+  "repository": "https://github.com/Hlobo-dev/wealthnow-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp"
+    }
+  }
+}
