@@ -188,6 +188,12 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/fmd-labs/viral-app-agents.git",
+      "path": "plugins/viral-app",
+      "sha": "f90bfbd2e8c15f057b70f30f184a8f41a05460c7"
     }
   ]
 }
