@@ -1,0 +1,16 @@
+{
+  "name": "qt-docs",
+  "displayName": "Qt Docs",
+  "description": "Qt Group's hosted documentation MCP server: search Qt C++ and QML documentation.",
+  "homepage": "https://www.qt.io",
+  "repository": "https://github.com/TheQtCompanyRnD/agent-skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "qt-docs": {
+      "url": "https://qt-docs-mcp.qt.io/mcp"
+    }
+  }
+}

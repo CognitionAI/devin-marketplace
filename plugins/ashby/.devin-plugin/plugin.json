@@ -1,0 +1,15 @@
+{
+  "name": "ashby",
+  "displayName": "Ashby",
+  "description": "Ashby's hosted MCP server: search candidates, prepare interviews and manage recruiting pipeline tasks.",
+  "homepage": "https://www.ashbyhq.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "ashby": {
+      "url": "https://mcp.ashbyhq.com/mcp/v1"
+    }
+  }
+}

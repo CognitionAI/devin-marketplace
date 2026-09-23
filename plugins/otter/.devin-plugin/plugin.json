@@ -1,0 +1,15 @@
+{
+  "name": "otter",
+  "displayName": "Otter.ai",
+  "description": "Otter.ai's hosted MCP server: search your meeting history and pull full meeting transcripts and summaries.",
+  "homepage": "https://otter.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "otter": {
+      "url": "https://mcp.otter.ai/mcp"
+    }
+  }
+}

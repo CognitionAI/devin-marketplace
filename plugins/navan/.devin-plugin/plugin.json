@@ -1,0 +1,15 @@
+{
+  "name": "navan",
+  "displayName": "Navan",
+  "description": "Navan's hosted MCP server: query expenses, travel bookings, policies and corporate cards.",
+  "homepage": "https://navan.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "navan": {
+      "url": "https://mcp.navan.com/mcp"
+    }
+  }
+}

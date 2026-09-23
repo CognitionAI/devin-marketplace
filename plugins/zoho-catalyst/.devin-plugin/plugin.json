@@ -1,0 +1,16 @@
+{
+  "name": "zoho-catalyst",
+  "displayName": "Catalyst by Zoho",
+  "description": "Catalyst by Zoho's hosted MCP server: manage resources on the Catalyst full-stack serverless platform (functions, data stores, file stores, auth and more).",
+  "homepage": "https://catalyst.zoho.com",
+  "repository": "https://github.com/catalystbyzoho/claude-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "zoho-catalyst": {
+      "url": "https://catalyst.zohomcp.com/mcp/message"
+    }
+  }
+}

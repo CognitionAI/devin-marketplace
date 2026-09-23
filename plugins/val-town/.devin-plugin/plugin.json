@@ -1,0 +1,16 @@
+{
+  "name": "val-town",
+  "displayName": "Val Town",
+  "description": "Val Town's hosted MCP server: create, read, update and run vals (HTTP handlers, cron jobs, SQLite, email) on the Val Town platform.",
+  "homepage": "https://www.val.town",
+  "repository": "https://github.com/val-town/plugins",
+  "logo": "logo.png",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "val-town": {
+      "url": "https://api.val.town/v3/mcp"
+    }
+  }
+}

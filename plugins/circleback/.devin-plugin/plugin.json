@@ -1,0 +1,16 @@
+{
+  "name": "circleback",
+  "displayName": "Circleback",
+  "description": "Circleback's hosted MCP server: search and access your meetings, notes, action items, emails and calendar events.",
+  "homepage": "https://circleback.ai",
+  "repository": "https://github.com/circlebackai/claude-code-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "circleback": {
+      "url": "https://circleback.ai/api/mcp"
+    }
+  }
+}

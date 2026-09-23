@@ -1,0 +1,15 @@
+{
+  "name": "readwise",
+  "displayName": "Readwise",
+  "description": "Readwise's hosted MCP server: search your highlights and Reader documents, and save articles to Reader.",
+  "homepage": "https://readwise.io",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "readwise": {
+      "url": "https://mcp2.readwise.io/mcp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "juicebox",
+  "displayName": "Juicebox",
+  "description": "Juicebox's hosted MCP server: query recruiting analytics, candidate shortlists and sourcing agents.",
+  "homepage": "https://juicebox.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "juicebox": {
+      "url": "https://mcp.juicebox.ai/v1"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "godaddy",
+  "displayName": "GoDaddy",
+  "description": "GoDaddy's hosted domains MCP server: brainstorm domain names and check their availability.",
+  "homepage": "https://www.godaddy.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "godaddy": {
+      "url": "https://api.godaddy.com/v1/domains/mcp"
+    }
+  }
+}

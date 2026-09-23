@@ -1,0 +1,16 @@
+{
+  "name": "airwallex",
+  "displayName": "Airwallex",
+  "description": "Airwallex's hosted MCP server: orchestrate actions across your Airwallex account in plain language, such as creating invoices from a PO, onboarding suppliers and checking cash positions across currencies.",
+  "homepage": "https://www.airwallex.com",
+  "repository": "https://github.com/airwallex/airwallex-marketplace",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "airwallex": {
+      "url": "https://mcp.airwallex.com/mcp"
+    }
+  }
+}

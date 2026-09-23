@@ -1,0 +1,16 @@
+{
+  "name": "circle",
+  "displayName": "Circle",
+  "description": "Circle's hosted developer MCP server: real-time guidance on Circle SDKs and documentation for USDC payments, cross-chain transfers, wallets and smart contracts.",
+  "homepage": "https://www.circle.com",
+  "repository": "https://github.com/circlefin/skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "circle": {
+      "url": "https://api.circle.com/v1/codegen/mcp"
+    }
+  }
+}

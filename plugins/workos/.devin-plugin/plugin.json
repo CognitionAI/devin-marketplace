@@ -1,0 +1,16 @@
+{
+  "name": "workos",
+  "displayName": "WorkOS",
+  "description": "WorkOS's hosted MCP server: manage AuthKit, SSO, Directory Sync, organizations, users and other WorkOS resources.",
+  "homepage": "https://workos.com",
+  "repository": "https://github.com/workos/skills",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "workos": {
+      "url": "https://mcp.workos.com/mcp"
+    }
+  }
+}

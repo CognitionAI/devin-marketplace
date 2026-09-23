@@ -1,0 +1,15 @@
+{
+  "name": "mem",
+  "displayName": "Mem",
+  "description": "Mem's hosted MCP server: capture, search and organize notes and collections in your Mem workspace.",
+  "homepage": "https://get.mem.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "mem": {
+      "url": "https://mcp.mem.ai/mcp"
+    }
+  }
+}

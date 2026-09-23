@@ -1,0 +1,16 @@
+{
+  "name": "twilio-docs",
+  "displayName": "Twilio Docs",
+  "description": "Twilio's hosted documentation MCP server: search Twilio docs and API references for SMS, Voice, WhatsApp, Verify, SendGrid and other products.",
+  "homepage": "https://www.twilio.com",
+  "repository": "https://github.com/twilio/ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Communication"
+  ],
+  "mcpServers": {
+    "twilio-docs": {
+      "url": "https://mcp.twilio.com/docs"
+    }
+  }
+}

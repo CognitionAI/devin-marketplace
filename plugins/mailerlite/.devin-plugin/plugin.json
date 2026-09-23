@@ -1,0 +1,15 @@
+{
+  "name": "mailerlite",
+  "displayName": "MailerLite",
+  "description": "MailerLite's hosted MCP server: manage subscribers, groups, campaigns and automations.",
+  "homepage": "https://www.mailerlite.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "mailerlite": {
+      "url": "https://mcp.mailerlite.com/mcp"
+    }
+  }
+}

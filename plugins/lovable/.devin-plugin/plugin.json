@@ -1,0 +1,16 @@
+{
+  "name": "lovable",
+  "displayName": "Lovable",
+  "description": "Lovable's hosted MCP server: build, iterate on, deploy and manage Lovable apps and their databases.",
+  "homepage": "https://lovable.dev",
+  "repository": "https://github.com/lovablelabs/mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "lovable": {
+      "url": "https://mcp.lovable.dev"
+    }
+  }
+}

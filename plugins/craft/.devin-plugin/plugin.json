@@ -1,0 +1,15 @@
+{
+  "name": "craft",
+  "displayName": "Craft",
+  "description": "Craft's hosted MCP server: search, create and update documents and daily notes in your Craft workspace.",
+  "homepage": "https://www.craft.do",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "craft": {
+      "url": "https://mcp.craft.do/my/mcp"
+    }
+  }
+}

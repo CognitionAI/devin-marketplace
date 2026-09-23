@@ -1,0 +1,15 @@
+{
+  "name": "wispr-flow",
+  "displayName": "Wispr Flow",
+  "description": "Read-only access to Wispr Flow Notetaker meeting summaries, notes, transcripts, tasks, Scratchpad notes and calendar events",
+  "homepage": "https://wisprflow.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "wispr-flow": {
+      "url": "https://api.wisprflow.ai/connect/mcp"
+    }
+  }
+}

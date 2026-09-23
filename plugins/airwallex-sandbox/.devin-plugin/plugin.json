@@ -1,0 +1,16 @@
+{
+  "name": "airwallex-sandbox",
+  "displayName": "Airwallex Sandbox",
+  "description": "Airwallex's hosted developer MCP server against the Airwallex sandbox (demo) environment, for building and testing integrations without touching live funds.",
+  "homepage": "https://www.airwallex.com/docs",
+  "repository": "https://github.com/airwallex/airwallex-marketplace",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "airwallex-sandbox": {
+      "url": "https://mcp.sandbox.airwallex.com/developer"
+    }
+  }
+}

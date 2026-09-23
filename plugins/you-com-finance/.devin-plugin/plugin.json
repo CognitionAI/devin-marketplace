@@ -1,0 +1,16 @@
+{
+  "name": "you-com-finance",
+  "displayName": "You.com Finance",
+  "description": "You.com's hosted finance MCP server: financial-market search and data via the You.com API.",
+  "homepage": "https://you.com",
+  "repository": "https://github.com/youdotcom-oss/agent-skills",
+  "logo": "logo.jpg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "you-com-finance": {
+      "url": "https://api.you.com/mcp/finance"
+    }
+  }
+}

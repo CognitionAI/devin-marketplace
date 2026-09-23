@@ -1,0 +1,16 @@
+{
+  "name": "mapbox",
+  "displayName": "Mapbox",
+  "description": "Mapbox's hosted MCP server: geocoding, directions, isochrones, POI search and other geospatial tools for building location-aware applications.",
+  "homepage": "https://www.mapbox.com",
+  "repository": "https://github.com/mapbox/mapbox-agent-skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mapbox": {
+      "url": "https://mcp.mapbox.com/mcp"
+    }
+  }
+}

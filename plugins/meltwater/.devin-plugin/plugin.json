@@ -1,0 +1,15 @@
+{
+  "name": "meltwater",
+  "displayName": "Meltwater",
+  "description": "Meltwater's hosted MCP server: search media and social mentions and pull media-intelligence analytics.",
+  "homepage": "https://www.meltwater.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "meltwater": {
+      "url": "https://api.meltwater.com/v2/mcp"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cockroachdb",
+  "displayName": "CockroachDB Cloud",
+  "description": "Cockroach Labs' hosted MCP server for CockroachDB Cloud: explore schemas, write and debug SQL, and manage your distributed database clusters.",
+  "homepage": "https://www.cockroachlabs.com",
+  "repository": "https://github.com/cockroachdb/claude-plugin",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "cockroachdb": {
+      "url": "https://cockroachlabs.cloud/mcp"
+    }
+  }
+}

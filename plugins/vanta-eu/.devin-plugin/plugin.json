@@ -1,0 +1,16 @@
+{
+  "name": "vanta-eu",
+  "displayName": "Vanta (EU)",
+  "description": "Vanta's hosted MCP server for accounts in the EU data region: query compliance tests, controls, frameworks, vendors and evidence, and get remediation guidance.",
+  "homepage": "https://www.vanta.com",
+  "repository": "https://github.com/VantaInc/vanta-mcp-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "vanta-eu": {
+      "url": "https://mcp.eu.vanta.com/mcp"
+    }
+  }
+}

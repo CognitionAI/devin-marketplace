@@ -1,0 +1,15 @@
+{
+  "name": "statsig",
+  "displayName": "Statsig",
+  "description": "Statsig's hosted MCP server: inspect and manage feature gates, experiments, dynamic configs and metrics.",
+  "homepage": "https://www.statsig.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "statsig": {
+      "url": "https://api.statsig.com/v1/mcp"
+    }
+  }
+}

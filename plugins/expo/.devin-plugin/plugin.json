@@ -1,0 +1,16 @@
+{
+  "name": "expo",
+  "displayName": "Expo",
+  "description": "Expo's hosted MCP server: query your Expo projects, EAS builds, updates and submissions, and get Expo/React Native guidance.",
+  "homepage": "https://expo.dev",
+  "repository": "https://github.com/expo/skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "expo": {
+      "url": "https://mcp.expo.dev/mcp"
+    }
+  }
+}

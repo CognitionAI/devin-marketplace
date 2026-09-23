@@ -1,0 +1,15 @@
+{
+  "name": "amplemarket",
+  "displayName": "Amplemarket",
+  "description": "Amplemarket's hosted MCP server: search people and companies, enrich leads and run outbound sequences.",
+  "homepage": "https://www.amplemarket.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "amplemarket": {
+      "url": "https://mcp.amplemarket.com/mcp"
+    }
+  }
+}
