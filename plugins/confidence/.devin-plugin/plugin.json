@@ -1,0 +1,16 @@
+{
+  "name": "confidence",
+  "displayName": "Spotify Confidence",
+  "description": "Spotify Confidence's hosted MCP server: manage feature flags, experiments and rollouts in your Confidence account.",
+  "homepage": "https://confidence.spotify.com",
+  "repository": "https://github.com/spotify/confidence-ai-plugins",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "confidence": {
+      "url": "https://mcp.confidence.dev/mcp/flags"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "brex",
+  "displayName": "Brex",
+  "description": "Brex's hosted MCP server: query expenses, receipts, bills, cards, budgets and travel across your Brex account.",
+  "homepage": "https://www.brex.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "brex": {
+      "url": "https://api.brex.com/mcp"
+    }
+  }
+}

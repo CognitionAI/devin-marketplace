@@ -1,0 +1,16 @@
+{
+  "name": "wix",
+  "displayName": "Wix",
+  "description": "Wix's hosted MCP server: manage Wix sites and apps, including site content, business data and CLI-based app development.",
+  "homepage": "https://www.wix.com",
+  "repository": "https://github.com/wix/skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "wix": {
+      "url": "https://mcp.wix.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "codspeed",
+  "displayName": "CodSpeed",
+  "description": "CodSpeed's hosted MCP server: dive into benchmark results, flamegraphs and performance comparisons to pinpoint bottlenecks and iterate on performance.",
+  "homepage": "https://codspeed.io",
+  "repository": "https://github.com/CodSpeedHQ/codspeed",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "codspeed": {
+      "url": "https://mcp.codspeed.io/mcp"
+    }
+  }
+}

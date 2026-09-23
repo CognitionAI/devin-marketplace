@@ -1,0 +1,15 @@
+{
+  "name": "webull",
+  "displayName": "Webull",
+  "description": "Webull's hosted MCP server: view accounts, positions, orders, watchlists and market data.",
+  "homepage": "https://www.webull.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "webull": {
+      "url": "https://api.webull.com/mcp"
+    }
+  }
+}

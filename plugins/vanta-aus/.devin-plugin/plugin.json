@@ -1,0 +1,16 @@
+{
+  "name": "vanta-aus",
+  "displayName": "Vanta (AUS)",
+  "description": "Vanta's hosted MCP server for accounts in the Australia data region: query compliance tests, controls, frameworks, vendors and evidence, and get remediation guidance.",
+  "homepage": "https://www.vanta.com",
+  "repository": "https://github.com/VantaInc/vanta-mcp-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "vanta-aus": {
+      "url": "https://mcp.aus.vanta.com/mcp"
+    }
+  }
+}

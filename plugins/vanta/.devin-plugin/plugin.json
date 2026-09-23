@@ -1,0 +1,16 @@
+{
+  "name": "vanta",
+  "displayName": "Vanta",
+  "description": "Vanta's hosted MCP server: query compliance tests, controls, frameworks, vendors and evidence, and get test-specific remediation guidance for your security and compliance program.",
+  "homepage": "https://www.vanta.com",
+  "repository": "https://github.com/VantaInc/vanta-mcp-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "vanta": {
+      "url": "https://mcp.vanta.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "appwrite",
+  "displayName": "Appwrite",
+  "description": "Appwrite's hosted MCP server: manage your Appwrite Cloud projects, databases, auth, storage, functions and deployments.",
+  "homepage": "https://appwrite.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "appwrite": {
+      "url": "https://mcp.appwrite.io"
+    }
+  }
+}

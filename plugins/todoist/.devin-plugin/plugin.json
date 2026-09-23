@@ -1,0 +1,15 @@
+{
+  "name": "todoist",
+  "displayName": "Todoist",
+  "description": "Todoist's hosted MCP server: create, find, update and complete tasks and projects in your Todoist workspace.",
+  "homepage": "https://todoist.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "todoist": {
+      "url": "https://ai.todoist.net/mcp"
+    }
+  }
+}

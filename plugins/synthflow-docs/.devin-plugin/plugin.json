@@ -1,0 +1,15 @@
+{
+  "name": "synthflow-docs",
+  "displayName": "Synthflow Docs",
+  "description": "Synthflow's hosted documentation MCP server: search the Synthflow AI voice-agent platform docs.",
+  "homepage": "https://synthflow.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "synthflow-docs": {
+      "url": "https://docs.synthflow.ai/_mcp/server"
+    }
+  }
+}

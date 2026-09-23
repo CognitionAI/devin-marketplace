@@ -1,0 +1,15 @@
+{
+  "name": "workable",
+  "displayName": "Workable",
+  "description": "Workable's hosted MCP server: search candidates, move them through hiring pipelines and manage HR records.",
+  "homepage": "https://www.workable.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "workable": {
+      "url": "https://mcp.workable.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "excalidraw",
+  "displayName": "Excalidraw",
+  "description": "Excalidraw's hosted MCP server: draw and export hand-drawn-style diagrams from chat.",
+  "homepage": "https://excalidraw.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "excalidraw": {
+      "url": "https://mcp.excalidraw.com/mcp"
+    }
+  }
+}
