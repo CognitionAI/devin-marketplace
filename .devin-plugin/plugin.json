@@ -7,7 +7,6 @@
   "optionalPlugins": [
     "./plugins/activecampaign",
     "./plugins/airtable",
-    "./plugins/airwallex",
     "./plugins/aiven",
     "./plugins/amplemarket",
     "./plugins/amplitude",

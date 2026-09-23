@@ -9,7 +9,10 @@
   ],
   "mcpServers": {
     "cockroachdb": {
-      "url": "https://cockroachlabs.cloud/mcp"
+      "url": "https://cockroachlabs.cloud/mcp",
+      "headers": {
+        "mcp-cluster-id": "${COCKROACHDB_CLUSTER_ID}"
+      }
     }
   }
 }
