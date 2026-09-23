@@ -3,7 +3,6 @@
   "displayName": "Hunter.io",
   "description": "Hunter.io's hosted MCP server: find and verify professional email addresses, search contacts by domain and enrich company data.",
   "homepage": "https://hunter.io",
-  "repository": "https://github.com/hunter-io/claude-plugin",
   "logo": "logo.png",
   "keywords": [
     "Customer & Sales"

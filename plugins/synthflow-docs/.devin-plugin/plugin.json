@@ -3,7 +3,6 @@
   "displayName": "Synthflow Docs",
   "description": "Synthflow's hosted documentation MCP server: search the Synthflow AI voice-agent platform docs.",
   "homepage": "https://synthflow.ai",
-  "repository": "https://github.com/SynthFlowAI/AnthropicPlugin",
   "logo": "logo.png",
   "keywords": [
     "AI & Machine Learning"

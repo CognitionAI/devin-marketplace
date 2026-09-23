@@ -3,7 +3,6 @@
   "displayName": "Wingspan",
   "description": "Wingspan's hosted MCP server: look up the contractors you pay through Wingspan, what you owe them and what is holding up a payment, and draft contractor onboarding and payments for review.",
   "homepage": "https://www.wingspan.app",
-  "repository": "https://github.com/wingspanHQ/mcp-claude-plugin",
   "logo": "logo.jpg",
   "keywords": [
     "Finance"

@@ -3,7 +3,6 @@
   "displayName": "LogRocket",
   "description": "LogRocket's hosted MCP server: query session replays, metrics, issues and user behavior in natural language.",
   "homepage": "https://logrocket.com",
-  "repository": "https://github.com/LogRocket/logrocket-claude-plugin",
   "logo": "logo.png",
   "keywords": [
     "Monitoring & Analytics"
