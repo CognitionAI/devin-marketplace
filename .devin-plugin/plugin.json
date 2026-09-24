@@ -241,6 +241,12 @@
     "./plugins/zapier",
     {
       "source": "git-subdir",
+      "url": "https://github.com/Winterrks/telepathy.git",
+      "path": "plugin",
+      "sha": "b54cd59bdee91d1749e486ccfe93758f530a380a"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
