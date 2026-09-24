@@ -1,0 +1,20 @@
+{
+  "name": "dchub",
+  "displayName": "DC Hub",
+  "description": "Live data-center and energy intelligence for AI agents: 24,500+ facilities, 92 tools, grid/fiber/site selection, markets, and M&A. Free tier included; Pro $99/mo.",
+  "homepage": "https://dchub.cloud",
+  "repository": "https://github.com/azmartone67/dchub-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "dchub": {
+      "url": "https://dchub.cloud/mcp",
+      "headers": {
+        "X-API-Key": "${X_API_KEY}"
+      }
+    }
+  }
+}
