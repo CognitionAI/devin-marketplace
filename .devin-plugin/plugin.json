@@ -117,6 +117,7 @@
     "./plugins/grafana-remote",
     "./plugins/granola",
     "./plugins/graphos-tools",
+    "./plugins/hermoso",
     "./plugins/heroku",
     "./plugins/hex",
     "./plugins/honeycomb",
