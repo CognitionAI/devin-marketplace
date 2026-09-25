@@ -35,15 +35,16 @@ this and CI runs it.
    `description` and `keywords` as above, and no `mcpServers`.
 2. Put each skill at `plugins/<slug>/skills/<name>/SKILL.md`: `<name>` is 1-64
    lowercase letters, digits and hyphens, and the frontmatter `name` must equal
-   it and carry a non-empty `description`. Frontmatter is only `name` and
-   `description`: do not add provenance or ownership fields (`metadata.*`),
-   they cannot prove anything and the skill is an ordinary skill either way.
+   it and carry a non-empty `description`; other standard optional skill
+   frontmatter fields are fine.
 3. When the skills are generated from another repository (e.g.
    `plugins/community-playbooks` comes from devin-webapp's
    `scripts/export_community_playbooks_plugin.py`), regenerate the whole
-   directory with that tool instead of hand-editing files here. The mapping
-   back to the source (there: macro and stable playbook id) lives in that
-   tool's report, not in the skill files.
+   directory with that tool instead of hand-editing files here. Those
+   generated skills carry only `name` and `description`: no playbook
+   provenance (`metadata.devin.*` such as `playbook_id` or macro) is written
+   into them; the mapping back to the source playbook lives in that tool's
+   report.
 4. Add `"./plugins/<slug>"` to `optionalPlugins`.
 
 ## A third-party plugin
