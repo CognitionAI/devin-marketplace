@@ -1,13 +1,6 @@
 ---
 name: automation-discovery
 description: "Automations: Find automations for me."
-metadata:
-  devin:
-    from_playbook: true
-    playbook_id: "playbook-bb28d1332728418781cb39d75cbba731"
-    playbook_macro: "!automation_discovery"
-    playbook_title: "Automations: Find automations for me"
-    playbook_access: "community"
 ---
 
 # Find automations for me

@@ -1,13 +1,6 @@
 ---
 name: review
 description: "Linear: Code Review."
-metadata:
-  devin:
-    from_playbook: true
-    playbook_id: "playbook-b57154e41ca443318e79e089faba37ed"
-    playbook_macro: "!review"
-    playbook_title: "Linear: Code Review"
-    playbook_access: "community"
 ---
 
 # Code Review

@@ -1,13 +1,6 @@
 ---
 name: triage
 description: "Linear: Triage. Triage Alert."
-metadata:
-  devin:
-    from_playbook: true
-    playbook_id: "playbook-14fed18b89d44713a26e673cf258f548"
-    playbook_macro: "!triage"
-    playbook_title: "Linear: Triage"
-    playbook_access: "community"
 ---
 
 # Triage Alert

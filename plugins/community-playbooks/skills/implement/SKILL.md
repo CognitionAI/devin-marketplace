@@ -1,13 +1,6 @@
 ---
 name: implement
 description: "Linear: Implement."
-metadata:
-  devin:
-    from_playbook: true
-    playbook_id: "playbook-b6ba73c577084d2392720a2abf51dc26"
-    playbook_macro: "!implement"
-    playbook_title: "Linear: Implement"
-    playbook_access: "community"
 ---
 
 # Implement

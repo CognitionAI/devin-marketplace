@@ -1,13 +1,6 @@
 ---
 name: plan
 description: "Linear: Plan. Plan Implementation."
-metadata:
-  devin:
-    from_playbook: true
-    playbook_id: "playbook-b0d9a34380374c3e903d900d340d8da7"
-    playbook_macro: "!plan"
-    playbook_title: "Linear: Plan"
-    playbook_access: "community"
 ---
 
 # Plan Implementation
