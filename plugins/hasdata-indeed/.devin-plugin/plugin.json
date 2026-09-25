@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-indeed",
+  "displayName": "Indeed MCP Server",
+  "description": "Search Indeed job listings by keyword and location, and read a single posting in full, as structured JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/indeed-api",
+  "repository": "https://github.com/HasData/indeed-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-indeed": {
+      "url": "https://mcp.hasdata.com/mcp?apis=indeed",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}

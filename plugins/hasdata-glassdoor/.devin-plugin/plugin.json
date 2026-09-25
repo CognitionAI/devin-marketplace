@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-glassdoor",
+  "displayName": "Glassdoor MCP Server",
+  "description": "Glassdoor job listings and full postings with employer ratings and salary figures marked as employer-provided or estimated, as structured JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/glassdoor-api",
+  "repository": "https://github.com/HasData/glassdoor-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-glassdoor": {
+      "url": "https://mcp.hasdata.com/mcp?apis=glassdoor",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}
