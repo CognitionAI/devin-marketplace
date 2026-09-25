@@ -38,8 +38,8 @@ this and CI runs it.
    it and carry a non-empty `description`; other standard optional skill
    frontmatter fields are fine.
 3. When the skills are generated from another repository (e.g.
-   `plugins/community-playbooks` comes from devin-webapp's
-   `scripts/export_community_playbooks_plugin.py`), regenerate the whole
+   `plugins/system-playbooks` comes from devin-webapp's
+   `scripts/export_system_playbooks_plugin.py`), regenerate the whole
    directory with that tool instead of hand-editing files here. Those
    generated skills carry only `name` and `description`: no playbook
    provenance (`metadata.devin.*` such as `playbook_id` or macro) is written

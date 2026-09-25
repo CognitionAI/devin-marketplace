@@ -1,8 +1,0 @@
-{
-  "name": "community-playbooks",
-  "displayName": "Community Playbooks",
-  "description": "Cognition's community playbooks as skills: one skill per `!macro` playbook every account gets, with the playbook body verbatim.",
-  "keywords": [
-    "Essentials"
-  ]
-}

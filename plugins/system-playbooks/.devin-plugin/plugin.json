@@ -1,0 +1,8 @@
+{
+  "name": "system-playbooks",
+  "displayName": "System playbooks",
+  "description": "Cognition's System playbooks as skills: one skill per `!macro` playbook every account gets, with the playbook body verbatim.",
+  "keywords": [
+    "Essentials"
+  ]
+}
