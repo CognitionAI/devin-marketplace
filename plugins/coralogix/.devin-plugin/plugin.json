@@ -1,0 +1,18 @@
+{
+  "name": "coralogix",
+  "displayName": "Coralogix (API key)",
+  "description": "Query Coralogix logs, metrics, traces, and RUM, and manage alerts and dashboards via the official Coralogix MCP server. Set CORALOGIX_DOMAIN to your account's domain, e.g. eu2.coralogix.com (eu1, eu2, us1, us2, us3, ap1, ap2 or ap3).",
+  "homepage": "https://coralogix.com/",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "coralogix": {
+      "url": "https://api.${CORALOGIX_DOMAIN}/mgmt/api/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CORALOGIX_API_KEY}"
+      }
+    }
+  }
+}
