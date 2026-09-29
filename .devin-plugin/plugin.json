@@ -200,6 +200,7 @@
     "./plugins/resend",
     "./plugins/rootly",
     "./plugins/sanity",
+    "./plugins/search1api",
     "./plugins/sentry",
     "./plugins/shopify-dev",
     "./plugins/similarweb",
