@@ -240,6 +240,11 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "url",
+      "url": "https://github.com/better-designs/better-design-plugin.git",
+      "sha": "3de854d8473a1ab83f23e4c2cec4c520cc93460d"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
