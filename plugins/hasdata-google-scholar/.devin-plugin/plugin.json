@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-google-scholar",
+  "displayName": "Google Scholar MCP Server",
+  "description": "Google Scholar search with author and year filters, cited-by and all-versions lookups, plus citations in five styles with BibTeX export. Runs on HasData's hosted API.",
+  "homepage": "https://docs.hasdata.com/apis/google-scholar/scholar",
+  "repository": "https://github.com/HasData/google-scholar-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-google-scholar": {
+      "url": "https://mcp.hasdata.com/mcp?apis=google_scholar",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}

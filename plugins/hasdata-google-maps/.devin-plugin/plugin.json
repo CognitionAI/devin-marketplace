@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-google-maps",
+  "displayName": "Google Maps MCP Server",
+  "description": "Google Maps place search and place details, plus reviews, photos, posts and contributor history, as structured JSON. No Google Cloud project to set up. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/google-maps-search-api",
+  "repository": "https://github.com/HasData/google-maps-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "hasdata-google-maps": {
+      "url": "https://mcp.hasdata.com/mcp?apis=google_maps",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}

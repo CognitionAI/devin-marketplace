@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-google-flights",
+  "displayName": "Google Flights MCP Server",
+  "description": "One-way, round-trip and multi-city Google Flights itineraries with fares, legs, carbon emissions and price history, as structured JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/apis/google-flights-api",
+  "repository": "https://github.com/HasData/google-flights-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-google-flights": {
+      "url": "https://mcp.hasdata.com/mcp?apis=google_travel_flights",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}

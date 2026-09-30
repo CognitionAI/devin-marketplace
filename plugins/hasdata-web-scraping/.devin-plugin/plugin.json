@@ -1,0 +1,20 @@
+{
+  "name": "hasdata-web-scraping",
+  "displayName": "Web Scraping MCP Server",
+  "description": "Fetch any public web page through managed proxies, with optional JavaScript rendering, wait conditions and CSS or AI extraction rules, as markdown, text, HTML or JSON. Runs on HasData's hosted API.",
+  "homepage": "https://hasdata.com/web-scraping-api",
+  "repository": "https://github.com/HasData/web-scraping-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "hasdata-web-scraping": {
+      "url": "https://mcp.hasdata.com/mcp?apis=web_scraping",
+      "headers": {
+        "x-api-key": "${HASDATA_API_KEY}"
+      }
+    }
+  }
+}
