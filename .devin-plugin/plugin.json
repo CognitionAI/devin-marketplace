@@ -91,6 +91,7 @@
     "./plugins/datadog-remote",
     "./plugins/datahub",
     "./plugins/dbt",
+    "./plugins/dchub",
     "./plugins/deepwiki",
     "./plugins/dockerhub",
     "./plugins/elasticsearch",
