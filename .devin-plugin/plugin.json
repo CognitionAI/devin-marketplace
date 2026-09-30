@@ -127,6 +127,7 @@
     "./plugins/interactive-brokers",
     "./plugins/intercom",
     "./plugins/jam",
+    "./plugins/jmeter-docs",
     "./plugins/jotform",
     "./plugins/juicebox",
     "./plugins/klaviyo",
