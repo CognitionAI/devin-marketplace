@@ -4,7 +4,10 @@
   "description": "Query engineering metrics for an Antenna enterprise.",
   "homepage": "https://www.antenna.dev",
   "logo": "logo.svg",
-  "keywords": ["Monitoring & Analytics"],
+  "keywords": [
+    "Monitoring & Analytics",
+    "Productivity"
+  ],
   "mcpServers": {
     "antenna": {
       "url": "https://app.antenna.dev/api/mcp/enterprise",
