@@ -1,0 +1,17 @@
+{
+  "name": "hermoso",
+  "displayName": "Hermoso",
+  "description": "Hermoso gives your AI agent a marketing team: research the ads winning in your market, make finished image and video ads, publish to 10 channels, and run paid campaigns",
+  "homepage": "https://hermoso.ai",
+  "repository": "https://github.com/hermoso-ai/hermoso",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales",
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "hermoso": {
+      "url": "https://app.hermoso.ai/mcp"
+    }
+  }
+}
