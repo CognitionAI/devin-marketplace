@@ -1,0 +1,16 @@
+{
+  "name": "antenna",
+  "displayName": "Antenna",
+  "description": "Query engineering metrics for an Antenna enterprise.",
+  "homepage": "https://www.antenna.dev",
+  "logo": "logo.svg",
+  "keywords": ["Monitoring & Analytics"],
+  "mcpServers": {
+    "antenna": {
+      "url": "https://app.antenna.dev/api/mcp/enterprise",
+      "headers": {
+        "Authorization": "Bearer ${ANTENNA_API_KEY}"
+      }
+    }
+  }
+}
