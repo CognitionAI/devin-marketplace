@@ -1,0 +1,15 @@
+{
+  "name": "coralogix",
+  "displayName": "Coralogix (OAuth)",
+  "description": "Query logs, metrics, and traces from Coralogix. Execute DataPrime queries, investigate issues, manage alerts and parsing rules, and perform AI-native root cause analysis via the official Coralogix MCP server.",
+  "homepage": "https://coralogix.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "coralogix": {
+      "url": "https://${CORALOGIX_DOMAIN}/mgmt/api/v1/mcp"
+    }
+  }
+}
