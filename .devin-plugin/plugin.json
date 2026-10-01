@@ -206,6 +206,7 @@
     "./plugins/slack",
     "./plugins/slack-remote",
     "./plugins/sonarqube",
+    "./plugins/spicrawl",
     "./plugins/sqlite",
     "./plugins/square",
     "./plugins/statsig",
