@@ -241,6 +241,12 @@
     "./plugins/zapier",
     {
       "source": "git-subdir",
+      "url": "https://github.com/Offline-Protocol/offline-protocol-agent-plugins.git",
+      "path": "plugins/offline-protocol",
+      "sha": "d76a16820526967efe4f2305b688fb8b1e7adcef"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
