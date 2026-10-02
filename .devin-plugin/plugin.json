@@ -239,6 +239,7 @@
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
     "./plugins/zapier",
+    "./plugins/zite",
     {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",

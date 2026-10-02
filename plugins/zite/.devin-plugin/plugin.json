@@ -1,0 +1,16 @@
+{
+  "name": "zite",
+  "displayName": "Zite",
+  "description": "Build apps on Zite databases\u2014query and edit records, run SQL, manage tables and fields, then scaffold, build, and publish apps",
+  "homepage": "https://www.zite.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "zite": {
+      "url": "https://mcp.zite.com/mcp"
+    }
+  }
+}
