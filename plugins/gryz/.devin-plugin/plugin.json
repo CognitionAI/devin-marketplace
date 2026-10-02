@@ -1,0 +1,16 @@
+{
+  "name": "gryz",
+  "displayName": "Gryz",
+  "description": "Give your AI assistants one shared memory that follows you across tools and sessions - store the context and facts you want an agent to remember, and own and manage it from your Gryz dashboard. Publish Markdown or HTML to a shareable link as a bonus. Free with a Gryz account; OAuth sign-in, no API key required.",
+  "homepage": "https://www.gryz.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "gryz": {
+      "url": "https://www.gryz.ai/api/mcp"
+    }
+  }
+}
