@@ -44,7 +44,7 @@ USER_CONFIG_KEYS = {"key", "title", "description", "required", "sensitive", "opt
 USER_CONFIG_OPTION_VALUE_RE = re.compile(r"[A-Za-z0-9._~:-]{1,253}")
 USER_CONFIG_KEY_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 STDIO_KEYS = {"command", "args", "env"}
-HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
+HTTP_KEYS = {"url", "urlOptions", "headers", "transport", "oauthClientId", "oauthScopes"}
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -115,6 +115,33 @@ def check_env_placeholders(where: str, env: dict[str, object], errors: list[str]
                 errors.append(f"{where}: env {key} references ${{{name}}}; a saved credential is matched by the env key, so it must be ${{{key}}}")
 
 
+def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
+    # Each option is a full endpoint (e.g. one per region) a hosted install
+    # may pick in Server URL; `url` is the default, so it must be one of them.
+    if not isinstance(options, list) or not options:
+        errors.append(f"{where}: server '{slug}' urlOptions must be a non-empty list")
+        return
+    urls = []
+    for option in options:
+        if (
+            not isinstance(option, dict)
+            or set(option) != {"label", "url"}
+            or not isinstance(option["label"], str)
+            or not option["label"]
+            or not isinstance(option["url"], str)
+            or not option["url"].startswith("https://")
+        ):
+            errors.append(f"{where}: server '{slug}' urlOptions entries must be {{label, url}} with an https url")
+            return
+        if PLACEHOLDER_RE.search(option["url"]):
+            errors.append(f"{where}: server '{slug}' urlOptions urls must be complete, without ${{...}} placeholders")
+        urls.append(option["url"])
+    if len(set(urls)) != len(urls):
+        errors.append(f"{where}: server '{slug}' urlOptions repeat a url")
+    if url not in urls:
+        errors.append(f"{where}: server '{slug}' url must be one of its urlOptions")
+
+
 def check_server(where: str, slug: str, config: object, errors: list[str]) -> None:
     if not isinstance(config, dict):
         errors.append(f"{where}: server '{slug}' must be an object")
@@ -145,6 +172,8 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
             errors.append(f"{where}: server '{slug}' headers must be an object")
             return
         strings = [url, *headers.values()]
+        if "urlOptions" in config:
+            check_url_options(where, slug, url, config["urlOptions"], errors)
     for value in strings:
         if not isinstance(value, str):
             errors.append(f"{where}: server '{slug}' has a non-string value")
