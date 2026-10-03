@@ -122,6 +122,7 @@
     "./plugins/lovable",
     "./plugins/lunarcrush",
     "./plugins/mailerlite",
+    "./plugins/mailtea",
     "./plugins/mapbox",
     "./plugins/mapbox-devkit",
     "./plugins/mapbox-docs",
