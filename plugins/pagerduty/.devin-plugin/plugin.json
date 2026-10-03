@@ -1,0 +1,18 @@
+{
+  "name": "pagerduty",
+  "displayName": "PagerDuty",
+  "description": "Triage, investigate, and resolve PagerDuty incidents: pull alerts, notes, and timelines, surface related, past, and outlier incidents to gauge blast radius, correlate recent change events with the outage, page responders, escalate, run incident workflows, post status page updates, and manage services, schedules, teams, and event orchestrations",
+  "homepage": "https://www.pagerduty.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "pagerduty": {
+      "url": "https://${PAGERDUTY_MCP_DOMAIN:-mcp.pagerduty.com}/mcp",
+      "headers": {
+        "Authorization": "Token token=${PAGERDUTY_API_KEY}"
+      }
+    }
+  }
+}
