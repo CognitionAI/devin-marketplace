@@ -11,6 +11,7 @@
     "./plugins/amplemarket",
     "./plugins/amplitude",
     "./plugins/angellist",
+    "./plugins/antenna",
     "./plugins/apollo-io",
     "./plugins/appwrite",
     "./plugins/arcade",
