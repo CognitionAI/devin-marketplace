@@ -1,0 +1,20 @@
+{
+  "name": "dynamics-365-business-central",
+  "displayName": "Dynamics 365 Business Central",
+  "description": "Work with Business Central finance, sales and inventory data.",
+  "homepage": "https://www.microsoft.com/dynamics-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "dynamics-365-business-central": {
+      "url": "https://mcp.businesscentral.dynamics.com",
+      "headers": {
+        "TenantId": "${BUSINESS_CENTRAL_TENANT_ID}",
+        "EnvironmentName": "${BUSINESS_CENTRAL_ENVIRONMENT_NAME}",
+        "Company": "${BUSINESS_CENTRAL_COMPANY}"
+      }
+    }
+  }
+}

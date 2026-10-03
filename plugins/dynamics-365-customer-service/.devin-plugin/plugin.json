@@ -1,0 +1,15 @@
+{
+  "name": "dynamics-365-customer-service",
+  "displayName": "Dynamics 365 Customer Service",
+  "description": "Work with Dynamics 365 Customer Service cases and knowledge.",
+  "homepage": "https://www.microsoft.com/dynamics-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "dynamics-365-customer-service": {
+      "url": "https://agent365.svc.cloud.microsoft/mcp/environments/${POWER_PLATFORM_ENVIRONMENT_ID}/servers/mcp_D365CX_Service"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "dynamics-365-dataverse",
+  "displayName": "Dynamics 365 Dataverse",
+  "description": "Query and update Dynamics 365 / Dataverse tables and records.",
+  "homepage": "https://www.microsoft.com/dynamics-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "dynamics-365-dataverse": {
+      "url": "https://${DATAVERSE_HOST}/api/mcp"
+    }
+  }
+}
