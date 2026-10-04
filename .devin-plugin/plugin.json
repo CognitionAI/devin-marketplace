@@ -102,6 +102,7 @@
     "./plugins/grafana-remote",
     "./plugins/granola",
     "./plugins/graphos-tools",
+    "./plugins/handoff",
     "./plugins/heroku",
     "./plugins/hex",
     "./plugins/honeycomb",
