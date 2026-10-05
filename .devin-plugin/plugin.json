@@ -234,6 +234,12 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/messagebird/bird-ai.git",
+      "path": "plugins/bird",
+      "sha": "0027378c08805ef618e441451444c523747868d7"
     }
   ]
 }
