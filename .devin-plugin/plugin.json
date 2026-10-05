@@ -114,6 +114,7 @@
     "./plugins/jam",
     "./plugins/jotform",
     "./plugins/juicebox",
+    "./plugins/keenable",
     "./plugins/klaviyo",
     "./plugins/kpler",
     "./plugins/launchdarkly",
