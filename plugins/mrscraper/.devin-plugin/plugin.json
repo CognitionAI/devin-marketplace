@@ -1,0 +1,16 @@
+{
+  "name": "mrscraper",
+  "displayName": "MrScraper",
+  "description": "MrScraper is a web-data extraction tool for developers building datasets and data-processing workflows. Fetch HTML from a specified URL, extract fields or paginated records as structured JSON, discover URLs through Google search, rerun saved AI or manual scrapers, and inspect stored results and account usage. A MrScraper account is required. Fetching, extraction, search, and reruns contact external websites through MrScraper. Managed general and listing extraction sends page content and the extraction prompt to a backend language model and saves a reusable scraper configuration; reruns create new stored results. Use third-party sources only where you have authorization and comply with their terms.",
+  "homepage": "https://mrscraper.com",
+  "repository": "https://github.com/mrscraper-com/mrscraper-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mrscraper": {
+      "url": "https://mcp.mrscraper.com/mcp"
+    }
+  }
+}
