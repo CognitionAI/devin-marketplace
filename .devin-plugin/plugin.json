@@ -239,7 +239,7 @@
       "source": "git-subdir",
       "url": "https://github.com/integromat/make-skills.git",
       "path": "plugins/make-skills-devin",
-      "sha": "1a2f57de052d4f735ce1365a42f319c4549634f5"
+      "sha": "c65bcccb07d1a28284734d718099d36b250a792a"
     }
   ]
 }
