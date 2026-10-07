@@ -1,0 +1,22 @@
+{
+  "name": "listingsapi",
+  "displayName": "Listings API",
+  "description": "Manage local citations and submit business data to 50+ sites. Keep names, addresses, phone numbers and hours consistent across locations; manage listings, reviews, posts and analytics through Listings API. Try a free 24-hour Day Pass for up to 2 locations, with no credit card required. Watch your agents seamlessly integrate with Listings API and publish data to the demo sites!",
+  "homepage": "https://www.listingsapi.com/",
+  "repository": "https://github.com/listings-api/listingsapi-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "local-seo",
+    "local-citations",
+    "business-listings",
+    "locations",
+    "reviews",
+    "analytics"
+  ],
+  "mcpServers": {
+    "listingsapi": {
+      "url": "https://listingsapi.com/mcp",
+      "transport": "http"
+    }
+  }
+}
