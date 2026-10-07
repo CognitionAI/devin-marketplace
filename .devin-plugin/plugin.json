@@ -118,6 +118,7 @@
     "./plugins/kpler",
     "./plugins/launchdarkly",
     "./plugins/linear",
+    "./plugins/listingsapi",
     "./plugins/logrocket",
     "./plugins/lovable",
     "./plugins/lunarcrush",
