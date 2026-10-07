@@ -13,7 +13,7 @@ Try a free 24-hour Day Pass for up to 2 locations, with no credit card required.
 
 ## Connect in Devin CLI
 
-**Compatibility status:** Local installation and OAuth login succeeded in Devin CLI `3000.11.3`. Its generated request includes `read write` despite `--scopes read`; verify the intended account and actual permissions before approving. The authenticated tool test remains unverified because this Free account received an upgrade requirement when selecting `swe-2-medium` and the documented Free-tier SWE-1.6 selectors (`swe-1-6` and `swe-1.6`).
+**Compatibility status:** Local installation and OAuth login succeeded in Devin CLI `3000.11.3`. Its generated request includes `read write` despite `--scopes read`; verify the intended account and actual permissions before approving. Tool-call test: pending.
 
 Install the [official Devin CLI](https://docs.devin.ai/cli), sign in to your Devin account, then run these commands from the marketplace checkout:
 
