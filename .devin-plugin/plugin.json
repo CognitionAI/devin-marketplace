@@ -141,6 +141,7 @@
     "./plugins/mintlify-index",
     "./plugins/miro",
     "./plugins/mixpanel",
+    "./plugins/mnemoverse",
     "./plugins/mobbin",
     "./plugins/monday",
     "./plugins/mongodb",
