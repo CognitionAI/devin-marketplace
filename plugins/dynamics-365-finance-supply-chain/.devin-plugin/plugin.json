@@ -1,0 +1,15 @@
+{
+  "name": "dynamics-365-finance-supply-chain",
+  "displayName": "Dynamics 365 Finance & Supply Chain",
+  "description": "Work with Dynamics 365 Finance and Supply Chain data and actions.",
+  "homepage": "https://www.microsoft.com/dynamics-365",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "dynamics-365-finance-supply-chain": {
+      "url": "https://${FINANCE_OPERATIONS_HOST}/mcp"
+    }
+  }
+}
