@@ -226,6 +226,11 @@
     "./plugins/zapier",
     {
       "source": "url",
+      "url": "https://github.com/CMBurnett/the-design-agent-plugin.git",
+      "sha": "172bf7af81aacee139068744b86ddf272112c7ed"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
     },
