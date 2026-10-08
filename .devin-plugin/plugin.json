@@ -108,7 +108,6 @@
     "./plugins/hubspot",
     "./plugins/hugging-face",
     "./plugins/hunter",
-    "./plugins/incident-io",
     "./plugins/interactive-brokers",
     "./plugins/intercom",
     "./plugins/jam",
@@ -234,6 +233,12 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/incident-io/skills.git",
+      "path": "plugins/incident-io",
+      "sha": "431d80470440a514fb8236c69f2a9a46e0171261"
     }
   ]
 }
