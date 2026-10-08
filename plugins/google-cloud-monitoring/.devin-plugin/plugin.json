@@ -1,0 +1,15 @@
+{
+  "name": "google-cloud-monitoring",
+  "displayName": "Google Cloud Monitoring",
+  "description": "Official Google Cloud Monitoring remote MCP server for listing alerts and alerting policies, running PromQL queries, reading time series and metric descriptors, and browsing dashboards in a Google Cloud project. Google does not support automatic client registration, so you must provide your own OAuth client credentials: in the Google Cloud console, enable the Cloud Monitoring API, grant everyone who will connect the MCP Tool User role (roles/mcp.toolUser), create an OAuth client (web application), and add Devin's OAuth callback URL (https://api.devin.ai/mcp/oauth/callback, or the equivalent for your Devin environment) as an authorized redirect URI. Then enter the OAuth client ID and secret when installing this server.",
+  "homepage": "https://cloud.google.com/monitoring",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "google-cloud-monitoring": {
+      "url": "https://monitoring.googleapis.com/mcp"
+    }
+  }
+}
