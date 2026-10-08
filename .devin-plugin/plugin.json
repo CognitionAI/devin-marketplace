@@ -148,6 +148,7 @@
     "./plugins/monte-carlo",
     "./plugins/motherduck",
     "./plugins/motion",
+    "./plugins/mrscraper",
     "./plugins/navan",
     "./plugins/neon",
     "./plugins/netlify",
