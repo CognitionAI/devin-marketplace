@@ -228,7 +228,7 @@
       "source": "git-subdir",
       "url": "https://github.com/HasData/hasdata-cursor-plugin.git",
       "path": "plugins/hasdata",
-      "sha": "0e5265fcf8d67ef4029b60e2de14489a3352fa70"
+      "sha": "d8696b4efe3a95d4c927d29d23d0bcb8557733c9"
     },
     {
       "source": "url",
