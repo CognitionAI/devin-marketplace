@@ -11,10 +11,7 @@
   ],
   "mcpServers": {
     "qrx": {
-      "url": "https://qrx.codes/mcp",
-      "headers": {
-        "X-API-Key": "${QRX_API_KEY}"
-      }
+      "url": "https://qrx.codes/mcp"
     }
   }
 }
