@@ -68,6 +68,8 @@
     "./plugins/confidence-docs",
     "./plugins/contentsquare",
     "./plugins/context7",
+    "./plugins/coralogix",
+    "./plugins/coralogix-api-key",
     "./plugins/corridor",
     "./plugins/cortex",
     "./plugins/craft",
