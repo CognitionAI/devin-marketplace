@@ -1,0 +1,18 @@
+{
+  "name": "coralogix-api-key",
+  "displayName": "Coralogix (API key)",
+  "description": "Query logs, metrics, and traces from Coralogix. Execute DataPrime queries, investigate issues, manage alerts and parsing rules, and perform AI-native root cause analysis via the official Coralogix MCP server.",
+  "homepage": "https://coralogix.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "coralogix-api-key": {
+      "url": "https://${CORALOGIX_API_KEY_DOMAIN}/mgmt/api/v1/mcp",
+      "headers": {
+        "Authorization": "${CORALOGIX_API_KEY_AUTHORIZATION}"
+      }
+    }
+  }
+}
