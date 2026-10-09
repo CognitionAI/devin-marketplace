@@ -9,7 +9,7 @@
   ],
   "mcpServers": {
     "splunk": {
-      "url": "https://${SPLUNK_HOST}:8089/services/mcp",
+      "url": "https://${SPLUNK_HOST}:${SPLUNK_PORT:-8089}/services/mcp",
       "headers": {
         "Authorization": "Bearer ${SPLUNK_MCP_TOKEN}"
       }
