@@ -238,7 +238,7 @@
       "source": "git-subdir",
       "url": "https://github.com/incident-io/skills.git",
       "path": "plugins/incident-io",
-      "sha": "431d80470440a514fb8236c69f2a9a46e0171261"
+      "sha": "52f1c60db6d59b2e4e6abd327d5107d3bff0f53d"
     }
   ]
 }
