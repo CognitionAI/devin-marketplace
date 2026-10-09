@@ -27,6 +27,15 @@ this and CI runs it.
      reference its own key (`"AWS_PROFILE": "${AWS_PROFILE}"`) because a saved
      credential replaces the env entry with the same key; in `args` and
      `headers` the placeholder is the credential's only name.
+   * Optionally describe each placeholder in `userConfig`, a list of
+     `{"key", "title", "description", "required", "sensitive"}`. `key` is the
+     placeholder name in lowercase (`coralogix_domain` for
+     `${CORALOGIX_DOMAIN}`). `sensitive` is required: `true` for a
+     credential, `false` for a readable setting such as a region or tenant
+     domain. A placeholder sent in a header is always a credential. A
+     readable setting may list fixed choices, shown as a dropdown:
+     `"options": [{"label": "EU2 (Stockholm)", "value": "eu2.coralogix.com"}]`.
+     Values are URL-safe (`[A-Za-z0-9._~:-]`) and unique.
 2. Add `"./plugins/<slug>"` to `optionalPlugins` in `.devin-plugin/plugin.json`.
 
 ## A third-party plugin

@@ -38,7 +38,11 @@ PLUGIN_KEYS = {
     "logo",
     "keywords",
     "mcpServers",
+    "userConfig",
 }
+USER_CONFIG_KEYS = {"key", "title", "description", "required", "sensitive", "options"}
+USER_CONFIG_OPTION_VALUE_RE = re.compile(r"[A-Za-z0-9._~:-]{1,253}")
+USER_CONFIG_KEY_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 STDIO_KEYS = {"command", "args", "env"}
 HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
 
@@ -148,6 +152,94 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
         check_placeholders(f"{where} ({slug})", value, errors)
 
 
+def referenced_names(config: dict) -> tuple[set[str], set[str]]:
+    """Placeholder names the server config references, and those referenced from a header."""
+    args = config.get("args")
+    env = config.get("env")
+    header_map = config.get("headers")
+    if "command" in config:
+        headers: list[object] = []
+        values = [
+            config["command"],
+            *(args if isinstance(args, list) else []),
+            *(env.values() if isinstance(env, dict) else []),
+        ]
+    else:
+        headers = list(header_map.values()) if isinstance(header_map, dict) else []
+        values = [config.get("url"), *headers]
+
+    def names(strings: list[object]) -> set[str]:
+        return {
+            placeholder_name(reference)
+            for value in strings
+            if isinstance(value, str)
+            for reference in PLACEHOLDER_RE.findall(value)
+        }
+
+    return names(values), names(headers)
+
+
+def check_user_config(where: str, config: dict, items: object, errors: list[str]) -> None:
+    if not isinstance(items, list):
+        errors.append(f"{where}: userConfig must be a list")
+        return
+    referenced, from_headers = referenced_names(config)
+    seen: set[str] = set()
+    for index, item in enumerate(items):
+        at = f"{where}: userConfig[{index}]"
+        if not isinstance(item, dict):
+            errors.append(f"{at} must be an object")
+            continue
+        extra = set(item) - USER_CONFIG_KEYS
+        if extra:
+            errors.append(f"{at} has unexpected keys {sorted(extra)}")
+        key = item.get("key")
+        if not isinstance(key, str) or not USER_CONFIG_KEY_RE.match(key):
+            errors.append(f"{at}: key must be lowercase snake_case (it names the ${{KEY}} placeholder upper-cased)")
+            continue
+        name = key.upper()
+        if name in seen:
+            errors.append(f"{at}: key '{key}' is declared twice")
+        seen.add(name)
+        if name not in referenced:
+            errors.append(f"{at}: key '{key}' names ${{{name}}}, which the server config never references")
+        for field in ("title", "description"):
+            if field in item and not isinstance(item[field], str):
+                errors.append(f"{at}: {field} must be a string")
+        if "required" in item and not isinstance(item["required"], bool):
+            errors.append(f"{at}: required must be true or false")
+        sensitive = item.get("sensitive")
+        if not isinstance(sensitive, bool):
+            errors.append(f"{at}: sensitive must be set to true (a credential) or false (a readable setting)")
+        elif not sensitive and name in from_headers:
+            errors.append(f"{at}: ${{{name}}} is sent in a header, so it is a credential; sensitive must be true")
+        if "options" in item:
+            check_user_config_options(at, item["options"], sensitive, errors)
+
+
+def check_user_config_options(at: str, options: object, sensitive: object, errors: list[str]) -> None:
+    if sensitive is not False:
+        errors.append(f"{at}: options are only for readable settings (sensitive: false)")
+    if not isinstance(options, list) or not options:
+        errors.append(f"{at}: options must be a non-empty list")
+        return
+    values: set[str] = set()
+    for index, option in enumerate(options):
+        here = f"{at}.options[{index}]"
+        if not isinstance(option, dict) or set(option) != {"label", "value"}:
+            errors.append(f"{here} must be an object with exactly label and value")
+            continue
+        label, value = option["label"], option["value"]
+        if not isinstance(label, str) or not label:
+            errors.append(f"{here}: label must be a non-empty string")
+        if not isinstance(value, str) or not USER_CONFIG_OPTION_VALUE_RE.fullmatch(value):
+            errors.append(f"{here}: value may only contain letters, digits and . - _ ~ : (at most 253 characters)")
+            continue
+        if value in values:
+            errors.append(f"{here}: value '{value}' is listed twice")
+        values.add(value)
+
+
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
     if not isinstance(logo, str) or not logo:
         errors.append(f"{where}: logo must be a string")
@@ -189,6 +281,8 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         errors.append(f"{where}: mcpServers must declare exactly one server named '{slug}'")
         return
     check_server(where, slug, servers[slug], errors)
+    if "userConfig" in data and isinstance(servers[slug], dict):
+        check_user_config(where, servers[slug], data["userConfig"], errors)
 
 
 def canonical(data: dict) -> str:
