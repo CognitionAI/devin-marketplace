@@ -1,0 +1,20 @@
+{
+  "name": "qrx",
+  "displayName": "QRX",
+  "description": "Branded, print-ready art QR codes that always scan. Describe a picture and a link; QRX paints the code, checks that it decodes, and hosts it on a qrx.to short link.",
+  "homepage": "https://qrx.codes",
+  "repository": "https://github.com/qrxcodes/qrx-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative",
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "qrx": {
+      "url": "https://qrx.codes/mcp",
+      "headers": {
+        "X-API-Key": "${QRX_API_KEY}"
+      }
+    }
+  }
+}
