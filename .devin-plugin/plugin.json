@@ -239,6 +239,11 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/rawtreedb/agent-skills.git",
+      "sha": "b12edcef359af4cd6d6e1c576748165cdb27d93a"
     }
   ]
 }
