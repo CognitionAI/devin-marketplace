@@ -78,6 +78,7 @@
     "./plugins/datahub",
     "./plugins/dbt",
     "./plugins/deepwiki",
+    "./plugins/desearch",
     "./plugins/dockerhub",
     "./plugins/dynatrace",
     "./plugins/elastic",
