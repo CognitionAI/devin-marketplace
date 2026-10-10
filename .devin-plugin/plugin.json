@@ -230,6 +230,12 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/HasData/hasdata-cursor-plugin.git",
+      "path": "plugins/hasdata",
+      "sha": "d8696b4efe3a95d4c927d29d23d0bcb8557733c9"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
