@@ -230,6 +230,12 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/Hourtick/hourtick-plugin.git",
+      "path": "devin",
+      "sha": "589dfa7c15ff87d54b9473122b2a68aebdb22dfe"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
