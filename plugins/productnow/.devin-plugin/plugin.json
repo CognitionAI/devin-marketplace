@@ -1,0 +1,16 @@
+{
+  "name": "productnow",
+  "displayName": "ProductNow",
+  "description": "Your team's company brain — the cross-vendor storage layer that joins your tools into one shared context layer, available wherever you, your team, and all your agents work.",
+  "homepage": "https://productnow.ai",
+  "repository": "https://github.com/ProductNowAI/productnow-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "productnow": {
+      "url": "https://api.productnow-prod.com/mcp"
+    }
+  }
+}
