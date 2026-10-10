@@ -1,0 +1,17 @@
+{
+  "name": "keenable",
+  "displayName": "Keenable",
+  "description": "Web search and page fetch for AI agents over Keenable's own web index: search with site and date filters, then read any page as clean markdown. Works without an API key.",
+  "homepage": "https://keenable.ai",
+  "repository": "https://github.com/keenableai/keenable-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "keenable": {
+      "url": "https://api.keenable.ai/mcp"
+    }
+  }
+}
