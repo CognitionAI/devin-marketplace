@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="ListingsAPI">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="120" y1="60" x2="900" y2="980">
+      <stop offset="0" stop-color="#63ADFF"/>
+      <stop offset="1" stop-color="#2260E8"/>
+    </linearGradient>
+  </defs>
+  <path d="M512 984 C 400 866, 156 634, 156 416 A 356 356 0 0 1 868 416 C 868 634, 624 866, 512 984 Z"
+        fill="#FFFFFF" stroke="url(#g)" stroke-width="70" stroke-linejoin="round"/>
+  <rect x="298" y="214" width="428" height="376" rx="114" ry="114"
+        fill="none" stroke="url(#g)" stroke-width="56"/>
+  <path d="M437 330 L364 404 L437 478" fill="none" stroke="url(#g)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M587 330 L660 404 L587 478" fill="none" stroke="url(#g)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
