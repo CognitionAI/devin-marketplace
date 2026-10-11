@@ -223,6 +223,7 @@
     "./plugins/wispr-flow",
     "./plugins/wix",
     "./plugins/wolfram",
+    "./plugins/wordpress-com",
     "./plugins/workable",
     "./plugins/workos",
     "./plugins/you-com",

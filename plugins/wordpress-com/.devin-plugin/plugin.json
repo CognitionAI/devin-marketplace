@@ -1,0 +1,16 @@
+{
+  "name": "wordpress-com",
+  "displayName": "WordPress.com",
+  "description": "WordPress.com's hosted MCP server: manage your WordPress.com sites, create and edit posts, pages and media, manage plugins, users and site settings, view stats, and search domains.",
+  "homepage": "https://wordpress.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "wordpress-com": {
+      "url": "https://public-api.wordpress.com/wpcom/v2/mcp/v1"
+    }
+  }
+}
