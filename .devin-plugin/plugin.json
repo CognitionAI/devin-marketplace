@@ -166,6 +166,7 @@
     "./plugins/peec-ai",
     "./plugins/pendo",
     "./plugins/perplexity",
+    "./plugins/pexafy",
     "./plugins/pg-aiguide",
     "./plugins/phoenix",
     "./plugins/pinecone",
