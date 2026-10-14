@@ -1,0 +1,20 @@
+{
+  "name": "aggregate",
+  "displayName": "Aggregate",
+  "description": "Every company's money in one ledger: bank accounts, cards, payments, invoices, bills, payroll and the cap table, across several companies plus a private Personal space. Ask for cash, burn, runway, revenue or what changed, and get totals computed with fixed definitions that match what you see in the Aggregate app.\n\nAggregate records money and never moves it: no tool can pay, transfer or contact anyone. Write tools only change Aggregate's own records, and each connection sees only what its owner granted. Open source (AGPL-3.0).",
+  "shortDescription": "Company cash, runway, invoices, payroll",
+  "setup": {
+    "notice": "Can never move money. Each connection sees only the companies and data its owner grants."
+  },
+  "homepage": "https://aggregate.finance",
+  "repository": "https://github.com/Izzy-Gottz/aggregate-finance",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "aggregate": {
+      "url": "https://app.aggregate.finance/mcp"
+    }
+  }
+}
