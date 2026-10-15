@@ -1,0 +1,16 @@
+{
+  "name": "collabute",
+  "displayName": "Collabute",
+  "description": "Collabute's hosted MCP server: search your team's memory of meetings, decisions, and Slack threads; read meeting transcripts, calendar, Linear, Jira, GitHub, Vercel, PostHog, Notion, and Gmail through the integrations your workspace has connected; and propose tasks, memory updates, and coding-agent runs for a teammate to approve in Collabute.",
+  "homepage": "https://collabute.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "collabute": {
+      "url": "https://api.collabute.ai/api/mcp"
+    }
+  }
+}
