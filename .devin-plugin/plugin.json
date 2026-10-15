@@ -175,6 +175,7 @@
     "./plugins/posthog",
     "./plugins/postman",
     "./plugins/prisma",
+    "./plugins/productnow",
     "./plugins/profound",
     "./plugins/pulumi",
     "./plugins/pylon",
