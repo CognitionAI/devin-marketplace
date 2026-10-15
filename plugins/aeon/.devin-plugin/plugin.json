@@ -1,0 +1,17 @@
+{
+  "name": "aeon",
+  "displayName": "Aeon",
+  "description": "Run and manage your Aeon autonomous agent from Devin. Aeon is an open-source agent that runs skills on a schedule with GitHub Actions in your own repo. List and run skills, follow runs and read their output, search the agent's memory, edit its strategy and voice, install skill packs and change settings. Sign in with GitHub and choose which agent Devin may use. Writes commit to your own repo; secrets are never readable over MCP.",
+  "homepage": "https://www.aeon.fun/connect",
+  "repository": "https://github.com/aeonfun/aeon",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "aeon": {
+      "url": "https://www.aeon.fun/connect/mcp"
+    }
+  }
+}
