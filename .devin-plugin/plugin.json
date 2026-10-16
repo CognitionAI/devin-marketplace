@@ -71,6 +71,7 @@
     "./plugins/corridor",
     "./plugins/cortex",
     "./plugins/craft",
+    "./plugins/crossmint",
     "./plugins/customer-io",
     "./plugins/daloopa",
     "./plugins/datadog",
