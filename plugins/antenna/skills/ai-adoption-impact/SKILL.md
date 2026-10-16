@@ -6,6 +6,8 @@ description: >
 
 # AI adoption and impact
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
 1. **Adoption trend.** Call `group_metrics_trends` with no group IDs (enterprise aggregate), `month`, over 6–12 months. Track `active_developer_count`, `active_ai_developer_count`, `max_active_ai_developer_count`, `avg_days_per_week_ai_developer_engaged`, and `total_ai_interactions`.
@@ -13,7 +15,7 @@ description: >
 3. **Agent-authored work.** Compare `total_merged_prs_created_by_ai_agents` with `total_prs_merged` to get the agents' share. For who is driving it, call `contributor_metrics_list` with `order_by: "count_agent_prs_merged"`. That also gives the `count_remote_agent_prs_merged` vs. `count_local_agent_prs_merged` split.
 4. **Before vs. after adoption (per person).** In `contributor_metrics_list`, use `ai_adoption_date`, `count_active_developer_days_post_ai_adoption`, `total_new_deliveries_post_ai_adoption`, and `total_deliveries_post_ai_adoption` alongside the full-period totals.
 5. **By team.** Run `group_metrics_list` across groups to show where adoption lags.
-6. **Tool mix.** In contributor rows, `active_ai_tools`, `engaged_ai_tools`, and `ai_tool_stats` show which tools people actually use.
+6. **Tool mix.** Call `contributor_metrics_list` with `include_ai_tool_stats: true`. `active_ai_tools`, `engaged_ai_tools`, `ai_tool_stats`, and `ai_tool_model_stats` show which tools and models people actually use. These fields are absent without that flag, and group rows from `group_metrics_list` and `group_metrics_trends` never include them.
 
 ## Output
 

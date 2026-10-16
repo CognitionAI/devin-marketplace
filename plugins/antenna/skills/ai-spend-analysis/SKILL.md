@@ -8,11 +8,13 @@ description: >
 
 Answer questions about AI cost with Antenna's contributor and group metrics. Lead with the few people or teams that drive the answer, not a data dump.
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
-1. **Pick the window.** Default to the last 3 complete months at `date_granularity: "month"`. For "this month" or "last few weeks", use `week`. `day` is capped at a 92-day window.
+1. **Pick the window.** Default to the last 3 complete months at `date_granularity: "month"`. For "this month" or "last few weeks", use `week`.
 2. **Enterprise and team totals.** Call `group_metrics_list` with `order_by: "total_ai_cost_usd"`. Each row's `subject` names the group (`type: "identity_group"`) or the enterprise aggregate (`type: "enterprise"`). Use the aggregate row for the headline totals.
-3. **Top spenders.** Call `contributor_metrics_list` with `order_by: "total_ai_cost_usd"` and `limit: 20`. Rows include `display_name`, `username`, and `manager`. To scope to a team, first get its `external_id` from `enterprise_identity_groups`, then pass it as `identity_group_external_id`.
+3. **Top spenders.** Call `contributor_metrics_list` with `order_by: "total_ai_cost_usd"` and `limit: 20`. Add `include_ai_tool_stats: true` to get the tool mix in step 4. Rows include `display_name`, `username`, and `manager`. To scope to a team, first get its `external_id` from `enterprise_identity_groups`, then pass it as `identity_group_external_id`.
 4. **Efficiency, not just volume.** For each top spender and team, compare:
    - `total_ai_cost_usd` split into `total_ai_seat_cost_usd` (licenses) and `total_ai_variable_cost_usd` (usage)
    - `pct_ai_usage_resulting_in_code` and `total_ai_cost_resulting_in_code_usd`: spend that led to committed code
@@ -20,7 +22,7 @@ Answer questions about AI cost with Antenna's contributor and group metrics. Lea
    - `non_developer_spend_usd`: spend by people who aren't active developers
    - `avg_ai_cost_per_new_delivery` (contributors) or `ai_cost_per_new_delivery` (groups): cost per unit of shipped work
    - `cache_hit_rate` and `context_bloat_factor` (input:output token ratio): high bloat with a low cache hit rate usually means oversized prompts or context
-   - `active_ai_tools` and `ai_tool_stats` / `ai_tool_model_stats`: which tools and models drive the cost
+   - `active_ai_tools`, `ai_tool_stats`, and `ai_tool_model_stats`: which tools and models drive the cost. These come only from `contributor_metrics_list` called with `include_ai_tool_stats: true` and are absent otherwise. Group rows never include them, so don't look for them in `group_metrics_list` or `group_metrics_trends`.
 5. **Trends (optional).** If the user asks whether spend is rising, call `group_metrics_trends` (enterprise aggregate when `identity_group_external_ids` is omitted) or `contributor_metrics_trends` for specific people. `contributor_metrics_trends` needs `enterprise_identity_ids` from `enterprise_identity_search` or a prior list call.
 
 ## Output

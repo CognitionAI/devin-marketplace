@@ -6,6 +6,8 @@ description: >
 
 # Engineering brief
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
 1. **Pick the cadence.** For a weekly brief, use `week` over the last 5 complete weeks. For a monthly brief, use `month` over the last 6 complete months. Treat the current partial period as partial, or leave it out.

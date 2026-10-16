@@ -6,11 +6,13 @@ description: >
 
 # Contributor profile
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
-1. **Resolve the person.** Call `enterprise_identity_search` with their name, username, or email. If several identities match, ask which one; don't guess. Keep the `enterprise_identity_id`.
-2. **Period snapshot.** Call `contributor_metrics_list` for the window (default: last 3 complete months, `month`). To also get their team's rows for comparison, pass their team's `identity_group_external_id` (from `enterprise_identity_groups`). Then find the person's row by `enterprise_identity_id`.
-3. **Trend.** Call `contributor_metrics_trends` with `enterprise_identity_ids: [<id>]` (up to 50 IDs to compare people) over a longer window (default 6 months, `month`; use `week` for recent changes).
+1. **Resolve the person.** Call `enterprise_identity_search` with their name, username, or email. If several identities match, ask which one; don't guess. Keep the match's `id`.
+2. **Period snapshot.** Call `contributor_metrics_list` for the window (default: last 3 complete months, `month`). To also get their team's rows for comparison, pass their team's `identity_group_external_id` (from `enterprise_identity_groups`). Then find the person's row by matching its `enterprise_identity_id` to that `id`.
+3. **Trend.** Call `contributor_metrics_trends` with the `id` as `enterprise_identity_ids: [<id>]` (up to 50 IDs to compare people) over a longer window (default 6 months, `month`; use `week` for recent changes).
 4. **Team baseline.** Call `group_metrics_list` for the person's group and compare per-developer averages.
 
 ## What to cover

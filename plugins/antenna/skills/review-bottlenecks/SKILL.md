@@ -6,6 +6,8 @@ description: >
 
 # Review and CI bottlenecks
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
 1. **Rank contributors by review wait.** Call `contributor_metrics_list` (default: last 3 complete months, `month`) with `order_by: "avg_time_awaiting_review_seconds"` and `limit: 25`. Only compare people with meaningful `count_prs_authored` (e.g. 3 or more); ignore the rest as noise.

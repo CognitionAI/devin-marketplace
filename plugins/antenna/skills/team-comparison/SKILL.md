@@ -6,6 +6,8 @@ description: >
 
 # Team comparison
 
+Always pass `start_date` and `end_date` for the window. If you omit them, the tools return about six months through the start of next month, including the current partial month. `day` granularity is valid only on `contributor_metrics_list` and `contributor_metrics_trends`, and only for a window of 92 days or less. `group_metrics_list` and `group_metrics_trends` accept `week`, `month`, and `quarter` only.
+
 ## Steps
 
 1. **Find the groups.** Call `enterprise_identity_groups` and page with `limit` and `offset` until `has_more` is false. Match the user's team names to `display_name`, then keep the `external_id`s. Manager-synced groups carry `parent_external_id`, `depth`, and `has_children`, so you can roll a manager's org up or down.
