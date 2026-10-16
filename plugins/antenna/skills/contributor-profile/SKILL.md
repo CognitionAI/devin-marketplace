@@ -11,7 +11,7 @@ Always pass `start_date` and `end_date` for the window. If you omit them, the to
 ## Steps
 
 1. **Resolve the person.** Call `enterprise_identity_search` with their name, username, or email. If several identities match, ask which one; don't guess. Keep the match's `id`.
-2. **Period snapshot.** Call `contributor_metrics_list` for the window (default: last 3 complete months, `month`). To also get their team's rows for comparison, pass their team's `identity_group_external_id` (from `enterprise_identity_groups`). Then find the person's row by matching its `enterprise_identity_id` to that `id`.
+2. **Period snapshot.** Call `contributor_metrics_list` for the window (default: last 3 complete months, `month`) with `include_ai_tool_stats: true`, so `active_ai_tools` is returned. To also get their team's rows for comparison, pass their team's `identity_group_external_id` (from `enterprise_identity_groups`). Then find the person's row by matching its `enterprise_identity_id` to that `id`.
 3. **Trend.** Call `contributor_metrics_trends` with the `id` as `enterprise_identity_ids: [<id>]` (up to 50 IDs to compare people) over a longer window (default 6 months, `month`; use `week` for recent changes).
 4. **Team baseline.** Call `group_metrics_list` for the person's group and compare per-developer averages.
 

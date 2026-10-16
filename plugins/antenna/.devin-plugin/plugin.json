@@ -1,7 +1,7 @@
 {
   "name": "antenna",
   "displayName": "Antenna",
-  "description": "Query engineering metrics for an Antenna enterprise.",
+  "description": "Explore productivity, AI usage trends, team metrics, and more.",
   "shortDescription": "Engineering metrics and AI spend",
   "homepage": "https://www.antenna.dev",
   "logo": "logo.svg",
