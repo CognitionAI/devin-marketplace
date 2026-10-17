@@ -2,9 +2,11 @@
   "name": "datadog",
   "displayName": "Datadog (API key)",
   "description": "Retrieve telemetry insights and manage Datadog platform features including incidents, monitors, logs, dashboards, metrics, traces, hosts, and more.",
+  "shortDescription": "Monitoring, metrics, logs and traces",
   "homepage": "https://www.datadoghq.com/",
   "logo": "logo.svg",
   "keywords": [
+    "Featured",
     "Essentials",
     "Monitoring & Analytics"
   ],

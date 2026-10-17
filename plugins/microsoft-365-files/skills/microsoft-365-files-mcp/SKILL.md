@@ -12,6 +12,7 @@ Teams, tasks and people lookups live behind separate endpoints.
 
 | You want to…                                                     | Call                       |
 | ---------------------------------------------------------------- | -------------------------- |
+| Check which account this endpoint is signed in as                | `files_me`                 |
 | See what is in a folder                                          | `files_list`               |
 | Check whether something exists, its size or type                 | `files_stat`               |
 | Read a file's content from a drive-relative path                 | `files_get_content`        |
@@ -24,6 +25,7 @@ Teams, tasks and people lookups live behind separate endpoints.
 
 | Tool                                                                             | Notes                                                                                                                                                                                                          |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `files_me()`                                                                     | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else.               |
 | `files_list(path="", max?, next?)`                                               | Children of a folder; `""` or `"/"` is the drive root.                                                                                                                                                         |
 | `files_stat(path)`                                                               | Metadata: name, size, folder/file, timestamps.                                                                                                                                                                 |
 | `files_get_content(path, max_bytes=65536, format?, width?, height?)`             | Bounded content; `1 <= max_bytes <= 10485760` (10 MiB). Optional Graph conversion: `format="pdf"` (Office/md/html/rtf…), `"html"` (Loop/Fluid/Whiteboard only), `"jpg"` (requires `width`+`height`, 1..10000). |

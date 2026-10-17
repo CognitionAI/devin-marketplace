@@ -1,7 +1,8 @@
 {
   "name": "raindrop-ai",
   "displayName": "Raindrop",
-  "description": "Raindrop observability platform for AI agents \u2014 investigate issues, search events, inspect traces, and quantify signals through natural language",
+  "description": "Raindrop observability platform for AI agents — investigate issues, search events, inspect traces, and quantify signals through natural language",
+  "shortDescription": "AI agent traces, events and issues",
   "homepage": "https://raindrop.ai",
   "logo": "logo.svg",
   "keywords": [

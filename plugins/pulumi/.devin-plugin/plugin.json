@@ -2,6 +2,7 @@
   "name": "pulumi",
   "displayName": "Pulumi",
   "description": "Manage cloud infrastructure with Pulumi using MCP tools; preview and update stacks and manage configs across AWS and more.",
+  "shortDescription": "Cloud stacks and infrastructure updates",
   "homepage": "https://www.pulumi.com",
   "logo": "logo.svg",
   "keywords": [

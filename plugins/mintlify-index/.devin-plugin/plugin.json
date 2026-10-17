@@ -2,6 +2,7 @@
   "name": "mintlify-index",
   "displayName": "Mintlify Index",
   "description": "Mintlify Index integration to search publisher-maintained docs across all Mintlify sites",
+  "shortDescription": "Search docs across Mintlify sites",
   "homepage": "https://www.mintlify.com/search-index",
   "logo": "logo.svg",
   "keywords": [

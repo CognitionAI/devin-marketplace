@@ -2,6 +2,7 @@
   "name": "aws-documentdb",
   "displayName": "Amazon DocumentDB",
   "description": "Amazon DocumentDB integration for MongoDB-compatible document database operations",
+  "shortDescription": "MongoDB-compatible document database",
   "homepage": "https://aws.amazon.com/documentdb/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

@@ -33,6 +33,7 @@ PLUGIN_KEYS = {
     "name",
     "displayName",
     "description",
+    "shortDescription",
     "homepage",
     "repository",
     "logo",
@@ -173,6 +174,11 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         errors.append(f"{where}: unexpected keys {sorted(extra)}")
     if data.get("name") != slug:
         errors.append(f"{where}: name must match the directory ({slug})")
+    short_description = data.get("shortDescription")
+    if not isinstance(short_description, str) or not short_description.strip():
+        errors.append(f"{where}: shortDescription must be a non-empty string")
+    elif len(short_description) > 40:
+        errors.append(f"{where}: shortDescription must be 40 characters or fewer")
     display_name = data.get("displayName")
     if display_name is not None and (
         not isinstance(display_name, str)

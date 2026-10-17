@@ -2,6 +2,7 @@
   "name": "pendo",
   "displayName": "Pendo",
   "description": "Pendo integration for product and user insights",
+  "shortDescription": "Product usage and user insights",
   "homepage": "https://www.pendo.io",
   "logo": "logo.png",
   "keywords": [

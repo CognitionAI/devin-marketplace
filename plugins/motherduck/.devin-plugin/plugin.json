@@ -2,6 +2,7 @@
   "name": "motherduck",
   "displayName": "MotherDuck",
   "description": "MotherDuck integration to get answers from your data with DuckDB",
+  "shortDescription": "DuckDB queries and data analysis",
   "homepage": "https://motherduck.com",
   "logo": "logo.jpg",
   "keywords": [

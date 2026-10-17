@@ -2,6 +2,7 @@
   "name": "cognition-dataplex",
   "displayName": "Dataplex",
   "description": "Dataplex Universal Catalog integration for asset discovery and governance",
+  "shortDescription": "Data catalog discovery and governance",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

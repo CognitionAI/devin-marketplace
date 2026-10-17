@@ -2,6 +2,7 @@
   "name": "phoenix",
   "displayName": "Phoenix by HG Insights",
   "description": "Phoenix by HG Insights integration for B2B data intelligence and analytics",
+  "shortDescription": "B2B company data and analytics",
   "homepage": "https://hginsights.com",
   "logo": "logo.png",
   "keywords": [

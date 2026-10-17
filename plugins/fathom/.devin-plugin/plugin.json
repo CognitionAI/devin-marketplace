@@ -1,7 +1,8 @@
 {
   "name": "fathom",
   "displayName": "Fathom",
-  "description": "Fathom integration for meeting data retrieval and analysis\u2014such as recordings, transcripts, AI summaries, action items, and team activity",
+  "description": "Fathom integration for meeting data retrieval and analysis—such as recordings, transcripts, AI summaries, action items, and team activity",
+  "shortDescription": "Meeting recordings and transcripts",
   "homepage": "https://fathom.video",
   "logo": "logo.png",
   "keywords": [

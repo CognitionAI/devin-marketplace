@@ -2,6 +2,7 @@
   "name": "swagger",
   "displayName": "Swagger",
   "description": "Swagger integration to build, govern, and document APIs",
+  "shortDescription": "API design, governance and docs",
   "homepage": "https://swagger.io",
   "logo": "logo.svg",
   "keywords": [

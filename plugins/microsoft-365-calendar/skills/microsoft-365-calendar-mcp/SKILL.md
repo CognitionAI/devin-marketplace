@@ -10,23 +10,25 @@ files, Teams, tasks and people lookups live behind separate endpoints.
 
 ## Choosing a tool
 
-| You want to…                                | Call                    |
-| ------------------------------------------- | ----------------------- |
-| See what is on the calendar in a period     | `calendar_list_events`  |
-| Read one event's details                    | `calendar_get_event`    |
-| Book a meeting or block time                | `calendar_create_event` |
-| Change time, subject, location or attendees | `calendar_update_event` |
-| Cancel / remove an event                    | `calendar_delete_event` |
+| You want to…                                      | Call                    |
+| ------------------------------------------------- | ----------------------- |
+| Check which account this endpoint is signed in as | `calendar_me`           |
+| See what is on the calendar in a period           | `calendar_list_events`  |
+| Read one event's details                          | `calendar_get_event`    |
+| Book a meeting or block time                      | `calendar_create_event` |
+| Change time, subject, location or attendees       | `calendar_update_event` |
+| Cancel / remove an event                          | `calendar_delete_event` |
 
 ## Tool signatures
 
-| Tool                                                                                                                                                                                       | Notes                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `calendar_list_events(start, end, limit?, cursor?)`                                                                                                                                        | ISO 8601 `start` (inclusive) / `end` (exclusive). Recurring series are expanded into occurrences; times come back in **UTC**. |
-| `calendar_get_event(event_id)`                                                                                                                                                             | One event.                                                                                                                    |
-| `calendar_create_event(subject, start, end, body?, body_html=false, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)`         | **With attendees this sends invitations.**                                                                                    |
-| `calendar_update_event(event_id, subject?, start?, end?, body?, body_html?, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)` | Omitted properties are untouched; at least one change required.                                                               |
-| `calendar_delete_event(event_id, confirm=false)`                                                                                                                                           | For a meeting this **cancels it for every attendee**.                                                                         |
+| Tool                                                                                                                                                                                       | Notes                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `calendar_me()`                                                                                                                                                                            | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else. |
+| `calendar_list_events(start, end, limit?, cursor?)`                                                                                                                                        | ISO 8601 `start` (inclusive) / `end` (exclusive). Recurring series are expanded into occurrences; times come back in **UTC**.                                                                    |
+| `calendar_get_event(event_id)`                                                                                                                                                             | One event.                                                                                                                                                                                       |
+| `calendar_create_event(subject, start, end, body?, body_html=false, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)`         | **With attendees this sends invitations.**                                                                                                                                                       |
+| `calendar_update_event(event_id, subject?, start?, end?, body?, body_html?, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)` | Omitted properties are untouched; at least one change required.                                                                                                                                  |
+| `calendar_delete_event(event_id, confirm=false)`                                                                                                                                           | For a meeting this **cancels it for every attendee**.                                                                                                                                            |
 
 ## Times and time zones (get this right)
 

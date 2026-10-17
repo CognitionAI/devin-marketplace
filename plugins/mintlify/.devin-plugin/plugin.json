@@ -2,6 +2,7 @@
   "name": "mintlify",
   "displayName": "Mintlify",
   "description": "Mintlify integration to search, read, and edit your documentation",
+  "shortDescription": "Search and edit documentation",
   "homepage": "https://mintlify.com",
   "logo": "logo.png",
   "keywords": [

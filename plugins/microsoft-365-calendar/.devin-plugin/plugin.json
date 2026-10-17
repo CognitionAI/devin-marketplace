@@ -2,6 +2,7 @@
   "name": "microsoft-365-calendar",
   "displayName": "Microsoft 365 Calendar",
   "description": "List events, read details, and create, update, or delete calendar events and meetings via the Microsoft 365 Calendar MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
+  "shortDescription": "Outlook events, meetings and scheduling",
   "homepage": "https://www.microsoft.com/microsoft-365",
   "logo": "logo.svg",
   "keywords": [

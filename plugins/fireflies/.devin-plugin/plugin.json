@@ -1,7 +1,8 @@
 {
   "name": "fireflies",
   "displayName": "Fireflies",
-  "description": "Fireflies integration for meeting data retrieval and analysis\u2014such as transcripts, summaries, action items, and more metadata",
+  "description": "Fireflies integration for meeting data retrieval and analysis—such as transcripts, summaries, action items, and more metadata",
+  "shortDescription": "Meeting notes, transcripts and summaries",
   "homepage": "https://fireflies.ai",
   "logo": "logo.png",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "airtable",
   "displayName": "Airtable",
   "description": "Airtable integration for managing bases, tables, records, and automating workflows",
+  "shortDescription": "Bases, tables and records",
   "homepage": "https://airtable.com",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "circle",
   "displayName": "Circle",
   "description": "Circle's hosted developer MCP server: real-time guidance on Circle SDKs and documentation for USDC payments, cross-chain transfers, wallets and smart contracts.",
+  "shortDescription": "USDC payments and smart contracts",
   "homepage": "https://www.circle.com",
   "repository": "https://github.com/circlefin/skills",
   "logo": "logo.svg",

@@ -2,6 +2,7 @@
   "name": "monte-carlo",
   "displayName": "Monte Carlo",
   "description": "Monte Carlo integration for data and AI observability",
+  "shortDescription": "Data quality and AI observability",
   "homepage": "https://www.montecarlodata.com",
   "logo": "logo.png",
   "keywords": [

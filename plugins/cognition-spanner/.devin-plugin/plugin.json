@@ -2,6 +2,7 @@
   "name": "cognition-spanner",
   "displayName": "Spanner",
   "description": "Spanner integration for globally distributed relational operations",
+  "shortDescription": "Distributed SQL database",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "grafana-remote",
   "displayName": "Grafana (OAuth)",
   "description": "Grafana Cloud integration for dashboards, datasources, alerts, and incidents via Grafana's hosted MCP server (OAuth).",
+  "shortDescription": "Dashboards, data sources and alerts",
   "homepage": "https://grafana.com",
   "logo": "logo.svg",
   "keywords": [

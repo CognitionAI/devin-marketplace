@@ -2,6 +2,7 @@
   "name": "aws-sns-sqs",
   "displayName": "Amazon SNS SQS",
   "description": "Amazon SNS and SQS integration for messaging and notification services",
+  "shortDescription": "Queues, topics and notifications",
   "homepage": "https://aws.amazon.com/sns/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

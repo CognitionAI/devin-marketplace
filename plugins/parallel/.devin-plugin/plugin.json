@@ -2,6 +2,7 @@
   "name": "parallel",
   "displayName": "Parallel",
   "description": "AI-powered web search and research capabilities through Parallel's MCP server",
+  "shortDescription": "Web search and research reports",
   "homepage": "https://parallel.ai",
   "logo": "logo.png",
   "keywords": [

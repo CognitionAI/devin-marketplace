@@ -2,9 +2,11 @@
   "name": "atlassian",
   "displayName": "Atlassian",
   "description": "Official Atlassian integration for Jira and Confluence - access enterprise knowledge, manage issues, and create documentation",
+  "shortDescription": "Jira issues and Confluence pages",
   "homepage": "https://www.atlassian.com/",
   "logo": "logo.svg",
   "keywords": [
+    "Featured",
     "Essentials",
     "Productivity"
   ],

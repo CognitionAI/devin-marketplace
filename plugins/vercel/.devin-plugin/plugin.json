@@ -2,6 +2,7 @@
   "name": "vercel",
   "displayName": "Vercel",
   "description": "Search and navigate Vercel documentation, manage projects and deployments, analyze deployment logs and handle your Vercel infrastructure",
+  "shortDescription": "Projects, deployments and build logs",
   "homepage": "https://vercel.com",
   "logo": "logo.svg",
   "keywords": [

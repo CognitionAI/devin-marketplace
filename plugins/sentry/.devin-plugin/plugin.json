@@ -2,9 +2,11 @@
   "name": "sentry",
   "displayName": "Sentry",
   "description": "Retrieve detailed Sentry issue data and full stack traces. Also search and filter issues, update issue status, assignments, tags, bookmarks, and alerts.",
+  "shortDescription": "Issues, stack traces and alerts",
   "homepage": "https://sentry.io",
   "logo": "logo.svg",
   "keywords": [
+    "Featured",
     "Essentials",
     "Monitoring & Analytics"
   ],
