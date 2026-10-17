@@ -1,7 +1,8 @@
 {
   "name": "mnemoverse",
   "displayName": "Mnemoverse Memory",
-  "description": "Long-term memory for Devin that persists across sessions and across every tool connected to the same account. Save preferences, decisions and lessons, recall them by natural-language search, rate a recalled memory as helpful or misleading so that rating re-ranks what comes back next, and share memory through rooms. Sign in with OAuth; the free plan needs no credit card.",
+  "description": "Long-term memory for Devin that persists across sessions and across every tool connected to the same account. Save preferences, decisions and lessons, recall them by natural-language search, rate a recalled memory as helpful or misleading so that rating re-ranks what comes back next, and share memory through shared rooms (beta). Sign in with OAuth; the free plan needs no credit card.",
+  "shortDescription": "Agent memory across sessions and tools",
   "homepage": "https://mnemoverse.com",
   "repository": "https://github.com/mnemoverse/mcp-memory-server",
   "logo": "logo.png",
