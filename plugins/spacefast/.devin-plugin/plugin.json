@@ -1,0 +1,17 @@
+{
+  "name": "spacefast",
+  "displayName": "Spacefast",
+  "description": "Build, publish, and manage websites, dashboards, reports, and web tools with Spacefast.",
+  "shortDescription": "Publish sites, dashboards and reports",
+  "homepage": "https://spacefast.com",
+  "repository": "https://github.com/spacefast/mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "spacefast": {
+      "url": "https://mcp.spacefast.com"
+    }
+  }
+}
