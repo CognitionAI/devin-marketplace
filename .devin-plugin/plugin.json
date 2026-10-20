@@ -217,6 +217,7 @@
     "./plugins/vanta-aus",
     "./plugins/vanta-eu",
     "./plugins/vercel",
+    "./plugins/vibe-prospecting",
     "./plugins/webull",
     "./plugins/windsor-ai",
     "./plugins/wingspan",
