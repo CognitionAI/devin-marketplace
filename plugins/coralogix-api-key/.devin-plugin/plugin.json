@@ -9,7 +9,7 @@
   ],
   "mcpServers": {
     "coralogix-api-key": {
-      "url": "https://${CORALOGIX_API_KEY_DOMAIN}/mgmt/api/v1/mcp",
+      "url": "https://api.eu2.coralogix.com/mgmt/api/v1/mcp",
       "headers": {
         "Authorization": "${CORALOGIX_API_KEY_AUTHORIZATION}"
       }
