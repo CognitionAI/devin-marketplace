@@ -2,6 +2,7 @@
   "name": "aura",
   "displayName": "Aura",
   "description": "Aura integration for company intelligence and workforce analytics",
+  "shortDescription": "Company and workforce analytics",
   "homepage": "https://www.getaura.ai",
   "logo": "logo.png",
   "keywords": [

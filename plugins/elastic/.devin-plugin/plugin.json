@@ -2,6 +2,7 @@
   "name": "elastic",
   "displayName": "Elastic",
   "description": "Search and analyze Elasticsearch logs, metrics, and traces with Agent Builder tools via the MCP server built into Kibana (Elastic 9.2+).",
+  "shortDescription": "Elasticsearch logs, metrics and traces",
   "homepage": "https://www.elastic.co/",
   "logo": "logo.svg",
   "keywords": [

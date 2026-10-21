@@ -2,6 +2,7 @@
   "name": "chronosphere",
   "displayName": "Chronosphere",
   "description": "Query metrics, logs, traces, and events from Chronosphere (a Palo Alto Networks company) via its hosted MCP server.",
+  "shortDescription": "Metrics, logs, traces and events",
   "homepage": "https://chronosphere.io/",
   "logo": "logo.png",
   "keywords": [

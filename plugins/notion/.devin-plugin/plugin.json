@@ -2,6 +2,7 @@
   "name": "notion",
   "displayName": "Notion",
   "description": "Retrieve and manage Notion pages, databases, and comments; search across your workspace; create, update, move, and duplicate pages and databases.",
+  "shortDescription": "Pages, databases and workspace search",
   "homepage": "https://www.notion.so",
   "logo": "logo.svg",
   "keywords": [

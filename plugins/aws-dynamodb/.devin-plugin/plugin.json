@@ -2,6 +2,7 @@
   "name": "aws-dynamodb",
   "displayName": "Amazon DynamoDB",
   "description": "Amazon DynamoDB integration for NoSQL database operations and management",
+  "shortDescription": "NoSQL tables and item operations",
   "homepage": "https://aws.amazon.com/dynamodb/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

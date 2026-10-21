@@ -2,8 +2,9 @@
   "name": "splunk",
   "displayName": "Splunk",
   "description": "Run SPL searches and explore indexes, metadata, and saved searches via the Splunk MCP Server app on your Splunk deployment.",
+  "shortDescription": "SPL searches and log indexes",
   "homepage": "https://www.splunk.com/",
-  "logo": "logo.svg",
+  "logo": "logo.png",
   "keywords": [
     "Monitoring & Analytics"
   ],

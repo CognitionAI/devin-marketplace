@@ -2,6 +2,7 @@
   "name": "cdata-connect-ai",
   "displayName": "CData Connect AI",
   "description": "CData Connect AI integration for querying 350+ data sources through a managed MCP platform",
+  "shortDescription": "Query connected data sources",
   "homepage": "https://www.cdata.com",
   "logo": "logo.png",
   "keywords": [

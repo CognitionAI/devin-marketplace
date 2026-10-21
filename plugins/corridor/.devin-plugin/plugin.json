@@ -2,6 +2,7 @@
   "name": "corridor",
   "displayName": "Corridor",
   "description": "Corridor adds AI code security guardrails directly into your development workflow, helping to identify and fix security vulnerabilities as you code.",
+  "shortDescription": "Code security checks and remediation",
   "homepage": "https://corridor.dev",
   "logo": "logo.png",
   "keywords": [

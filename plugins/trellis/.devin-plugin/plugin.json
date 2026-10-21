@@ -2,6 +2,7 @@
   "name": "trellis",
   "displayName": "Trellis",
   "description": "Trellis integration for trial court litigation research",
+  "shortDescription": "Trial court research and litigation",
   "homepage": "https://trellis.law",
   "logo": "logo.png",
   "keywords": [

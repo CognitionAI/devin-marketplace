@@ -2,6 +2,7 @@
   "name": "granola",
   "displayName": "Granola",
   "description": "Connect your AI tools to your Granola meeting notes - search meetings, find topics, extract action items, and answer questions from your meeting history",
+  "shortDescription": "Meeting notes, topics and action items",
   "homepage": "https://granola.ai",
   "logo": "logo.png",
   "keywords": [

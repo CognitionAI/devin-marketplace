@@ -2,6 +2,7 @@
   "name": "canva",
   "displayName": "Canva",
   "description": "Official Canva integration for design creation, template management, and visual content generation",
+  "shortDescription": "Designs, templates and visual content",
   "homepage": "https://www.canva.com",
   "logo": "logo.svg",
   "keywords": [

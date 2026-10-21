@@ -2,6 +2,7 @@
   "name": "lunarcrush",
   "displayName": "LunarCrush",
   "description": "LunarCrush integration to add real-time social media data to your searches",
+  "shortDescription": "Social media trends and audience data",
   "homepage": "https://lunarcrush.com",
   "logo": "logo.png",
   "keywords": [

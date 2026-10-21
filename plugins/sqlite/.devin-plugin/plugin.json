@@ -2,6 +2,7 @@
   "name": "sqlite",
   "displayName": "SQLite",
   "description": "SQLite database integration for data management and business intelligence",
+  "shortDescription": "SQLite queries and database inspection",
   "homepage": "https://www.sqlite.org",
   "logo": "logo.svg",
   "keywords": [

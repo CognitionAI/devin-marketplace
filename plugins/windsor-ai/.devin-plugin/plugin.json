@@ -2,6 +2,7 @@
   "name": "windsor-ai",
   "displayName": "Windsor.ai",
   "description": "Windsor.ai integration to connect 320+ marketing data sources",
+  "shortDescription": "Cross-channel marketing analytics data",
   "homepage": "https://windsor.ai",
   "logo": "logo.png",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "stripe",
   "displayName": "Stripe",
   "description": "Create and manage customers, products, prices, subscriptions, invoices, coupons, payment links, payouts, and refunds in Stripe; read balances, disputes, docs and more.",
+  "shortDescription": "Payments, customers and subscriptions",
   "homepage": "https://stripe.com",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "hubspot",
   "displayName": "HubSpot",
   "description": "List, retrieve, create, and update HubSpot CRM objects; manage associations, properties, and schemas; create notes and tasks; list workflows; fetch user or account context and more.",
+  "shortDescription": "CRM records, workflows and tasks",
   "homepage": "https://www.hubspot.com",
   "logo": "logo.svg",
   "keywords": [

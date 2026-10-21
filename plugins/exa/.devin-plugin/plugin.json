@@ -1,7 +1,8 @@
 {
   "name": "exa",
   "displayName": "Exa",
-  "description": "Exa web search for AI agents \u2014 search the web, run advanced filtered searches, and fetch full page content as clean markdown",
+  "description": "Exa web search for AI agents — search the web, run advanced filtered searches, and fetch full page content as clean markdown",
+  "shortDescription": "AI web search and crawling",
   "homepage": "https://exa.ai",
   "repository": "https://github.com/exa-labs/exa-mcp-server",
   "logo": "logo.svg",

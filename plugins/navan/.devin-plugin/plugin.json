@@ -2,6 +2,7 @@
   "name": "navan",
   "displayName": "Navan",
   "description": "Navan's hosted MCP server: query expenses, travel bookings, policies and corporate cards.",
+  "shortDescription": "Travel bookings and expense management",
   "homepage": "https://navan.com",
   "logo": "logo.png",
   "keywords": [

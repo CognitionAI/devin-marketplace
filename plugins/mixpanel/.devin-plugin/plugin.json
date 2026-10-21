@@ -2,6 +2,7 @@
   "name": "mixpanel",
   "displayName": "Mixpanel",
   "description": "Mixpanel integration to analyze, query, and manage your product analytics data",
+  "shortDescription": "Product analytics and event data",
   "homepage": "https://mixpanel.com",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "supermetrics",
   "displayName": "Supermetrics",
   "description": "Supermetrics integration to access 200+ marketing data sources",
+  "shortDescription": "Marketing reports from connected sources",
   "homepage": "https://supermetrics.com",
   "logo": "logo.png",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "playwright",
   "displayName": "Playwright",
   "description": "Automate browser interactions and inspect pages: navigate URLs, handle dialogs, upload files, and intercept network requests. Also take snapshots, evaluate JavaScript, resize windows, and more",
+  "shortDescription": "Browser actions, testing and automation",
   "homepage": "https://playwright.dev",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "incident-io",
   "displayName": "incident.io",
   "description": "incident.io integration to see and manage everything in incident.io",
+  "shortDescription": "Incident response and on-call",
   "homepage": "https://incident.io",
   "logo": "logo.png",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "plaid",
   "displayName": "Plaid",
   "description": "Plaid integration for financial data management and transaction analysis",
+  "shortDescription": "Financial accounts and transactions",
   "homepage": "https://plaid.com/",
   "logo": "logo.png",
   "keywords": [
