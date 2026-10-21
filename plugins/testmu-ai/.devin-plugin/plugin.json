@@ -2,6 +2,7 @@
   "name": "testmu-ai",
   "displayName": "TestMu AI",
   "description": "Run, debug, and triage tests on the TestMu AI cloud: orchestrate HyperExecute runs and generate their YAML, triage automation failures from command, network, and console logs, explain SmartUI visual regressions, run accessibility audits, and manage test cases.",
+  "shortDescription": "Cloud test runs and failure triage",
   "homepage": "https://www.testmuai.com",
   "repository": "https://github.com/LambdaTest/mcp-server-guide",
   "logo": "logo.svg",
