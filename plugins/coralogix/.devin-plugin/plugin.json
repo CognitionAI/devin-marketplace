@@ -1,0 +1,58 @@
+{
+  "name": "coralogix",
+  "displayName": "Coralogix (OAuth)",
+  "description": "Query Coralogix logs, metrics, traces, and RUM, and manage alerts and dashboards via the official Coralogix MCP server. Pick your account's region (EU1, EU2, US1, US2, US3, AP1, AP2 or AP3) in the plugin's Settings; it starts on US1.",
+  "homepage": "https://coralogix.com/",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "coralogix": {
+      "url": "https://api.${CORALOGIX_DOMAIN:-us1.coralogix.com}/mgmt/api/v1/mcp"
+    }
+  },
+  "userConfig": [
+    {
+      "key": "coralogix_domain",
+      "title": "Region",
+      "description": "The Coralogix region your account is in.",
+      "required": true,
+      "sensitive": false,
+      "options": [
+        {
+          "label": "EU1 (Ireland)",
+          "value": "eu1.coralogix.com"
+        },
+        {
+          "label": "EU2 (Stockholm)",
+          "value": "eu2.coralogix.com"
+        },
+        {
+          "label": "US1 (Ohio)",
+          "value": "us1.coralogix.com"
+        },
+        {
+          "label": "US2 (Oregon)",
+          "value": "us2.coralogix.com"
+        },
+        {
+          "label": "US3 (Iowa)",
+          "value": "us3.coralogix.com"
+        },
+        {
+          "label": "AP1 (Mumbai)",
+          "value": "ap1.coralogix.com"
+        },
+        {
+          "label": "AP2 (Singapore)",
+          "value": "ap2.coralogix.com"
+        },
+        {
+          "label": "AP3 (Jakarta)",
+          "value": "ap3.coralogix.com"
+        }
+      ]
+    }
+  ]
+}
