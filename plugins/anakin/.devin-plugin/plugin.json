@@ -1,0 +1,17 @@
+{
+  "name": "anakin",
+  "displayName": "Anakin",
+  "description": "Web data for agents through Anakin's hosted MCP server: scrape pages to markdown or JSON, map and crawl sites, search the web, run deep research, run pre-built Wire actions on popular websites, monitor pages for changes, and drive a cloud browser. Sign in with an Anakin account over OAuth; the free tier needs no card.",
+  "homepage": "https://anakin.io",
+  "repository": "https://github.com/Anakin-Inc/anakin-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "anakin": {
+      "url": "https://mcp.anakin.io/mcp"
+    }
+  }
+}
