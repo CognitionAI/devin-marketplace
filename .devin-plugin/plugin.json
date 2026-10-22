@@ -210,6 +210,7 @@
     "./plugins/swagger",
     "./plugins/synthflow-docs",
     "./plugins/tavily",
+    "./plugins/tldv",
     "./plugins/todoist",
     "./plugins/trellis",
     "./plugins/twilio-docs",
