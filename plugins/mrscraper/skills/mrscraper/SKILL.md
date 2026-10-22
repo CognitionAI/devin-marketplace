@@ -47,9 +47,9 @@ Never place credentials in tool arguments, print them, write them into project
 artifacts, or manually reproduce the OAuth exchange. Do not configure an
 API-key or bearer-token fallback from these skills.
 
-The connection uses two scopes: scrape:read for scraperAPI and webSearch, and
-account:read for status. A tool called without its scope returns 403
-insufficient_scope; reauthorize the connection so the client requests it.
+The connection uses three scopes: scrape:write for scraperAPI, scrape:read for
+webSearch, and account:read for status. A tool called without its scope returns
+403 insufficient_scope; reauthorize the connection so the client requests it.
 
 Verify end-to-end access with status, which reads the account without
 retrieving a page:
