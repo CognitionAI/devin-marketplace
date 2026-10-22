@@ -2,6 +2,7 @@
   "name": "newrelic-remote",
   "displayName": "New Relic (OAuth)",
   "description": "Query New Relic telemetry with NRQL, and investigate entities, APM services, logs, alerts, incidents, deployments, and dashboards.",
+  "shortDescription": "NRQL telemetry queries and alerts",
   "homepage": "https://newrelic.com/",
   "logo": "logo.svg",
   "keywords": [

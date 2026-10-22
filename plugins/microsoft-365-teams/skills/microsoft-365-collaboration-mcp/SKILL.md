@@ -10,27 +10,32 @@ tools — mail, calendar, files, tasks and people lookups live behind separate e
 
 ## Choosing a tool
 
-| You want to…                            | Call                                 |
-| --------------------------------------- | ------------------------------------ |
-| Find the user's teams                   | `collaboration_list_teams`           |
-| Find a channel in a team                | `collaboration_list_channels`        |
-| Find an existing chat (ids/topics only) | `collaboration_list_chats`           |
-| See who is in a chat                    | `collaboration_list_chat_members`    |
-| Post in a team channel                  | `collaboration_send_channel_message` |
-| Post in an existing chat (group or 1:1) | `collaboration_send_chat_message`    |
-| Message one person directly             | `collaboration_send_dm`              |
+| You want to…                                      | Call                                      |
+| ------------------------------------------------- | ----------------------------------------- |
+| Check which account this endpoint is signed in as | `collaboration_me`                        |
+| Find the user's teams                             | `collaboration_list_teams`                |
+| Find a channel in a team                          | `collaboration_list_channels`             |
+| Find a team tag to mention                        | `collaboration_list_team_tags`            |
+| Find an existing chat (ids/topics only)           | `collaboration_list_chats`                |
+| See who is in a chat                              | `collaboration_list_chat_members`         |
+| Post in a team channel                            | `collaboration_send_channel_message`      |
+| Post in an existing chat (group or 1:1)           | `collaboration_send_chat_message`         |
+| Message one person directly                       | `collaboration_send_dm`                   |
+| Message yourself (notify the requesting user)     | `collaboration_send_dm` (`user_id: "me"`) |
 
 ## Tool signatures
 
-| Tool                                                                                         | Notes                                                                                       |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `collaboration_list_teams(cursor?)`                                                          | Teams the user has joined.                                                                  |
-| `collaboration_list_channels(team_id, cursor?)`                                              | Channels of a team.                                                                         |
-| `collaboration_list_chats(limit?, cursor?)`                                                  | Chat **metadata only** — id, topic, type, timestamps. No messages. `limit` is capped at 50. |
-| `collaboration_list_chat_members(chat_id, cursor?)`                                          | Members of a chat.                                                                          |
-| `collaboration_send_channel_message(team_id, channel_id, content, mentions?, confirm=false)` | Posts only with `confirm=true`.                                                             |
-| `collaboration_send_chat_message(chat_id, content, mentions?, confirm=false)`                | Posts only with `confirm=true`.                                                             |
-| `collaboration_send_dm(user_id, content, mentions?, confirm=false)`                          | Finds or creates a verified 1:1 chat with `user_id`, then sends.                            |
+| Tool                                                                                                        | Notes                                                                                                                                                                                            |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `collaboration_me()`                                                                                        | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else. |
+| `collaboration_list_teams(cursor?)`                                                                         | Teams the user has joined.                                                                                                                                                                       |
+| `collaboration_list_channels(team_id, cursor?)`                                                             | Channels of a team.                                                                                                                                                                              |
+| `collaboration_list_team_tags(team_id, cursor?)`                                                            | Tags of a team (`id`, `display_name`, `member_count`) for `tag_mentions`. Needs the admin-consented `TeamworkTag.Read` scope.                                                                    |
+| `collaboration_list_chats(limit?, cursor?)`                                                                 | Chat **metadata only** — id, topic, type, timestamps. No messages. `limit` is capped at 50.                                                                                                      |
+| `collaboration_list_chat_members(chat_id, cursor?)`                                                         | Members of a chat.                                                                                                                                                                               |
+| `collaboration_send_channel_message(team_id, channel_id, content, mentions?, tag_mentions?, confirm=false)` | Posts only with `confirm=true`.                                                                                                                                                                  |
+| `collaboration_send_chat_message(chat_id, content, mentions?, confirm=false)`                               | Posts only with `confirm=true`.                                                                                                                                                                  |
+| `collaboration_send_dm(user_id, content, mentions?, confirm=false)`                                         | Finds or creates a verified 1:1 chat with `user_id`; use `user_id="me"` for your own "chat with yourself".                                                                                       |
 
 ## You cannot read messages
 
@@ -46,48 +51,60 @@ and do **not** ask the user to grant `Chat.Read`.
 - Chat id → `collaboration_list_chats` (match on `topic` / members via
   `collaboration_list_chat_members`; if several plausibly match, ask the user).
 - **DM recipient**: `collaboration_send_dm` needs the recipient's **Entra user object id (a
-  GUID)**. A UPN or email address is rejected with `dm_recipient_unverified`. Get the GUID from
-  the Directory MCP (`directory_search_users` → `items[].id`) if that endpoint is connected, or
-  from the user. Mentions need the same GUID.
+  GUID)**, or `user_id="me"` for your own "chat with yourself". A UPN or email address is
+  rejected with `dm_recipient_unverified`. Get the GUID from the Directory MCP
+  (`directory_search_users` → `items[].id`) if that endpoint is connected, or from the user.
+  Mentions need the same GUID.
 
 ## Message content and mentions
 
 - `content` is treated as **plain text and HTML-escaped** before sending, so any markup or
-  markdown you write shows up literally. Write plain prose.
+  markdown you write shows up literally. Write plain prose. Line breaks (`\n`) are kept, so
+  paragraphs and `-` lists can be written on separate lines.
 - To mention people, use `mentions`:
   `[{"user_id": "<entra-object-id>", "display_name": "Ana"}]`. An `<at>` tag per mention is
   appended to the message text automatically, in array order — do not write `<at>` yourself.
   `user_id` is **not validated**: a wrong or non-GUID value still posts (`confirmed`) with a
   broken mention, so only use ids you resolved.
+- To mention a team tag (for example `@Design Reviewers`) in a **channel** message, use
+  `tag_mentions`: `[{"tag_id": "<id>", "display_name": "Design Reviewers"}]`. Take both values
+  from `collaboration_list_team_tags(team_id)` for the same team; never write the tag name as
+  plain `@text`, which notifies nobody. Tags do not exist in chats or DMs. If
+  `collaboration_list_team_tags` is not listed, the token lacks `TeamworkTag.Read` (it needs
+  admin consent): say so instead of guessing a tag id.
 
 ## Sending: describe → approval → confirm
 
 Every send takes `confirm` (default `false`).
 
-1. Call it **without** `confirm`. Nothing is posted; you get a bare
-   `{"status": "rejected", "body": null, "error": null}` — no preview and no error code. That
-   is the expected answer to an unconfirmed call, not a failure.
+1. Call it **without** `confirm`. Nothing is posted; you get `rejected` with
+   `error.error == "confirmation_required"` and no preview body. That is the expected answer to an
+   unconfirmed call, not a failure.
 2. Show the user the exact destination (team + channel, or the chat / person) and the exact text
    you will post, and get explicit approval.
 3. Re-run the **identical** call with `confirm: true`.
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                                            | Do                                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | The message was posted.                                            | Report success using `body` (`web_url` is set for channel posts, `null` for chat and DM sends).                                           |
-| `confirmed_but_unreadable` | **The message was posted**; only the response was unreadable.      | Treat as success. Do **not** resend.                                                                                                      |
-| `rejected`                 | Nothing was posted (no `confirm`, unverified recipient, or a 4xx). | Fix the arguments (or the identity) and retry safely.                                                                                     |
-| `indeterminate`            | It **may** have been posted (timeout / server error).              | **Never resend** — you would double-post. Tell the user it is unverified and ask them to check Teams; you cannot read the chat to verify. |
+| `status`                   | Meaning                                                            | Do                                                                                                                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | The message was posted.                                            | Report success using `body` (`web_url` is set for channel posts, `null` for chat and DM sends).                                                                                                           |
+| `confirmed_but_unreadable` | **The message was posted**; only the response was unreadable.      | Treat as success. Do **not** resend.                                                                                                                                                                      |
+| `rejected`                 | Nothing was posted (no `confirm`, unverified recipient, or a 4xx). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`dm_recipient_unverified`, a 4xx): fix the arguments/identity and retry safely. |
+| `indeterminate`            | It **may** have been posted (timeout / server error).              | **Never resend** — you would double-post. Tell the user it is unverified and ask them to check Teams; you cannot read the chat to verify.                                                                 |
 
 No send is idempotent: never blindly retry one.
 
 ## DM safety rules
 
-`collaboration_send_dm` fails closed. It only sends after proving the target chat is a
-`oneOnOne` chat whose members are exactly the signed-in user and the recipient, both are AAD
-users in the caller's tenant, and neither is a guest. Ambiguous matches, guests, foreign tenants
-and unexpected chat types abort before anything is sent.
+`collaboration_send_dm` fails closed for other users. It only sends after proving the target
+chat is a `oneOnOne` chat whose members are exactly the signed-in user and the recipient, both
+are AAD users in the caller's tenant, neither is flagged as a guest in the roster, and each has a
+roster e-mail address on one of that tenant's verified domains. This rejects B2B guests, whose
+roster e-mail is their home address, even when the chat role does not identify them as a guest.
+Ambiguous matches, foreign tenants, missing or unverified e-mail domains and unexpected chat
+types abort before anything is sent. Use `user_id="me"` to send directly to the signed-in user's
+own chat.
 
 If `send_dm` refuses: **do not** work around it by picking a chat id out of
 `collaboration_list_chats` and calling `send_chat_message`. Re-resolve the person's object id
@@ -103,7 +120,7 @@ collaboration_send_channel_message {
   "team_id": "20ffc60a-...-guid", "channel_id": "19:def...@thread.tacv2",
   "content": "Deploy finished, notes in Documents/2026/plan.md"
 }
-//  -> { "status": "rejected", "body": null, "error": null }   nothing posted
+//  -> { "status": "rejected", "body": null, "error": { "error": "confirmation_required", ... } }   nothing posted
 collaboration_send_channel_message { /* identical arguments */ "confirm": true }
 
 // DM a person (object id from the Directory MCP, if connected)
@@ -133,9 +150,8 @@ collaboration_send_dm {
   post), and for `send_dm` **all four** of `Chat.Create`, `ChatMessage.Send`, `User.Read` and
   `Chat.ReadBasic`. Calling an uncovered tool returns `insufficient_scope` with
   `required_scopes`; report it rather than working around it.
-- **`dm_recipient_unverified`** → you passed a UPN/email, the recipient is the signed-in user
-  (you cannot DM yourself), or the chat could not be proven to be a clean 1:1 with that person.
-  Get the Entra object id and confirm the recipient with the user.
+- **`dm_recipient_unverified`** → you passed a UPN/email, or the chat could not be proven to be
+  a clean 1:1 with that person. Get the Entra object id and confirm the recipient with the user.
 - **`graph_forbidden` on `send_dm`** → usually a GUID that is not a user in the tenant;
   re-resolve the object id rather than retrying.
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.

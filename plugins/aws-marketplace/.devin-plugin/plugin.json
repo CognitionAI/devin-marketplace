@@ -2,6 +2,7 @@
   "name": "aws-marketplace",
   "displayName": "AWS Marketplace",
   "description": "AWS Marketplace integration to discover, evaluate, and buy cloud solutions",
+  "shortDescription": "Find and buy cloud software",
   "homepage": "https://aws.amazon.com/marketplace",
   "logo": "logo.svg",
   "keywords": [

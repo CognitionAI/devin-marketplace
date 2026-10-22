@@ -2,6 +2,7 @@
   "name": "aws-iam",
   "displayName": "AWS IAM",
   "description": "AWS IAM integration for identity and access management operations",
+  "shortDescription": "Identity and access management",
   "homepage": "https://aws.amazon.com/iam/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

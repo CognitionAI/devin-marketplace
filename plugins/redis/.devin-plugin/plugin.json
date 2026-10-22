@@ -2,6 +2,7 @@
   "name": "redis",
   "displayName": "Redis",
   "description": "Interact with Redis using natural language: get/set keys, manage strings, hashes, lists, sets, streams, keys and JSON data; perform pub/sub operations; and retrieve server stats and client info.",
+  "shortDescription": "Redis keys, data structures and stats",
   "homepage": "https://redis.io",
   "logo": "logo.svg",
   "keywords": [

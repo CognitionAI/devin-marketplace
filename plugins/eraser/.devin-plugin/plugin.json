@@ -2,6 +2,7 @@
   "name": "eraser",
   "displayName": "Eraser",
   "description": "Eraser integration to generate, manage, and update diagrams and docs",
+  "shortDescription": "Diagrams and technical documentation",
   "homepage": "https://www.eraser.io",
   "logo": "logo.svg",
   "keywords": [

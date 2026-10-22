@@ -2,6 +2,7 @@
   "name": "similarweb",
   "displayName": "Similarweb",
   "description": "Similarweb integration for real-time web, mobile app, and market data",
+  "shortDescription": "Web, app and market analytics",
   "homepage": "https://www.similarweb.com",
   "logo": "logo.svg",
   "keywords": [

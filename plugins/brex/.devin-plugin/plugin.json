@@ -2,6 +2,7 @@
   "name": "brex",
   "displayName": "Brex",
   "description": "Brex's hosted MCP server: query expenses, receipts, bills, cards, budgets and travel across your Brex account.",
+  "shortDescription": "Expenses, cards, bills and travel",
   "homepage": "https://www.brex.com",
   "logo": "logo.svg",
   "keywords": [

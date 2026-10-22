@@ -2,6 +2,7 @@
   "name": "daloopa",
   "displayName": "Daloopa",
   "description": "Daloopa's hosted MCP server: pull source-linked company fundamentals, KPIs, filings and prices.",
+  "shortDescription": "Company fundamentals, KPIs and filings",
   "homepage": "https://www.daloopa.com",
   "logo": "logo.png",
   "keywords": [

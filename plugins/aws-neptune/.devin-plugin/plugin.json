@@ -2,6 +2,7 @@
   "name": "aws-neptune",
   "displayName": "Amazon Neptune",
   "description": "Amazon Neptune integration for managed graph database operations",
+  "shortDescription": "Graph database queries and management",
   "homepage": "https://aws.amazon.com/neptune/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

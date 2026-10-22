@@ -2,6 +2,7 @@
   "name": "monday",
   "displayName": "monday.com",
   "description": "monday.com integration to manage boards, items, and work-management workflows",
+  "shortDescription": "Boards, items and work management",
   "homepage": "https://monday.com",
   "logo": "logo.svg",
   "keywords": [

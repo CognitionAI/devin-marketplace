@@ -2,6 +2,7 @@
   "name": "stytch",
   "displayName": "Stytch",
   "description": "Stytch integration to manage your Stytch project",
+  "shortDescription": "Identity, sign-in and project settings",
   "homepage": "https://stytch.com",
   "logo": "logo.png",
   "keywords": [

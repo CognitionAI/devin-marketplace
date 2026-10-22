@@ -2,6 +2,7 @@
   "name": "aws-aurora-postgresql",
   "displayName": "Amazon Aurora PostgreSQL",
   "description": "Amazon Aurora PostgreSQL integration for managed PostgreSQL database operations",
+  "shortDescription": "Aurora PostgreSQL queries and management",
   "homepage": "https://aws.amazon.com/rds/aurora/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

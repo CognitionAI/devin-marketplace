@@ -2,6 +2,7 @@
   "name": "statsig",
   "displayName": "Statsig",
   "description": "Statsig's hosted MCP server: inspect and manage feature gates, experiments, dynamic configs and metrics.",
+  "shortDescription": "Feature gates, experiments and metrics",
   "homepage": "https://www.statsig.com",
   "logo": "logo.png",
   "keywords": [

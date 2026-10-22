@@ -2,6 +2,7 @@
   "name": "microsoft-365-files",
   "displayName": "Microsoft 365 OneDrive & SharePoint",
   "description": "Browse, read, upload, and delete OneDrive and SharePoint files via the Microsoft 365 OneDrive & SharePoint MCP tools. Connects with your own Microsoft Entra app registration (client ID and secret).",
+  "shortDescription": "OneDrive and SharePoint document search",
   "homepage": "https://www.microsoft.com/microsoft-365",
   "logo": "logo.svg",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "omni-analytics",
   "displayName": "Omni Analytics",
   "description": "Omni integration to query your data using natural language",
+  "shortDescription": "Natural-language BI queries",
   "homepage": "https://omni.co",
   "logo": "logo.png",
   "keywords": [

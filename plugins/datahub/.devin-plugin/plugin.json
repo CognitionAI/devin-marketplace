@@ -2,6 +2,7 @@
   "name": "datahub",
   "displayName": "DataHub",
   "description": "DataHub integration to connect AI agents to enterprise data and context",
+  "shortDescription": "Enterprise data catalog and context",
   "homepage": "https://datahub.com",
   "logo": "logo.png",
   "keywords": [

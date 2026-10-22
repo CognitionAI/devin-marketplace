@@ -2,6 +2,7 @@
   "name": "orion",
   "displayName": "Orion by Gravity",
   "description": "Orion by Gravity integration to get insights from an autonomous AI analyst",
+  "shortDescription": "Autonomous data analysis and insights",
   "homepage": "https://runorion.com",
   "logo": "logo.png",
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "cognition-alloydb",
   "displayName": "AlloyDB",
   "description": "AlloyDB integration for data management and SQL operations",
+  "shortDescription": "AlloyDB database queries and management",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

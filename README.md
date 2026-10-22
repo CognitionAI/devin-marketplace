@@ -26,3 +26,10 @@ this repo:
 ## Contributing
 
 See [`.agents/skills/adding-a-plugin/SKILL.md`](.agents/skills/adding-a-plugin/SKILL.md).
+
+Contributions are accepted under the [Contributor License Agreement](CLA.md);
+opening a pull request means you agree to it.
+
+## License
+
+[MIT](LICENSE)

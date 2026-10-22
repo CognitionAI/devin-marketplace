@@ -2,6 +2,7 @@
   "name": "circleback",
   "displayName": "Circleback",
   "description": "Circleback's hosted MCP server: search and access your meetings, notes, action items, emails and calendar events.",
+  "shortDescription": "Meeting notes, transcripts and actions",
   "homepage": "https://circleback.ai",
   "logo": "logo.png",
   "keywords": [

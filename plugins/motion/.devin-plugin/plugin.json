@@ -2,6 +2,7 @@
   "name": "motion",
   "displayName": "Motion Creative Analytics",
   "description": "Motion integration to analyze ad creative and competitor ad libraries",
+  "shortDescription": "Ad creative and competitor analysis",
   "homepage": "https://motionapp.com",
   "logo": "logo.png",
   "keywords": [

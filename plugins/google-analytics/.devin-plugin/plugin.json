@@ -2,6 +2,7 @@
   "name": "google-analytics",
   "displayName": "Google Analytics",
   "description": "Access Google Analytics 4 data: run reports, get property details, and query metrics via MCP",
+  "shortDescription": "GA4 reports, metrics and properties",
   "homepage": "https://analytics.google.com",
   "repository": "https://github.com/googleanalytics/google-analytics-mcp",
   "logo": "logo.svg",

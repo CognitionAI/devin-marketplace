@@ -2,6 +2,7 @@
   "name": "circleci",
   "displayName": "CircleCI",
   "description": "Retrieve detailed build failure logs, identify flaky tests, and fetch the status of your latest pipelines and workflows in CircleCI projects. Also get job test results, trigger pipelines, validate configs, analyze git diffs, and more.",
+  "shortDescription": "CI pipelines, flaky tests and workflows",
   "homepage": "https://circleci.com",
   "logo": "logo.svg",
   "keywords": [
