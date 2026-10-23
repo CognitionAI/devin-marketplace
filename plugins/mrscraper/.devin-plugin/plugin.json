@@ -1,0 +1,17 @@
+{
+  "name": "mrscraper",
+  "displayName": "MrScraper",
+  "description": "MrScraper retrieves web pages and Google results for developers building datasets and data-processing workflows. Retrieve a specified URL as HTML, Markdown, a screenshot, or a combination; discover URLs through Google search; and check account usage and remaining tokens. A MrScraper account is required. Page retrieval and search contact external websites through MrScraper. Use third-party sources only where you have authorization and comply with their terms.",
+  "shortDescription": "Web scraping and Google search",
+  "homepage": "https://mrscraper.com",
+  "repository": "https://github.com/mrscraper-com/mrscraper-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mrscraper": {
+      "url": "https://mcp.mrscraper.com/mcp"
+    }
+  }
+}
