@@ -1,0 +1,20 @@
+{
+  "name": "antenna",
+  "displayName": "Antenna",
+  "description": "Explore productivity, AI usage trends, team metrics, and more.",
+  "shortDescription": "Engineering metrics and AI spend",
+  "homepage": "https://www.antenna.dev",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "antenna": {
+      "url": "https://app.antenna.dev/api/mcp/enterprise",
+      "headers": {
+        "Authorization": "Bearer ${ANTENNA_API_KEY}"
+      }
+    }
+  }
+}
