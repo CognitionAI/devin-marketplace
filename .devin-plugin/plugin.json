@@ -248,6 +248,12 @@
       "url": "https://github.com/forcedotcom/sf-skills.git",
       "path": "plugins/builder/salesforce-development",
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/netbka/local-commander-plugins.git",
+      "path": "devin",
+      "sha": "26ca71e0d09526780e11692e541b9e25d496e328"
     }
   ]
 }
