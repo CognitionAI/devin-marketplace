@@ -42,6 +42,7 @@
     "./plugins/canva",
     "./plugins/cdata-connect-ai",
     "./plugins/cello",
+    "./plugins/chatway",
     "./plugins/chronosphere",
     "./plugins/circle",
     "./plugins/circleback",
