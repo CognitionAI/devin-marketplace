@@ -233,6 +233,12 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
+      "path": "plugins/snowflake-mcp-devin",
+      "sha": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
