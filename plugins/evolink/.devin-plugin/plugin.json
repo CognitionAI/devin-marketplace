@@ -1,0 +1,17 @@
+{
+  "name": "evolink",
+  "displayName": "EvoLink",
+  "description": "Generate and edit images, video, music and speech with 150+ models from one EvoLink account. Search models, compare published prices and get a quote before each paid task. Model search, prices, quotes, task checks and balance checks are free; generation is billed to your EvoLink balance. Sign in with OAuth in the browser; no API key is needed.",
+  "shortDescription": "Image, video, music and speech models",
+  "homepage": "https://evolink.ai/mcp?utm_source=devin&utm_medium=referral&utm_campaign=mcp_remote&utm_content=directory_listing",
+  "repository": "https://github.com/Evolink-AI/mcp-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "evolink": {
+      "url": "https://mcp.evolink.ai/mcp"
+    }
+  }
+}
