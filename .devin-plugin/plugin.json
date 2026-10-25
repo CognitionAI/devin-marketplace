@@ -253,7 +253,7 @@
       "source": "git-subdir",
       "url": "https://github.com/tedix-hq/tedix.git",
       "path": "plugins/tedix",
-      "sha": "1b7512c23f35238ca80e8c531b50a9dccf5eb1cf"
+      "sha": "0a5be2bee6ac7f2ffe75bda7418ffb1048cf3c55"
     }
   ]
 }
