@@ -1,0 +1,17 @@
+{
+  "name": "webly",
+  "displayName": "Webly",
+  "description": "Website hosting for AI agents: publish a website or share files and folders at a live URL in seconds, then claim it, edit it over MCP, publish drafts you approve, connect a custom domain, and roll back with version history.",
+  "shortDescription": "Publish websites and share files",
+  "homepage": "https://webly.ai",
+  "repository": "https://github.com/Webly-AI/webly-plugin",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "webly": {
+      "url": "https://api.webly.ai/v1/mcp"
+    }
+  }
+}
