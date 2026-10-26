@@ -1,7 +1,7 @@
 {
   "name": "jotform",
   "displayName": "Jotform",
-  "description": "Jotform integration to create forms and analyze submissions",
+  "description": "Create Jotform forms and analyze submissions",
   "shortDescription": "Forms and submission analytics",
   "homepage": "https://www.jotform.com",
   "logo": "logo.png",

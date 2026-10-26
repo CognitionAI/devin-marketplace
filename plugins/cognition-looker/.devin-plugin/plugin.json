@@ -1,7 +1,7 @@
 {
   "name": "cognition-looker",
   "displayName": "Looker",
-  "description": "Looker integration for BI queries and content management",
+  "description": "Run Looker BI queries and manage analytics content",
   "shortDescription": "BI dashboards and data queries",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",

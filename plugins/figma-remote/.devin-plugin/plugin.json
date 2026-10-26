@@ -1,7 +1,7 @@
 {
   "name": "figma-remote",
   "displayName": "Figma",
-  "description": "Complete Figma API integration: get files/nodes/images, manage comments and reactions, handle components/styles, create webhooks, and access library analytics with full API functionality",
+  "description": "Read Figma files, nodes, and images, manage comments, components, and styles, create webhooks, and inspect library analytics",
   "shortDescription": "Figma files, components and comments",
   "homepage": "https://www.figma.com",
   "logo": "logo.svg",

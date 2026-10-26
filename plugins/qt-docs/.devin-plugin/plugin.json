@@ -1,7 +1,7 @@
 {
   "name": "qt-docs",
   "displayName": "Qt Docs",
-  "description": "Qt Group's hosted documentation MCP server: search Qt C++ and QML documentation.",
+  "description": "Search Qt C++ and QML documentation for API guidance and implementation details",
   "shortDescription": "Qt C++ and QML documentation",
   "homepage": "https://www.qt.io",
   "repository": "https://github.com/TheQtCompanyRnD/agent-skills",

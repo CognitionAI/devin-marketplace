@@ -13,8 +13,21 @@ this and CI runs it.
 1. Create `plugins/<slug>/.devin-plugin/plugin.json`, where `<slug>` is the
    marketplace server slug:
    * `name` is the slug; `displayName` is the server definition's `name`
-     (the human title, e.g. `"MySQL"`); `description`, `homepage`,
-     `repository`, `keywords` come from the server definition too.
+     (the human title, e.g. `"MySQL"`); `homepage`, `repository`, and
+     `keywords` come from the server definition too.
+   * Write `description` as one action-oriented sentence about what users
+     can do with the product and the value they get. Aim for 60–130 characters
+     (about 200 maximum), without a trailing period. Expand on
+     `shortDescription`; avoid filler such as "integration" or "MCP server".
+   * Put requirements outside the install form and connection caveats in optional
+     `setup`, immediately after `shortDescription`:
+     `{"notice": "...", "steps": ["..."]}`. Use a one- or two-sentence notice
+     and ordered setup steps without environment-specific URLs. At least one
+     key is required; `notice` must be a non-empty string and `steps` a
+     non-empty list of non-empty strings. No other keys are allowed. Only
+     add `setup` for external steps or meaningful connection caveats. Do not
+     repeat credential fields, placeholder names, OAuth sign-in instructions,
+     or default domains already handled by the install form.
    * Check the brand mark in as `plugins/<slug>/logo.svg` (or `.png`/`.jpg`)
      and set `"logo": "logo.svg"` — a path relative to the plugin directory,
      as in Cursor's plugin format. Prefer this over an absolute `https` URL so

@@ -1,7 +1,7 @@
 {
   "name": "neon",
   "displayName": "Neon",
-  "description": "List, create, and delete Neon Postgres projects and branches; execute SQL queries, inspect tables and schemas. Also perform safe schema migrations, manage compute endpoints, and provision Neon Auth.",
+  "description": "Manage Neon Postgres projects and branches, run SQL and safe schema migrations, manage compute endpoints, and provision Neon Auth",
   "shortDescription": "PostgreSQL branches and queries",
   "homepage": "https://neon.tech",
   "repository": "https://github.com/neondatabase-labs/mcp-server-neon",

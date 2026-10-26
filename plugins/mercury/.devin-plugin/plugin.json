@@ -1,7 +1,7 @@
 {
   "name": "mercury",
   "displayName": "Mercury",
-  "description": "Mercury integration to access banking balances, transactions, and cash flow data",
+  "description": "Review Mercury balances, transactions, and cash flow",
   "shortDescription": "Bank balances and cash flow",
   "homepage": "https://mercury.com",
   "logo": "logo.png",

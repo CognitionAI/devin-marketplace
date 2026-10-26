@@ -1,7 +1,7 @@
 {
   "name": "orion",
   "displayName": "Orion by Gravity",
-  "description": "Orion by Gravity integration to get insights from an autonomous AI analyst",
+  "description": "Get insights from Orion by Gravity, an autonomous AI analyst for your data",
   "shortDescription": "Autonomous data analysis and insights",
   "homepage": "https://runorion.com",
   "logo": "logo.png",

@@ -1,8 +1,11 @@
 {
   "name": "dynatrace",
   "displayName": "Dynatrace",
-  "description": "Query logs, metrics, and events with DQL, investigate problems, and review vulnerabilities via the Dynatrace remote MCP server, guided by Dynatrace's official skills. Enter the host of your Dynatrace environment as shown in your browser, e.g. abc12345.apps.dynatrace.com or abc12345.live.dynatrace.com.",
+  "description": "Query logs, metrics, and events with DQL, investigate problems, and review vulnerabilities, guided by Dynatrace's official skills",
   "shortDescription": "Logs, metrics, events and incidents",
+  "setup": {
+    "notice": "Enter the host of your Dynatrace environment as shown in your browser, e.g. abc12345.apps.dynatrace.com or abc12345.live.dynatrace.com."
+  },
   "homepage": "https://www.dynatrace.com/",
   "logo": "logo.svg",
   "keywords": [

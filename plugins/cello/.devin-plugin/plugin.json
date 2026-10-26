@@ -1,7 +1,7 @@
 {
   "name": "cello",
   "displayName": "Cello",
-  "description": "Query your Cello referral program: check integration health, inspect events, find top referrers, and review program performance",
+  "description": "Check Cello integration health and referral events, find top referrers, and review program performance",
   "shortDescription": "Referral programs and partners",
   "homepage": "https://cello.so",
   "logo": "logo.png",

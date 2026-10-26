@@ -1,7 +1,7 @@
 {
   "name": "postman",
   "displayName": "Postman",
-  "description": "Postman integration to give API context to your coding agents",
+  "description": "Look up Postman API documentation and request context",
   "shortDescription": "API documentation and request context",
   "homepage": "https://www.postman.com",
   "repository": "https://github.com/postmanlabs/postman-mcp-server",

@@ -1,7 +1,7 @@
 {
   "name": "datadog-remote",
   "displayName": "Datadog (OAuth)",
-  "description": "Retrieve telemetry insights and manage Datadog platform features including incidents, monitors, logs, dashboards, metrics, traces, hosts, and more.",
+  "description": "Investigate Datadog logs, metrics, traces, hosts, and incidents, and manage monitors and dashboards",
   "shortDescription": "Monitoring, logs, metrics and traces",
   "homepage": "https://www.datadoghq.com/",
   "logo": "logo.svg",

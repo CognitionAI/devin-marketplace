@@ -1,7 +1,7 @@
 {
   "name": "crossmint",
   "displayName": "Crossmint",
-  "description": "Manage your Crossmint organizations, projects, environments and API keys from Devin. Secure OAuth sign-in, no API key to paste.",
+  "description": "Manage Crossmint organizations, projects, environments, and API keys with secure OAuth sign-in",
   "shortDescription": "Crossmint projects and API keys",
   "homepage": "https://docs.crossmint.com/mcp-server/connect",
   "repository": "https://github.com/Crossmint/crossmint-mcp",

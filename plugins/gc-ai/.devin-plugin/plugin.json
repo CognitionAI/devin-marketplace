@@ -1,7 +1,7 @@
 {
   "name": "gc-ai",
   "displayName": "GC AI",
-  "description": "GC AI's hosted MCP server: upload documents to your GC AI legal knowledge base, run review playbooks and ask questions grounded in your own files.",
+  "description": "Upload documents to GC AI, run legal review playbooks, and ask questions grounded in your files",
   "shortDescription": "Legal document review and research",
   "homepage": "https://gc.ai",
   "logo": "logo.png",

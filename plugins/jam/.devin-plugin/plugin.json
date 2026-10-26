@@ -1,7 +1,7 @@
 {
   "name": "jam",
   "displayName": "Jam",
-  "description": "Debug faster with Jam recordings - automatically load video, user events, console logs, errors and network requests into AI context for bug analysis",
+  "description": "Load Jam video, user events, console logs, errors, and network requests to debug reported bugs faster",
   "shortDescription": "Bug recordings, logs and network events",
   "homepage": "https://jam.dev",
   "logo": "logo.png",

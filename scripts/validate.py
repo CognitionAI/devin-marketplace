@@ -35,6 +35,7 @@ PLUGIN_KEYS = {
     "displayName",
     "description",
     "shortDescription",
+    "setup",
     "homepage",
     "repository",
     "logo",
@@ -191,6 +192,26 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         errors.append(f"{where}: shortDescription must be a non-empty string")
     elif len(short_description) > 40:
         errors.append(f"{where}: shortDescription must be 40 characters or fewer")
+    if "setup" in data:
+        setup = data["setup"]
+        if not isinstance(setup, dict):
+            errors.append(f"{where}: setup must be an object")
+        else:
+            extra = set(setup) - {"notice", "steps"}
+            if extra:
+                errors.append(f"{where}: setup has unexpected keys {sorted(extra)}")
+            if not {"notice", "steps"} & set(setup):
+                errors.append(f"{where}: setup needs notice or steps")
+            if "notice" in setup and (
+                not isinstance(setup["notice"], str) or not setup["notice"].strip()
+            ):
+                errors.append(f"{where}: setup notice must be a non-empty string")
+            if "steps" in setup and (
+                not isinstance(setup["steps"], list)
+                or not setup["steps"]
+                or any(not isinstance(step, str) or not step.strip() for step in setup["steps"])
+            ):
+                errors.append(f"{where}: setup steps must be a non-empty list of non-empty strings")
     display_name = data.get("displayName")
     if display_name is not None and (
         not isinstance(display_name, str)

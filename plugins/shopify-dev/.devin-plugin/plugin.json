@@ -1,7 +1,7 @@
 {
   "name": "shopify-dev",
   "displayName": "Shopify",
-  "description": "Shopify's hosted MCP server: connect an existing store or create a new one, then add and edit products, set up collections, and configure store settings by chatting.",
+  "description": "Create or connect a Shopify store, edit products and collections, and configure settings",
   "shortDescription": "Store products, collections and settings",
   "homepage": "https://www.shopify.com",
   "logo": "logo.svg",

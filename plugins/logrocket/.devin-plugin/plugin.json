@@ -1,7 +1,7 @@
 {
   "name": "logrocket",
   "displayName": "LogRocket",
-  "description": "LogRocket's hosted MCP server: query session replays, metrics, issues and user behavior in natural language.",
+  "description": "Inspect LogRocket session replays, metrics, issues, and user behavior to investigate bugs",
   "shortDescription": "Session replays, metrics and actions",
   "homepage": "https://logrocket.com",
   "logo": "logo.png",
