@@ -1,7 +1,8 @@
 {
   "name": "desearch",
   "displayName": "Desearch",
-  "description": "Desearch search tools for AI agents: AI search across the web and X, web search, X search, and reading the content of a public URL. Look up X posts by ID or URL, read a user's posts and replies, list a post's replies and retweeters, and get X trends. Requires a Desearch API key from console.desearch.ai.",
+  "description": "Search the web and X, look up X posts, users, replies and trends, and read public URLs with Desearch",
+  "shortDescription": "Web and X search for AI agents",
   "homepage": "https://desearch.ai",
   "repository": "https://github.com/Desearch-ai/mcp-desearch",
   "logo": "logo.png",
