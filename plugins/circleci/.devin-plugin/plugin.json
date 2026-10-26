@@ -1,7 +1,8 @@
 {
   "name": "circleci",
   "displayName": "CircleCI",
-  "description": "Retrieve detailed build failure logs, identify flaky tests, and fetch the status of your latest pipelines and workflows in CircleCI projects. Also get job test results, trigger pipelines, validate configs, analyze git diffs, and more.",
+  "description": "Investigate CircleCI build failures and flaky tests, check pipeline status, trigger pipelines, and validate configs",
+  "shortDescription": "CI pipelines, flaky tests and workflows",
   "homepage": "https://circleci.com",
   "logo": "logo.svg",
   "keywords": [
@@ -9,15 +10,7 @@
   ],
   "mcpServers": {
     "circleci": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@circleci/mcp-server-circleci"
-      ],
-      "env": {
-        "CIRCLECI_TOKEN": "${CIRCLECI_TOKEN}",
-        "CIRCLECI_BASE_URL": "${CIRCLECI_BASE_URL}"
-      }
+      "url": "https://mcp.circleci.com/v1/mcp"
     }
   }
 }

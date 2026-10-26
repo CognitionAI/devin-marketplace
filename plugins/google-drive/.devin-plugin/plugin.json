@@ -1,7 +1,17 @@
 {
   "name": "google-drive",
   "displayName": "Google Drive",
-  "description": "Official Google Drive remote MCP server for searching, reading, and creating files in Drive. Google does not support automatic client registration, so you must provide your own OAuth client credentials: in the Google Cloud console, enable the Google Drive API and the Google Drive MCP API, create an OAuth client (web application), and add Devin's OAuth callback URL (https://api.devin.ai/mcp/oauth/callback, or the equivalent for your Devin environment) as an authorized redirect URI. Then enter the OAuth client ID and secret when installing this server.",
+  "description": "Use Google Drive as one unified Google file plugin for search, file organization, sharing, and Google Docs, Google Sheets, and Google Slides workflows",
+  "shortDescription": "Drive files and document search",
+  "setup": {
+    "notice": "Google does not support automatic client registration. You must provide your own OAuth client credentials.",
+    "steps": [
+      "In the Google Cloud console, enable the Google Drive API and the Google Drive MCP API",
+      "Create an OAuth client (web application)",
+      "Add Devin's OAuth callback URL as an authorized redirect URI",
+      "Enter the OAuth client ID and secret when installing this server"
+    ]
+  },
   "homepage": "https://drive.google.com",
   "logo": "logo.svg",
   "keywords": [

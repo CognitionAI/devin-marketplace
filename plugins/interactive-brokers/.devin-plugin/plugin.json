@@ -1,7 +1,8 @@
 {
   "name": "interactive-brokers",
   "displayName": "Interactive Brokers",
-  "description": "Interactive Brokers' hosted MCP server: review positions, balances and P&L, and draft trade instructions for your IBKR account.",
+  "description": "Review Interactive Brokers positions, balances, and profit and loss, and draft trade instructions",
+  "shortDescription": "Positions, balances and trade drafts",
   "homepage": "https://www.interactivebrokers.com",
   "logo": "logo.png",
   "keywords": [

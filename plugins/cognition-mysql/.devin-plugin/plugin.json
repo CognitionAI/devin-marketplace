@@ -1,7 +1,8 @@
 {
   "name": "cognition-mysql",
   "displayName": "MySQL",
-  "description": "MySQL integration for data management and SQL operations",
+  "description": "Query MySQL with SQL and inspect database records",
+  "shortDescription": "MySQL queries and schema inspection",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

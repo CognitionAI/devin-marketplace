@@ -1,7 +1,8 @@
 {
   "name": "wolfram",
   "displayName": "Wolfram",
-  "description": "Wolfram integration to inject precise, real-time computation and knowledge",
+  "description": "Compute precise answers and retrieve current factual knowledge with Wolfram",
+  "shortDescription": "Scientific computing and reference data",
   "homepage": "https://www.wolfram.com",
   "logo": "logo.svg",
   "keywords": [

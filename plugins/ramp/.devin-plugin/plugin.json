@@ -1,7 +1,8 @@
 {
   "name": "ramp",
   "displayName": "Ramp",
-  "description": "Ramp integration to access corporate cards, transactions, and spend data",
+  "description": "Review Ramp corporate cards, transactions, and spending",
+  "shortDescription": "Corporate cards, transactions and spend",
   "homepage": "https://ramp.com",
   "logo": "logo.png",
   "keywords": [

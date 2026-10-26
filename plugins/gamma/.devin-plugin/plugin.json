@@ -1,7 +1,8 @@
 {
   "name": "gamma",
   "displayName": "Gamma",
-  "description": "Generate presentations, documents, webpages, and social posts in Gamma; browse and read existing gammas, check generation status, and export to PDF, PPTX, or PNG.",
+  "description": "Generate Gamma presentations, documents, webpages, and social posts, browse existing gammas, and export to PDF, PPTX, or PNG",
+  "shortDescription": "Presentations, docs and social posts",
   "homepage": "https://gamma.app",
   "logo": "logo.jpg",
   "keywords": [

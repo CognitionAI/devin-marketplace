@@ -1,7 +1,8 @@
 {
   "name": "amplitude",
   "displayName": "Amplitude",
-  "description": "Analyze product data, experiments, and user behavior in Amplitude: query and create charts, dashboards, experiments, cohorts, and session replays using natural language.",
+  "description": "Analyze Amplitude product data, build charts and dashboards, and review experiments, cohorts, and session replays",
+  "shortDescription": "Product analytics and experiment reports",
   "homepage": "https://amplitude.com/",
   "logo": "logo.png",
   "keywords": [

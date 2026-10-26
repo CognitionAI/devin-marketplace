@@ -1,7 +1,8 @@
 {
   "name": "grafana",
   "displayName": "Grafana (stdio)",
-  "description": "Grafana integration for monitoring dashboards and visualization",
+  "description": "Inspect Grafana dashboards and visualizations to investigate service metrics",
+  "shortDescription": "Dashboards, data sources and alerts",
   "homepage": "https://grafana.com",
   "repository": "https://github.com/grafana/mcp-grafana",
   "logo": "logo.svg",

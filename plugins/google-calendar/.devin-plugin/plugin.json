@@ -1,7 +1,17 @@
 {
   "name": "google-calendar",
   "displayName": "Google Calendar",
-  "description": "Developer Preview: access requires enrollment in the Google Workspace Developer Preview Program. Official Google Calendar remote MCP server for viewing, creating, updating, and managing events. Google does not support automatic client registration, so you must provide your own OAuth client credentials: in the Google Cloud console, enable the Google Calendar API and Calendar MCP API, create an OAuth client (web application), and add Devin's OAuth callback URL (https://api.devin.ai/mcp/oauth/callback, or the equivalent for your Devin environment) as an authorized redirect URI. Then enter the OAuth client ID and secret when installing this server.",
+  "description": "View, create, update, and manage Google Calendar events",
+  "shortDescription": "Calendar events and meeting scheduling",
+  "setup": {
+    "notice": "Access requires enrollment in the Google Workspace Developer Preview Program. Google does not support automatic client registration; you must provide your own OAuth client credentials.",
+    "steps": [
+      "In the Google Cloud console, enable the Google Calendar API and Calendar MCP API",
+      "Create an OAuth client (web application)",
+      "Add Devin's OAuth callback URL as an authorized redirect URI",
+      "Enter the OAuth client ID and secret when installing this server"
+    ]
+  },
   "homepage": "https://calendar.google.com",
   "logo": "logo.svg",
   "keywords": [

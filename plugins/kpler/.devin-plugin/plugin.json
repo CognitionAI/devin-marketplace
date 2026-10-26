@@ -1,7 +1,8 @@
 {
   "name": "kpler",
   "displayName": "Kpler",
-  "description": "Kpler integration to explore maritime and commodities intelligence",
+  "description": "Research maritime activity and commodity markets with Kpler",
+  "shortDescription": "Maritime and commodity market data",
   "homepage": "https://www.kpler.com",
   "logo": "logo.png",
   "keywords": [

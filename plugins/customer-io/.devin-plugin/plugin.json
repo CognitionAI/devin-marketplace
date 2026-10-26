@@ -1,7 +1,8 @@
 {
   "name": "customer-io",
   "displayName": "Customer.io",
-  "description": "Customer.io's hosted MCP server: build campaigns, manage segments and query people in your Customer.io workspace.",
+  "description": "Build Customer.io campaigns, manage segments, and query customer profiles",
+  "shortDescription": "Campaigns, segments and customer data",
   "homepage": "https://customer.io",
   "logo": "logo.png",
   "keywords": [

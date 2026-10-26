@@ -1,7 +1,8 @@
 {
   "name": "enterpret",
   "displayName": "Enterpret",
-  "description": "Enterpret integration to get answers from unified customer feedback",
+  "description": "Search unified customer feedback in Enterpret for recurring themes and customer needs",
+  "shortDescription": "Customer feedback analysis and insights",
   "homepage": "https://www.enterpret.com",
   "logo": "logo.png",
   "keywords": [

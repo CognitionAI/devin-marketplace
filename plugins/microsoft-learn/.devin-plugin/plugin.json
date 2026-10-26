@@ -1,7 +1,8 @@
 {
   "name": "microsoft-learn",
   "displayName": "Microsoft Learn",
-  "description": "Microsoft Learn integration to search trusted Microsoft documentation",
+  "description": "Search Microsoft Learn documentation for Microsoft product guidance",
+  "shortDescription": "Microsoft docs and API guides",
   "homepage": "https://learn.microsoft.com",
   "logo": "logo.svg",
   "keywords": [

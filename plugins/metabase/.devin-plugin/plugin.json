@@ -1,7 +1,8 @@
 {
   "name": "metabase",
   "displayName": "Metabase",
-  "description": "A comprehensive Model Context Protocol server for Metabase integration, providing AI assistants with full access to Metabase's analytics platform",
+  "description": "Query Metabase data and inspect BI dashboards",
+  "shortDescription": "BI dashboards and SQL queries",
   "homepage": "https://www.metabase.com",
   "repository": "https://github.com/usacognition/metabase-mcp-server",
   "logo": "logo.svg",

@@ -1,0 +1,22 @@
+{
+  "name": "elastic",
+  "displayName": "Elastic",
+  "description": "Search and analyze Elasticsearch logs, metrics, and traces with Kibana Agent Builder tools",
+  "shortDescription": "Elasticsearch logs, metrics and traces",
+  "setup": {
+    "notice": "Requires the MCP server built into Kibana (Elastic 9.2 or later)."
+  },
+  "homepage": "https://www.elastic.co/",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "elastic": {
+      "url": "https://${KIBANA_HOST}/api/agent_builder/mcp",
+      "headers": {
+        "Authorization": "ApiKey ${ELASTIC_API_KEY}"
+      }
+    }
+  }
+}

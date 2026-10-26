@@ -1,7 +1,8 @@
 {
   "name": "mem",
   "displayName": "Mem",
-  "description": "Mem's hosted MCP server: capture, search and organize notes and collections in your Mem workspace.",
+  "description": "Capture, search, and organize Mem notes and collections",
+  "shortDescription": "Workspace notes and collections",
   "homepage": "https://get.mem.ai",
   "logo": "logo.png",
   "keywords": [

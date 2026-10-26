@@ -1,7 +1,8 @@
 {
   "name": "aiven",
   "displayName": "Aiven",
-  "description": "Aiven's hosted MCP server: deploy and manage Aiven for PostgreSQL, Kafka, OpenSearch, ClickHouse and other managed data services.",
+  "description": "Deploy and manage PostgreSQL, Kafka, OpenSearch, ClickHouse, and other managed data services in Aiven",
+  "shortDescription": "Managed databases and search services",
   "homepage": "https://aiven.io",
   "repository": "https://github.com/aiven/aiven-ai-plugins",
   "logo": "logo.png",
