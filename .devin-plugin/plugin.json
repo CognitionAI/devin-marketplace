@@ -121,6 +121,7 @@
     "./plugins/jotform",
     "./plugins/juicebox",
     "./plugins/just-domain",
+    "./plugins/just-publish",
     "./plugins/klaviyo",
     "./plugins/kpler",
     "./plugins/launchdarkly",
