@@ -247,6 +247,11 @@
       "url": "https://github.com/forcedotcom/sf-skills.git",
       "path": "plugins/builder/salesforce-development",
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/popnow-ai/popnow-mcp.git",
+      "sha": "ed2e3d8b72a2fe04c9bc30ba41e0f8d25c9f5c78"
     }
   ]
 }
