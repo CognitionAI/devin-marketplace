@@ -1,7 +1,7 @@
 {
   "name": "cognition-postgres",
   "displayName": "PostgreSQL",
-  "description": "PostgreSQL integration for data management and SQL operations",
+  "description": "Query PostgreSQL with SQL and inspect database records",
   "shortDescription": "PostgreSQL queries and schema inspection",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",

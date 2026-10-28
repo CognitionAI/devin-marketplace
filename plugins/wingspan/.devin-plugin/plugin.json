@@ -1,7 +1,7 @@
 {
   "name": "wingspan",
   "displayName": "Wingspan",
-  "description": "Wingspan's hosted MCP server: look up the contractors you pay through Wingspan, what you owe them and what is holding up a payment, and draft contractor onboarding and payments for review.",
+  "description": "Review Wingspan contractors, amounts owed, and payment blockers, and draft onboarding and payments for review",
   "shortDescription": "Contractor payments and onboarding",
   "homepage": "https://www.wingspan.app",
   "logo": "logo.jpg",

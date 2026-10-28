@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -34,6 +35,7 @@ PLUGIN_KEYS = {
     "displayName",
     "description",
     "shortDescription",
+    "setup",
     "homepage",
     "repository",
     "logo",
@@ -42,6 +44,9 @@ PLUGIN_KEYS = {
 }
 STDIO_KEYS = {"command", "args", "env"}
 HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
+# Other manifest/MCP locations the plugin loader would also read; authored
+# plugins declare everything in .devin-plugin/plugin.json so this validator sees it.
+SHADOW_FILES = ("plugin.json", ".mcp.json", "mcp.json")
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -162,6 +167,14 @@ def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
         errors.append(f"{where}: logo '{logo}' does not exist in the plugin directory")
 
 
+def check_symlinks(where: str, root: Path, errors: list[str]) -> None:
+    for parent, dirs, files in os.walk(root):
+        for name in dirs + files:
+            link = Path(parent) / name
+            if link.is_symlink() and not link.resolve().is_relative_to(root.resolve()):
+                errors.append(f"{where}: symlink {link.relative_to(root)} must point inside the plugin")
+
+
 def check_local_plugin(slug: str, errors: list[str]) -> None:
     where = f"plugins/{slug}"
     path = PLUGINS / slug / ".devin-plugin" / "plugin.json"
@@ -179,6 +192,26 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         errors.append(f"{where}: shortDescription must be a non-empty string")
     elif len(short_description) > 40:
         errors.append(f"{where}: shortDescription must be 40 characters or fewer")
+    if "setup" in data:
+        setup = data["setup"]
+        if not isinstance(setup, dict):
+            errors.append(f"{where}: setup must be an object")
+        else:
+            extra = set(setup) - {"notice", "steps"}
+            if extra:
+                errors.append(f"{where}: setup has unexpected keys {sorted(extra)}")
+            if not {"notice", "steps"} & set(setup):
+                errors.append(f"{where}: setup needs notice or steps")
+            if "notice" in setup and (
+                not isinstance(setup["notice"], str) or not setup["notice"].strip()
+            ):
+                errors.append(f"{where}: setup notice must be a non-empty string")
+            if "steps" in setup and (
+                not isinstance(setup["steps"], list)
+                or not setup["steps"]
+                or any(not isinstance(step, str) or not step.strip() for step in setup["steps"])
+            ):
+                errors.append(f"{where}: setup steps must be a non-empty list of non-empty strings")
     display_name = data.get("displayName")
     if display_name is not None and (
         not isinstance(display_name, str)
@@ -190,11 +223,19 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     logo = data.get("logo")
     if logo is not None:
         check_logo(where, slug, logo, errors)
-    servers = data.get("mcpServers")
-    if not isinstance(servers, dict) or len(servers) != 1 or slug not in servers:
-        errors.append(f"{where}: mcpServers must declare exactly one server named '{slug}'")
+    servers = data.get("mcpServers", {})
+    if not isinstance(servers, dict):
+        errors.append(f"{where}: mcpServers must be an object")
         return
-    check_server(where, slug, servers[slug], errors)
+    root = PLUGINS / slug
+    for name, config in servers.items():
+        check_server(where, name, config, errors)
+    if not servers and not any(f.is_file() for f in (root / "skills").glob("*/SKILL.md")):
+        errors.append(f"{where}: a plugin needs mcpServers or at least one skills/*/SKILL.md")
+    for shadow in SHADOW_FILES:
+        if (root / shadow).exists():
+            errors.append(f"{where}: {shadow} is not allowed; declare everything in .devin-plugin/plugin.json")
+    check_symlinks(where, root, errors)
 
 
 def canonical(data: dict) -> str:

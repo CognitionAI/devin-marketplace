@@ -1,7 +1,7 @@
 {
   "name": "airtable",
   "displayName": "Airtable",
-  "description": "Airtable integration for managing bases, tables, records, and automating workflows",
+  "description": "Create and update Airtable records, organize bases and tables, and automate data workflows",
   "shortDescription": "Bases, tables and records",
   "homepage": "https://airtable.com",
   "logo": "logo.svg",

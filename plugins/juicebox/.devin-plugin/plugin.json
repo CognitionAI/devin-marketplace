@@ -1,7 +1,7 @@
 {
   "name": "juicebox",
   "displayName": "Juicebox",
-  "description": "Juicebox's hosted MCP server: query recruiting analytics, candidate shortlists and sourcing agents.",
+  "description": "Query Juicebox recruiting analytics, candidate shortlists, and sourcing agents",
   "shortDescription": "Recruiting analytics and sourcing",
   "homepage": "https://juicebox.ai",
   "logo": "logo.png",
