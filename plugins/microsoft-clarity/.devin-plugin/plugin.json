@@ -1,0 +1,23 @@
+{
+  "name": "microsoft-clarity",
+  "displayName": "Microsoft Clarity",
+  "description": "Microsoft Clarity behavioral UX analytics MCP server for rage clicks, dead clicks, quick backs, and JS errors",
+  "shortDescription": "Behavioral UX and frustration analytics",
+  "homepage": "https://github.com/surendranb/microsoft-clarity-mcp",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "microsoft-clarity": {
+      "command": "uvx",
+      "args": [
+        "microsoft-clarity-mcp==0.1.3"
+      ],
+      "env": {
+        "CLARITY_API_TOKEN": "${CLARITY_API_TOKEN}",
+        "CLARITY_PROJECT_ID": "${CLARITY_PROJECT_ID}"
+      }
+    }
+  }
+}
