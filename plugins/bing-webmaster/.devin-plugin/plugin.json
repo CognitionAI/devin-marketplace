@@ -1,0 +1,23 @@
+{
+  "name": "bing-webmaster",
+  "displayName": "Bing Webmaster & IndexNow",
+  "description": "Bing Webmaster Tools and IndexNow API MCP server for search performance, crawl issues, and instant URL indexing",
+  "shortDescription": "Bing SEO analytics and IndexNow",
+  "homepage": "https://github.com/surendranb/bing-webmaster-mcp-server",
+  "keywords": [
+    "Productivity",
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "bing-webmaster": {
+      "command": "uvx",
+      "args": [
+        "bing-webmaster-mcp==0.1.3"
+      ],
+      "env": {
+        "BING_WEBMASTER_API_KEY": "${BING_WEBMASTER_API_KEY}",
+        "INDEXNOW_KEY": "${INDEXNOW_KEY}"
+      }
+    }
+  }
+}

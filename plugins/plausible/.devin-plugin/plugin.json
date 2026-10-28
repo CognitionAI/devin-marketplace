@@ -1,0 +1,23 @@
+{
+  "name": "plausible",
+  "displayName": "Plausible Analytics",
+  "description": "Plausible Analytics MCP server for privacy-first website statistics, real-time visitors, breakdowns, and trendlines",
+  "shortDescription": "Privacy-first website analytics",
+  "homepage": "https://github.com/surendranb/plausible-mcp",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "plausible": {
+      "command": "uvx",
+      "args": [
+        "plausible-mcp==0.1.3"
+      ],
+      "env": {
+        "PLAUSIBLE_API_KEY": "${PLAUSIBLE_API_KEY}",
+        "PLAUSIBLE_SITE_ID": "${PLAUSIBLE_SITE_ID}"
+      }
+    }
+  }
+}
