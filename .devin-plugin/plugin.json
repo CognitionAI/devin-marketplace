@@ -239,6 +239,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/Guaq-AI/employed-plugins.git",
+      "sha": "decb96aac800c7d52a5c228d64212fa9a968a8c4"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
