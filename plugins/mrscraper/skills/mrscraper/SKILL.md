@@ -1,14 +1,14 @@
 ---
 name: mrscraper
 description: |
-  Connect, authenticate, route, and troubleshoot MrScraper MCP, and check account usage with the status tool. For known public URLs, retrieve and preserve page content with mrscraper-fetch first; use mrscraper-serp for query-first discovery through Google.
+  Connect, authenticate, route, and troubleshoot MrScraper MCP, and check account usage with the status tool. For known public URLs, retrieve and preserve page content with mrscraper-fetch first; use mrscraper-serp for query-first discovery through web search.
 ---
 
 # MrScraper MCP
 
 Use this skill for connection and authentication checks, tool selection, shared
 response handling, account status, and troubleshooting. Load the focused fetch
-or SERP skill for page retrieval and Google search.
+or SERP skill for page retrieval and web search.
 
 ## Step 1 — Verify or Connect MrScraper MCP
 
@@ -65,7 +65,7 @@ complete.
 | User outcome | MCP tool or skill |
 | --- | --- |
 | Retrieve and preserve a known public page as HTML, Markdown, or a screenshot | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scraperAPI |
-| Discover relevant pages from a Google query | [mrscraper-serp](../mrscraper-serp/SKILL.md) with webSearch, then retrieve selected pages |
+| Discover relevant pages from a web search query | [mrscraper-serp](../mrscraper-serp/SKILL.md) with webSearch, then retrieve selected pages |
 | Check the plan, token usage, or remaining tokens | status |
 
 ### Retrieve first, extract locally

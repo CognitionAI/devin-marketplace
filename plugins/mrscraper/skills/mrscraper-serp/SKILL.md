@@ -1,7 +1,7 @@
 ---
 name: mrscraper-serp
 description: |
-  Discover public pages through Google with MrScraper's webSearch tool using a search query or Google search URL. Use when no target URL is known or the user asks to inspect Google results. After discovery, retrieve selected pages with mrscraper-fetch.
+  Discover public pages through web search with MrScraper's webSearch tool using a search query or a search results URL. Use when no target URL is known or the user asks to inspect web search results. After discovery, retrieve selected pages with mrscraper-fetch.
 ---
 
 # Discover Pages with MrScraper MCP Web Search
@@ -21,14 +21,14 @@ raw=false to receive parsed results:
       "raw": false
     }
 
-The input can also be a complete Google search URL:
+The input can also be a complete search results URL:
 
     {
       "url": "https://www.google.com/search?q=web+scraping&gl=us&hl=en&start=20",
       "raw": false
     }
 
-For a Google URL, the tool reads q, gl, hl, and start. Explicit region,
+For a search results URL, the tool reads q, gl, hl, and start. Explicit region,
 language, and page inputs take precedence.
 
 ## Step 2 — Set Locale and Pagination
@@ -70,11 +70,11 @@ Use JavaScript rendering for dynamic result features such as AI Overview:
 
 | MCP input | Default | Request mapping | Use |
 | --- | --- | --- | --- |
-| url | required | Body query | Search query or complete Google search URL. |
+| url | required | Body query | Search query or complete search results URL. |
 | raw | true | Body format=html | Return result-page HTML; set false to use format. |
 | format | json | Body format | json or html when raw=false. |
-| region | URL value or omitted | Body region | Google result country, such as us or id. |
-| language | URL value or omitted | Body language | Google result language, such as en or id. |
+| region | URL value or omitted | Body region | Result country, such as us or id. |
+| language | URL value or omitted | Body language | Result language, such as en or id. |
 | page | URL value or omitted | Body page | Positive, one-based results page. |
 | render_js | false | Body renderJs | Render JavaScript-dependent result features. |
 | timeout | 600 | MCP upstream deadline | Maximum wait in seconds; not sent in the search body. |
@@ -112,5 +112,5 @@ coverage. If the user only requested URL discovery, stop after the search.
 - Use [mrscraper](../mrscraper/SKILL.md) when the connection or authentication
   fails.
 
-webSearch is for public Google discovery, not for discovering URLs within one
+webSearch is for public web search, not for discovering URLs within one
 known site.

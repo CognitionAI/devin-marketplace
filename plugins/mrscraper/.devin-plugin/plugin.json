@@ -1,8 +1,8 @@
 {
   "name": "mrscraper",
   "displayName": "MrScraper",
-  "description": "Scrape public web pages as Markdown, HTML or screenshots, search Google, and check plan usage with MrScraper",
-  "shortDescription": "Web scraping and Google search",
+  "description": "Scrape public web pages as Markdown, HTML or screenshots, search the web, and check plan usage with MrScraper",
+  "shortDescription": "Web scraping and web search",
   "homepage": "https://mrscraper.com",
   "repository": "https://github.com/mrscraper-com/mrscraper-mcp",
   "logo": "logo.png",
