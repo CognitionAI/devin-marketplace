@@ -244,6 +244,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/creatify-ai/creatify-ad-agent-skill.git",
+      "path": "ad-agent",
+      "sha": "dc9c717e3dddc9764f340b66a08e0bf7a203e050"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
