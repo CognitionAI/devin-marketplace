@@ -232,6 +232,11 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "url",
+      "url": "https://github.com/Phonic-Co/skills.git",
+      "sha": "379426e251f56a32b43860de17a19bad8e4ad19c"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
