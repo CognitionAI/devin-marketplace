@@ -1,0 +1,17 @@
+{
+  "name": "chatway",
+  "displayName": "Chatway",
+  "description": "Official Chatway Live Chat integration for customer support. Triage and search conversations across your live chat inbox, read visitor and contact details, search your knowledge base, draft and send replies, add private notes, tag, assign, resolve, or hand off chats to your team. Sign in with your Chatway account and choose which inboxes and permissions to share. Pair it with Chatway webhooks to trigger agents on new messages in real time.",
+  "shortDescription": "Live chat inbox and support replies",
+  "homepage": "https://chatway.app",
+  "repository": "https://github.com/Chatway-app/chatway-mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "chatway": {
+      "url": "https://mcp.chatway.app/mcp"
+    }
+  }
+}
