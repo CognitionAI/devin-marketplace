@@ -195,7 +195,6 @@
     "./plugins/similarweb",
     "./plugins/slack",
     "./plugins/slack-remote",
-    "./plugins/sonarqube",
     "./plugins/splunk",
     "./plugins/sqlite",
     "./plugins/square",
@@ -236,6 +235,11 @@
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/SonarSource/sonarqube-agent-plugins.git",
+      "sha": "ebe533cc4a8414b18b40cfcc36a7d6bade6361a2"
     },
     {
       "source": "url",
