@@ -14,6 +14,7 @@
     "./plugins/apollo-io",
     "./plugins/appwrite",
     "./plugins/arcade",
+    "./plugins/arkham",
     "./plugins/asana",
     "./plugins/ashby",
     "./plugins/atlan",
