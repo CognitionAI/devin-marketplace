@@ -1,0 +1,19 @@
+{
+  "name": "google-workspace",
+  "displayName": "Google Drive, Docs, Sheets & Slides",
+  "description": "Search Google Drive and read, create, review and edit Google Docs, Sheets, Slides and Forms through Devin",
+  "shortDescription": "Drive, Docs, Sheets, Slides and Forms",
+  "setup": {
+    "notice": "Connects with your own Google account via OAuth. Choose whether Devin may only read your Drive, also edit and share files, and read Google Forms responses when you install."
+  },
+  "homepage": "https://workspace.google.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "google-workspace": {
+      "url": "https://google-mcp.devin.ai/drive/mcp"
+    }
+  }
+}
