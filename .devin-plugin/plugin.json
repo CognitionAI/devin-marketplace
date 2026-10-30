@@ -16,6 +16,7 @@
     "./plugins/arcade",
     "./plugins/asana",
     "./plugins/ashby",
+    "./plugins/athenahq",
     "./plugins/atlan",
     "./plugins/atlassian",
     "./plugins/attio",

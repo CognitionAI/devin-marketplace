@@ -1,0 +1,15 @@
+{
+  "name": "athenahq",
+  "displayName": "AthenaHQ",
+  "description": "Analyze your brand's visibility, share of voice, mentions, citations, and rankings across AI search platforms. Compare competitors, explore tracked prompts and responses, and manage content and brand knowledge with your AthenaHQ account.",
+  "shortDescription": "AI search visibility and citations",
+  "homepage": "https://athenahq.ai",
+  "logo": "logo.svg",
+  "keywords": ["Monitoring & Analytics"],
+  "mcpServers": {
+    "athenahq": {
+      "url": "https://api.athenahq.ai/api/mcp",
+      "oauthClientId": "bd1696e3-d475-486a-8a2b-73b9f4ac36ad"
+    }
+  }
+}
