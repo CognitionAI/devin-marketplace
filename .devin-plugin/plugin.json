@@ -239,6 +239,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/carboneio/carbone-agent-plugin.git",
+      "sha": "6e8c805daf42f4583dee6e8f46271a9da8e85893"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
