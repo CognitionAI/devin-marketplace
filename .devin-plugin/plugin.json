@@ -218,6 +218,7 @@
     "./plugins/vanta-aus",
     "./plugins/vanta-eu",
     "./plugins/vercel",
+    "./plugins/wealthnow",
     "./plugins/webull",
     "./plugins/windsor-ai",
     "./plugins/wingspan",
