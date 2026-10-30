@@ -1,0 +1,22 @@
+{
+  "name": "agentphone",
+  "displayName": "AgentPhone",
+  "description": "Give Devin a real phone number to place and receive voice calls and texts, and follow a call's transcript while it is in progress",
+  "shortDescription": "Phone calls and SMS for agents",
+  "setup": {
+    "notice": "Calls need an agent with a phone number attached, and the live-transcript skill reads the API key from the AGENTPHONE_API_KEY environment variable on Devin's machine, so also save the key as a secret with that name."
+  },
+  "homepage": "https://agentphone.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Communication"
+  ],
+  "mcpServers": {
+    "agentphone": {
+      "url": "https://mcp.agentphone.ai/mcp",
+      "headers": {
+        "Authorization": "${AGENTPHONE_AUTHORIZATION}"
+      }
+    }
+  }
+}
