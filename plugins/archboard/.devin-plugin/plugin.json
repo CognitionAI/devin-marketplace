@@ -1,0 +1,18 @@
+{
+  "name": "archboard",
+  "displayName": "Archboard",
+  "description": "Draw and update architecture, Kubernetes, C4 and flowchart diagrams on a live canvas your team keeps editing",
+  "shortDescription": "Architecture diagrams on a live canvas",
+  "homepage": "https://getarchboard.app/ai-agents",
+  "repository": "https://github.com/getarchboard/archboard-plugin",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "archboard": {
+      "url": "https://getarchboard.app/mcp"
+    }
+  }
+}
