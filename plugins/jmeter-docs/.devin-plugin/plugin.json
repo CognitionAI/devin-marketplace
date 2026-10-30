@@ -1,0 +1,17 @@
+{
+  "name": "jmeter-docs",
+  "displayName": "JMeter Docs",
+  "description": "Apache JMeter community documentation, conversion tools, linters, and calculators for AI agents.",
+  "homepage": "https://docs.jmeter.ai/",
+  "repository": "https://github.com/QAInsights/docs.jmeter.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "jmeter-docs": {
+      "url": "https://docs.jmeter.ai/api/mcp"
+    }
+  }
+}
