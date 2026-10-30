@@ -1,6 +1,6 @@
 ---
 name: live-call-transcript
-description: Show the user what is being said on an AgentPhone call while the call is still in progress. Use whenever you place a call with make_conversation_call or make_call, or watch an inbound call. AgentPhone's get_call returns no transcript until the call ends, so stream the REST transcript endpoint from a background shell and post the new turns to the user every ~15 s.
+description: Show the user what is being said on an AgentPhone call while the call is still in progress. Use whenever you place a call with make_conversation_call or make_call. AgentPhone's get_call returns no transcript until the call ends, so stream the REST transcript endpoint from a background shell and post the new turns to the user every ~15 s.
 ---
 
 # Live call transcript
@@ -28,7 +28,9 @@ about 2 s after the other party finishes replying; webhook-mode turns arrive
 ## Steps
 
 1. Place the call (`make_conversation_call` or `make_call`) and read the
-   `Call ID` from the result.
+   `Call ID` from the result. (For a call that is already in progress, e.g.
+   an inbound one, take the id of the `in-progress` entry in `list_calls`;
+   the turns spoken before you connect arrive only at hangup.)
 2. **Immediately** start the stream. Turns spoken before you connect are not
    replayed until hangup, and the first turn comes 5-10 s after dialing:
 
@@ -46,16 +48,24 @@ about 2 s after the other party finishes replying; webhook-mode turns arrive
    - `python3 <skill-dir>/scripts/new_turns.py "$SSE"` prints only the turns
      that arrived since the previous run, one per line (`Devin: …` for your
      agent, `Them: …` for the other party). Exit code 10 means the `ended`
-     event arrived.
+     event arrived. Exit code 20 means the stream died before the call ended
+     (the line printed says why: a 401 body, a dropped connection); run
+     `start_stream.sh <call_id>` once more and tell the user the turns in
+     between will arrive at hangup. If it dies again, switch to the
+     fallback at the end of this file.
    - If it printed any turn, send one non-blocking `message_user` with the
      elapsed time and those lines (format below). If it printed nothing,
      send nothing; after 60 s of silence, send one short "still on the call,
      nothing new (holding/IVR)" note at most once per minute.
    - Stop when the exit code is 10 or `get_call` reports a terminal status
      (`completed`, `failed`, `busy`, `no-answer`).
-5. After the call ends, call `get_call` once for the authoritative transcript,
-   then send the outcome (what was agreed, numbers, next steps) first and the
-   full transcript after it, as usual.
+5. After the call ends, wait 5 s, then call `get_call` for the authoritative
+   transcript: AgentPhone writes it 1-3 s after hangup, so if the result has
+   no transcript yet, retry every 5 s for up to 30 s, and say so if it is
+   still missing. Send the outcome (what was agreed, numbers, next steps)
+   first and the full transcript after it, as usual.
+6. Delete `~/.agentphone/<call_id>.*` once the transcript is in the chat, so
+   the conversation does not linger on the machine.
 
 ## Message format
 

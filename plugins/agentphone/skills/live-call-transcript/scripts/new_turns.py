@@ -11,17 +11,29 @@ Reads the SSE file written by start_stream.sh, remembers how far it got in
     Them: One moment while I transfer you.
     [ended] completed after 205 s
 
-Exit code 0 when the call is still live, 10 once the `ended` event was seen,
-so a shell loop can stop.
+Exit codes: 0 while the call is live, 10 once the `ended` event was seen
+(also on every later run), 20 when the curl stream died before `ended`
+(HTTP error, bad key, dropped connection); the line printed then says why.
 """
 import json
 import os
 import sys
 
 
+def process_alive(pid_path: str) -> bool:
+    try:
+        pid = int(open(pid_path).read().strip())
+        os.kill(pid, 0)
+        return True
+    except (FileNotFoundError, ValueError, ProcessLookupError, PermissionError):
+        return False
+
+
 def main() -> int:
     path = sys.argv[1]
-    offset_path = path + ".offset"
+    offset_path, done_path = path + ".offset", path + ".done"
+    if os.path.exists(done_path):
+        return 10
     try:
         offset = int(open(offset_path).read().strip() or 0)
     except FileNotFoundError:
@@ -31,9 +43,7 @@ def main() -> int:
         raw = f.read()
     # Only consume complete events (terminated by a blank line).
     cut = raw.rfind(b"\n\n")
-    if cut < 0:
-        return 0
-    chunk, consumed = raw[: cut + 2], offset + cut + 2
+    chunk, consumed = (raw[: cut + 2], offset + cut + 2) if cut >= 0 else (b"", offset)
     ended = False
     for block in chunk.decode("utf-8", "replace").split("\n\n"):
         event, data = None, []
@@ -63,7 +73,21 @@ def main() -> int:
             )
     with open(offset_path, "w") as f:
         f.write(str(consumed))
-    return 10 if ended else 0
+    if ended:
+        open(done_path, "w").close()
+        return 10
+    if not process_alive(path + ".pid"):
+        # curl is gone without an `ended` event: an HTTP error body (not SSE)
+        # or the connection dropped. Show whatever it left behind.
+        detail = raw[consumed - offset :].decode("utf-8", "replace").strip()
+        if not detail:
+            try:
+                detail = open(path + ".err").read().strip().splitlines()[-1]
+            except (FileNotFoundError, IndexError):
+                detail = "no output"
+        print(f"[stream closed] {detail[:200]}")
+        return 20
+    return 0
 
 
 if __name__ == "__main__":
