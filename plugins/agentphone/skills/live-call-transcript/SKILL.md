@@ -1,6 +1,6 @@
 ---
 name: live-call-transcript
-description: Show the user what is being said on an AgentPhone call while the call is still in progress. Use whenever you place a call with make_conversation_call or make_call. AgentPhone's get_call returns no transcript until the call ends, so stream the REST transcript endpoint from a background shell and post the new turns to the user every ~15 s.
+description: Show the user what is being said on an AgentPhone call while the call is still in progress. Use whenever you place a call with make_conversation_call or make_call, or attach to a call that is already in progress. AgentPhone's get_call returns no transcript until the call ends, so stream the REST transcript endpoint from a background shell and post the new turns to the user every ~15 s.
 ---
 
 # Live call transcript
@@ -59,13 +59,15 @@ about 2 s after the other party finishes replying; webhook-mode turns arrive
      nothing new (holding/IVR)" note at most once per minute.
    - Stop when the exit code is 10 or `get_call` reports a terminal status
      (`completed`, `failed`, `busy`, `no-answer`).
-5. After the call ends, wait 5 s, then call `get_call` for the authoritative
-   transcript: AgentPhone writes it 1-3 s after hangup, so if the result has
-   no transcript yet, retry every 5 s for up to 30 s, and say so if it is
-   still missing. Send the outcome (what was agreed, numbers, next steps)
-   first and the full transcript after it, as usual.
-6. Delete `~/.agentphone/<call_id>.*` once the transcript is in the chat, so
-   the conversation does not linger on the machine.
+5. After the call ends, call `get_call`. If the status is `busy`,
+   `no-answer` or `failed`, report that right away: there is no transcript to
+   wait for. For a `completed` call, AgentPhone writes the transcript 1-3 s
+   after hangup, so if it is empty, retry every 5 s for up to 30 s, and say
+   so if it is still missing. Send the outcome (what was agreed, numbers,
+   next steps) first and the full transcript after it, as usual.
+6. Delete the `.sse` file that `start_stream.sh` printed and its siblings
+   (`.offset`, `.done`, `.pid`, `.err`) once the transcript is in the chat,
+   so the conversation does not linger on the machine.
 
 ## Message format
 
