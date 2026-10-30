@@ -239,6 +239,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/CMBurnett/the-design-agent-plugin.git",
+      "sha": "172bf7af81aacee139068744b86ddf272112c7ed"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
