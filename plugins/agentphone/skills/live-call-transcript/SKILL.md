@@ -42,13 +42,18 @@ about 2 s after the other party finishes replying; webhook-mode turns arrive
    (`~/.agentphone/<call_id>.sse`).
 3. Tell the user once, in one line, that the call is connecting and that you
    will post what is said as it happens.
-4. Loop until the call ends:
-   - `wait` about 15 s (shorter makes the user's feed noisy and costs an
-     agent turn per iteration; longer feels dead).
-   - `python3 <skill-dir>/scripts/new_turns.py "$SSE"` prints only the turns
-     that arrived since the previous run, one per line (`Devin: …` for your
-     agent, `Them: …` for the other party). Exit code 10 means the `ended`
-     event arrived. Exit code 20 means the stream died before the call ended
+4. Loop until the call ends. Each iteration is one shell command, so a
+   round trip costs one agent turn (about 15 s in total; a separate `wait`
+   tool call doubles it, and the first update then lands only after ~35 s):
+
+   ```bash
+   sleep 12; python3 <skill-dir>/scripts/new_turns.py "$SSE"
+   ```
+
+   - It prints only the turns that arrived since the previous run, one per
+     line (`Devin: …` for your agent, `Them: …` for the other party); the
+     `[connected]` / `[ended]` / `[stream closed]` markers go to stderr. Exit
+     code 10 means the `ended` event arrived. Exit code 20 means the stream died before the call ended
      (the line printed says why: a 401 body, a dropped connection); run
      `start_stream.sh <call_id>` once more and tell the user the turns in
      between will arrive at hangup. If it dies again, switch to the
@@ -65,9 +70,10 @@ about 2 s after the other party finishes replying; webhook-mode turns arrive
    after hangup, so if it is empty, retry every 5 s for up to 30 s, and say
    so if it is still missing. Send the outcome (what was agreed, numbers,
    next steps) first and the full transcript after it, as usual.
-6. Delete the `.sse` file that `start_stream.sh` printed and its siblings
-   (`.offset`, `.done`, `.pid`, `.err`) once the transcript is in the chat,
-   so the conversation does not linger on the machine.
+6. In every case (also `busy` / `no-answer` / `failed`), once you have sent
+   the final update, delete the `.sse` file that `start_stream.sh` printed
+   and its siblings (`.offset`, `.done`, `.pid`, `.err`), so the conversation
+   does not linger on the machine.
 
 ## Message format
 
@@ -92,6 +98,13 @@ in-progress") so the user is not blind; post the transcript when the call
 ends.
 
 ## Gotchas
+
+- Hosted-mode (`make_conversation_call`) streams are partial: the opening
+  greeting exchange is often missing, and a `Them:` line can be the fragment
+  the agent model had heard when it replied ("Sorry.", "Start"). Treat the
+  live feed as a preview; the `get_call` transcript after hangup is complete.
+- For a call shorter than ~40 s the first update lands near or after hangup;
+  the skill pays off on long calls (IVR menus, hold music, transfers).
 
 - Re-connecting mid-call after `curl` dies gives you only the `connected`
   event; the turns you missed come at hangup. Say so in the next update.

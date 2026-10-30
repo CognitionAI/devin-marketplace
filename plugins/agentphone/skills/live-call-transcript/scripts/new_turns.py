@@ -4,12 +4,13 @@
     new_turns.py <path.sse>
 
 Reads the SSE file written by start_stream.sh, remembers how far it got in
-<path.sse>.offset, and prints one line per new event:
+<path.sse>.offset, and prints one line per new turn on stdout, ready to paste to the user:
 
-    [connected] in-progress
     Devin: Hi, quick heads up: I'm an AI assistant ...
     Them: One moment while I transfer you.
-    [ended] completed after 205 s
+
+Status markers ([connected] in-progress, [ended] completed after 205 s,
+[stream closed] <reason>) go to stderr.
 
 Exit codes: 0 while the call is live, 10 once the `ended` event was seen
 (also on every later run), 20 when the curl stream died before `ended`
@@ -59,7 +60,7 @@ def main() -> int:
         except json.JSONDecodeError:
             payload = {}
         if event == "connected":
-            print(f"[connected] {payload.get('status', '?')}")
+            print(f"[connected] {payload.get('status', '?')}", file=sys.stderr)
         elif event == "turn":
             who = "Devin" if payload.get("role") == "agent" else "Them"
             text = " ".join(str(payload.get("content", "")).split())
@@ -69,7 +70,8 @@ def main() -> int:
             ended = True
             print(
                 f"[ended] {payload.get('status', '?')} after "
-                f"{payload.get('durationSeconds', '?')} s"
+                f"{payload.get('durationSeconds', '?')} s",
+                file=sys.stderr,
             )
     with open(offset_path, "w") as f:
         f.write(str(consumed))
@@ -85,7 +87,7 @@ def main() -> int:
                 detail = open(path + ".err").read().strip().splitlines()[-1]
             except (FileNotFoundError, IndexError):
                 detail = "no output"
-        print(f"[stream closed] {detail[:200]}")
+        print(f"[stream closed] {detail[:200]}", file=sys.stderr)
         return 20
     return 0
 
