@@ -239,6 +239,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/EasyGerber/easygerber-agent-plugin.git",
+      "sha": "981b61de6cfe7d02f2caea59acf013bd6490224a"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
