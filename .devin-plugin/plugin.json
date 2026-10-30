@@ -208,6 +208,7 @@
     "./plugins/supabase-remote",
     "./plugins/supermetrics",
     "./plugins/swagger",
+    "./plugins/synoptic",
     "./plugins/synthflow-docs",
     "./plugins/tavily",
     "./plugins/todoist",

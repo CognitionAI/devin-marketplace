@@ -1,0 +1,17 @@
+{
+  "name": "synoptic",
+  "displayName": "Synoptic",
+  "description": "Synoptic's hosted MCP server: follow live feeds from Twitter/X, Telegram and GitHub to press releases, SEC filings, IPOs, court dockets and economic releases, and publish your own feeds.",
+  "shortDescription": "Live news, filings and social feeds",
+  "homepage": "https://www.synoptic.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Finance"
+  ],
+  "mcpServers": {
+    "synoptic": {
+      "url": "https://mcp.api.synoptic.com/mcp"
+    }
+  }
+}
