@@ -160,6 +160,7 @@
     "./plugins/newrelic-remote",
     "./plugins/notion",
     "./plugins/omni-analytics",
+    "./plugins/oneleet",
     "./plugins/orion",
     "./plugins/otter",
     "./plugins/parallel",

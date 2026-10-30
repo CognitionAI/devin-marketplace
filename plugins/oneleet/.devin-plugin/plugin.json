@@ -1,0 +1,17 @@
+{
+  "name": "oneleet",
+  "displayName": "Oneleet",
+  "description": "Oneleet's hosted MCP server: query and manage your security and compliance program—controls, evidence, monitors, policies, risks, vendors, access reviews, pentest findings, and code security issues.",
+  "homepage": "https://www.oneleet.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "oneleet": {
+      "url": "https://api.oneleet.com/mcp",
+      "oauthClientId": "tpc_f5d1bwUaJW7Sh25paqtLoS"
+    }
+  }
+}
