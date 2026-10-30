@@ -1,0 +1,20 @@
+{
+  "name": "google-productivity",
+  "displayName": "Google",
+  "description": "Read and manage Gmail, Google Calendar, and Google Contacts through Devin",
+  "shortDescription": "Gmail, Google Calendar and Contacts",
+  "setup": {
+    "notice": "Connects with your own Google account via OAuth. Choose which Gmail, Calendar and Contacts permissions Devin gets when you install."
+  },
+  "homepage": "https://workspace.google.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "google-productivity": {
+      "url": "https://google-mcp.devin.ai/mcp"
+    }
+  }
+}

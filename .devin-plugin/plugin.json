@@ -103,6 +103,7 @@
     "./plugins/google-calendar",
     "./plugins/google-cloud-monitoring",
     "./plugins/google-maps",
+    "./plugins/google-productivity",
     "./plugins/grafana",
     "./plugins/grafana-remote",
     "./plugins/granola",
