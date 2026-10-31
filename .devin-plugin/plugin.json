@@ -86,6 +86,7 @@
     "./plugins/elasticsearch",
     "./plugins/enterpret",
     "./plugins/eraser",
+    "./plugins/evolink",
     "./plugins/exa",
     "./plugins/excalidraw",
     "./plugins/expo",
