@@ -241,7 +241,7 @@
     {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
-      "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
+      "sha": "c668cb2d1e28e0ba38efc73625b31732a6d5d13c"
     },
     {
       "source": "git-subdir",
