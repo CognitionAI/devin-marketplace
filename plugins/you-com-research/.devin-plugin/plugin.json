@@ -1,7 +1,8 @@
 {
   "name": "you-com-research",
   "displayName": "You.com Research",
-  "description": "You.com's hosted research MCP server: multi-step deep research reports with citations via the You.com API.",
+  "description": "Run multi-step deep research with You.com and get reports with citations",
+  "shortDescription": "Multi-step research with citations",
   "homepage": "https://you.com",
   "repository": "https://github.com/youdotcom-oss/agent-skills",
   "logo": "logo.jpg",

@@ -71,6 +71,7 @@
     "./plugins/corridor",
     "./plugins/cortex",
     "./plugins/craft",
+    "./plugins/crossmint",
     "./plugins/customer-io",
     "./plugins/daloopa",
     "./plugins/datadog",
@@ -78,6 +79,7 @@
     "./plugins/datahub",
     "./plugins/dbt",
     "./plugins/deepwiki",
+    "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
     "./plugins/dynatrace",
     "./plugins/elastic",
@@ -100,8 +102,8 @@
     "./plugins/google-analytics",
     "./plugins/google-calendar",
     "./plugins/google-cloud-monitoring",
-    "./plugins/google-drive",
     "./plugins/google-maps",
+    "./plugins/google-productivity",
     "./plugins/grafana",
     "./plugins/grafana-remote",
     "./plugins/granola",
@@ -223,6 +225,7 @@
     "./plugins/wispr-flow",
     "./plugins/wix",
     "./plugins/wolfram",
+    "./plugins/wordpress-com",
     "./plugins/workable",
     "./plugins/workos",
     "./plugins/you-com",
@@ -230,15 +233,27 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
+      "path": "plugins/snowflake-mcp-devin",
+      "sha": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
-      "sha": "41e0d19858946d18af9ee2c2feebbe2e11d829ff"
+      "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
     {
       "source": "git-subdir",
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/forcedotcom/sf-skills.git",
+      "path": "plugins/builder/salesforce-development",
+      "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
     },
     {
       "source": "url",

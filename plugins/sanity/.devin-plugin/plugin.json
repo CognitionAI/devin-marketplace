@@ -1,7 +1,8 @@
 {
   "name": "sanity",
   "displayName": "Sanity",
-  "description": "Sanity integration to create, query, and manage structured content",
+  "description": "Create, query, and update structured content in Sanity",
+  "shortDescription": "Structured content and queries",
   "homepage": "https://www.sanity.io",
   "logo": "logo.svg",
   "keywords": [

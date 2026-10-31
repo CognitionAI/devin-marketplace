@@ -1,7 +1,8 @@
 {
   "name": "mongodb",
   "displayName": "MongoDB",
-  "description": "MongoDB integration for document database operations and Atlas management",
+  "description": "Query MongoDB documents and databases and manage Atlas resources",
+  "shortDescription": "NoSQL documents, collections and queries",
   "homepage": "https://www.mongodb.com",
   "repository": "https://github.com/mongodb-js/mongodb-mcp-server",
   "logo": "logo.svg",

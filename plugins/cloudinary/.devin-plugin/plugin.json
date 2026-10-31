@@ -1,7 +1,8 @@
 {
   "name": "cloudinary",
   "displayName": "Cloudinary",
-  "description": "Cloudinary integration to manage, transform, and deliver images and videos",
+  "description": "Manage, transform, and deliver Cloudinary images and videos",
+  "shortDescription": "Image and video asset delivery",
   "homepage": "https://cloudinary.com",
   "logo": "logo.svg",
   "keywords": [

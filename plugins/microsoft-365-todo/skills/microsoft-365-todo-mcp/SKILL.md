@@ -12,6 +12,7 @@ files, Teams and people lookups live behind separate endpoints.
 
 | You want to…                                       | Call                 |
 | -------------------------------------------------- | -------------------- |
+| Check which account this endpoint is signed in as  | `todo_me`            |
 | Find which task lists exist (and their ids)        | `todo_lists`         |
 | See the tasks in a list                            | `todo_list_tasks`    |
 | Read one task in full                              | `todo_get_task`      |
@@ -22,15 +23,16 @@ files, Teams and people lookups live behind separate endpoints.
 
 ## Tool signatures
 
-| Tool                                                                                                     | Notes                                                    |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `todo_lists(max_items=100, next_link?)`                                                                  | Lists with `id`, `displayName`, `wellknownListName`.     |
-| `todo_list_tasks(list_id, max_items=100, next_link?)`                                                    | Tasks in one list.                                       |
-| `todo_get_task(list_id, task_id)`                                                                        | One task.                                                |
-| `todo_create_task(list_id, title, body?, due_date_time?, importance?, status?, confirm=false)`           | Creates only with `confirm=true`.                        |
-| `todo_update_task(list_id, task_id, title?, body?, due_date_time?, importance?, status?, confirm=false)` | Patches only the fields you pass; at least one required. |
-| `todo_complete_task(list_id, task_id, confirm=false)`                                                    | Sets status to `completed`.                              |
-| `todo_delete_task(list_id, task_id, confirm=false)`                                                      | Deletes.                                                 |
+| Tool                                                                                                     | Notes                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `todo_me()`                                                                                              | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else. |
+| `todo_lists(max_items=100, next_link?)`                                                                  | Lists with `id`, `displayName`, `wellknownListName`.                                                                                                                                             |
+| `todo_list_tasks(list_id, max_items=100, next_link?)`                                                    | Tasks in one list.                                                                                                                                                                               |
+| `todo_get_task(list_id, task_id)`                                                                        | One task.                                                                                                                                                                                        |
+| `todo_create_task(list_id, title, body?, due_date_time?, importance?, status?, confirm=false)`           | Creates only with `confirm=true`.                                                                                                                                                                |
+| `todo_update_task(list_id, task_id, title?, body?, due_date_time?, importance?, status?, confirm=false)` | Patches only the fields you pass; at least one required.                                                                                                                                         |
+| `todo_complete_task(list_id, task_id, confirm=false)`                                                    | Sets status to `completed`.                                                                                                                                                                      |
+| `todo_delete_task(list_id, task_id, confirm=false)`                                                      | Deletes.                                                                                                                                                                                         |
 
 Enumerations: `importance` ∈ `low`, `normal`, `high`. `status` ∈ `notStarted`, `inProgress`,
 `completed`, `waitingOnOthers`, `deferred`.
@@ -80,12 +82,12 @@ Every write takes `confirm` (default `false`).
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                              | Do                                                                                                                                |
-| -------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | It happened.                                         | Report success using `body` (contains the task id).                                                                               |
-| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `todo_list_tasks` to recover the task.                                                        |
-| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | Fix the arguments and retry safely.                                                                                               |
-| `indeterminate`            | It **may** have happened (timeout / server error).   | For `create_task`, **do not retry** — you would create a duplicate. `todo_list_tasks` first, then tell the user it is unverified. |
+| `status`                   | Meaning                                              | Do                                                                                                                                                                                       |
+| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | It happened.                                         | Report success using `body` (contains the task id).                                                                                                                                      |
+| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `todo_list_tasks` to recover the task.                                                                                                               |
+| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`invalid_request`, a 4xx): fix the arguments and retry safely. |
+| `indeterminate`            | It **may** have happened (timeout / server error).   | For `create_task`, **do not retry** — you would create a duplicate. `todo_list_tasks` first, then tell the user it is unverified.                                                        |
 
 `todo_update_task`, `todo_complete_task` and `todo_delete_task` are idempotent enough to retry
 once after you verify state; `todo_create_task` is not.

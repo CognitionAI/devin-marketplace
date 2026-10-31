@@ -1,7 +1,8 @@
 {
   "name": "readwise",
   "displayName": "Readwise",
-  "description": "Readwise's hosted MCP server: search your highlights and Reader documents, and save articles to Reader.",
+  "description": "Search Readwise highlights and Reader documents, and save articles to Reader",
+  "shortDescription": "Reading highlights and saved articles",
   "homepage": "https://readwise.io",
   "logo": "logo.png",
   "keywords": [

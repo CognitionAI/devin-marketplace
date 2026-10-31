@@ -1,7 +1,8 @@
 {
   "name": "mintlify",
   "displayName": "Mintlify",
-  "description": "Mintlify integration to search, read, and edit your documentation",
+  "description": "Search, read, and edit your Mintlify documentation",
+  "shortDescription": "Search and edit documentation",
   "homepage": "https://mintlify.com",
   "logo": "logo.png",
   "keywords": [

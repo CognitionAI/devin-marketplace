@@ -1,7 +1,8 @@
 {
   "name": "confidence-docs",
   "displayName": "Spotify Confidence Docs",
-  "description": "Spotify Confidence's hosted documentation MCP server: search Confidence feature-flag, experimentation and SDK docs.",
+  "description": "Search Spotify Confidence feature-flag, experimentation, and SDK documentation",
+  "shortDescription": "Feature flag and experiment docs",
   "homepage": "https://confidence.spotify.com",
   "repository": "https://github.com/spotify/confidence-ai-plugins",
   "logo": "logo.png",

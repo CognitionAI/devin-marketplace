@@ -1,7 +1,11 @@
 {
   "name": "cognition-snowflake",
   "displayName": "Snowflake",
-  "description": "Snowflake data warehouse integration with password and key-pair authentication support",
+  "description": "Query Snowflake warehouse data",
+  "shortDescription": "Data warehouse queries and modeling",
+  "setup": {
+    "notice": "Choose password or key-pair authentication for your Snowflake account."
+  },
   "homepage": "https://www.snowflake.com",
   "repository": "https://github.com/cognitionai/database-toolbox",
   "logo": "logo.svg",
