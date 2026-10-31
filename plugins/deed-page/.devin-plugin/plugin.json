@@ -1,0 +1,17 @@
+{
+  "name": "deed-page",
+  "displayName": "deed.page",
+  "description": "deed.page's hosted MCP server: publish static files to a permanent https://<slug>.deed.page URL with no account, then update the site, list and restore versions, attach a custom domain, read cookieless analytics and manage webhooks. The first publish returns a site token that later calls send.",
+  "shortDescription": "Publish static sites to a permanent URL",
+  "homepage": "https://deed.page",
+  "repository": "https://github.com/f-o-x11/deed-page-skill",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "deed-page": {
+      "url": "https://deed.page/mcp"
+    }
+  }
+}

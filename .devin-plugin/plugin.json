@@ -78,6 +78,7 @@
     "./plugins/datadog-remote",
     "./plugins/datahub",
     "./plugins/dbt",
+    "./plugins/deed-page",
     "./plugins/deepwiki",
     "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
