@@ -1,0 +1,18 @@
+{
+  "name": "glitchless",
+  "displayName": "Glitchless",
+  "description": "Find what real players hit in your game, from crashes and frame drops to where they quit, and fix it in the next build",
+  "shortDescription": "Game observability for coding agents",
+  "setup": {
+    "notice": "Needs a Glitchless account, which is free. A new workspace starts with a demo game to try before you add your own."
+  },
+  "homepage": "https://www.glitchless.gg",
+  "repository": "https://github.com/glitchless-gg/glitchless",
+  "logo": "logo.png",
+  "keywords": ["Monitoring & Analytics", "Development Tools"],
+  "mcpServers": {
+    "glitchless": {
+      "url": "https://api.glitchless.gg/mcp"
+    }
+  }
+}

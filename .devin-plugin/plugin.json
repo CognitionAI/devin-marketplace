@@ -97,6 +97,7 @@
     "./plugins/gamma",
     "./plugins/gc-ai",
     "./plugins/gitlab",
+    "./plugins/glitchless",
     "./plugins/gmail",
     "./plugins/godaddy",
     "./plugins/google-analytics",
