@@ -148,6 +148,7 @@
     "./plugins/miro",
     "./plugins/mixpanel",
     "./plugins/mobbin",
+    "./plugins/moderne",
     "./plugins/monday",
     "./plugins/mongodb",
     "./plugins/mongodb-atlas",
