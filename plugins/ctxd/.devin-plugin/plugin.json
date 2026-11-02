@@ -1,0 +1,32 @@
+{
+  "name": "ctxd",
+  "displayName": "ctxd",
+  "description": "Keep source context current for agents with synchronization, path discovery and bounded reads",
+  "shortDescription": "Context infrastructure for agents",
+  "setup": {
+    "notice": "Configure ctxfs and synchronize a source before connecting. Use Linux with Python 3.11 or 3.12 and run the client as the same user.",
+    "steps": [
+      "Install ctxd and uv.",
+      "Select ctxfs, add a source folder, synchronize it and start the tracker using the README setup.",
+      "Connect and use tree to find a source path, then read that path."
+    ]
+  },
+  "homepage": "https://ctxd.dev",
+  "repository": "https://github.com/ctxd-dev/ctxd",
+  "logo": "icon.png",
+  "keywords": [
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "ctxd": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.12",
+        "--from",
+        "ctxd",
+        "ctxd-mcp"
+      ]
+    }
+  }
+}

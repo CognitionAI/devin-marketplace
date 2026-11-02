@@ -72,6 +72,7 @@
     "./plugins/cortex",
     "./plugins/craft",
     "./plugins/crossmint",
+    "./plugins/ctxd",
     "./plugins/customer-io",
     "./plugins/daloopa",
     "./plugins/datadog",
