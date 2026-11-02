@@ -158,8 +158,8 @@ account usage, not the progress of a request.
   replaced by scraperAPI, webSearch, and status.
 - Page incomplete or missing dynamic content: load mrscraper-fetch and revise
   page-loading inputs deliberately.
-- Search results weak: load mrscraper-serp and refine the query, locale, or
-  page.
+- Search results weak: load mrscraper-serp and refine the query, country, or
+  number of results.
 
 ## Limits
 
