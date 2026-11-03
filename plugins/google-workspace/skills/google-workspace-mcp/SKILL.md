@@ -31,8 +31,8 @@ Doc), `build-google-sheet` (models, trackers, accounting workbooks), `build-goog
 | Rename, move, bin/unbin, star, replace whole content      | `update_file`                                                        |
 | Edit part of a Doc / Sheet / deck / Form                   | `update_doc` / `update_spreadsheet` / `update_presentation` / `update_form` |
 | Write or append cell values                               | `write_sheet`                                                        |
-| Leave a comment anchored to text, a cell or a shape       | `update_doc` / `update_spreadsheet` / `update_presentation` with `insertComment` |
-| Read, reply to, resolve, edit or delete comment threads   | `list_comments`, `reply_to_comment`, `update_comment`, `delete_comment`; `add_comment` for a file-level (unanchored) note |
+| Leave a comment pinned to text, a cell or an element      | `add_comment` with `anchor`; several at once: `insertComment` requests in `update_doc` / `update_spreadsheet` / `update_presentation` |
+| Read, reply to, resolve, edit or delete comment threads   | `list_comments`, `reply_to_comment`, `update_comment`, `delete_comment`; `add_comment` without `anchor` for a file-level (unpinned) note |
 | Who has access to a file                                  | `list_permissions` (sharing is done by the user in Drive; the MCP cannot grant access) |
 | Form responses; a form's publish state                    | `list_form_responses`; `read_form`                                   |
 | Remove a file for good                                    | `delete_file` (only when asked; otherwise `update_file trash=true`)  |
@@ -60,8 +60,8 @@ pasted can be passed straight through.
 
 | Tool                                                                                                       | Notes                                                                                                                                                                                    |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `list_comments(fileId, includeDeleted?, modifiedAfter?, pageToken?)`                                       | Every thread with `commentId`, quoted text, resolved state, author, assignee, mentions and replies (with `replyId`). Works on Docs, Sheets, Slides and PDFs/images stored in Drive.        |
-| `add_comment(fileId, content, quote?)`                                                                     | File-level thread. `quote` is shown with the comment but does **not** anchor it; for an anchored comment use `insertComment` through the `update_*` tool of that surface (see below).     |
+| `list_comments(fileId, includeDeleted?, modifiedAfter?, pageToken?)`                                       | Every thread with `commentId`, quoted text, `anchor` (present only on a thread pinned to a position), resolved state, author, assignee, mentions and replies (with `replyId`). Works on Docs, Sheets, Slides and PDFs/images stored in Drive. |
+| `add_comment(fileId, content, quote?, anchor?)`                                                            | `anchor` pins the thread: Doc `{"range": {"startIndex", "endIndex", "tabId"?}}` (from `read_doc`), Sheet `{"coordinate": {"sheetId", "rowIndex", "columnIndex"}}` (0-based), Slides `{"objectId"}` of an element. The tool picks the surface from the file type and runs its `insertComment`; a `comment_not_saved` error means Google did not confirm the save: check `list_comments` before retrying. `quote` only records the passage (the thread stays unpinned) and cannot be combined with `anchor`. |
 | `reply_to_comment(fileId, commentId, content?, action?)`                                                   | `action: "resolve"` / `"reopen"`; resolving with no content posts a bare resolution.                                                                                                     |
 | `update_comment(fileId, commentId, content, replyId?)` / `delete_comment(fileId, commentId, replyId?)`     | Only the user's own comments.                                                                                                                                                            |
 | `list_permissions(fileId, pageToken?)`                                                                     | Grantee, role, expiry, inherited-from-folder flag, `permissionId`.                                                                                                                       |
@@ -128,11 +128,13 @@ pasted can be passed straight through.
 - **Sheets ranges.** A1 ranges in `read_sheet` / `write_sheet` must include the tab name
   (`'P&L'!A1:G5`, quotes when the name has spaces or symbols); grid ranges in
   `update_spreadsheet` use the numeric `sheetId` and 0-based, end-exclusive row/column indexes.
-- **Comments are first-class on every surface.** Anchored comments are `insertComment`
-  requests in `update_doc` (text range), `update_spreadsheet` (cell coordinate) and
-  `update_presentation` (shape text range, table cell or whole element); `addCommentReply`
-  with `commentAction: "RESOLVE"` / `"REOPEN"` closes or reopens a thread. Drive's
-  `add_comment` is only for a file-level note. The API cannot create Docs *suggestions*
+- **Comments are first-class on every surface.** `add_comment` with `anchor` pins one
+  comment to a Doc range, a Sheet cell or a Slides element. For several comments in one call,
+  or a Slides anchor finer than an element (`shapeTextAnchor` text range, `tableCellTextAnchor`),
+  send `insertComment` requests through `update_doc` / `update_spreadsheet` /
+  `update_presentation`; `addCommentReply` with `commentAction: "RESOLVE"` / `"REOPEN"`
+  (or `reply_to_comment` with `action`) closes or reopens a thread. `add_comment` without
+  `anchor` is only for a file-level note; `quote` does not pin. The API cannot create Docs *suggestions*
   (tracked changes): a proposed wording goes in a comment, or is applied directly when the
   user asked for the edit. See `review-google-files`.
 - **Files are the user's.** Create files where the user said, else their My Drive root, and

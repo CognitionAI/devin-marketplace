@@ -6,9 +6,10 @@ description: "Review a Google Doc, Sheet or Slides deck the way a careful collea
 # Reviewing Google Docs, Sheets and Slides
 
 Devin reviews by commenting in the file, where the author works, not by sending a list in chat.
-Anchored comments are available on every surface through the `update_*` tool of that surface
-(`insertComment`), threads are read with `list_comments`, and `addCommentReply` with
-`commentAction: "RESOLVE"` closes them. Signatures are in `google-workspace-mcp`.
+Pinned comments work on every surface: `add_comment` with `anchor` for one comment, or
+`insertComment` requests through the surface's `update_*` tool for several at once; threads are
+read with `list_comments` and resolved with `reply_to_comment` (`action: "resolve"`).
+Signatures are in `google-workspace-mcp`.
 
 ## 1. Read the whole thing first
 
@@ -40,22 +41,32 @@ put the rest in the summary.
 Each comment: what is wrong or missing, why it matters, and the concrete fix or question, in
 one to three sentences. Address the author in the second person; no "the AI noticed".
 
-## 3. Anchor each comment to the exact place
+## 3. Pin each comment to the exact place
 
-| Surface | Request (inside the surface's `update_*` tool)                                                                                                   | Anchor source                                        |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| Doc     | `update_doc`: `{"insertComment": {"range": {"startIndex", "endIndex", "tabId"?}, "content", "assigneeEmailAddress"?}}`                             | `read_doc` indexes; narrow the range to the sentence or phrase, not the whole paragraph |
-| Sheet   | `update_spreadsheet`: `{"insertComment": {"coordinate": {"sheetId", "rowIndex", "columnIndex"}, "content", "assigneeEmailAddress"?}}` (0-based)  | `sheetId` from `read_sheet` with no range; row/column from the A1 cell (B3 -> row 2, col 1) |
-| Slides  | `update_presentation`: `{"insertComment": {"shapeTextAnchor": {"objectId", "textRange": {"type": "FIXED_RANGE", "startIndex", "endIndex"}}, "content"}}`; `tableCellTextAnchor: {objectId, cellLocation: {rowIndex, columnIndex}, textRange}`; `tableAnchor: {objectId, tableRange?}`; or `objectId` alone for a whole shape, image or slide | element ids and text from `read_presentation`; speaker notes: the notes shape id |
+One comment: `add_comment(fileId, content, anchor)`. The tool detects the file type and runs
+that surface's `insertComment`; the reply is the new thread with its `commentId`, `anchor` and
+quoted text. A `comment_not_saved` error means Google returned success without confirming the
+comment: run `list_comments` before retrying, so the author does not get it twice.
 
-The reply carries the new `commentThread.commentId`, `anchorId` and `plainTextQuote`: check
-the quote is the text you meant. Comments are plain text; `+email@example.com` in `content`
+| Surface | `anchor` for `add_comment`                                              | Anchor source                                                                               |
+| ------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Doc     | `{"range": {"startIndex", "endIndex", "tabId"?}}`                       | `read_doc` indexes; narrow the range to the sentence or phrase, not the whole paragraph     |
+| Sheet   | `{"coordinate": {"sheetId", "rowIndex", "columnIndex"}}` (0-based)      | `sheetId` from `read_sheet` with no range; row/column from the A1 cell (B3 -> row 2, col 1) |
+| Slides  | `{"objectId"}` of the shape, image, table or slide                      | element ids from `read_presentation`; speaker notes: the notes shape id                     |
+
+Several comments on one file, or a Slides anchor finer than an element, go as `insertComment`
+requests (one per comment, `{...anchor, "content", "assigneeEmailAddress"?}`) through
+`update_doc` / `update_spreadsheet` / `update_presentation`; Slides also accepts
+`shapeTextAnchor: {objectId, textRange: {type: "FIXED_RANGE", startIndex, endIndex}}`,
+`tableCellTextAnchor: {objectId, cellLocation: {rowIndex, columnIndex}, textRange}` and
+`tableAnchor: {objectId, tableRange?}` there. Each reply carries `commentThread.commentId`,
+`anchorId` and `plainTextQuote`: check the quote is the text you meant. Comments are plain text; `+email@example.com` in `content`
 mentions and notifies that person, `assigneeEmailAddress` assigns the thread (only when the
 user asked to assign or mention).
 
-Several comments go in one `update_*` call per file (one request each). Docs indexes do not
-shift when only comments are inserted, so they can go in any order. Never edit the text and
-comment on it in the same call: a reviewer who was not asked to edit does not edit.
+Docs indexes do not shift when only comments are inserted, so they can go in any order. Never
+edit the text and comment on it in the same call: a reviewer who was not asked to edit does not
+edit.
 
 ## 4. Replying, resolving and addressing feedback
 
@@ -81,7 +92,7 @@ that matter most, and anything the author should decide. Do not repeat every com
 ## Worked example (Doc)
 
 `read_doc` -> `[29-92] We add a token-bucket rate limiter in front of the public API.` ->
-`update_doc` with `insertComment` on `{"startIndex": 29, "endIndex": 91}` ("Which bucket size
-and refill rate? Name the numbers here or link the config.") -> reply quotes the sentence ->
+`add_comment(fileId, "Which bucket size and refill rate? Name the numbers here or link the
+config.", anchor: {"range": {"startIndex": 29, "endIndex": 91}})` -> reply quotes the sentence ->
 report "3 comments: parameters unspecified (Summary), per-org vs per-key is still open (Open
 questions), no rollout plan".
