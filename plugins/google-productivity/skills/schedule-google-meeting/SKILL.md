@@ -36,11 +36,15 @@ do not know where someone is.
 Call `suggest_time` and read each slot:
 
 - `free`: these attendees have nothing in that slot.
-- `blocked` with `status: "busy"` and `events`: a real clash. Their RSVP to the clash tells you how
-  firm it is.
-- `blocked` with `status: "unknown"`: you cannot see their calendar, which is normal for people
-  outside the user's organization. Do not report them as free or as busy.
+- `blocked`: these attendees are busy, with the clashing `events`. Their RSVP to the clash tells you
+  how firm it is.
 - `latestStart`: the slot's start can slide up to this time.
+
+Then read the two top-level fields:
+
+- `unknown`: attendees whose calendar you cannot read, which is normal for people outside the user's
+  organization, but also what a mistyped address returns. They are in no slot and no count, so
+  `1/1 free` does not mean everyone is free. Do not report them as free or as busy.
 - `timeZone`: the user's zone, for presenting the options.
 
 ### 4. Propose, then confirm
@@ -52,7 +56,8 @@ and exact guest list. Skip the options when the user already gave the exact time
 ### 5. Create once
 
 Call `create_event` with `addConference: true` if a video link is wanted. Use `recurrence` for a
-repeating meeting. Report the time, guests, `link` and `meetLink`.
+repeating meeting. Report the time, guests, `link` and `meetLink`, plus `seriesTimeZone` if it comes
+back: that is the zone the series was pinned to, and it follows that zone's daylight-saving changes.
 
 A second `create_event` sends a second invitation. If the outcome of a call is unclear, look with
 `list_events` before trying again.
@@ -65,10 +70,10 @@ already says.
 
 | Change | Call |
 | ------ | ---- |
-| Move one meeting, or one occurrence | `suggest_time` with `eventId` to find a slot, then `update_event` for a one-off or `update_occurrence` for an occurrence |
+| Move one meeting, or one occurrence | `suggest_time` with `eventId` to find a slot (all-day events: pass `attendees` and `durationMinutes` instead), then `update_event` for a one-off or `update_occurrence` with the instance id for an occurrence |
 | Move the whole series | `update_event` with the bare series id (`recurringEventId`) |
 | Add or remove a guest | `update_event` with the full new `attendees` list, built from the guests `list_events` returned |
-| Cancel one occurrence | `update_occurrence` with `cancel: true`, or `delete_event` with the instance id |
+| Cancel one occurrence | `update_occurrence` with the instance id and `cancel: true`, or `delete_event` with the instance id |
 | Cancel the whole meeting or series | `delete_event`, which cannot be undone |
 
 - `suggest_time` does not move anything. Moving takes one of the update calls afterwards.
