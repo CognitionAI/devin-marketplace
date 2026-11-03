@@ -42,6 +42,16 @@ this and CI runs it.
      reference its own key (`"AWS_PROFILE": "${AWS_PROFILE}"`) because a saved
      credential replaces the env entry with the same key; in `args` and
      `headers` the placeholder is the credential's only name.
+   * Code the box runs must be fixed by this repo. A stdio server that
+     fetches a package (`npx`, `bunx`, `uvx`, `pipx`, `npm exec`, `pnpm dlx`)
+     must name an exact version (`pkg@1.2.3`, `pkg==1.2.3`, or a 40-hex git
+     ref), and `docker run` must pin the image by `@sha256:<digest>`. A bare
+     command (`deja mcp`) is allowed; it runs whatever the user installed.
+     Nothing in the plugin (skills, references, hooks) may pipe a download
+     into a shell (`curl ... | sh`, `irm ... | iex`); point users at the
+     vendor's release page instead. Hooks may only run files shipped in the
+     plugin. Hosted `url` servers run no code on the box, so they carry no
+     pin.
 2. Add `"./plugins/<slug>"` to `optionalPlugins` in `.devin-plugin/plugin.json`.
 
 ## A third-party plugin
