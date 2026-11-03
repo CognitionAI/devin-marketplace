@@ -1,7 +1,7 @@
 {
   "name": "higgsfield",
   "displayName": "Higgsfield",
-  "description": "30+ models for image and video generation, no API key required.",
+  "description": "Generate images and videos across 30+ models using your Higgsfield account",
   "shortDescription": "AI image and video generation",
   "setup": {
     "notice": "Requires a Higgsfield account. Generations use your account's credits."
