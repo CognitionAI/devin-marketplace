@@ -1,0 +1,19 @@
+{
+  "name": "higgsfield",
+  "displayName": "Higgsfield",
+  "description": "Generate images and videos across 30+ models and train reusable Soul characters from your Higgsfield account",
+  "shortDescription": "AI image and video generation",
+  "setup": {
+    "notice": "Requires a Higgsfield account. Generations use your account's credits."
+  },
+  "homepage": "https://higgsfield.ai/mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "higgsfield": {
+      "url": "https://mcp.higgsfield.ai/mcp"
+    }
+  }
+}
