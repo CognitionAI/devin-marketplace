@@ -1,6 +1,6 @@
 ---
 name: google-workspace-mcp
-description: "Use the Google Drive, Docs, Sheets, Slides and Forms MCP tools: find and download files, read and edit Docs/Sheets/Slides/Forms, leave and resolve comments, share files. Invoke whenever a task touches the user's Google Drive or a Google Doc, Sheet, Slides deck or Form: it gives the tool signatures, which permission unlocks each tool, the id and index conventions, the batchUpdate rules shared by every update_* tool, and the read -> edit -> read-again loop every write follows."
+description: "Use the Google Drive, Docs, Sheets, Slides and Forms MCP tools: find and download files, read and edit Docs/Sheets/Slides/Forms, leave and resolve comments, see who has access. Invoke whenever a task touches the user's Google Drive or a Google Doc, Sheet, Slides deck or Form: it gives the tool signatures, which permission unlocks each tool, the id and index conventions, the batchUpdate rules shared by every update_* tool, and the read -> edit -> read-again loop every write follows."
 ---
 
 # Google Drive, Docs, Sheets, Slides & Forms (MCP tools)
