@@ -55,7 +55,7 @@ FETCHERS = {"npx", "bunx", "pnpx", "uvx", "pipx"}
 FETCHER_SUBCOMMANDS = {("npm", "exec"), ("npm", "x"), ("pnpm", "dlx"), ("yarn", "dlx"), ("uv", "tool"), ("uvx", "run")}
 EXACT_VERSION_RE = re.compile(r"(?<!^)@\d+\.\d+\.\d+[A-Za-z0-9.+-]*$|==\d+(\.\d+)*([A-Za-z0-9.+-]*)$|[#@][0-9a-f]{40}$")
 # docker run flags that take no operand; every other flag consumes the next word.
-DOCKER_BOOL_FLAGS = {"-i", "-t", "-it", "-ti", "-d", "-a", "--rm", "--init", "--privileged", "--interactive", "--tty", "--detach", "--no-healthcheck", "--read-only", "--sig-proxy", "-P", "--publish-all", "-q", "--quiet"}
+DOCKER_BOOL_FLAGS = {"-i", "-t", "-it", "-ti", "-d", "--rm", "--init", "--privileged", "--interactive", "--tty", "--detach", "--no-healthcheck", "--read-only", "--sig-proxy", "-P", "--publish-all", "-q", "--quiet"}
 IMAGE_DIGEST_RE = re.compile(r"@sha256:[0-9a-f]{64}$")
 PIPED_INSTALLER_RE = re.compile(
     r"\b(curl|wget)\b[^\n|]*\|\s*(sudo\s+(-\S+\s+)*)?(\S*/)?(ba|z|da|fi)?sh\b|\b(irm|iwr|Invoke-(RestMethod|WebRequest))\b[^\n|]*\|\s*(iex|Invoke-Expression)\b",
