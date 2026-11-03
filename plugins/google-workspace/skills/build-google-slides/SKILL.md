@@ -55,7 +55,7 @@ the deck is for Cognition.
 After each slide or batch: `get_slide_thumbnail(presentationId, slideId, size: "medium")` and
 check for text overflowing its box, overlapping elements, empty placeholders (they render as
 "Click to add text"), inconsistent title positions, unreadable sizes (< 12 PT body text). For
-the finished deck, `download_file(presentationId, exportMimeType: "application/pdf")` from
+the finished deck, `download_file(fileId: <presentation id>, exportMimeType: "application/pdf")` from
 `scripted_tools` and page through it. Fix in place: `deleteText` + `insertText`, resize with
 `updatePageElementTransform`, shorten copy. A text box that overflows means less text, not a
 smaller font below 12 PT.
@@ -75,7 +75,7 @@ smaller font below 12 PT.
 ## 5. Deliver
 
 Link, slide count, where it lives, and anything that still needs a human asset (a logo, a
-photo, a number to confirm). Offer `share_file` only for named recipients.
+photo, a number to confirm). The MCP cannot share the deck; the user shares it in Drive.
 
 ## Gotchas
 

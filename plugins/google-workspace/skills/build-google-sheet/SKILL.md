@@ -80,7 +80,7 @@ call per tab; the whole call fails if one request is wrong, so a failure names
 - `read_sheet(range, valueRender: "formula")` on one column: references point where intended
   (off-by-one columns are the common bug).
 - Recompute two or three headline numbers independently (from the inputs, in code) and compare.
-- For a rendered check, `download_file(spreadsheetId, exportMimeType: "application/pdf")` (or
+- For a rendered check, `download_file(fileId: <spreadsheet id>, exportMimeType: "application/pdf")` (or
   xlsx) from `scripted_tools`.
 - Fix with `write_sheet` / `update_spreadsheet` on the same file; do not create a new one.
 

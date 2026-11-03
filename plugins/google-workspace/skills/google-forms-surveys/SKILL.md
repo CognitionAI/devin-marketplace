@@ -1,12 +1,14 @@
 ---
 name: google-forms-surveys
-description: "Create a Google Form (survey, quiz, sign-up, intake or feedback form), edit its questions and settings, publish it, and read or summarise its responses. Use whenever the user asks for a form, survey, questionnaire or quiz in Google Forms, or wants responses from one analysed. Requires google-workspace-mcp (form responses need the form-responses permission)."
+description: "Create a Google Form (survey, quiz, sign-up, intake or feedback form), edit its questions and settings, and read or summarise its responses. Use whenever the user asks for a form, survey, questionnaire or quiz in Google Forms, or wants responses from one analysed. Requires google-workspace-mcp (form responses need the form-responses permission)."
 ---
 
-# Google Forms: build, publish, read responses
+# Google Forms: build, read responses
 
 Tool signatures in `google-workspace-mcp`: `create_file(type: "form")`, `read_form`,
-`update_form`, `publish_form`, `list_form_responses`.
+`update_form`, `list_form_responses`. Publishing a form (and opening or closing it for
+responses) is not available through the MCP: the user clicks Publish in the Forms editor, and
+`read_form` shows the resulting publish state.
 
 ## Build
 
@@ -29,9 +31,8 @@ Tool signatures in `google-workspace-mcp`: `create_file(type: "form")`, `read_fo
    to set them in the Forms UI.
 5. `read_form` to check order, required flags and option lists; fix with `updateItem` /
    `moveItem` / `deleteItem`.
-6. `publish_form(formId, published: true, acceptingResponses: true)` when the user wants it
-   live; the responder link from `read_form` is what they send out. Share the editor with
-   collaborators via `share_file` on the form id if asked.
+6. Hand the user the editor link (`webViewLink` from `get_file`) to publish it; once published,
+   `read_form` shows `publishState` and the responder link they send out.
 
 ## Responses
 
@@ -48,7 +49,7 @@ Tool signatures in `google-workspace-mcp`: `create_file(type: "form")`, `read_fo
 ## Gotchas
 
 - File-upload questions cannot be created through the API.
-- Closing a form: `publish_form(formId, acceptingResponses: false)` keeps it published but
-  stops new responses.
+- Closing a form for responses is a Forms UI action; `read_form`'s publish state shows whether it
+  still accepts responses.
 - `list_form_responses` needs the separate form-responses permission; if the tool is missing,
   say so rather than scraping the linked Sheet silently (the Sheet is fine when the user agrees).

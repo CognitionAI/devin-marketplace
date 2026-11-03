@@ -33,8 +33,8 @@ Doc), `build-google-sheet` (models, trackers, accounting workbooks), `build-goog
 | Write or append cell values                               | `write_sheet`                                                        |
 | Leave a comment anchored to text, a cell or a shape       | `update_doc` / `update_spreadsheet` / `update_presentation` with `insertComment` |
 | Read, reply to, resolve, edit or delete comment threads   | `list_comments`, `reply_to_comment`, `update_comment`, `delete_comment`; `add_comment` for a file-level (unanchored) note |
-| Who has access; share; change or remove access            | `list_permissions`, `share_file`, `update_permission`, `unshare_file` |
-| Form responses; open/close or publish a form              | `list_form_responses`; `publish_form`                                |
+| Who has access to a file                                  | `list_permissions` (sharing is done by the user in Drive; the MCP cannot grant access) |
+| Form responses; a form's publish state                    | `list_form_responses`; `read_form`                                   |
 | Remove a file for good                                    | `delete_file` (only when asked; otherwise `update_file trash=true`)  |
 
 ## Tool signatures
@@ -49,14 +49,14 @@ pasted can be passed straight through.
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `search_files(query?, pageSize?, pageToken?, orderBy?)`                                                | `files.list` `q` syntax: `name contains 'roadmap'`, `fullText contains 'pricing'`, `'<folderId>' in parents` (`root` = My Drive), `mimeType = 'application/vnd.google-apps.spreadsheet'`, `'me' in owners`, `modifiedTime > '2026-01-01T00:00:00'`. Binned files are left out unless the query mentions `trashed`. `orderBy` is not allowed with `fullText`. |
 | `get_file(fileId)`                                                                                     | Type, size, parents, owners, sharing summary, `webViewLink`.                                                                                                                                                                         |
-| `download_file(fileId, exportMimeType?)`                                                               | Base64 bytes, up to 10 MB. Google files are exported: Doc -> PDF, Sheet -> xlsx, Slides -> PDF, Drawing -> PNG by default; `exportMimeType` picks docx/xlsx/pptx/csv/txt/png/html instead. **Always call it from `scripted_tools` and write the bytes to disk**; the base64 must never land in chat context. |
+| `download_file(fileId, exportMimeType?)`                                                               | `fileId` is also a Doc/Sheet/Slides/Form id. Base64 bytes, up to 10 MB. Google files are exported: Doc -> PDF, Sheet -> xlsx, Slides -> PDF, Drawing -> PNG by default; `exportMimeType` picks docx/xlsx/pptx/csv/txt/png/html instead. **Always call it from `scripted_tools` and write the bytes to disk**; the base64 must never land in chat context. |
 | `create_file(name, content?, contentType?, type?, folderId?, shortcutTo?, description?)`               | `type: "document"` converts Markdown (default) or HTML content into a Doc; `type: "spreadsheet"` converts CSV into a Sheet whose tab is named after the file; `type: "presentation"` / `"form"` start blank (fill with `update_*`); `type: "folder"`. Without `type` the text is stored as a plain file. Default location is My Drive root. |
 | `copy_file(fileId, name?, folderId?, type?, copyComments?)`                                            | Copies land next to the original unless `folderId` is set (a copy of a file in a read-only folder then fails: pass `folderId`). `type` converts an Office/CSV file into a Google type during the copy. Folders cannot be copied.      |
 | `update_file(fileId, name?, folderId?, trash?, untrash?, starred?, description?, content?, contentType?, replaceAllTabs?)` | `content` replaces everything (a Sheet is rebuilt as one tab: refused on a multi-tab Sheet unless `replaceAllTabs`). For partial edits use the `update_*` tools.                                                                       |
 | `delete_file(fileId)`                                                                                  | Permanent, skips the bin, deletes a folder's contents too. Prefer `update_file trash=true`.                                                                                                                                           |
 | `list_shared_drives(query?, pageToken?)`                                                               | Ids usable as `folderId` or in `'<driveId>' in parents`.                                                                                                                                                                             |
 
-### Comments and sharing (Drive)
+### Comments and access (Drive)
 
 | Tool                                                                                                       | Notes                                                                                                                                                                                    |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,14 +65,12 @@ pasted can be passed straight through.
 | `reply_to_comment(fileId, commentId, content?, action?)`                                                   | `action: "resolve"` / `"reopen"`; resolving with no content posts a bare resolution.                                                                                                     |
 | `update_comment(fileId, commentId, content, replyId?)` / `delete_comment(fileId, commentId, replyId?)`     | Only the user's own comments.                                                                                                                                                            |
 | `list_permissions(fileId, pageToken?)`                                                                     | Grantee, role, expiry, inherited-from-folder flag, `permissionId`.                                                                                                                       |
-| `share_file(fileId, role, emailAddress?, group?, domain?, anyone?, discoverable?, notify?, message?, expiration?)` | `role`: reader / commenter / writer / owner (transfer). Emails a notification unless `notify: false`. `anyone: true` makes the file public by link: only on explicit request.           |
-| `update_permission(fileId, permissionId, role?, expiration?, removeExpiration?)` / `unshare_file(fileId, permissionId)` |                                                                                                                                                                                          |
 
 ### Docs
 
 | Tool                                                      | Notes                                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `read_doc(documentId, tabId?, startIndex?, suggestions?)` | Each paragraph/table as `[start-end] STYLE: text`, the indexes `update_doc` needs. Lists, links, images, footnotes, headers/footers are marked; suggested edits show as `{+added+}` / `[-removed-]` (`suggestions: "accepted"` / `"rejected"` previews the doc with them applied / dropped, indexes then not editable). To see the rendered pages, `download_file` as PDF. |
+| `read_doc(documentId, tabId?, startIndex?, suggestions?, format?)` | Each paragraph/table as `[start-end] STYLE: text`, the indexes `update_doc` needs. Lists, links, images, footnotes, headers/footers are marked; suggested edits show as `{+added+}` / `[-removed-]` (`suggestions: "accepted"` / `"rejected"` previews the doc with them applied / dropped, indexes then not editable); `format: "json"` returns the raw Docs API document. To see the rendered pages, `download_file` as PDF. |
 | `update_doc(documentId, requests)`                        | Docs `batchUpdate`. The tool description lists the request shapes (text, style, tables, headers/footers, tabs, named ranges, comments, suggestions). Rules below.                                                                                                                                     |
 
 ### Sheets
@@ -95,9 +93,8 @@ pasted can be passed straight through.
 
 | Tool                                                                      | Notes                                                                                                                        |
 | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `read_form(formId)`                                                       | Title, responder link, publish state, settings, linked Sheet, every item with `itemId`/`questionId`, type, options, grading. |
+| `read_form(formId)`                                                       | Title, responder link, publish state (publishing and opening/closing for responses happen in the Forms UI), settings, linked Sheet, every item with `itemId`/`questionId`, type, options, grading. |
 | `update_form(formId, requests)`                                           | Forms `batchUpdate` (items are addressed by 0-based position).                                                               |
-| `publish_form(formId, published?, acceptingResponses?)`                   | Make the form live, or open/close it for responses.                                                                          |
 | `list_form_responses(formId, pageSize?, pageToken?, submittedAfter?)`     | Answers keyed by `questionId`; needs the `forms:responses` permission.                                                       |
 
 ## Permissions
@@ -105,7 +102,7 @@ pasted can be passed straight through.
 | Permission (Google OAuth scope)                | Unlocks                                                                                                                                                               |
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Read (`drive.readonly`)                        | `search_files`, `get_file`, `download_file`, `list_shared_drives`, `list_comments`, `list_permissions`, `read_doc`, `read_sheet`, `read_presentation`, `get_slide_thumbnail`, `read_form` |
-| Edit and share (`drive`)                       | `create_file`, `copy_file`, `update_file`, `delete_file`, `write_sheet`, every `update_*`, `publish_form`, `add_comment`, `reply_to_comment`, `update_comment`, `delete_comment`, `share_file`, `update_permission`, `unshare_file` |
+| Edit (`drive`)                                 | `create_file`, `copy_file`, `update_file`, `delete_file`, `write_sheet`, every `update_*`, `add_comment`, `reply_to_comment`, `update_comment`, `delete_comment` |
 | Form responses (`forms.responses.readonly`)    | `list_form_responses`                                                                                                                                                 |
 
 ## Working rules
@@ -144,12 +141,10 @@ pasted can be passed straight through.
   Never create scratch or test files; the file created for the request is the one file that
   request creates, and later fixes are `update_*` calls on it. Use `update_file trash=true`,
   not `delete_file`, unless the user asked for permanent deletion.
-- **Sharing notifies people.** `share_file` emails the grantee by default and `anyone: true`
-  makes the file public by link; share only with the people the user named, and prefer the
-  narrowest role.
+- **Sharing is the user's job.** The MCP cannot share a file or change permissions; `list_permissions` says who has access. When a deliverable needs readers, say so and let the user share it in Drive.
 - **Big payloads stay out of chat.** `download_file` (base64) and large `read_*` results on
   big files belong in `scripted_tools`, written to disk and processed there.
-- **Not possible through the API** (say so instead of improvising): Docs suggestion mode;
+- **Not possible through the MCP** (say so instead of improvising): sharing a file or changing permissions; publishing a Form or opening/closing it for responses; Docs suggestion mode;
   file-upload questions in Forms; changing a deck's page size; uploading binary files
   (`create_file` takes text; convert an Office file already in Drive with `copy_file type`);
   images in Slides/Docs need a URL Google can fetch (a public URL or a Drive file the user can

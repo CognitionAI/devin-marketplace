@@ -26,8 +26,8 @@ description: "Write a new Google Doc (design doc, spec, memo, RFC, meeting notes
    per call.
 5. **Check the pages**: `download_file(fileId, exportMimeType: "application/pdf")` from
    `scripted_tools`, written to disk; look at page count, orphaned headings, table overflow.
-6. **Deliver** the link, and where the doc went. Offer a `share_file` only when the user named
-   readers.
+6. **Deliver** the link, and where the doc went. The MCP cannot share files: if the user named
+   readers, remind them to share it in Drive.
 
 Templates: to fill a template doc, `copy_file` it under the final name and either
 `replaceAllText` for `{{placeholders}}` or `replaceNamedRangeContent` when the template has
