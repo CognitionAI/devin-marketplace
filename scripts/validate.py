@@ -53,12 +53,19 @@ HOOK_FILES = ("hooks.json", "hooks/hooks.json")
 # repo, not by whatever the registry serves today.
 FETCHERS = {"npx", "bunx", "pnpx", "uvx", "pipx"}
 FETCHER_SUBCOMMANDS = {("npm", "exec"), ("npm", "x"), ("pnpm", "dlx"), ("yarn", "dlx"), ("uv", "tool"), ("uvx", "run")}
-EXACT_VERSION_RE = re.compile(r"(?<!^)@\d+\.\d+\.\d+[A-Za-z0-9.+-]*$|==\d+(\.\d+)*([A-Za-z0-9.+-]*)$|#[0-9a-f]{40}$")
+EXACT_VERSION_RE = re.compile(r"(?<!^)@\d+\.\d+\.\d+[A-Za-z0-9.+-]*$|==\d+(\.\d+)*([A-Za-z0-9.+-]*)$|[#@][0-9a-f]{40}$")
+# docker run flags that take no operand; every other flag consumes the next word.
+DOCKER_BOOL_FLAGS = {"-i", "-t", "-it", "-ti", "-d", "-a", "--rm", "--init", "--privileged", "--interactive", "--tty", "--detach", "--no-healthcheck", "--read-only", "--sig-proxy", "-P", "--publish-all", "-q", "--quiet"}
 IMAGE_DIGEST_RE = re.compile(r"@sha256:[0-9a-f]{64}$")
-PIPED_INSTALLER_RE = re.compile(r"\b(curl|wget)\b[^\n|]*\|\s*(sudo\s+(-\S+\s+)*)?(ba|z|da)?sh\b|\birm\b[^\n|]*\|\s*iex\b", re.I)
+PIPED_INSTALLER_RE = re.compile(
+    r"\b(curl|wget)\b[^\n|]*\|\s*(sudo\s+(-\S+\s+)*)?(\S*/)?(ba|z|da|fi)?sh\b|\b(irm|iwr|Invoke-(RestMethod|WebRequest))\b[^\n|]*\|\s*(iex|Invoke-Expression)\b",
+    re.I,
+)
+LINE_CONTINUATION_RE = re.compile(r"\\\r?\n\s*")
 TEXT_SUFFIXES = (".md", ".txt", ".json", ".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".yaml", ".yml", ".toml")
-# Entries that predate the pin rules. Do not add to these lists: pin the
-# version (or image digest) instead, and remove a slug here once it is pinned.
+# "<slug>/<server>" entries that predate the pin rules. Do not add to these
+# lists: pin the version (or image digest) instead, and remove the entry here
+# once it is pinned. A new server in a listed plugin is still checked.
 GRANDFATHERED_UNPINNED = {
     "aws-agent-toolkit", "aws-aurora-dsql", "aws-aurora-postgresql", "aws-documentdb", "aws-dynamodb",
     "aws-elasticache", "aws-iam", "aws-lambda", "aws-neptune", "aws-redshift", "aws-sns-sqs", "azure",
@@ -69,6 +76,7 @@ GRANDFATHERED_UNPINNED = {
     "google-maps", "grafana", "heroku", "hubspot", "metabase", "mongodb", "netlify", "pinecone", "playwright",
     "pulumi", "redis", "ref-tools", "replicate", "slack", "sonarqube", "sqlite", "supabase", "unleash",
 }
+GRANDFATHERED_UNPINNED = {f"{slug}/{slug}" for slug in GRANDFATHERED_UNPINNED}
 GRANDFATHERED_INSTALLERS = {"graphos-tools", "hex", "slack-remote", "tavily"}
 
 
@@ -185,9 +193,9 @@ def check_pinned_command(where: str, slug: str, name: str, config: dict, errors:
     words = [command, *args]
     base = Path(command).name
     if base == "docker" and "run" in args:
-        images = [a for a in args[args.index("run") + 1 :] if not a.startswith("-") and "/" in a and "=" not in a]
-        if images and not IMAGE_DIGEST_RE.search(images[0]):
-            errors.append(f"{where}: server '{name}' runs docker image '{images[0]}' by tag; pin it with @sha256:<digest>")
+        image = docker_image(args[args.index("run") + 1 :])
+        if image and not IMAGE_DIGEST_RE.search(image):
+            errors.append(f"{where}: server '{name}' runs docker image '{image}' by tag; pin it with @sha256:<digest>")
         return
     fetched = base in FETCHERS or (len(args) > 0 and (base, args[0]) in FETCHER_SUBCOMMANDS)
     if not fetched:
@@ -200,6 +208,18 @@ def check_pinned_command(where: str, slug: str, name: str, config: dict, errors:
             f"{where}: server '{name}' runs {' '.join(words)[:80]} without an exact version; "
             "pin it (name@1.2.3 for npm, name==1.2.3 for PyPI, or a 40-hex git ref) so the executed code cannot change under the pin"
         )
+
+
+def docker_image(words: list[str]) -> str | None:
+    skip = False
+    for word in words:
+        if skip:
+            skip = False
+        elif word.startswith("-"):
+            skip = "=" not in word and word not in DOCKER_BOOL_FLAGS
+        else:
+            return word
+    return None
 
 
 def walk_strings(value: object):
@@ -224,10 +244,11 @@ def check_hooks(where: str, slug: str, root: Path, errors: list[str]) -> None:
             errors.append(f"{where}: {rel} is not valid JSON ({exc.msg})")
             continue
         for text in walk_strings(data):
+            text = LINE_CONTINUATION_RE.sub(" ", text)
             if PIPED_INSTALLER_RE.search(text):
                 errors.append(f"{where}: {rel} pipes a download into a shell; hooks may only run files shipped in the plugin")
             words = text.split()
-            if words and Path(words[0]).name in FETCHERS and slug not in GRANDFATHERED_UNPINNED:
+            if words:
                 check_pinned_command(f"{where} ({rel})", slug, "hook", {"command": words[0], "args": words[1:]}, errors)
 
 
@@ -239,7 +260,7 @@ def check_piped_installers(where: str, root: Path, errors: list[str]) -> None:
             text = path.read_text(errors="ignore")
         except OSError:
             continue
-        if PIPED_INSTALLER_RE.search(text):
+        if PIPED_INSTALLER_RE.search(LINE_CONTINUATION_RE.sub(" ", text)):
             errors.append(
                 f"{where}: {path.relative_to(root)} pipes a download into a shell (curl ... | sh); "
                 "point users at the vendor's release page or a version-pinned package instead"
@@ -322,7 +343,7 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     root = PLUGINS / slug
     for name, config in servers.items():
         check_server(where, name, config, errors)
-        if isinstance(config, dict) and "command" in config and slug not in GRANDFATHERED_UNPINNED:
+        if isinstance(config, dict) and "command" in config and f"{slug}/{name}" not in GRANDFATHERED_UNPINNED:
             check_pinned_command(where, slug, name, config, errors)
     check_hooks(where, slug, root, errors)
     if slug not in GRANDFATHERED_INSTALLERS:
