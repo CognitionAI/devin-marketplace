@@ -104,6 +104,7 @@
     "./plugins/google-cloud-monitoring",
     "./plugins/google-maps",
     "./plugins/google-productivity",
+    "./plugins/google-workspace",
     "./plugins/grafana",
     "./plugins/grafana-remote",
     "./plugins/granola",
