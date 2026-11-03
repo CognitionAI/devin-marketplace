@@ -61,15 +61,15 @@ or percents (`12%`) are parsed as such; `raw: true` keeps them literal (ids, zip
 | Bold header, fill, borders, wrap       | `repeatCell` with `textFormat.bold`, `backgroundColor`, `horizontalAlignment`; `updateBorders`                                                                                            |
 | Freeze headers / label column          | `updateSheetProperties` `gridProperties.frozenRowCount` / `frozenColumnCount`                                                                                                             |
 | Column widths                          | `autoResizeDimensions` or `updateDimensionProperties` (`pixelSize`)                                                                                                                       |
-| Input cells visibly editable           | light fill on `Inputs!B` cells; `setDataValidation` (`NUMBER_BETWEEN`, `ONE_OF_LIST` for dropdowns, `DATE_IS_VALID`) with `strict: true`                                                  |
+| Input cells visibly editable           | light fill on `Inputs!B` cells; `setDataValidation` (`NUMBER_BETWEEN`, `ONE_OF_LIST` for dropdowns, `DATE_IS_VALID`) with `strict: true`. `strict: true` did not stop a `write_sheet` value in testing, so add a check cell rather than rely on it for values you write |
 | Protect formula tabs                   | `addProtectedRange` with `warningOnly: true` (users get a warning, not a lock-out) on each calculation tab                                                                                |
 | Flag problems                          | `addConditionalFormatRule` (`NUMBER_LESS` 0 -> red text; `TEXT_EQ` "CHECK" -> red fill; `CUSTOM_FORMULA` for row-wise rules)                                                              |
 | Names for key inputs                   | `addNamedRange` (`growth_rate` = `Inputs!B3`) so formulas read `=Revenue*(1+growth_rate)`                                                                                                 |
-| Charts                                 | `addChart` with `spec.basicChart` (`COLUMN`, `LINE`, `BAR`) or `pieChart`; `domains`/`series` as `sourceRange`s; position with `anchorCell`; reply has `chartId`                           |
+| Charts                                 | `addChart` with `spec.basicChart` (`COLUMN`, `LINE`, `BAR`) or `pieChart`; `domains`/`series` as `sourceRange`s; position with `anchorCell`; reply has `chartId`. With row-oriented data and `headerCount: 1`, start `domains` and `series` at the label column. Starting at the first value drops that point and uses it as the legend text |
 | Totals / grouping                      | `addDimensionGroup`; `autoFill`; `sortRange`; `setBasicFilter` on data tabs                                                                                                                |
 
 Grid ranges: `{sheetId, startRowIndex, endRowIndex, startColumnIndex, endColumnIndex}`,
-0-based, end-exclusive; omit an end to run to the sheet edge. Group related requests in one
+0-based, end-exclusive; omit an end to run to the sheet edge (but see the `repeatCell` gotcha below). Group related requests in one
 call per tab; the whole call fails if one request is wrong, so a failure names
 `requests[<n>]` to fix.
 
@@ -92,6 +92,8 @@ should confirm. Mention anything imported that did not fit (unparsed dates, blan
 ## Conventions and gotchas
 
 - Displayed values are strings (`"$100,000"`): compare numbers with `valueRender: "unformatted"`.
+- Bound every `repeatCell` with `startColumnIndex` and `endColumnIndex`. A whole-row fill widens
+  the PDF print area and shrinks the tab until it is unreadable.
 - `write_sheet` cannot extend a tab beyond its `rowCount` / `columnCount`: grow it first with
   `appendDimension` or `updateSheetProperties`.
 - Tab names with spaces or symbols need quotes in A1 ranges (`'P&L'!A1:G12`).

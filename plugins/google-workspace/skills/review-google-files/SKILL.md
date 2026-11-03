@@ -20,8 +20,8 @@ Signatures are in `google-workspace-mcp`.
   formulas, not just displayed values.
 - Deck: `read_presentation` for text and geometry, then `download_file` as PDF (written to disk
   from `scripted_tools`) or `get_slide_thumbnail` for the slides whose layout matters.
-- `list_comments` on the file: what has already been raised, what is resolved, what is
-  assigned. Do not repeat an open comment someone else made; reply in that thread instead.
+- `list_comments` on the file: what has already been raised, what is resolved, and what is
+  assigned where Google returns it. Do not repeat an open comment someone else made; reply in that thread instead.
 
 Agree the brief in one line if the request is vague: what kind of review (structure, accuracy,
 tone, numbers, consistency with another file) and how strict.
@@ -45,24 +45,28 @@ one to three sentences. Address the author in the second person; no "the AI noti
 
 One comment: `add_comment(fileId, content, anchor)`. The tool detects the file type and runs
 that surface's `insertComment`; the reply is the new thread with its `commentId`, `anchor` and
-quoted text. A `comment_not_saved` error means Google returned success without confirming the
+quoted text. Check the reply has an `anchor`: an empty `anchor: {}` creates an unpinned comment
+with no error. A `comment_not_saved` error means Google returned success without confirming the
 comment: run `list_comments` before retrying, so the author does not get it twice.
 
 | Surface | `anchor` for `add_comment`                                              | Anchor source                                                                               |
 | ------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Doc     | `{"range": {"startIndex", "endIndex", "tabId"?}}`                       | `read_doc` indexes; narrow the range to the sentence or phrase, not the whole paragraph     |
 | Sheet   | `{"coordinate": {"sheetId", "rowIndex", "columnIndex"}}` (0-based)      | `sheetId` from `read_sheet` with no range; row/column from the A1 cell (B3 -> row 2, col 1) |
-| Slides  | `{"objectId"}` of the shape, image, table or slide                      | element ids from `read_presentation`; speaker notes: the notes shape id                     |
+| Slides  | `{"objectId"}` of the shape, image, table or slide                      | element ids from `read_presentation`; speaker notes: the notes shape id. `add_comment` also takes `{shapeTextAnchor: {objectId, textRange: {type: "FIXED_RANGE", startIndex, endIndex}}}`, `{tableCellTextAnchor: {objectId, cellLocation: {rowIndex, columnIndex}, textRange}}` and `{tableAnchor: {objectId, tableRange?}}`; `textRange.type` is required |
 
-Several comments on one file, or a Slides anchor finer than an element, go as `insertComment`
-requests (one per comment, `{...anchor, "content", "assigneeEmailAddress"?}`) through
-`update_doc` / `update_spreadsheet` / `update_presentation`; Slides also accepts
-`shapeTextAnchor: {objectId, textRange: {type: "FIXED_RANGE", startIndex, endIndex}}`,
-`tableCellTextAnchor: {objectId, cellLocation: {rowIndex, columnIndex}, textRange}` and
-`tableAnchor: {objectId, tableRange?}` there. Each reply carries `commentThread.commentId`,
-`anchorId` and `plainTextQuote`: check the quote is the text you meant. Comments are plain text; `+email@example.com` in `content`
-mentions and notifies that person, `assigneeEmailAddress` assigns the thread (only when the
-user asked to assign or mention).
+Several comments on one file go as `insertComment` requests (one per comment,
+`{...anchor, "content", "assigneeEmailAddress"?}`, with the same anchors as the table) through
+`update_doc` / `update_spreadsheet` / `update_presentation`. Each reply carries
+`commentThread.commentId`, `anchorId` and `plainTextQuote`: check the quote is the text you
+meant. `plainTextQuote` is HTML-escaped (`it&#39;s`), so unescape it before comparing. `quote`
+from `add_comment` and `list_comments` is meant to be plain text, but a server without the
+latest fix still returns it escaped, so compare it in either form.
+
+Comments are plain text; `+email@example.com` in `content` mentions and notifies that person,
+`assigneeEmailAddress` assigns the thread (only when the user asked to assign or mention).
+Confirm an assignment from `assigneeEmail` in the batch reply: `list_comments` does not show it,
+and Google accepts addresses that do not exist.
 
 Docs indexes do not shift when only comments are inserted, so they can go in any order. Never
 edit the text and comment on it in the same call: a reviewer who was not asked to edit does not
@@ -73,6 +77,12 @@ edit.
 - Reply in an existing thread: `reply_to_comment(fileId, commentId, content)`, or
   `addCommentReply: {commentId, post: {content, commentAction: "RESOLVE"|"REOPEN"}}` inside the
   surface's `update_*` tool. `reply_to_comment` with `action: "resolve"` does the same from Drive.
+  A reply with no `action` on a resolved thread reopens it. To keep it closed, pass
+  `action: "resolve"` with the reply.
+- Finding where a thread sits: `anchor` in `list_comments` is an id, not a position. A Doc's
+  `kix.*` and a Sheet's `range` do not give you indexes or a cell, so find the spot from `quote`.
+  Slides anchors name the page in `page` and the element in `targets`, and a target can be an
+  element that has since been deleted.
 - Addressing comments on a file Devin wrote: for each open thread from `list_comments`, make
   the change (`write-google-doc`, `build-google-sheet`, `build-google-slides` cover the edits),
   then reply with what changed and resolve. Threads that ask a question Devin cannot settle get

@@ -14,8 +14,10 @@ description: "Write a new Google Doc (design doc, spec, memo, RFC, meeting notes
    (owner, due), Notes.
 2. **Create from Markdown**: `create_file(name, content: <markdown>, type: "document",
    folderId?)`. Headings (`#`..`######`), bullets, numbered lists, bold/italic, links, code
-   spans and pipe tables all convert. The reply's `id` / `webViewLink` is the document for the
-   rest of the task; every later change is `update_doc` on it, never a second `create_file`.
+   spans and pipe tables all convert. Give every code fence a language Docs recognises
+   (`python`, `sql`). A fence with none, or with `text`, `plaintext` or `mermaid`, renders with a
+   visible `None` label. The reply's `id` / `webViewLink` is the document for the rest of the
+   task; every later change is `update_doc` on it, never a second `create_file`.
 3. **Read it back**: `read_doc` returns `[start-end] STYLE: text` per paragraph; confirm the
    heading levels and lists survived and note the indexes.
 4. **Polish with `update_doc`** (request shapes are in the tool description): table column

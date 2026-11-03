@@ -86,5 +86,7 @@ photo, a number to confirm). The MCP cannot share the deck; the user shares it i
 - Slides' default slide `p` in a new blank deck is a `TITLE` layout slide with empty
   placeholders; fill it or delete it, never ship it empty.
 - Page size cannot be changed via the API; start from a template with the right size.
+- `deleteObject` leaves any comment pinned to that element open and pointing at a missing id.
+  Check `list_comments` before deleting a commented element.
 - Thumbnails show the slide as rendered, including template backgrounds: trust them over
   the element list when they disagree.
