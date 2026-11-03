@@ -47,6 +47,29 @@ HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
 # Other manifest/MCP locations the plugin loader would also read; authored
 # plugins declare everything in .devin-plugin/plugin.json so this validator sees it.
 SHADOW_FILES = ("plugin.json", ".mcp.json", "mcp.json")
+HOOK_FILES = ("hooks.json", "hooks/hooks.json")
+# Commands that download and run a package at session start. Their package
+# argument must name an exact version so the code that runs is fixed by this
+# repo, not by whatever the registry serves today.
+FETCHERS = {"npx", "bunx", "pnpx", "uvx", "pipx"}
+FETCHER_SUBCOMMANDS = {("npm", "exec"), ("npm", "x"), ("pnpm", "dlx"), ("yarn", "dlx"), ("uv", "tool"), ("uvx", "run")}
+EXACT_VERSION_RE = re.compile(r"(?<!^)@\d+\.\d+\.\d+[A-Za-z0-9.+-]*$|==\d+(\.\d+)*([A-Za-z0-9.+-]*)$|#[0-9a-f]{40}$")
+IMAGE_DIGEST_RE = re.compile(r"@sha256:[0-9a-f]{64}$")
+PIPED_INSTALLER_RE = re.compile(r"\b(curl|wget)\b[^\n|]*\|\s*(sudo\s+(-\S+\s+)*)?(ba|z|da)?sh\b|\birm\b[^\n|]*\|\s*iex\b", re.I)
+TEXT_SUFFIXES = (".md", ".txt", ".json", ".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".yaml", ".yml", ".toml")
+# Entries that predate the pin rules. Do not add to these lists: pin the
+# version (or image digest) instead, and remove a slug here once it is pinned.
+GRANDFATHERED_UNPINNED = {
+    "aws-agent-toolkit", "aws-aurora-dsql", "aws-aurora-postgresql", "aws-documentdb", "aws-dynamodb",
+    "aws-elasticache", "aws-iam", "aws-lambda", "aws-neptune", "aws-redshift", "aws-sns-sqs", "azure",
+    "cognition-alloydb", "cognition-bigquery", "cognition-cloud-sql-mssql", "cognition-cloud-sql-mysql",
+    "cognition-cloud-sql-postgres", "cognition-dataplex", "cognition-firestore", "cognition-looker",
+    "cognition-mssql", "cognition-mysql", "cognition-postgres", "cognition-redshift", "cognition-snowflake",
+    "cognition-spanner", "cortex", "dbt", "dockerhub", "elasticsearch", "firecrawl", "google-analytics",
+    "google-maps", "grafana", "heroku", "hubspot", "metabase", "mongodb", "netlify", "pinecone", "playwright",
+    "pulumi", "redis", "ref-tools", "replicate", "slack", "sonarqube", "sqlite", "supabase", "unleash",
+}
+GRANDFATHERED_INSTALLERS = {"graphos-tools", "hex", "slack-remote", "tavily"}
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -154,6 +177,75 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
         check_placeholders(f"{where} ({slug})", value, errors)
 
 
+def check_pinned_command(where: str, slug: str, name: str, config: dict, errors: list[str]) -> None:
+    command = config.get("command")
+    args = config.get("args", [])
+    if not isinstance(command, str) or not isinstance(args, list) or not all(isinstance(a, str) for a in args):
+        return
+    words = [command, *args]
+    base = Path(command).name
+    if base == "docker" and "run" in args:
+        images = [a for a in args[args.index("run") + 1 :] if not a.startswith("-") and "/" in a and "=" not in a]
+        if images and not IMAGE_DIGEST_RE.search(images[0]):
+            errors.append(f"{where}: server '{name}' runs docker image '{images[0]}' by tag; pin it with @sha256:<digest>")
+        return
+    fetched = base in FETCHERS or (len(args) > 0 and (base, args[0]) in FETCHER_SUBCOMMANDS)
+    if not fetched:
+        return
+    packages = [a for a in args if not a.startswith("-") and a not in {"exec", "x", "dlx", "tool", "run"}]
+    specs = [a.split("=", 1)[1] for a in args if a.startswith(("--package=", "--spec=", "--from="))]
+    candidates = specs or packages[:1]
+    if not candidates or not any(EXACT_VERSION_RE.search(c) for c in candidates):
+        errors.append(
+            f"{where}: server '{name}' runs {' '.join(words)[:80]} without an exact version; "
+            "pin it (name@1.2.3 for npm, name==1.2.3 for PyPI, or a 40-hex git ref) so the executed code cannot change under the pin"
+        )
+
+
+def walk_strings(value: object):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for v in value.values():
+            yield from walk_strings(v)
+    elif isinstance(value, list):
+        for v in value:
+            yield from walk_strings(v)
+
+
+def check_hooks(where: str, slug: str, root: Path, errors: list[str]) -> None:
+    for rel in HOOK_FILES:
+        path = root / rel
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except json.JSONDecodeError as exc:
+            errors.append(f"{where}: {rel} is not valid JSON ({exc.msg})")
+            continue
+        for text in walk_strings(data):
+            if PIPED_INSTALLER_RE.search(text):
+                errors.append(f"{where}: {rel} pipes a download into a shell; hooks may only run files shipped in the plugin")
+            words = text.split()
+            if words and Path(words[0]).name in FETCHERS and slug not in GRANDFATHERED_UNPINNED:
+                check_pinned_command(f"{where} ({rel})", slug, "hook", {"command": words[0], "args": words[1:]}, errors)
+
+
+def check_piped_installers(where: str, root: Path, errors: list[str]) -> None:
+    for path in sorted(root.rglob("*")):
+        if not path.is_file() or path.is_symlink() or path.suffix not in TEXT_SUFFIXES:
+            continue
+        try:
+            text = path.read_text(errors="ignore")
+        except OSError:
+            continue
+        if PIPED_INSTALLER_RE.search(text):
+            errors.append(
+                f"{where}: {path.relative_to(root)} pipes a download into a shell (curl ... | sh); "
+                "point users at the vendor's release page or a version-pinned package instead"
+            )
+
+
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
     if not isinstance(logo, str) or not logo:
         errors.append(f"{where}: logo must be a string")
@@ -230,6 +322,11 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     root = PLUGINS / slug
     for name, config in servers.items():
         check_server(where, name, config, errors)
+        if isinstance(config, dict) and "command" in config and slug not in GRANDFATHERED_UNPINNED:
+            check_pinned_command(where, slug, name, config, errors)
+    check_hooks(where, slug, root, errors)
+    if slug not in GRANDFATHERED_INSTALLERS:
+        check_piped_installers(where, root, errors)
     if not servers and not any(f.is_file() for f in (root / "skills").glob("*/SKILL.md")):
         errors.append(f"{where}: a plugin needs mcpServers or at least one skills/*/SKILL.md")
     for shadow in SHADOW_FILES:
