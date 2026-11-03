@@ -110,6 +110,7 @@
     "./plugins/graphos-tools",
     "./plugins/heroku",
     "./plugins/hex",
+    "./plugins/higgsfield",
     "./plugins/honeycomb",
     "./plugins/hubspot",
     "./plugins/hugging-face",
