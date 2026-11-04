@@ -169,6 +169,7 @@
     "./plugins/parallel",
     "./plugins/paypal",
     "./plugins/peec-ai",
+    "./plugins/pega-infinity-authoring",
     "./plugins/pendo",
     "./plugins/perplexity",
     "./plugins/pg-aiguide",
