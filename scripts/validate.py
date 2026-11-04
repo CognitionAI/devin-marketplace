@@ -274,7 +274,7 @@ def plugin_files(root: Path, words: list[str]) -> set[Path]:
         word = PLUGIN_ROOT_RE.sub("", word.strip("'\""))
         if not word or word.startswith("-") or "/" not in word and "." not in word:
             continue
-        path = root / word.lstrip("./")
+        path = root / word.removeprefix("./").lstrip("/")
         if path.is_file() and path.resolve().is_relative_to(root.resolve()):
             found.add(path)
     return found
