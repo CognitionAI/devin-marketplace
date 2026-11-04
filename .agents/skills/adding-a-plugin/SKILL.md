@@ -47,11 +47,11 @@ this and CI runs it.
      must name an exact version (`pkg@1.2.3`, `pkg==1.2.3`, or a 40-hex git
      ref), and `docker run` must pin the image by `@sha256:<digest>`. A bare
      command (`deja mcp`) is allowed; it runs whatever the user installed.
-     Nothing in the plugin (skills, references, hooks) may pipe a download
-     into a shell (`curl ... | sh`, `irm ... | iex`); point users at the
-     vendor's release page instead. Hooks may only run files shipped in the
-     plugin. Hosted `url` servers run no code on the box, so they carry no
-     pin.
+     Hooks run on their own, so a hook command follows the same rule and may
+     not pipe a download into a shell (`curl ... | sh`); run files shipped
+     in the plugin. Skills are text the model reads, so commands listed there
+     are not checked. Hosted `url` servers run no code on the box, so they
+     carry no pin.
 2. Add `"./plugins/<slug>"` to `optionalPlugins` in `.devin-plugin/plugin.json`.
 
 ## A third-party plugin

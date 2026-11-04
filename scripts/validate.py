@@ -48,6 +48,9 @@ HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
 # plugins declare everything in .devin-plugin/plugin.json so this validator sees it.
 SHADOW_FILES = ("plugin.json", ".mcp.json", "mcp.json")
 HOOK_FILES = ("hooks.json", "hooks/hooks.json")
+# Only what the box runs on its own is checked: server commands and hook
+# commands. Skills are text the model reads; a command listed there runs only
+# if the session chooses to run it, like any README.
 # Commands that download and run a package at session start. Their package
 # argument must name an exact version so the code that runs is fixed by this
 # repo, not by whatever the registry serves today.
@@ -62,7 +65,6 @@ PIPED_INSTALLER_RE = re.compile(
     re.I,
 )
 LINE_CONTINUATION_RE = re.compile(r"\\\r?\n\s*")
-TEXT_SUFFIXES = (".md", ".txt", ".json", ".sh", ".bash", ".zsh", ".py", ".js", ".mjs", ".cjs", ".ts", ".yaml", ".yml", ".toml")
 # "<slug>/<server>" entries that predate the pin rules. Do not add to these
 # lists: pin the version (or image digest) instead, and remove the entry here
 # once it is pinned. A new server in a listed plugin is still checked.
@@ -77,7 +79,6 @@ GRANDFATHERED_UNPINNED = {
     "pulumi", "redis", "ref-tools", "replicate", "slack", "sonarqube", "sqlite", "supabase", "unleash",
 }
 GRANDFATHERED_UNPINNED = {f"{slug}/{slug}" for slug in GRANDFATHERED_UNPINNED}
-GRANDFATHERED_INSTALLERS = {"graphos-tools", "hex", "slack-remote", "tavily"}
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -252,21 +253,6 @@ def check_hooks(where: str, slug: str, root: Path, errors: list[str]) -> None:
                 check_pinned_command(f"{where} ({rel})", slug, "hook", {"command": words[0], "args": words[1:]}, errors)
 
 
-def check_piped_installers(where: str, root: Path, errors: list[str]) -> None:
-    for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.is_symlink() or path.suffix not in TEXT_SUFFIXES:
-            continue
-        try:
-            text = path.read_text(errors="ignore")
-        except OSError:
-            continue
-        if PIPED_INSTALLER_RE.search(LINE_CONTINUATION_RE.sub(" ", text)):
-            errors.append(
-                f"{where}: {path.relative_to(root)} pipes a download into a shell (curl ... | sh); "
-                "point users at the vendor's release page or a version-pinned package instead"
-            )
-
-
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
     if not isinstance(logo, str) or not logo:
         errors.append(f"{where}: logo must be a string")
@@ -346,8 +332,6 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         if isinstance(config, dict) and "command" in config and f"{slug}/{name}" not in GRANDFATHERED_UNPINNED:
             check_pinned_command(where, slug, name, config, errors)
     check_hooks(where, slug, root, errors)
-    if slug not in GRANDFATHERED_INSTALLERS:
-        check_piped_installers(where, root, errors)
     if not servers and not any(f.is_file() for f in (root / "skills").glob("*/SKILL.md")):
         errors.append(f"{where}: a plugin needs mcpServers or at least one skills/*/SKILL.md")
     for shadow in SHADOW_FILES:
