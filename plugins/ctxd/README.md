@@ -37,6 +37,6 @@ Replace `/path/to/your/source` with the folder you want to track. Start your MCP
 
 The bridge uses local standard input/output (stdio). No hosted account or API key is needed. Start with `tree`, then pass a returned path to `read` or `read_lines`.
 
-[Get started with ctxd](https://ctxd.dev/?utm_source=github&utm_medium=listing&utm_content=wuv) · [Source and GitHub stars](https://github.com/ctxd-dev/ctxd)
+[Get started with ctxd](https://ctxd.dev/_mgk/) · [Source and GitHub stars](https://github.com/ctxd-dev/ctxd)
 
 The package is free and MIT-licensed: https://github.com/ctxd-dev/ctxd/blob/main/LICENSE
