@@ -97,7 +97,6 @@
     "./plugins/gamma",
     "./plugins/gc-ai",
     "./plugins/gitlab",
-    "./plugins/gmail",
     "./plugins/godaddy",
     "./plugins/google-analytics",
     "./plugins/google-calendar",
