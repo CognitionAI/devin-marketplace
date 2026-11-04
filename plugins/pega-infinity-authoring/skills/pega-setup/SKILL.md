@@ -12,7 +12,7 @@ Use this skill when the user needs to configure or troubleshoot the Devin plugin
 
 1. Treat the plugin-bundled MCP server as the source of truth for how the bundled server starts.
 2. Prefer checking Devin's installed plugin and MCP configuration first before suggesting manual edits.
-3. Confirm the plugin starts the pinned npm launcher, which downloads and verifies the runtime and skills on first use.
+3. Confirm the plugin starts the npm launcher, which downloads and verifies the runtime and skills on first use.
 4. Use OAuth for authentication with the standard client ID `34233104330833666523`.
 5. If the runtime exposes setup or auth helper tools, use them before suggesting manual env
    changes.
