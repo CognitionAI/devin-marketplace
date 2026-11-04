@@ -244,6 +244,7 @@ def check_hooks(where: str, slug: str, root: Path, errors: list[str]) -> None:
         except json.JSONDecodeError as exc:
             errors.append(f"{where}: {rel} is not valid JSON ({exc.msg})")
             continue
+        scripts: set[Path] = set()
         for text in walk_strings(data):
             text = LINE_CONTINUATION_RE.sub(" ", text)
             if PIPED_INSTALLER_RE.search(text):
@@ -251,6 +252,32 @@ def check_hooks(where: str, slug: str, root: Path, errors: list[str]) -> None:
             words = text.split()
             if words:
                 check_pinned_command(f"{where} ({rel})", slug, "hook", {"command": words[0], "args": words[1:]}, errors)
+            scripts.update(plugin_files(root, words))
+        for parent, _dirs, files in os.walk(root / "hooks"):
+            scripts.update(Path(parent) / f for f in files)
+        for script in sorted(scripts):
+            try:
+                body = LINE_CONTINUATION_RE.sub(" ", script.read_text(errors="replace"))
+            except OSError:
+                continue
+            if PIPED_INSTALLER_RE.search(body):
+                errors.append(f"{where}: hook script {script.relative_to(root)} pipes a download into a shell")
+
+
+PLUGIN_ROOT_RE = re.compile(r"\$\{?[A-Z_]*PLUGIN_ROOT\}?/?")
+
+
+def plugin_files(root: Path, words: list[str]) -> set[Path]:
+    """Files inside the plugin that a hook command string refers to."""
+    found: set[Path] = set()
+    for word in words:
+        word = PLUGIN_ROOT_RE.sub("", word.strip("'\""))
+        if not word or word.startswith("-") or "/" not in word and "." not in word:
+            continue
+        path = root / word.lstrip("./")
+        if path.is_file() and path.resolve().is_relative_to(root.resolve()):
+            found.add(path)
+    return found
 
 
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
