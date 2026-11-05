@@ -165,6 +165,7 @@
     "./plugins/omni-analytics",
     "./plugins/orion",
     "./plugins/otter",
+    "./plugins/pageree",
     "./plugins/parallel",
     "./plugins/paypal",
     "./plugins/peec-ai",
