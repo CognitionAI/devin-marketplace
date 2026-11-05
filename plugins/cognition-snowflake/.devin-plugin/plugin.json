@@ -4,7 +4,12 @@
   "description": "Query Snowflake warehouse data",
   "shortDescription": "Data warehouse queries and modeling",
   "setup": {
-    "notice": "Choose password or key-pair authentication for your Snowflake account."
+    "notice": "Choose password or key-pair authentication for your Snowflake account. Connect with a dedicated read-only role: the role's grants are what limit the queries this plugin can run.",
+    "steps": [
+      "Create a dedicated Snowflake role with USAGE on the warehouse, database and schemas Devin should query and SELECT on the tables it may read; do not use ACCOUNTADMIN or another administrative role",
+      "Grant that role to the connecting user (a dedicated service user is recommended) and set it as the plugin's role",
+      "Point the plugin at a warehouse sized for interactive queries and, where possible, at a single database and schema"
+    ]
   },
   "homepage": "https://www.snowflake.com",
   "repository": "https://github.com/cognitionai/database-toolbox",
