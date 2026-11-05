@@ -4,7 +4,7 @@
   "description": "Query Snowflake warehouse data",
   "shortDescription": "Data warehouse queries and modeling",
   "setup": {
-    "notice": "Choose password or key-pair authentication for your Snowflake account."
+    "notice": "Choose password or key-pair authentication for your Snowflake account. Connections from this plugin identify themselves to Snowflake as Cognition_Devin."
   },
   "homepage": "https://www.snowflake.com",
   "repository": "https://github.com/cognitionai/database-toolbox",
@@ -20,6 +20,8 @@
         "run",
         "--rm",
         "-i",
+        "-e",
+        "SF_PARTNER=Cognition_Devin",
         "-e",
         "SNOWFLAKE_ACCOUNT",
         "-e",
