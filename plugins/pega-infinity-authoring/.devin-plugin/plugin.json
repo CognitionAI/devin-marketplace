@@ -1,0 +1,36 @@
+{
+  "name": "pega-infinity-authoring",
+  "displayName": "Infinity Authoring",
+  "description": "Author Pega Infinity rules, case types, and applications, guided by bundled setup and authoring skills",
+  "shortDescription": "Author Pega rules with AI",
+  "setup": {
+    "notice": "Requires Node.js 22.14+ and Java 17+ on the machine running Devin; on first start the launcher downloads the MCP runtime. The first Pega call opens a browser OAuth sign-in on localhost, which only works when the browser runs on the same machine as the server.",
+    "steps": [
+      "Enter the Pega Infinity environment root URL as PEGA_BASE_URL, without /prweb or another path segment.",
+      "Set PEGA_INFINITY_VERSION to 24-2, 25-1, or 26-1 to match the target environment (defaults to 26-1).",
+      "Start a session and run the pega-setup skill to verify the connection."
+    ]
+  },
+  "homepage": "https://github.com/pegasystems/infinity-ai-plugins",
+  "repository": "https://github.com/pegasystems/infinity-ai-plugins",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "pega-infinity-authoring": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--package=@pega/infinity-authoring-plugin@latest",
+        "infinity-authoring-plugin",
+        "run-server"
+      ],
+      "env": {
+        "PEGA_BASE_URL": "${PEGA_BASE_URL}",
+        "PEGA_OAUTH_CLIENT_ID": "${PEGA_OAUTH_CLIENT_ID:-34233104330833666523}",
+        "PEGA_INFINITY_VERSION": "${PEGA_INFINITY_VERSION:-26-1}"
+      }
+    }
+  }
+}
