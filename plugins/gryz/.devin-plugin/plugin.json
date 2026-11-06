@@ -1,0 +1,16 @@
+{
+  "name": "gryz",
+  "displayName": "Gryz",
+  "description": "The workspace for your agent team. One shared memory for Claude, Cursor, Devin and any MCP-compatible agent, plus notes, Projects, tasks, reusable skills and shareable documents. Free with a Gryz account; OAuth sign-in, no API key required.",
+  "homepage": "https://www.gryz.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "gryz": {
+      "url": "https://www.gryz.ai/api/mcp"
+    }
+  }
+}
