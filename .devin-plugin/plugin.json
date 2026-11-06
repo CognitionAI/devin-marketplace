@@ -62,7 +62,6 @@
     "./plugins/cognition-mysql",
     "./plugins/cognition-postgres",
     "./plugins/cognition-redshift",
-    "./plugins/cognition-snowflake",
     "./plugins/cognition-spanner",
     "./plugins/confidence",
     "./plugins/confidence-docs",
