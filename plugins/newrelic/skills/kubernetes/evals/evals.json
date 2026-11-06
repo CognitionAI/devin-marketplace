@@ -1,0 +1,33 @@
+{
+  "skill_name": "kubernetes",
+  "evals": [
+    {
+      "id": 1,
+      "name": "unhealthy-pods-namespace",
+      "prompt": "I'm on the platform team at a company using New Relic. Using the New Relic MCP (execute_nrql_query only — I don't have kubectl or any other cluster access from here), show me what pods are unhealthy right now in cluster 'prod-us-east' namespace 'payments'. Give me the NRQL query you'd run and what you'd look for in the result. My account_id is 1234567.",
+      "expected_output": "Single NRQL query against K8sPodSample filtering on clusterName='prod-us-east' and namespaceName='payments' with a status/isReady filter. Does NOT invent kubectl commands. Does NOT fabricate a result.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "crashloop-root-cause",
+      "prompt": "Containers in cluster 'prod-us-east' namespace 'api' are in CrashLoopBackOff. I only have the New Relic MCP (execute_nrql_query) — no kubectl. Walk me through the queries you'd run to find the root cause, including how you'd pull the Kubernetes events. My account_id is 1234567.",
+      "expected_output": "Queries K8sContainerSample (NOT K8sPodSample) for restart and exit-code data. Queries InfrastructureEvent with WHERE category = 'kubernetes' (not K8sEvent). Mentions exit code 137 as the OOMKilled signature. Acknowledges that full container spec / resource limits are not fully in telemetry.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "pod-pending-scheduling",
+      "prompt": "Pod 'worker-batch-xk2p' in namespace 'batch-jobs' on cluster 'prod-us-west' has been Pending for 15 minutes. I have access to New Relic MCP tools only — no kubectl. What's your diagnostic approach and what queries would you run? account_id 1234567.",
+      "expected_output": "Queries K8sPodSample for reason/message and InfrastructureEvent for Pod scheduling events (event.involvedObject.kind='Pod', event.involvedObject.name='worker-batch-xk2p'). Honestly notes that full taint/toleration/affinity breakdown needs kubectl describe — suggests the user run it themselves if needed.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "log-search-casing",
+      "prompt": "Search the container logs for pod 'api-server-5f7d2x' on cluster 'prod-us-east' namespace 'api' for any error messages in the last 2 hours. I'm using New Relic MCP (execute_nrql_query) — that's my only tool. account_id 1234567.",
+      "expected_output": "Uses FROM Log with snake_case fields (cluster_name, pod_name) — NOT clusterName/podName. Filters by message LIKE '%error%' or uses level filter. Orders by timestamp DESC, limits results.",
+      "files": []
+    }
+  ]
+}
