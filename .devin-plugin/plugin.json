@@ -46,6 +46,7 @@
     "./plugins/circle",
     "./plugins/circleback",
     "./plugins/circleci",
+    "./plugins/claude-code",
     "./plugins/clerk",
     "./plugins/cloudinary",
     "./plugins/cockroachdb",

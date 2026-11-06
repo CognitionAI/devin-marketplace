@@ -1,0 +1,28 @@
+{
+  "name": "claude-code",
+  "displayName": "Claude Code",
+  "description": "Delegate coding tasks to Claude Code as a subagent, using your own Claude subscription login or Anthropic API key",
+  "shortDescription": "Run Claude Code as a subagent",
+  "setup": {
+    "notice": "Runs the unmodified Claude Code CLI with your own Anthropic account and requires Node.js 22 or later. Not made or endorsed by Anthropic.",
+    "steps": [
+      "To use a Claude subscription, leave the API key empty and run `claude auth login` on the machine where the session runs. The plugin never reads or stores that login."
+    ]
+  },
+  "homepage": "https://code.claude.com/docs",
+  "keywords": [
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "claude-code": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/server/server.mjs"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY:-}",
+        "CLAUDE_CODE_BILLING": "${CLAUDE_CODE_BILLING:-auto}"
+      }
+    }
+  }
+}
