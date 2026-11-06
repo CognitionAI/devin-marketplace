@@ -264,6 +264,11 @@
       "url": "https://github.com/forcedotcom/sf-skills.git",
       "path": "plugins/builder/salesforce-development",
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/momentic-ai/skills.git",
+      "sha": "39a0b729d3990dc06a2dfaec0d6611a5196175af"
     }
   ]
 }
