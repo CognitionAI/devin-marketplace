@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_154_817)">
+<rect width="512" height="512" fill="white"/>
+<g clip-path="url(#clip1_154_817)" filter="url(#filter0_b_154_817)">
+<rect width="1502" height="1379" transform="matrix(-1 0 0 1 1502 0)" fill="white" fill-opacity="0.1"/>
+<g filter="url(#filter1_f_154_817)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M415.154 -61C188.911 -61 36 21.5102 36 109.654C36 202.824 176.009 297 415.154 297C677.433 297 884 211.837 884 109.654C884 12.0324 665.725 -61 415.154 -61Z" fill="url(#paint0_linear_154_817)" fill-opacity="0.7"/>
+</g>
+</g>
+<path d="M256.5 104C216.214 104 148 177.703 148 282.685C147.984 410.946 256.5 406.987 256.5 406.987C256.5 406.987 365 410.946 365 282.701C365 177.719 296.786 104.016 256.5 104.016" fill="black"/>
+</g>
+<defs>
+<filter id="filter0_b_154_817" x="-200" y="-200" width="1902" height="1779" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="100"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_154_817"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_154_817" result="shape"/>
+</filter>
+<filter id="filter1_f_154_817" x="-164" y="-261" width="1248" height="758" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_154_817"/>
+</filter>
+<linearGradient id="paint0_linear_154_817" x1="648" y1="-90.8462" x2="648" y2="267.154" gradientUnits="userSpaceOnUse">
+<stop stop-color="#52A8EB"/>
+<stop offset="1" stop-color="#FFCFF4"/>
+</linearGradient>
+<clipPath id="clip0_154_817">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+<clipPath id="clip1_154_817">
+<rect width="1502" height="1379" fill="white" transform="matrix(-1 0 0 1 1502 0)"/>
+</clipPath>
+</defs>
+</svg>
