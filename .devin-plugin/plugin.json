@@ -232,6 +232,11 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "url",
+      "url": "https://github.com/PandaDoc/mcp-server-guide.git",
+      "sha": "ccf7541b7715f0ef99dd4808a063085f4a9a7a0f"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
