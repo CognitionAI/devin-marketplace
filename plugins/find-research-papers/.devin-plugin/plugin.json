@@ -1,0 +1,19 @@
+{
+  "name": "find-research-papers",
+  "displayName": "Find Research Papers",
+  "description": "Search open-source research papers across arXiv, OpenAlex, CrossRef, PubMed, and Semantic Scholar",
+  "shortDescription": "Scholarly search across 250M+ papers",
+  "homepage": "https://papers.builditwithai.xyz",
+  "keywords": [
+    "Productivity",
+    "Developer Tools"
+  ],
+  "mcpServers": {
+    "find-research-papers": {
+      "command": "uvx",
+      "args": [
+        "find-research-papers-mcp==0.4.8"
+      ]
+    }
+  }
+}
