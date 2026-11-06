@@ -1,0 +1,21 @@
+{
+  "name": "pageree",
+  "displayName": "Pageree",
+  "description": "Publish landing pages with working lead forms from chat, then improve them with section-level visitor analytics",
+  "shortDescription": "Landing pages, leads and analytics",
+  "setup": {
+    "notice": "Requires a Pageree account with a trial or paid plan."
+  },
+  "homepage": "https://pageree.com",
+  "repository": "https://github.com/Pageree/mcp-server",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "pageree": {
+      "url": "https://mcp.pageree.com/"
+    }
+  }
+}
