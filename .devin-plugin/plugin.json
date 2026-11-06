@@ -87,7 +87,6 @@
     "./plugins/eraser",
     "./plugins/exa",
     "./plugins/excalidraw",
-    "./plugins/expo",
     "./plugins/fathom",
     "./plugins/figma-remote",
     "./plugins/firecrawl",
@@ -249,6 +248,12 @@
       "url": "https://github.com/databricks/databricks-agent-skills.git",
       "path": "plugins/databricks/claude",
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/expo/skills.git",
+      "path": "plugins/expo",
+      "sha": "a9e5bd3fa00b4e61f632e43f85da73aee1942582"
     },
     {
       "source": "git-subdir",
