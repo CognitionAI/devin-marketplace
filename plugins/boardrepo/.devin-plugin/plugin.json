@@ -1,0 +1,16 @@
+{
+  "name": "boardrepo",
+  "displayName": "BoardRepo",
+  "description": "Find public PCB projects and inspect saved schematics, copper, bills of materials, source files, and check results",
+  "shortDescription": "Inspect real PCB designs",
+  "homepage": "https://boardrepo.com/connect",
+  "repository": "https://github.com/flintt-dev/boardrepo-plugin",
+  "keywords": ["pcb", "kicad", "altium", "hardware"],
+  "logo": "logo.png",
+  "mcpServers": {
+    "boardrepo": {
+      "url": "https://boardrepo.com/mcp",
+      "oauthClientId": "boardrepo-mcp"
+    }
+  }
+}
