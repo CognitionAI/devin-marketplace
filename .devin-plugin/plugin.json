@@ -209,6 +209,7 @@
     "./plugins/swagger",
     "./plugins/synthflow-docs",
     "./plugins/tavily",
+    "./plugins/testmu-ai",
     "./plugins/todoist",
     "./plugins/trellis",
     "./plugins/twilio-docs",
