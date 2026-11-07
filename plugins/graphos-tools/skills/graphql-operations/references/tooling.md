@@ -367,13 +367,9 @@ jobs:
 
 ### Operation Complexity Check
 
-```bash
-# Check query complexity
-npx graphql-query-complexity-checker \
-  --schema ./schema.graphql \
-  --query ./src/queries/GetUser.graphql \
-  --max-complexity 100
-```
+Use Apollo Router's documented operation limits for production enforcement.
+For custom validation, use the `graphql-query-complexity` library through its
+JavaScript API after reviewing and pinning it in your project's dependencies.
 
 ### Persisted Queries Extraction
 
