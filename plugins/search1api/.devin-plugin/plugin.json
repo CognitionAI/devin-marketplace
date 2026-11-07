@@ -1,0 +1,17 @@
+{
+  "name": "search1api",
+  "displayName": "Search1API",
+  "description": "Remote MCP server for Search1API. Exposes live web search, news, page reading, sitemap discovery, and trending topics as tools for AI agents.",
+  "homepage": "https://s1.dev",
+  "repository": "https://github.com/superagents-lab/search1api-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "search1api": {
+      "url": "https://mcp.search1api.com/mcp"
+    }
+  }
+}
