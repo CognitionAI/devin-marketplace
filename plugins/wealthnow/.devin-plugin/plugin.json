@@ -1,0 +1,17 @@
+{
+  "name": "wealthnow",
+  "displayName": "Wealthnow",
+  "description": "Real-time stock and crypto quotes, fundamentals, SEC filings, insider and 13F data, read-only with OAuth sign-in",
+  "shortDescription": "Market data, filings and trades",
+  "homepage": "https://wealthnow.io/api",
+  "repository": "https://github.com/Hlobo-dev/wealthnow-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp"
+    }
+  }
+}
