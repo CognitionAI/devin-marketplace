@@ -98,7 +98,6 @@
     "./plugins/gitlab",
     "./plugins/godaddy",
     "./plugins/google-analytics",
-    "./plugins/google-calendar",
     "./plugins/google-cloud-monitoring",
     "./plugins/google-maps",
     "./plugins/google-productivity",
