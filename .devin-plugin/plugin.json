@@ -130,6 +130,7 @@
     "./plugins/mapbox",
     "./plugins/mapbox-devkit",
     "./plugins/mapbox-docs",
+    "./plugins/maxima",
     "./plugins/meltwater",
     "./plugins/mem",
     "./plugins/mercury",
