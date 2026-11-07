@@ -63,6 +63,7 @@
     "./plugins/cognition-postgres",
     "./plugins/cognition-redshift",
     "./plugins/cognition-spanner",
+    "./plugins/collabute",
     "./plugins/confidence",
     "./plugins/confidence-docs",
     "./plugins/contentsquare",
