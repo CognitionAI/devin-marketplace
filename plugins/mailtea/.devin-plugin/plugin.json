@@ -1,0 +1,20 @@
+{
+  "name": "mailtea",
+  "displayName": "Mailtea",
+  "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
+  "homepage": "https://mailtea.app",
+  "repository": "https://github.com/mailtea-app/mailtea-agent-plugin",
+  "logo": "logo.svg",
+  "keywords": [
+    "Communication",
+    "email",
+    "newsletter",
+    "transactional-email",
+    "marketing"
+  ],
+  "mcpServers": {
+    "mailtea": {
+      "url": "https://api.mailtea.app/mcp"
+    }
+  }
+}
