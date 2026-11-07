@@ -1,0 +1,18 @@
+{
+  "name": "just-publish",
+  "displayName": "Just Publish.",
+  "description": "Publish and update the website you built with AI at a live public URL. Sign-in required.",
+  "shortDescription": "Publishes the site your AI already built",
+  "homepage": "https://justpublish.ai",
+  "repository": "https://github.com/just-done/just-publish-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "just-publish": {
+      "url": "https://mcp.justpublish.ai/"
+    }
+  }
+}
