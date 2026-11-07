@@ -124,6 +124,7 @@
     "./plugins/launchdarkly",
     "./plugins/linear",
     "./plugins/logrocket",
+    "./plugins/looot",
     "./plugins/lovable",
     "./plugins/lunarcrush",
     "./plugins/mailerlite",

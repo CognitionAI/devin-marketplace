@@ -1,0 +1,20 @@
+{
+  "name": "looot",
+  "displayName": "looot",
+  "description": "Find work emails, enrich people and companies, pull Google results and scrape pages from 300+ providers with one prepaid balance",
+  "shortDescription": "Business data from 300+ providers",
+  "setup": {
+    "notice": "Requires a looot account with a prepaid balance. Each run is charged to that balance."
+  },
+  "homepage": "https://looot.ai",
+  "repository": "https://github.com/loootai/looot-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "looot": {
+      "url": "https://api.looot.ai/mcp"
+    }
+  }
+}
