@@ -1,0 +1,17 @@
+{
+  "name": "context-dev",
+  "displayName": "Context.dev",
+  "description": "Search the live web, read and crawl pages, and get sourced answers through Context.dev.",
+  "shortDescription": "Live web data for AI agents",
+  "homepage": "https://www.context.dev",
+  "repository": "https://github.com/context-dot-dev/mcp-new",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "context-dev": {
+      "url": "https://mcp.context.dev/mcp"
+    }
+  }
+}
