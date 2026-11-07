@@ -15,7 +15,19 @@
         "run",
         "--rm",
         "-i",
-        "mcp/playwright"
+        "--security-opt",
+        "seccomp=${CLAUDE_PLUGIN_ROOT}/seccomp.json",
+        "--entrypoint",
+        "/usr/bin/tini",
+        "mcr.microsoft.com/playwright/mcp@sha256:690763cbb437ee7233f538a953bb5390bf03791eb5c965b471e59d17a6132fcb",
+        "-s",
+        "--",
+        "node",
+        "/app/cli.js",
+        "--headless",
+        "--browser",
+        "chromium",
+        "--sandbox"
       ]
     }
   }
