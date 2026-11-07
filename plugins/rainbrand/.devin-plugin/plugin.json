@@ -1,0 +1,16 @@
+{
+  "name": "rainbrand",
+  "displayName": "Rainbrand",
+  "description": "Turn brand identity, guidance, and assets into shared context that agents and products can use",
+  "shortDescription": "The brand layer for agents",
+  "homepage": "https://www.rainbrand.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "rainbrand": {
+      "url": "https://mcp.rainbrand.com/mcp"
+    }
+  }
+}

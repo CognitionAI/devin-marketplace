@@ -182,6 +182,7 @@
     "./plugins/pylon",
     "./plugins/qt-docs",
     "./plugins/quicknode",
+    "./plugins/rainbrand",
     "./plugins/raindrop-ai",
     "./plugins/ramp",
     "./plugins/readwise",
