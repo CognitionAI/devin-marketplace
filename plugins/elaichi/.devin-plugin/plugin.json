@@ -1,0 +1,23 @@
+{
+  "name": "elaichi",
+  "displayName": "Elaichi",
+  "description": "Call tools across Salesforce, Slack, Jira, Notion and 650+ other apps, limited to each person's own access",
+  "shortDescription": "Governed access to 650+ apps",
+  "setup": {
+    "notice": "Requires an Elaichi workspace with at least one app connected.",
+    "steps": [
+      "Create an Elaichi workspace and connect the apps you want Devin to use",
+      "If your team manages connections centrally, ask an admin to share a toolbox with you"
+    ]
+  },
+  "homepage": "https://elaichi.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "elaichi": {
+      "url": "https://api.elaichi.ai/mcp"
+    }
+  }
+}
