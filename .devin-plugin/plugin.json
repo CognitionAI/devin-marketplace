@@ -254,6 +254,11 @@
       "sha": "f2e82274b10d0769016afdf0520f0010c6981198"
     },
     {
+      "source": "url",
+      "url": "https://github.com/enclave-ai/devin-plugin.git",
+      "sha": "aa24a597a0d2ba7304300bc70b35e46f10e7a6e1"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/expo/skills.git",
       "path": "plugins/expo",
