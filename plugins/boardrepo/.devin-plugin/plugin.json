@@ -1,11 +1,16 @@
 {
   "name": "boardrepo",
   "displayName": "BoardRepo",
-  "description": "Find public PCB projects and inspect saved schematics, copper, bills of materials, source files, and check results",
-  "shortDescription": "Inspect real PCB designs",
+  "description": "A workspace for PCB projects. Explore public boards and inspect schematics, layouts, BOMs, files and saved versions with your AI assistant.",
+  "shortDescription": "A better way to build electronics.",
   "homepage": "https://boardrepo.com/connect",
   "repository": "https://github.com/flintt-dev/boardrepo-plugin",
-  "keywords": ["pcb", "kicad", "altium", "hardware"],
+  "keywords": [
+    "pcb",
+    "kicad",
+    "altium",
+    "hardware"
+  ],
   "logo": "logo.png",
   "mcpServers": {
     "boardrepo": {
