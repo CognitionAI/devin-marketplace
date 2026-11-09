@@ -72,7 +72,7 @@ shows up literally.
 | `create_event(title, startDateTime, endDateTime, calendarId?, timeZone?, description?, location?, attendees?, addConference?, recurrence?)` | Creates immediately; every address in `attendees` gets an invitation, so include only attendees the user named. `addConference: true` adds a Google Meet link, returned as `meetLink`. `recurrence` takes RRULE lines (`["RRULE:FREQ=WEEKLY;BYDAY=MO"]`). A series without `timeZone` uses the user's zone and returns it as `seriesTimeZone`: tell the user, because the series follows that zone's daylight-saving changes. |
 | `update_event(eventId, calendarId?, title?, startDateTime?, endDateTime?, timeZone?, description?, location?, attendees?, addConference?, recurrence?)` | Omitted fields are unchanged; `attendees` replaces the whole list (`[]` removes everyone), so adding a guest means passing the existing guests too. Changing the time takes both `startDateTime` and `endDateTime`. Attendees are emailed about the change. A bare series id edits the whole series; fields an occurrence has overridden keep their override. An instance id edits that occurrence only. |
 | `update_occurrence(eventId, originalStartTime?, calendarId?, cancel?, title?, startDateTime?, endDateTime?, timeZone?, location?, description?)` | Changes or cancels ONE occurrence of a recurring event. An instance `eventId` from `list_events` is enough. A bare series id also needs `originalStartTime` from `list_events`, not `start`: a moved occurrence keeps its original start. `cancel: true` ignores the other fields. Returns `not_found` for an event that is not recurring. |
-| `delete_event(eventId, calendarId?)` | Irreversible; attendees get a cancellation. An instance id (`<seriesId>_20260715T160000Z`) removes one occurrence, the bare series id removes the series. |
+| `delete_event(eventId, calendarId?, sendUpdates?)` | Irreversible. Attendees get a cancellation by default (`sendUpdates: "all"`); `"none"` deletes without emailing anyone, `"externalOnly"` emails only guests who do not use Google Calendar. An instance id (`<seriesId>_20260715T160000Z`) removes one occurrence, the bare series id removes the series. |
 | `rsvp_event(eventId, response, calendarId?)` | `accepted` / `declined` / `tentative` on an invitation the user received. Only the user's own status changes and no email goes out. `status=not_attendee` means the user is not on the guest list. |
 
 Dates and times:
@@ -116,8 +116,9 @@ time without an offset, or a new series without `timeZone`, returns `time_zone_r
 - **Draft, show, then send.** Every outgoing email goes through a draft tool first. Show the
   user the recipients, subject and body (or the `get_draft` output) and send with `send_draft`
   only once they confirm; never send to check whether a send already happened.
-- **Calendar writes notify people.** `create_event`, `update_event`, `update_occurrence` and
-  `delete_event` email every attendee. Confirm the attendee list before creating, and prefer
+- **Calendar writes notify people.** `create_event`, `update_event` and `update_occurrence`
+  always email every attendee, and so does `delete_event` unless it is called with
+  `sendUpdates: "none"`. Confirm the attendee list before creating, and prefer
   `update_occurrence` for a single meeting in a series.
 - **Ids come from the tools.** `messageId`/`threadId` from `search_emails`,
   `draftId` from the draft tools, `labelId` from `list_labels`, `eventId`/`calendarId` from

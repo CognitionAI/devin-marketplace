@@ -26,9 +26,12 @@ responses) is not available through the MCP: the user clicks Publish in the Form
    placed and later addressed by 0-based `index`.
 4. Settings: `updateSettings` (`quizSettings.isQuiz: true` for quizzes, then
    `question.grading: {pointValue, correctAnswers: {answers: [{value}]}, whenRight/whenWrong
-   feedback}` per question); `updateFormInfo` for title/description. Collecting emails or
-   limiting to one response per person are form settings not exposed by the API: tell the user
-   to set them in the Forms UI.
+   feedback}` per question); `updateFormInfo` for title/description. Collecting emails is
+   `updateSettings` too: `{settings: {emailCollectionType: "VERIFIED"|"RESPONDER_INPUT"|
+   "DO_NOT_COLLECT"}, updateMask: "emailCollectionType"}` (`VERIFIED` records the signed-in
+   account, `RESPONDER_INPUT` adds an email field); `read_form` shows it as
+   `settings.emailCollection`. Limiting to one response per person is not exposed by the API:
+   tell the user to set it in the Forms UI.
 5. `read_form` to check order, required flags and option lists; fix with `updateItem` /
    `moveItem` / `deleteItem`.
 6. Hand the user the editor link (`webViewLink` from `get_file`) to publish it; once published,
