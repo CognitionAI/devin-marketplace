@@ -1,8 +1,8 @@
 {
   "name": "boardrepo",
   "displayName": "BoardRepo",
-  "description": "A workspace for PCB projects. Explore public boards and inspect schematics, layouts, BOMs, files and saved versions with your AI assistant.",
-  "shortDescription": "A better way to build electronics.",
+  "description": "Explore public PCB projects and inspect schematics, layouts, BOMs and saved versions with your AI assistant",
+  "shortDescription": "Your electronics workspace",
   "homepage": "https://boardrepo.com/connect",
   "repository": "https://github.com/flintt-dev/boardrepo-plugin",
   "keywords": [
