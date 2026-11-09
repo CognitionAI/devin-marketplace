@@ -1,7 +1,8 @@
 {
   "name": "mapbox-docs",
   "displayName": "Mapbox Docs",
-  "description": "Mapbox's hosted documentation MCP server: search Mapbox API, SDK and style documentation.",
+  "description": "Search Mapbox API, SDK, and style documentation",
+  "shortDescription": "Map APIs, SDKs and style docs",
   "homepage": "https://www.mapbox.com",
   "repository": "https://github.com/mapbox/mapbox-agent-skills",
   "logo": "logo.svg",

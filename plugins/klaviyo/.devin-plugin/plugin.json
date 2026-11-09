@@ -1,7 +1,8 @@
 {
   "name": "klaviyo",
   "displayName": "Klaviyo",
-  "description": "Klaviyo integration to manage email and SMS marketing campaigns, flows, and audiences",
+  "description": "Manage Klaviyo email and SMS campaigns, flows, and audiences",
+  "shortDescription": "Email, SMS campaigns and audiences",
   "homepage": "https://www.klaviyo.com",
   "logo": "logo.png",
   "keywords": [

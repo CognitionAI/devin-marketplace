@@ -1,7 +1,8 @@
 {
   "name": "contentsquare",
   "displayName": "Contentsquare",
-  "description": "Contentsquare integration for digital experience analytics",
+  "description": "Analyze customer journeys and digital experiences with Contentsquare",
+  "shortDescription": "Digital experience and journey analytics",
   "homepage": "https://www.contentsquare.com",
   "logo": "logo.png",
   "keywords": [

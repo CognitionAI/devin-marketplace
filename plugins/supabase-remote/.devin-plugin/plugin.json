@@ -1,7 +1,11 @@
 {
   "name": "supabase-remote",
   "displayName": "Supabase",
-  "description": "List, create, pause, and restore Supabase projects; execute SQL, apply migrations, deploy Edge Functions, handle branching, update storage buckets and configs; get URLs or API Keys for projects and more. Uses per-user OAuth so each user connects their own Supabase account; defaults to read-only access.",
+  "description": "Query Supabase SQL data and inspect projects and database resources with read-only access",
+  "shortDescription": "Projects, SQL and Edge Functions",
+  "setup": {
+    "notice": "Each user connects their own Supabase account with OAuth."
+  },
   "homepage": "https://supabase.com",
   "repository": "https://github.com/supabase/mcp",
   "logo": "logo.svg",

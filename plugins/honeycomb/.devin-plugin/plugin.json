@@ -1,7 +1,8 @@
 {
   "name": "honeycomb",
   "displayName": "Honeycomb",
-  "description": "Honeycomb integration to query and explore observability data and SLOs",
+  "description": "Query Honeycomb telemetry and analyze SLOs to investigate service reliability",
+  "shortDescription": "Telemetry queries and SLO analysis",
   "homepage": "https://www.honeycomb.io",
   "logo": "logo.png",
   "keywords": [

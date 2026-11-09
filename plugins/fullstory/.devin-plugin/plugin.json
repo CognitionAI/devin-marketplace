@@ -1,7 +1,8 @@
 {
   "name": "fullstory",
   "displayName": "Fullstory",
-  "description": "Fullstory's hosted MCP server: query behavioral analytics, session replays and customer experience insights.",
+  "description": "Inspect Fullstory session replays and behavioral analytics to investigate customer friction",
+  "shortDescription": "Session replays and customer insights",
   "homepage": "https://www.fullstory.com",
   "repository": "https://github.com/fullstorydev/fullstory-skills",
   "logo": "logo.jpg",

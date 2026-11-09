@@ -1,0 +1,15 @@
+Dynatrace Agent Skills
+Copyright Dynatrace LLC and contributors
+
+`skills/` in this plugin is taken from Dynatrace's "Dynatrace for AI" plugin,
+licensed under the Apache License, Version 2.0 (see `LICENSE`):
+
+  Repository: https://github.com/Dynatrace/dynatrace-for-ai
+  Commit:     4f9aa71f9802aa6db0a4069ae5619eb3392ff411 (plugin version 8.0.1)
+  Paths:      skills/   copied unmodified
+              prompts/  each `<name>.prompt.md` converted to
+                        `skills/<name>/SKILL.md`: front matter replaced,
+                        body unchanged (see `README.md`)
+
+The rest of this plugin (`.devin-plugin/plugin.json`, `README.md`) is
+maintained in this repository.

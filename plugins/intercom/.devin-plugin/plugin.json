@@ -1,7 +1,8 @@
 {
   "name": "intercom",
   "displayName": "Intercom",
-  "description": "Intercom integration for customer support and messaging",
+  "description": "Search Intercom conversations, read message threads, and look up contacts and companies",
+  "shortDescription": "Customer support and messaging",
   "homepage": "https://www.intercom.com",
   "logo": "logo.svg",
   "keywords": [

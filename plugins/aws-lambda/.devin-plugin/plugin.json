@@ -1,7 +1,8 @@
 {
   "name": "aws-lambda",
   "displayName": "AWS Lambda",
-  "description": "AWS Lambda integration for serverless function management and deployment",
+  "description": "Manage and deploy AWS Lambda functions",
+  "shortDescription": "Serverless function deployment",
   "homepage": "https://aws.amazon.com/lambda/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

@@ -1,7 +1,8 @@
 {
   "name": "unleash",
   "displayName": "Unleash",
-  "description": "Manage Unleash feature flags: evaluate code changes for flag usage, create flags with best-practice validation, configure rollouts, toggle environments, and wrap code in flag checks",
+  "description": "Create Unleash flags with best-practice validation, configure rollouts, toggle environments, and wrap code in flag checks",
+  "shortDescription": "Feature flags and rollout controls",
   "homepage": "https://www.getunleash.io",
   "repository": "https://github.com/Unleash/unleash-mcp",
   "logo": "logo.png",

@@ -1,7 +1,8 @@
 {
   "name": "aws-redshift",
   "displayName": "Amazon Redshift (IAM Auth)",
-  "description": "Amazon Redshift integration for data warehouse operations and analytics",
+  "description": "Query warehouse data and manage Amazon Redshift resources",
+  "shortDescription": "Data warehouse queries and analytics",
   "homepage": "https://aws.amazon.com/redshift/",
   "repository": "https://github.com/awslabs/mcp",
   "logo": "logo.svg",

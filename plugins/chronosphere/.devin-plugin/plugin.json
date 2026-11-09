@@ -1,0 +1,19 @@
+{
+  "name": "chronosphere",
+  "displayName": "Chronosphere",
+  "description": "Query Chronosphere metrics, logs, traces, and events to investigate incidents",
+  "shortDescription": "Metrics, logs, traces and events",
+  "homepage": "https://chronosphere.io/",
+  "logo": "logo.png",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "chronosphere": {
+      "url": "https://${CHRONOSPHERE_ORG_NAME}.chronosphere.io/api/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CHRONOSPHERE_API_TOKEN}"
+      }
+    }
+  }
+}

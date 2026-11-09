@@ -1,7 +1,8 @@
 {
   "name": "deepwiki",
   "displayName": "DeepWiki",
-  "description": "Access comprehensive documentation for GitHub repositories with AI-powered insights",
+  "description": "Search GitHub repository documentation with DeepWiki to answer codebase questions",
+  "shortDescription": "GitHub repository docs and code context",
   "homepage": "https://devin.ai",
   "logo": "logo.png",
   "keywords": [

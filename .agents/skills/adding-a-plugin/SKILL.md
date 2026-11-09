@@ -13,14 +13,29 @@ this and CI runs it.
 1. Create `plugins/<slug>/.devin-plugin/plugin.json`, where `<slug>` is the
    marketplace server slug:
    * `name` is the slug; `displayName` is the server definition's `name`
-     (the human title, e.g. `"MySQL"`); `description`, `homepage`,
-     `repository`, `keywords` come from the server definition too.
+     (the human title, e.g. `"MySQL"`); `homepage`, `repository`, and
+     `keywords` come from the server definition too.
+   * Write `description` as one action-oriented sentence about what users
+     can do with the product and the value they get. Aim for 60–130 characters
+     (about 200 maximum), without a trailing period. Expand on
+     `shortDescription`; avoid filler such as "integration" or "MCP server".
+   * Put requirements outside the install form and connection caveats in optional
+     `setup`, immediately after `shortDescription`:
+     `{"notice": "...", "steps": ["..."]}`. Use a one- or two-sentence notice
+     and ordered setup steps without environment-specific URLs. At least one
+     key is required; `notice` must be a non-empty string and `steps` a
+     non-empty list of non-empty strings. No other keys are allowed. Only
+     add `setup` for external steps or meaningful connection caveats. Do not
+     repeat credential fields, placeholder names, OAuth sign-in instructions,
+     or default domains already handled by the install form.
    * Check the brand mark in as `plugins/<slug>/logo.svg` (or `.png`/`.jpg`)
      and set `"logo": "logo.svg"` — a path relative to the plugin directory,
      as in Cursor's plugin format. Prefer this over an absolute `https` URL so
      cards never load images from a third-party host.
-   * `mcpServers` declares exactly one server, keyed by the slug: `command` +
-     `args` + `env` for stdio, or `url` (+ `headers`) for HTTP.
+   * `mcpServers` declares the plugin's servers (usually one, keyed by the
+     slug): `command` + `args` + `env` for stdio, or `url` (+ `headers`) for
+     HTTP. A plugin that only ships `skills/` omits it. Servers live only
+     here: no `.mcp.json`, `mcp.json` or root `plugin.json`.
    * Never check in a credential. Anything a user supplies is a plain
      `${<NAME>}` placeholder, resolved from the credentials saved on the
      user's installation (no `MCP_` prefix). A stdio `env` value must
@@ -44,7 +59,8 @@ this and CI runs it.
 ## Testing your plugin
 
 `validate.py` only checks the manifest's shape; before opening a PR, install
-the plugin from your checkout and have a session call one of its tools.
+the plugin from your checkout and have a session call one of its tools (or
+use one of its skills).
 
 * Locally: `devin plugins install --local ./plugins/<slug>`. The directory is
   used in place, so edits apply on the next session. Export any `${<NAME>}`
@@ -55,7 +71,7 @@ the plugin from your checkout and have a session call one of its tools.
   (installs the fork's default branch); or a session on your branch where you
   ask Devin to install your plugin as a personal plugin (it uploads the
   directory, you approve). Then start a new session and have Devin call a
-  tool: an MCP that needs OAuth prompts you to authorize it in chat; one that
+  tool or use a skill: an MCP that needs OAuth prompts you to authorize it in chat; one that
   needs a `${<NAME>}` credential has to be connected first from the plugin's
   Connect button in Customize.
 

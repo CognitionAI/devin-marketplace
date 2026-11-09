@@ -1,7 +1,8 @@
 {
   "name": "cockroachdb",
   "displayName": "CockroachDB Cloud",
-  "description": "Cockroach Labs' hosted MCP server for CockroachDB Cloud: explore schemas, write and debug SQL, and manage your distributed database clusters.",
+  "description": "Inspect CockroachDB Cloud schemas, debug SQL, and manage distributed database clusters",
+  "shortDescription": "Distributed SQL databases and clusters",
   "homepage": "https://www.cockroachlabs.com",
   "logo": "logo.svg",
   "keywords": [

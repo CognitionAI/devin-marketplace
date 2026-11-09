@@ -1,7 +1,8 @@
 {
   "name": "cognition-cloud-sql-mysql",
   "displayName": "Cloud SQL (MySQL)",
-  "description": "Cloud SQL for MySQL integration for data management and SQL operations",
+  "description": "Query Cloud SQL for MySQL with SQL and inspect database records",
+  "shortDescription": "Cloud SQL for MySQL databases",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

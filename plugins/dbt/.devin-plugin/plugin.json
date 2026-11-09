@@ -1,7 +1,15 @@
 {
   "name": "dbt",
   "displayName": "dbt",
-  "description": "Supports two setup modes: (1) CLI-only with DBT_PROJECT_DIR and DBT_PATH for local dbt projects, or (2) dbt Platform with DBT_HOST and DBT_TOKEN for Discovery API, Semantic Layer, and Admin API access. Join #tools-dbt-mcp in the dbt Community Slack (https://www.getdbt.com/community/join-the-community) for support.",
+  "description": "Run local dbt projects, or use dbt Platform's Discovery API, Semantic Layer, and Admin API",
+  "shortDescription": "Data discovery and semantic models",
+  "setup": {
+    "notice": "Supports two setup modes. For help, join #tools-dbt-mcp in the dbt Community Slack.",
+    "steps": [
+      "For local CLI access, choose your dbt project directory and dbt executable",
+      "For dbt Platform access, provide your host and token and select the applicable account and environments"
+    ]
+  },
   "homepage": "https://www.getdbt.com",
   "repository": "https://github.com/dbt-labs/dbt-mcp",
   "logo": "logo.svg",

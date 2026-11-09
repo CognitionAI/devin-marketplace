@@ -1,16 +1,18 @@
 {
   "name": "atlassian",
   "displayName": "Atlassian",
-  "description": "Official Atlassian integration for Jira and Confluence - access enterprise knowledge, manage issues, and create documentation",
+  "description": "Search Jira issues and Confluence pages, update project work, and create team documentation",
+  "shortDescription": "Jira issues and Confluence pages",
   "homepage": "https://www.atlassian.com/",
   "logo": "logo.svg",
   "keywords": [
+    "Featured",
     "Essentials",
     "Productivity"
   ],
   "mcpServers": {
     "atlassian": {
-      "url": "https://mcp.atlassian.com/v1/mcp"
+      "url": "https://mcp.atlassian.com/v2/mcp"
     }
   }
 }

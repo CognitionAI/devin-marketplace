@@ -1,7 +1,8 @@
 {
   "name": "google-maps",
   "displayName": "Google Maps",
-  "description": "Access Google Maps feature using natural\u2011language queries: geocode and reverse\u2011geocode addresses, search places, fetch place details, calculate distances and directions, and retrieve elevation data.",
+  "description": "Search places and details, geocode and reverse-geocode addresses, and get directions, distances, and elevation with Google Maps",
+  "shortDescription": "Places, routes and geocoding",
   "homepage": "https://maps.google.com",
   "logo": "logo.svg",
   "keywords": [

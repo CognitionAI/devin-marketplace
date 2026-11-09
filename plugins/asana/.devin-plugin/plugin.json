@@ -1,7 +1,8 @@
 {
   "name": "asana",
   "displayName": "Asana",
-  "description": "Official Asana integration for task management, project tracking, and team collaboration",
+  "description": "Create Asana tasks, organize projects, and track team progress",
+  "shortDescription": "Projects, tasks and team workflows",
   "homepage": "https://asana.com",
   "logo": "logo.svg",
   "keywords": [

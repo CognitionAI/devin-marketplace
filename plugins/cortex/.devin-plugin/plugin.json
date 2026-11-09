@@ -1,7 +1,8 @@
 {
   "name": "cortex",
   "displayName": "Cortex",
-  "description": "Cortex integration for service catalog, scorecards, and engineering insights",
+  "description": "Look up Cortex services, review scorecards, and track engineering insights",
+  "shortDescription": "Service catalog, teams and scorecards",
   "homepage": "https://www.cortex.io",
   "repository": "https://github.com/cortexapps/cortex-mcp",
   "logo": "logo.png",

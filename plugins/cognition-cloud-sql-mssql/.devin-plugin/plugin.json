@@ -1,7 +1,8 @@
 {
   "name": "cognition-cloud-sql-mssql",
   "displayName": "Cloud SQL (SQL Server)",
-  "description": "Cloud SQL for SQL Server integration for data management and T-SQL operations",
+  "description": "Query Cloud SQL for SQL Server with T-SQL and inspect database records",
+  "shortDescription": "Cloud SQL for SQL Server databases",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
   "keywords": [

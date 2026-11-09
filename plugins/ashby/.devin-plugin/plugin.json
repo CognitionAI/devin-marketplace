@@ -1,7 +1,8 @@
 {
   "name": "ashby",
   "displayName": "Ashby",
-  "description": "Ashby's hosted MCP server: search candidates, prepare interviews and manage recruiting pipeline tasks.",
+  "description": "Find Ashby candidates, prepare interviews, and manage recruiting pipeline tasks",
+  "shortDescription": "Recruiting pipelines and interviews",
   "homepage": "https://www.ashbyhq.com",
   "logo": "logo.png",
   "keywords": [

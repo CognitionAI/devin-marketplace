@@ -1,7 +1,8 @@
 {
   "name": "dockerhub",
   "displayName": "Docker Hub",
-  "description": "Retrieve and manage Docker Hub repositories and tags with ease: check repo/tag existence, list namespaces, repositories, tags, and Docker Hardened Images and more.",
+  "description": "Find Docker Hub repositories, tags, and Hardened Images, and manage repository metadata",
+  "shortDescription": "Container images, repositories and tags",
   "homepage": "https://hub.docker.com",
   "logo": "logo.svg",
   "keywords": [

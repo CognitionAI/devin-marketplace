@@ -10,23 +10,25 @@ files, Teams, tasks and people lookups live behind separate endpoints.
 
 ## Choosing a tool
 
-| You want to…                                | Call                    |
-| ------------------------------------------- | ----------------------- |
-| See what is on the calendar in a period     | `calendar_list_events`  |
-| Read one event's details                    | `calendar_get_event`    |
-| Book a meeting or block time                | `calendar_create_event` |
-| Change time, subject, location or attendees | `calendar_update_event` |
-| Cancel / remove an event                    | `calendar_delete_event` |
+| You want to…                                      | Call                    |
+| ------------------------------------------------- | ----------------------- |
+| Check which account this endpoint is signed in as | `calendar_me`           |
+| See what is on the calendar in a period           | `calendar_list_events`  |
+| Read one event's details                          | `calendar_get_event`    |
+| Book a meeting or block time                      | `calendar_create_event` |
+| Change time, subject, location or attendees       | `calendar_update_event` |
+| Cancel / remove an event                          | `calendar_delete_event` |
 
 ## Tool signatures
 
-| Tool                                                                                                                                                                                       | Notes                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `calendar_list_events(start, end, limit?, cursor?)`                                                                                                                                        | ISO 8601 `start` (inclusive) / `end` (exclusive). Recurring series are expanded into occurrences; times come back in **UTC**. |
-| `calendar_get_event(event_id)`                                                                                                                                                             | One event.                                                                                                                    |
-| `calendar_create_event(subject, start, end, body?, body_html=false, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)`         | **With attendees this sends invitations.**                                                                                    |
-| `calendar_update_event(event_id, subject?, start?, end?, body?, body_html?, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)` | Omitted properties are untouched; at least one change required.                                                               |
-| `calendar_delete_event(event_id, confirm=false)`                                                                                                                                           | For a meeting this **cancels it for every attendee**.                                                                         |
+| Tool                                                                                                                                                                                       | Notes                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `calendar_me()`                                                                                                                                                                            | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else. |
+| `calendar_list_events(start, end, limit?, cursor?)`                                                                                                                                        | ISO 8601 `start` (inclusive) / `end` (exclusive). Recurring series are expanded into occurrences; times come back in **UTC**.                                                                    |
+| `calendar_get_event(event_id)`                                                                                                                                                             | One event.                                                                                                                                                                                       |
+| `calendar_create_event(subject, start, end, body?, body_html=false, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)`         | **With attendees this sends invitations.**                                                                                                                                                       |
+| `calendar_update_event(event_id, subject?, start?, end?, body?, body_html?, location?, attendees?, is_all_day?, is_reminder_on?, reminder_minutes_before_start?, show_as?, confirm=false)` | Omitted properties are untouched; at least one change required.                                                                                                                                  |
+| `calendar_delete_event(event_id, confirm=false)`                                                                                                                                           | For a meeting this **cancels it for every attendee**.                                                                                                                                            |
 
 ## Times and time zones (get this right)
 
@@ -71,12 +73,12 @@ Every write takes `confirm` (default `false`).
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                              | Do                                                                                                                     |
-| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | It happened.                                         | Report success using `body` (contains the event id).                                                                   |
-| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `calendar_list_events` to recover the event.                                       |
-| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | Fix the arguments and retry safely.                                                                                    |
-| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not re-create the event** — you would duplicate invitations. List the range, then tell the user it is unverified. |
+| `status`                   | Meaning                                              | Do                                                                                                                                                                                       |
+| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | It happened.                                         | Report success using `body` (contains the event id).                                                                                                                                     |
+| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `calendar_list_events` to recover the event.                                                                                                         |
+| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`invalid_request`, a 4xx): fix the arguments and retry safely. |
+| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not re-create the event** — you would duplicate invitations. List the range, then tell the user it is unverified.                                                                   |
 
 `calendar_delete_event` may be retried once after verifying state. `calendar_create_event` must
 never be blindly retried.
@@ -145,7 +147,11 @@ calendar_update_event {
   it anyway returns `insufficient_scope` with `required_scopes`; report it instead of looking
   for a workaround.
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.
-- **429 / `retryable`** → wait `retry_after`, and retry reads only.
+- **429 / `graph_throttled`** → wait `retry_after` seconds (back off if it is missing), retry
+  reads only, and keep at most 4 calls in flight per mailbox, in total across `calendar_*` and
+  `mail_*` (contacts included): Outlook allows only 4 concurrent requests per mailbox, shared
+  by calendar, mail and contacts. Prefer one `calendar_list_events` over a range to one
+  `calendar_get_event` per event.
 - **`invalid_graph_url`** → the cursor was altered; restart from the first page.
 - **Validation errors** (bad range, empty patch) mean nothing was sent; fix the arguments.
 - **Ambiguity** (which "Ana", which of two similar meetings) → ask the user before writing.

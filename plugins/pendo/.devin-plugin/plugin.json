@@ -1,7 +1,8 @@
 {
   "name": "pendo",
   "displayName": "Pendo",
-  "description": "Pendo integration for product and user insights",
+  "description": "Analyze product usage and user behavior with Pendo",
+  "shortDescription": "Product usage and user insights",
   "homepage": "https://www.pendo.io",
   "logo": "logo.png",
   "keywords": [

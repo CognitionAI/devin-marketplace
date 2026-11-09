@@ -1,7 +1,8 @@
 {
   "name": "square",
   "displayName": "Square",
-  "description": "Manage payments, orders, inventory, customers, invoices, subscriptions, and loyalty programs in Square; fetch service and type metadata to discover and structure API calls.",
+  "description": "Manage Square payments, orders, inventory, customers, invoices, subscriptions, and loyalty programs",
+  "shortDescription": "Payments, orders and customer records",
   "homepage": "https://squareup.com",
   "logo": "logo.svg",
   "keywords": [

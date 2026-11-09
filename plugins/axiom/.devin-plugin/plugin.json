@@ -1,7 +1,8 @@
 {
   "name": "axiom",
   "displayName": "Axiom (OAuth)",
-  "description": "Query logs, traces, and events in Axiom using APL. List datasets, explore schemas, and monitor alerts via the official Axiom MCP server.",
+  "description": "Query Axiom logs, traces, and events with APL, inspect dataset schemas, and monitor alerts",
+  "shortDescription": "Logs, traces and events",
   "homepage": "https://axiom.co",
   "logo": "logo.svg",
   "keywords": [

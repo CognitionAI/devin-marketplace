@@ -1,7 +1,8 @@
 {
   "name": "pinecone",
   "displayName": "Pinecone",
-  "description": "Pinecone vector database integration for semantic search and AI applications",
+  "description": "Search Pinecone vector data for semantically relevant results",
+  "shortDescription": "Vector search and embeddings",
   "homepage": "https://www.pinecone.io",
   "logo": "logo.svg",
   "keywords": [

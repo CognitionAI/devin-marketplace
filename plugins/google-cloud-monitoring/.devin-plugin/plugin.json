@@ -1,0 +1,26 @@
+{
+  "name": "google-cloud-monitoring",
+  "displayName": "Google Cloud Monitoring",
+  "description": "Query Google Cloud metrics with PromQL, review alerts and policies, and browse dashboards",
+  "shortDescription": "Cloud alerts, metrics and dashboards",
+  "setup": {
+    "notice": "Google does not support automatic client registration. You must provide your own OAuth client credentials.",
+    "steps": [
+      "In the Google Cloud console, enable the Cloud Monitoring API",
+      "Grant everyone who will connect the MCP Tool User role (roles/mcp.toolUser)",
+      "Create an OAuth client (web application)",
+      "Add Devin's OAuth callback URL as an authorized redirect URI",
+      "Enter the OAuth client ID and secret when installing this server"
+    ]
+  },
+  "homepage": "https://cloud.google.com/monitoring",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "google-cloud-monitoring": {
+      "url": "https://monitoring.googleapis.com/mcp"
+    }
+  }
+}

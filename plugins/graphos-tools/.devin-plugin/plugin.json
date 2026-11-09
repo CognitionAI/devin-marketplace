@@ -1,7 +1,8 @@
 {
   "name": "graphos-tools",
   "displayName": "Apollo GraphOS",
-  "description": "Apollo GraphOS integration to search Apollo docs, specs, and best practices",
+  "description": "Search Apollo GraphOS documentation, specifications, and GraphQL best practices",
+  "shortDescription": "GraphQL schema docs and best practices",
   "homepage": "https://www.apollographql.com",
   "logo": "logo.svg",
   "keywords": [
