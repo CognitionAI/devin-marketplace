@@ -73,7 +73,7 @@ pasted can be passed straight through.
 | Tool                                                      | Notes                                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `read_doc(documentId, tabId?, startIndex?, suggestions?, format?)` | Each paragraph/table as `[start-end] STYLE: text`, the indexes `update_doc` needs. Lists, links, images, footnotes, headers/footers are marked; suggested edits show as `{+added+}` / `[-removed-]` (`suggestions: "accepted"` / `"rejected"` previews the doc with them applied / dropped, indexes then not editable); `format: "json"` returns the raw Docs API document. To see the rendered pages, `download_file` as PDF. |
-| `update_doc(documentId, requests)`                        | Docs `batchUpdate`. The tool description lists the request shapes (text, style, tables, headers/footers, tabs, named ranges, comments, suggestions). Rules below.                                                                                                                                     |
+| `update_doc(documentId, requests, writeControl?)`         | Docs `batchUpdate`. The tool description lists the request shapes (text, style, tables, headers/footers, tabs, named ranges, comments, suggestions). Rules below.                                                                                                                                     |
 
 ### Sheets
 
@@ -89,14 +89,14 @@ pasted can be passed straight through.
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `read_presentation(presentationId)`                       | Page size, layouts (with their ids), then every slide's `slideId`, layout, speaker notes (with the notes shape id), and every element's kind, position/size in PT, text, placeholder type, image/video/chart source.                               |
 | `get_slide_thumbnail(presentationId, slideId, size?)`     | PNG of one slide (`small` 200px, `medium` 800px, `large` 1600px). The way to check a layout visually; whole deck: `download_file` as PDF.                                                                                                         |
-| `update_presentation(presentationId, requests)`           | Slides `batchUpdate`: slides, text, shapes, images, tables, charts, comments. New objects take your own `objectId` (5-50 chars `[A-Za-z0-9_-]`) so later requests in the same call can refer to them.                                              |
+| `update_presentation(presentationId, requests, writeControl?)` | Slides `batchUpdate`: slides, text, shapes, images, tables, charts, comments. New objects take your own `objectId` (5-50 chars `[A-Za-z0-9_-]`) so later requests in the same call can refer to them.                                              |
 
 ### Forms
 
 | Tool                                                                      | Notes                                                                                                                        |
 | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `read_form(formId)`                                                       | Title, responder link, publish state (publishing and opening/closing for responses happen in the Forms UI), settings, linked Sheet, every item with `itemId`/`questionId`, type, options, grading. |
-| `update_form(formId, requests)`                                           | Forms `batchUpdate` (items are addressed by 0-based position).                                                               |
+| `update_form(formId, requests, writeControl?)`                            | Forms `batchUpdate` (items are addressed by 0-based position).                                                               |
 | `list_form_responses(formId, pageSize?, pageToken?, submittedAfter?)`     | Answers keyed by `questionId`; needs the `forms:responses` permission.                                                       |
 
 ## Permissions
@@ -123,6 +123,10 @@ pasted can be passed straight through.
   `commentThread.commentId`, `objectId`, `headerId`, `itemId`. Keep a call to one logical
   step (one section, one tab, one slide) so a failure is easy to locate; up to about 100
   requests per call is fine.
+- **Guard an edit against someone else's.** `read_doc`, `read_presentation` and `read_form`
+  return the file's `revisionId`; pass `writeControl: {requiredRevisionId}` to `update_doc`,
+  `update_presentation` or `update_form` and the call fails instead of landing on a file that
+  changed since you read it. Re-read and retry. `update_spreadsheet` has no such guard.
 - **Docs indexes shift.** Within one `update_doc` call order edits from the highest index down
   so earlier indexes stay valid, or re-read between calls. The end index of the last paragraph
   is not insertable: append with `endOfSegmentLocation: {}` (start the text with `\n` to
