@@ -89,6 +89,7 @@
     "./plugins/excalidraw",
     "./plugins/fathom",
     "./plugins/figma-remote",
+    "./plugins/find-research-papers",
     "./plugins/firecrawl",
     "./plugins/fireflies",
     "./plugins/fullstory",
