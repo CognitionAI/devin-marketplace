@@ -1,0 +1,21 @@
+{
+  "name": "api-indonesia",
+  "displayName": "API Indonesia",
+  "description": "Look up Indonesian regions, holidays, prayer times, schools, hospitals, and official data with one free key",
+  "shortDescription": "Indonesian public data",
+  "homepage": "https://apiindonesia.id",
+  "repository": "https://github.com/khmuhtadin/api-indonesia-examples",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "AI & Machine Learning"
+  ],
+  "setup": {
+    "notice": "Free sign-up includes 3,000 credits; each successful request costs 2 credits and failed requests are not billed."
+  },
+  "mcpServers": {
+    "api-indonesia": {
+      "url": "https://mcp.apiindonesia.id/mcp"
+    }
+  }
+}
