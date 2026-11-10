@@ -1,7 +1,7 @@
 {
   "name": "supabase-remote",
   "displayName": "Supabase",
-  "description": "Query Supabase SQL data and inspect projects and database resources with read-only access",
+  "description": "Query Supabase SQL data and inspect projects and database resources, read-only by default",
   "shortDescription": "Projects, SQL and Edge Functions",
   "setup": {
     "notice": "Each user connects their own Supabase account with OAuth."
