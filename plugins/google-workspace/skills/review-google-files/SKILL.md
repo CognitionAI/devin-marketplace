@@ -22,9 +22,11 @@ Signatures are in `google-workspace-mcp`.
   from `scripted_tools`) or `get_slide_thumbnail` for the slides whose layout matters.
 - `list_comments` on the file: what has already been raised, what is resolved, and what is
   assigned where Google returns it. Do not repeat an open comment someone else made; reply in that thread instead.
-- A re-review, or "what changed since I last looked": `list_revisions`, then diff the revision
-  from that date against the current file (the version history rule in `google-workspace-mcp`)
-  and review the changed parts, not the whole file again.
+- A re-review, or "what changed since I last looked": `list_revisions`, then diff the newest
+  revision dated on or before that day against the current file (the version history rule in
+  `google-workspace-mcp`) and review the changed parts, not the whole file again. If no
+  revision that old is listed besides the first, or the file is a Slides deck, say the diff
+  is not available and review the whole file.
 
 Agree the brief in one line if the request is vague: what kind of review (structure, accuracy,
 tone, numbers, consistency with another file) and how strict.
