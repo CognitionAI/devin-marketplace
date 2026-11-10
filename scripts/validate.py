@@ -157,9 +157,12 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
         check_placeholders(f"{where} ({slug})", value, errors)
 
 
-def endpoint(url: str) -> tuple[str, str | None, int | None, str]:
-    parts = urlsplit(url)
-    return (parts.scheme, parts.hostname, parts.port, parts.path.rstrip("/"))
+def endpoint(url: str) -> tuple[str, str | None, int | None, str] | None:
+    try:
+        parts = urlsplit(url)
+        return (parts.scheme, parts.hostname, parts.port, parts.path)
+    except ValueError:
+        return None
 
 
 def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
@@ -179,7 +182,8 @@ def check_url_options(where: str, slug: str, url: str, options: object, errors: 
     if url not in urls or len(set(urls)) != len(urls):
         errors.append(f"{where}: server '{slug}' urlOptions must list url once, and each URL once")
     for option_url in urls:
-        if PLACEHOLDER_RE.search(option_url) or endpoint(option_url) != endpoint(url):
+        target = endpoint(option_url)
+        if PLACEHOLDER_RE.search(option_url) or target is None or target != endpoint(url):
             errors.append(f"{where}: server '{slug}' urlOptions entry {option_url} must differ from url only in the query")
 
 
