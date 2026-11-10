@@ -36,6 +36,10 @@ this and CI runs it.
      slug): `command` + `args` + `env` for stdio, or `url` (+ `headers`) for
      HTTP. A plugin that only ships `skills/` omits it. Servers live only
      here: no `.mcp.json`, `mcp.json` or root `plugin.json`.
+   * An HTTP server whose URLs differ only in the query (Supabase's
+     `?read_only=true`) may add `urlOptions`, a list of `{label, url}` that
+     includes `url`. `url` stays the default; members pick another option in
+     the server's settings.
    * Never check in a credential. Anything a user supplies is a plain
      `${<NAME>}` placeholder, resolved from the credentials saved on the
      user's installation (no `MCP_` prefix). A stdio `env` value must
