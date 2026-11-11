@@ -90,7 +90,7 @@
     "./plugins/excalidraw",
     "./plugins/fathom",
     "./plugins/figma-remote",
-        "./plugins/findcarcolors",
+    "./plugins/findcarcolors",
     "./plugins/firecrawl",
     "./plugins/fireflies",
     "./plugins/fullstory",
