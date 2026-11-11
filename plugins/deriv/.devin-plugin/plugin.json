@@ -1,0 +1,17 @@
+{
+  "name": "deriv",
+  "displayName": "Deriv",
+  "description": "Look up live Deriv API schemas, validate payloads, and follow guides for auth, trades, and errors",
+  "shortDescription": "Live Deriv API schemas and guides",
+  "homepage": "https://developers.deriv.com",
+  "repository": "https://github.com/deriv-com/deriv-api-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "deriv": {
+      "url": "https://mcp-api.deriv.com/mcp"
+    }
+  }
+}
