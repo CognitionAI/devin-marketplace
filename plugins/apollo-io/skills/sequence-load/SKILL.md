@@ -36,7 +36,7 @@ If the user just says "list sequences", skip to Step 2 and show all available se
 
 ## Step 2 — Find the Sequence
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_emailer_campaigns_search` to find the target sequence:
+Use `mcp__apollo-io__apollo_emailer_campaigns_search` to find the target sequence:
 - Set `q_name` to the sequence name from input
 
 If no match or multiple matches:
@@ -45,14 +45,14 @@ If no match or multiple matches:
 
 ## Step 3 — Get Email Account
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_email_accounts_index` to list linked email accounts.
+Use `mcp__apollo-io__apollo_email_accounts_index` to list linked email accounts.
 
 - If one account → use automatically
 - If multiple → show them and ask which to send from
 
 ## Step 4 — Find Matching People
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_mixed_people_api_search` with the targeting criteria.
+Use `mcp__apollo-io__apollo_mixed_people_api_search` with the targeting criteria.
 - Set `per_page` to the requested volume (or 10 by default)
 
 Present the candidates in a preview table:
@@ -68,11 +68,11 @@ Wait for confirmation before proceeding.
 
 For each approved lead:
 
-1. **Enrich** — Use `mcp__claude_ai_Apollo_MCP__apollo_people_bulk_match` (batch up to 10 per call) with:
+1. **Enrich** — Use `mcp__apollo-io__apollo_people_bulk_match` (batch up to 10 per call) with:
    - `first_name`, `last_name`, `domain` for each person
    - `reveal_personal_emails` set to `true`
 
-2. **Create contacts** — For each enriched person, use `mcp__claude_ai_Apollo_MCP__apollo_contacts_create` with:
+2. **Create contacts** — For each enriched person, use `mcp__apollo-io__apollo_contacts_create` with:
    - `first_name`, `last_name`, `email`, `title`, `organization_name`
    - `direct_phone` or `mobile_phone` if available
    - `run_dedupe` set to `true`
@@ -81,7 +81,7 @@ Collect all created contact IDs.
 
 ## Step 6 — Add to Sequence
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_emailer_campaigns_add_contact_ids` with:
+Use `mcp__apollo-io__apollo_emailer_campaigns_add_contact_ids` with:
 - `id`: the sequence ID
 - `emailer_campaign_id`: same sequence ID
 - `contact_ids`: array of created contact IDs
@@ -116,5 +116,5 @@ Ask the user:
 
 1. **Load more** — Find and add another batch of leads
 2. **Review sequence** — Show sequence details and all enrolled contacts
-3. **Remove a contact** — Use `mcp__claude_ai_Apollo_MCP__apollo_emailer_campaigns_remove_or_stop_contact_ids` to remove specific contacts
+3. **Remove a contact** — Use `mcp__apollo-io__apollo_emailer_campaigns_remove_or_stop_contact_ids` to remove specific contacts
 4. **Pause a contact** — Re-add with `status: "paused"` and an `auto_unpause_at` date
