@@ -1,0 +1,23 @@
+{
+  "name": "menta",
+  "displayName": "Menta",
+  "description": "Buy, order and book at online stores worldwide, paying with your own card only from spending limits you approve yourself",
+  "shortDescription": "Shopping and checkout at online stores",
+  "setup": {
+    "notice": "Menta pays only from spending limits you approve on Menta's site. Devin can't approve, create or raise one, and card details never go through chat.",
+    "steps": [
+      "Sign in to Menta and add a card and a delivery address",
+      "Approve a spending limit on Menta's site, or the one Devin requests when a checkout reaches payment"
+    ]
+  },
+  "homepage": "https://menta.crossmint.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "menta": {
+      "url": "https://menta.crossmint.com/mcp"
+    }
+  }
+}

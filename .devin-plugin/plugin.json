@@ -133,6 +133,7 @@
     "./plugins/mapbox-docs",
     "./plugins/meltwater",
     "./plugins/mem",
+    "./plugins/menta",
     "./plugins/mercury",
     "./plugins/metabase",
     "./plugins/meticulous",
