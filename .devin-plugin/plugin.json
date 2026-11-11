@@ -10,6 +10,7 @@
     "./plugins/aiven",
     "./plugins/amplemarket",
     "./plugins/amplitude",
+    "./plugins/anakin",
     "./plugins/angellist",
     "./plugins/apollo-io",
     "./plugins/appwrite",
