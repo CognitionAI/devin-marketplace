@@ -170,7 +170,7 @@ def endpoint(url: str) -> tuple[str, str | None, int | None, str] | None:
 def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
     # The installation's token goes to whichever option a member picks, so the
     # options may differ from `url` (the default) only in the query, or only in
-    # the `${NAME}` parts of `url`, which a member may type in anyway.
+    # the one `${NAME}` part of `url`, which a member may type in anyway.
     if not isinstance(options, list) or not all(
         isinstance(option, dict)
         and set(option) == {"label", "url"}
@@ -182,7 +182,7 @@ def check_url_options(where: str, slug: str, url: str, options: object, errors: 
         errors.append(f"{where}: server '{slug}' urlOptions must be a list of {{label, url}} objects")
         return
     urls = [option["url"] for option in options]
-    typed = PLACEHOLDER_RE.search(url) is not None
+    typed = len(PLACEHOLDER_RE.findall(url)) == 1
     if (not typed and url not in urls) or len(set(urls)) != len(urls):
         errors.append(f"{where}: server '{slug}' urlOptions must list url once, and each URL once")
     # Odd items of the split are the `${NAME}` references.
@@ -199,7 +199,7 @@ def check_url_options(where: str, slug: str, url: str, options: object, errors: 
         if not fits:
             errors.append(
                 f"{where}: server '{slug}' urlOptions entry {option_url} must "
-                + ("be url with its ${NAME} parts filled in" if typed else "differ from url only in the query")
+                + ("be url with its ${NAME} part filled in" if typed else "differ from url only in the query")
             )
 
 
