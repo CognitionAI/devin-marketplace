@@ -133,7 +133,6 @@
     "./plugins/mapbox-docs",
     "./plugins/meltwater",
     "./plugins/mem",
-    "./plugins/menta",
     "./plugins/mercury",
     "./plugins/metabase",
     "./plugins/meticulous",
@@ -234,6 +233,12 @@
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
     "./plugins/zapier",
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/Crossmint/menta.git",
+      "path": "plugins/menta",
+      "sha": "891d4e8975ef824caceec0f6d456d34890cb966f"
+    },
     {
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
