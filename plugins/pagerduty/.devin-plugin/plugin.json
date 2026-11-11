@@ -1,0 +1,14 @@
+{
+  "name": "pagerduty",
+  "displayName": "PagerDuty (OAuth)",
+  "description": "The official remote MCP server, built and hosted by PagerDuty. Connect securely to your PagerDuty account to manage incidents, create services, schedule overrides, and track on-call rotations. PagerDuty does not yet support automatic client registration, so you must provide your own OAuth client: in PagerDuty, register an OAuth app with the scopes the MCP tools need and add Devin's OAuth callback URL (https://api.devin.ai/mcp/oauth/callback, or the equivalent for your Devin environment) as a redirect URL, then enter the client ID and secret when installing. EU accounts: register the app in your EU account and set the server domain to mcp.eu.pagerduty.com (the default is mcp.pagerduty.com). Setup guide: https://docs.pagerduty.com/ai-automation/advance/pagerduty-mcp-server#step-1-choose-an-authorization-method",
+  "shortDescription": "Incident response, on-call and alerting",
+  "homepage": "https://www.pagerduty.com",
+  "logo": "logo.png",
+  "keywords": ["Monitoring & Analytics"],
+  "mcpServers": {
+    "pagerduty": {
+      "url": "https://${PAGERDUTY_MCP_DOMAIN:-mcp.pagerduty.com}/mcp"
+    }
+  }
+}
