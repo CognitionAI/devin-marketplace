@@ -1,0 +1,13 @@
+{
+  "name": "checkmarx",
+  "displayName": "Checkmarx SAST Resolution",
+  "description": "Triage a finding from a recent Checkmarx One SAST scan and open a fix PR for a verified vulnerability",
+  "shortDescription": "Triage and fix Checkmarx SAST findings",
+  "setup": {
+    "notice": "Requires a Checkmarx One tenant with an existing SAST scan and a Checkmarx API key available to the session as a secret."
+  },
+  "keywords": [
+    "Security",
+    "SAST"
+  ]
+}
