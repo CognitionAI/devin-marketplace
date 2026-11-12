@@ -161,6 +161,7 @@
     "./plugins/newrelic",
     "./plugins/newrelic-remote",
     "./plugins/notion",
+    "./plugins/olostep",
     "./plugins/omni-analytics",
     "./plugins/orion",
     "./plugins/otter",
