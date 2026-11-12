@@ -35,7 +35,6 @@
     "./plugins/axiom",
     "./plugins/axiom-api-key",
     "./plugins/azure",
-    "./plugins/braintrust",
     "./plugins/brex",
     "./plugins/browserless",
     "./plugins/buildkite",
@@ -244,6 +243,12 @@
       "source": "url",
       "url": "https://github.com/SonarSource/sonarqube-agent-plugins.git",
       "sha": "a3b7b69dbb40234e6e0088d989b10072c8f4aedd"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/braintrustdata/braintrust-coding-agent-plugins.git",
+      "path": "src/plugins/devin/content",
+      "sha": "06de72ad952c7b6a2b7a58d1c2420658524e2c03"
     },
     {
       "source": "url",
