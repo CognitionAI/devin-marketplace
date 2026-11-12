@@ -235,6 +235,12 @@
     "./plugins/zapier",
     {
       "source": "git-subdir",
+      "url": "https://github.com/GlyphicAI/airspeed-plugins.git",
+      "path": "plugins/airspeed-devin",
+      "sha": "fb20edcc2e91cf5abb90f9ad202f6a07d17544cd"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
