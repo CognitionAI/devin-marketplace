@@ -35,6 +35,7 @@
     "./plugins/axiom",
     "./plugins/axiom-api-key",
     "./plugins/azure",
+    "./plugins/braintrust",
     "./plugins/brex",
     "./plugins/browserless",
     "./plugins/buildkite",
