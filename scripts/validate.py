@@ -16,6 +16,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / ".devin-plugin" / "plugin.json"
@@ -25,6 +26,8 @@ NAME_RE = re.compile(r"^[a-z0-9]+([.-][a-z0-9]+)*$")
 URL_RE = re.compile(r"^https://[^\s/]+/[^\s]+\.git$")
 LOCAL_RE = re.compile(r"^\./plugins/([a-z0-9]+([.-][a-z0-9]+)*)$")
 PLACEHOLDER_RE = re.compile(r"\$\{([^}]*)\}")
+# What a member may type into a `${NAME}` part of a URL: host-label characters.
+URL_VALUE_PATTERN = r"[A-Za-z0-9._-]+?"
 CREDENTIAL_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 RUNTIME_PLACEHOLDERS = {"CLAUDE_PLUGIN_ROOT", "PLUGIN_ROOT"}
 LOGO_RE = re.compile(r"^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*\.(svg|png|jpg|jpeg|webp)$")
@@ -43,7 +46,7 @@ PLUGIN_KEYS = {
     "mcpServers",
 }
 STDIO_KEYS = {"command", "args", "env"}
-HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
+HTTP_KEYS = {"url", "urlOptions", "headers", "transport", "oauthClientId", "oauthScopes"}
 # Other manifest/MCP locations the plugin loader would also read; authored
 # plugins declare everything in .devin-plugin/plugin.json so this validator sees it.
 SHADOW_FILES = ("plugin.json", ".mcp.json", "mcp.json")
@@ -147,11 +150,57 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
             errors.append(f"{where}: server '{slug}' headers must be an object")
             return
         strings = [url, *headers.values()]
+        if "urlOptions" in config:
+            check_url_options(where, slug, url, config["urlOptions"], errors)
     for value in strings:
         if not isinstance(value, str):
             errors.append(f"{where}: server '{slug}' has a non-string value")
             continue
         check_placeholders(f"{where} ({slug})", value, errors)
+
+
+def endpoint(url: str) -> tuple[str, str | None, int | None, str] | None:
+    try:
+        parts = urlsplit(url)
+        return (parts.scheme, parts.hostname, parts.port, parts.path)
+    except ValueError:
+        return None
+
+
+def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
+    # The installation's token goes to whichever option a member picks, so the
+    # options may differ from `url` (the default) only in the query, or only in
+    # the one `${NAME}` part of `url`, which a member may type in anyway.
+    if not isinstance(options, list) or not all(
+        isinstance(option, dict)
+        and set(option) == {"label", "url"}
+        and isinstance(option["label"], str)
+        and option["label"].strip()
+        and isinstance(option["url"], str)
+        for option in options
+    ):
+        errors.append(f"{where}: server '{slug}' urlOptions must be a list of {{label, url}} objects")
+        return
+    urls = [option["url"] for option in options]
+    typed = len(PLACEHOLDER_RE.findall(url)) == 1
+    if (not typed and url not in urls) or len(set(urls)) != len(urls):
+        errors.append(f"{where}: server '{slug}' urlOptions must list url once, and each URL once")
+    # Odd items of the split are the `${NAME}` references.
+    filled_in = "".join(
+        URL_VALUE_PATTERN if index % 2 else re.escape(text) for index, text in enumerate(PLACEHOLDER_RE.split(url))
+    )
+    for option_url in urls:
+        if PLACEHOLDER_RE.search(option_url):
+            fits = False
+        elif typed:
+            fits = re.fullmatch(filled_in, option_url) is not None
+        else:
+            fits = endpoint(option_url) is not None and endpoint(option_url) == endpoint(url)
+        if not fits:
+            errors.append(
+                f"{where}: server '{slug}' urlOptions entry {option_url} must "
+                + ("be url with its ${NAME} part filled in" if typed else "differ from url only in the query")
+            )
 
 
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:

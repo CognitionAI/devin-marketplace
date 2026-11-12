@@ -1,0 +1,16 @@
+{
+  "name": "paper",
+  "displayName": "Paper",
+  "description": "Read and edit your Paper design files, generate layouts with real content, and turn designs into code",
+  "shortDescription": "Design files, layouts and design-to-code",
+  "homepage": "https://paper.design",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "paper": {
+      "url": "https://mcp.paper.design"
+    }
+  }
+}

@@ -11,7 +11,7 @@
   ],
   "mcpServers": {
     "parallel": {
-      "url": "https://mcp.parallel.ai/alpha/search_mcp/",
+      "url": "https://mcp.parallel.ai/mcp",
       "headers": {
         "x-api-key": "${PARALLEL_X_API_KEY}"
       }
