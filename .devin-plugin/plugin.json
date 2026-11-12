@@ -235,6 +235,12 @@
     "./plugins/zapier",
     {
       "source": "git-subdir",
+      "url": "https://github.com/Crossmint/menta.git",
+      "path": "plugins/menta",
+      "sha": "891d4e8975ef824caceec0f6d456d34890cb966f"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
