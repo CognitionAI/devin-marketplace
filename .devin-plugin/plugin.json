@@ -248,7 +248,7 @@
       "source": "git-subdir",
       "url": "https://github.com/braintrustdata/braintrust-coding-agent-plugins.git",
       "path": "src/plugins/devin/content",
-      "sha": "06de72ad952c7b6a2b7a58d1c2420658524e2c03"
+      "sha": "b60503e3da2cbe2a665fe6c35145097769bcf5e4"
     },
     {
       "source": "url",
