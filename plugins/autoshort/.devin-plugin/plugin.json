@@ -1,0 +1,19 @@
+{
+  "name": "autoshort",
+  "displayName": "AutoShort",
+  "description": "Draft, price and render faceless short videos on your AutoShort account, with every paid step approved first",
+  "shortDescription": "Faceless short videos",
+  "setup": {
+    "notice": "Needs an AutoShort account (autoshort.org). Rendering spends credits from that account, and the skill asks for approval of the price first."
+  },
+  "homepage": "https://autoshort.org",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "autoshort": {
+      "url": "https://autoshort.org/api/mcp"
+    }
+  }
+}
