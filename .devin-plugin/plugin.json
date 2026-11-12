@@ -202,6 +202,7 @@
     "./plugins/sqlite",
     "./plugins/square",
     "./plugins/statsig",
+    "./plugins/storyshort",
     "./plugins/stripe",
     "./plugins/strix",
     "./plugins/stytch",

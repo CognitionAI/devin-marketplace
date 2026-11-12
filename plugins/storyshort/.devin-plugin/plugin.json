@@ -1,0 +1,19 @@
+{
+  "name": "storyshort",
+  "displayName": "StoryShort",
+  "description": "Draft, price and render narrated faceless story videos on your StoryShort account, with every paid step approved first",
+  "shortDescription": "Faceless story videos",
+  "setup": {
+    "notice": "Needs a StoryShort account (storyshort.app). Rendering spends credits from that account, and the skill asks for approval of the price first."
+  },
+  "homepage": "https://storyshort.app",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "storyshort": {
+      "url": "https://storyshort.app/api/mcp"
+    }
+  }
+}
