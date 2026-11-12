@@ -39,7 +39,10 @@ this and CI runs it.
    * An HTTP server whose URLs differ only in the query (Supabase's
      `?read_only=true`) may add `urlOptions`, a list of `{label, url}` that
      includes `url`. `url` stays the default; members pick another option in
-     the server's settings.
+     the server's settings. A `url` with a `${<NAME>}` part a member types
+     (Datadog's site, `${DATADOG_DD_MCP_DOMAIN:-mcp.datadoghq.com}`) may list
+     instead that URL with the part filled in, one option per value; members
+     can still type a value no option lists.
    * Never check in a credential. Anything a user supplies is a plain
      `${<NAME>}` placeholder, resolved from the credentials saved on the
      user's installation (no `MCP_` prefix). A stdio `env` value must

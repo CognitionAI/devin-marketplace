@@ -26,6 +26,8 @@ NAME_RE = re.compile(r"^[a-z0-9]+([.-][a-z0-9]+)*$")
 URL_RE = re.compile(r"^https://[^\s/]+/[^\s]+\.git$")
 LOCAL_RE = re.compile(r"^\./plugins/([a-z0-9]+([.-][a-z0-9]+)*)$")
 PLACEHOLDER_RE = re.compile(r"\$\{([^}]*)\}")
+# What a member may type into a `${NAME}` part of a URL: host-label characters.
+URL_VALUE_PATTERN = r"[A-Za-z0-9._-]+?"
 CREDENTIAL_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 RUNTIME_PLACEHOLDERS = {"CLAUDE_PLUGIN_ROOT", "PLUGIN_ROOT"}
 LOGO_RE = re.compile(r"^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*\.(svg|png|jpg|jpeg|webp)$")
@@ -167,7 +169,8 @@ def endpoint(url: str) -> tuple[str, str | None, int | None, str] | None:
 
 def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
     # The installation's token goes to whichever option a member picks, so the
-    # options may differ from `url` (the default) only in the query.
+    # options may differ from `url` (the default) only in the query, or only in
+    # the one `${NAME}` part of `url`, which a member may type in anyway.
     if not isinstance(options, list) or not all(
         isinstance(option, dict)
         and set(option) == {"label", "url"}
@@ -179,12 +182,25 @@ def check_url_options(where: str, slug: str, url: str, options: object, errors: 
         errors.append(f"{where}: server '{slug}' urlOptions must be a list of {{label, url}} objects")
         return
     urls = [option["url"] for option in options]
-    if url not in urls or len(set(urls)) != len(urls):
+    typed = len(PLACEHOLDER_RE.findall(url)) == 1
+    if (not typed and url not in urls) or len(set(urls)) != len(urls):
         errors.append(f"{where}: server '{slug}' urlOptions must list url once, and each URL once")
+    # Odd items of the split are the `${NAME}` references.
+    filled_in = "".join(
+        URL_VALUE_PATTERN if index % 2 else re.escape(text) for index, text in enumerate(PLACEHOLDER_RE.split(url))
+    )
     for option_url in urls:
-        target = endpoint(option_url)
-        if PLACEHOLDER_RE.search(option_url) or target is None or target != endpoint(url):
-            errors.append(f"{where}: server '{slug}' urlOptions entry {option_url} must differ from url only in the query")
+        if PLACEHOLDER_RE.search(option_url):
+            fits = False
+        elif typed:
+            fits = re.fullmatch(filled_in, option_url) is not None
+        else:
+            fits = endpoint(option_url) is not None and endpoint(option_url) == endpoint(url)
+        if not fits:
+            errors.append(
+                f"{where}: server '{slug}' urlOptions entry {option_url} must "
+                + ("be url with its ${NAME} part filled in" if typed else "differ from url only in the query")
+            )
 
 
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
