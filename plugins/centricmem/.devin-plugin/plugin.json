@@ -1,0 +1,24 @@
+{
+  "name": "centricmem",
+  "displayName": "CentricMem",
+  "description": "File, search, and recall Markdown memory cards that persist across sessions and agents on your hosted librarian",
+  "shortDescription": "Durable memory for agent sessions",
+  "setup": {
+    "notice": "Requires a CentricMem account. Mint an access credential under Manager → Connections and choose which shelves it may use."
+  },
+  "homepage": "https://centricmem.com",
+  "repository": "https://github.com/zeyu-j/centricmem-skill",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "centricmem": {
+      "url": "https://mem.centricmem.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CENTRICMEM_TOKEN}"
+      }
+    }
+  }
+}

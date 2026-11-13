@@ -42,6 +42,7 @@
     "./plugins/canva",
     "./plugins/cdata-connect-ai",
     "./plugins/cello",
+    "./plugins/centricmem",
     "./plugins/checkmarx",
     "./plugins/chronosphere",
     "./plugins/circle",

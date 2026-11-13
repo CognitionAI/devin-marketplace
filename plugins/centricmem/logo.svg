@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CentricMem">
+  <rect width="120" height="120" fill="#f4f2ee"/>
+  <rect x="32" y="30" width="56" height="7" rx="3.5" fill="#1c1b19"/>
+  <rect x="32" y="83" width="56" height="7" rx="3.5" fill="#1c1b19"/>
+  <rect x="40" y="43" width="13" height="34" rx="6" fill="#f5c800"/>
+  <rect x="54" y="43" width="13" height="34" rx="6" fill="#4caf6d"/>
+  <rect x="68" y="43" width="13" height="34" rx="6" fill="#1e9cd7"/>
+</svg>
