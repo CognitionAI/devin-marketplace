@@ -251,6 +251,12 @@
       "sha": "a3b7b69dbb40234e6e0088d989b10072c8f4aedd"
     },
     {
+      "source": "git-subdir",
+      "url": "https://github.com/braintrustdata/braintrust-coding-agent-plugins.git",
+      "path": "src/plugins/devin/content/plugins/braintrust",
+      "sha": "7c3a10f65eae001cb3a9ee0edb4c0408458fe4aa"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
