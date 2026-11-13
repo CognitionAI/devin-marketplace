@@ -79,6 +79,7 @@
     "./plugins/datahub",
     "./plugins/dbt",
     "./plugins/deepwiki",
+    "./plugins/desearch",
     "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
     "./plugins/dynatrace",
