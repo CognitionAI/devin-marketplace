@@ -1,0 +1,17 @@
+{
+  "name": "datacircle",
+  "displayName": "Datacircle",
+  "description": "Compare plans and scores of GTM APIs, and find the best API for your job",
+  "shortDescription": "Find the best GTM APIs",
+  "homepage": "https://datacircle.dev",
+  "repository": "https://github.com/waynehamadi/datacircle",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "datacircle": {
+      "url": "https://api.datacircle.dev/mcp"
+    }
+  }
+}

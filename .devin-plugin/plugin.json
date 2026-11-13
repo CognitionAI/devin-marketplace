@@ -74,6 +74,7 @@
     "./plugins/crossmint",
     "./plugins/customer-io",
     "./plugins/daloopa",
+    "./plugins/datacircle",
     "./plugins/datadog",
     "./plugins/datadog-remote",
     "./plugins/datahub",
