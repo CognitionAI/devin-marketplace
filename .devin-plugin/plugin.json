@@ -251,6 +251,12 @@
       "sha": "a3b7b69dbb40234e6e0088d989b10072c8f4aedd"
     },
     {
+      "source": "git-subdir",
+      "url": "https://github.com/antithesishq/antithesis-plugin.git",
+      "path": "plugins/antithesis",
+      "sha": "8de255b54eb4d432baea8d3bdaadbb642548c484"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
