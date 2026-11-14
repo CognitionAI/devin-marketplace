@@ -1,0 +1,18 @@
+{
+  "name": "myeline",
+  "displayName": "Myeline",
+  "description": "Give Devin persistent memory with receipts: search your approved facts and remember what you tell it, source attached",
+  "shortDescription": "Persistent memory, with receipts",
+  "homepage": "https://myeline.si",
+  "repository": "https://github.com/Sandbox-Group-LLC/myeline-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "myeline": {
+      "url": "https://cortex.myeline.si/mcp"
+    }
+  }
+}

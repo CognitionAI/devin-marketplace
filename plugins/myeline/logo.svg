@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Myeline">
+  <!-- The filament mark: three gold strands, the insulated-memory glyph -->
+  <rect width="64" height="64" rx="14" fill="#241f16"/>
+  <g stroke="#b58a2e" stroke-linecap="round">
+    <line x1="16" y1="22" x2="48" y2="22" stroke-width="4"/>
+    <line x1="16" y1="32" x2="40" y2="32" stroke-width="4"/>
+    <line x1="16" y1="42" x2="48" y2="42" stroke-width="4"/>
+  </g>
+</svg>
