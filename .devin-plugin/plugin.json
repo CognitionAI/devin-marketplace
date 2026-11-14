@@ -111,6 +111,7 @@
     "./plugins/hex",
     "./plugins/higgsfield",
     "./plugins/honeycomb",
+    "./plugins/httpfy",
     "./plugins/hubspot",
     "./plugins/hugging-face",
     "./plugins/hunter",
