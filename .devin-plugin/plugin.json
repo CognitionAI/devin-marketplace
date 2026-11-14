@@ -96,6 +96,8 @@
     "./plugins/gamma",
     "./plugins/gc-ai",
     "./plugins/gitlab",
+    "./plugins/gleap",
+    "./plugins/gleap-us",
     "./plugins/godaddy",
     "./plugins/google-analytics",
     "./plugins/google-calendar",

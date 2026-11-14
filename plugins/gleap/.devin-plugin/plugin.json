@@ -1,0 +1,20 @@
+{
+  "name": "gleap",
+  "displayName": "Gleap",
+  "description": "Triage Gleap bug reports and support tickets, reply to customers, look up contacts, and manage help center articles and surveys",
+  "shortDescription": "Bug reports, support and customer chats",
+  "setup": {
+    "notice": "Connect an account in Gleap's EU data region. For a US-region account, install Gleap (US) instead."
+  },
+  "homepage": "https://www.gleap.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "gleap": {
+      "url": "https://mcp.gleap.ai/mcp"
+    }
+  }
+}
