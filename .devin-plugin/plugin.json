@@ -82,6 +82,7 @@
     "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
     "./plugins/dynatrace",
+    "./plugins/elaichi",
     "./plugins/elastic",
     "./plugins/elasticsearch",
     "./plugins/enterpret",
