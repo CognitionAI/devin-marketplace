@@ -1,24 +1,23 @@
 {
   "name": "google-analytics",
-  "displayName": "Google Analytics",
-  "description": "Run Google Analytics 4 reports and query properties and metrics",
-  "shortDescription": "GA4 reports, metrics and properties",
-  "homepage": "https://analytics.google.com",
-  "repository": "https://github.com/googleanalytics/google-analytics-mcp",
-  "logo": "logo.svg",
+  "displayName": "Google Analytics 4",
+  "description": "Google Analytics 4 MCP server for real-time reporting, schema discovery, metric aggregation, and audience insights",
+  "shortDescription": "GA4 reporting and audience insights",
+  "homepage": "https://ga4mcp.com/",
   "keywords": [
     "Monitoring & Analytics",
     "Productivity"
   ],
   "mcpServers": {
     "google-analytics": {
-      "command": "pipx",
+      "command": "uvx",
       "args": [
-        "run",
-        "--spec",
-        "git+https://github.com/googleanalytics/google-analytics-mcp.git",
-        "google-analytics-mcp"
-      ]
+        "google-analytics-mcp==2.11.6"
+      ],
+      "env": {
+        "GA4_PROPERTY_ID": "${GA4_PROPERTY_ID}",
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
+      }
     }
   }
 }
