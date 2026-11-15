@@ -20,7 +20,7 @@
         "GRAFANA_URL",
         "-e",
         "GRAFANA_API_KEY",
-        "mcp/grafana",
+        "grafana/mcp-grafana",
         "-t",
         "stdio"
       ],
