@@ -1,0 +1,20 @@
+{
+  "name": "marcora",
+  "displayName": "Marcora",
+  "description": "Marcora is the context layer for go-to-market teams: your positioning, brand voice, and product facts in one source of truth that your AI tools read from.",
+  "shortDescription": "The context layer for go-to-market teams",
+  "setup": {
+    "notice": "Requires a Marcora account. Sign up at marcora.ai."
+  },
+  "homepage": "https://marcora.ai/mcp",
+  "repository": "https://github.com/ccromp/marcora-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "marcora": {
+      "url": "https://mcp.marcora.ai/"
+    }
+  }
+}
