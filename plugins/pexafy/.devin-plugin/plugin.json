@@ -1,0 +1,16 @@
+{
+  "name": "pexafy",
+  "displayName": "Pexafy Stock Photos",
+  "description": "Real, free-to-use stock photos for whatever Devin is building. Search Pexafy's index of millions of photographs from Unsplash, Pexels, Pixabay and other libraries by description, in any language, or by visual similarity to a reference image, then fetch any result as an image file. Every photo comes with its photographer, source, licence and a ready-to-use credit line. Read-only tools, no API key to manage.",
+  "homepage": "https://pexafy.com/mcp/",
+  "repository": "https://github.com/Pexafy/pexafy-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "pexafy": {
+      "url": "https://mcp.pexafy.com/mcp"
+    }
+  }
+}
