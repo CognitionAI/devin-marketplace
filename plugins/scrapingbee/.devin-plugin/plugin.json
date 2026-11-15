@@ -1,0 +1,28 @@
+{
+  "name": "scrapingbee",
+  "displayName": "ScrapingBee",
+  "description": "Fetch any web page as text, markdown, HTML or a screenshot, extract structured data, and get JSON results from Google, Amazon, Walmart and YouTube with ScrapingBee",
+  "shortDescription": "Web scraping, search and data extraction",
+  "setup": {
+    "notice": "JavaScript rendering and anti-bot protection are handled automatically; each call spends credits from your ScrapingBee plan.",
+    "steps": [
+      "Create a ScrapingBee account and copy the API key from the dashboard",
+      "For batch jobs, site crawls and output to files, install the ScrapingBee CLI described in the skills"
+    ]
+  },
+  "homepage": "https://www.scrapingbee.com",
+  "repository": "https://github.com/ScrapingBee/mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools",
+    "AI & Machine Learning"
+  ],
+  "mcpServers": {
+    "scrapingbee": {
+      "url": "https://mcp.scrapingbee.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SCRAPINGBEE_API_KEY}"
+      }
+    }
+  }
+}

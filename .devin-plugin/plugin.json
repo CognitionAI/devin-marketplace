@@ -193,6 +193,7 @@
     "./plugins/resend",
     "./plugins/rootly",
     "./plugins/sanity",
+    "./plugins/scrapingbee",
     "./plugins/sentry",
     "./plugins/shopify-dev",
     "./plugins/similarweb",
