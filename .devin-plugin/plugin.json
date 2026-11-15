@@ -6,6 +6,7 @@
   "skills": [],
   "optionalPlugins": [
     "./plugins/activecampaign",
+    "./plugins/aggregate",
     "./plugins/airtable",
     "./plugins/aiven",
     "./plugins/amplemarket",
