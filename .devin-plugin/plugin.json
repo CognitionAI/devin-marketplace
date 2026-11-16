@@ -276,6 +276,12 @@
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
     },
     {
+      "source": "git-subdir",
+      "url": "https://github.com/kombai-io/agent-plugins.git",
+      "path": "plugins/devin",
+      "sha": "a02546836fb7c601a5419957a62eb0b94fc806eb"
+    },
+    {
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
