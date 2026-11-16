@@ -1,0 +1,24 @@
+{
+  "name": "mamba-labs-gtm-suite",
+  "displayName": "Mamba Labs GTM Suite",
+  "description": "Research any account by domain: identity, firmographics, hiring, tech stack, funding, and change signals in Clay-ready rows",
+  "shortDescription": "Account intelligence for GTM teams",
+  "homepage": "https://mambabuilt.com",
+  "repository": "https://github.com/mambalabsdev/mcp-gtm-suite",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "mamba-labs-gtm-suite": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mambalabsdev/mcp-gtm-suite"
+      ],
+      "env": {
+        "APIFY_TOKEN": "${APIFY_TOKEN}"
+      }
+    }
+  }
+}
