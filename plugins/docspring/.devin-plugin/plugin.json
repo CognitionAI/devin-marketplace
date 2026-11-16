@@ -1,0 +1,27 @@
+{
+  "name": "docspring",
+  "displayName": "DocSpring",
+  "description": "Fill PDF and Word templates, generate PDFs and Word documents, and send documents for e-signature from Devin",
+  "shortDescription": "PDF and Word templates and e-signatures",
+  "homepage": "https://docspring.com/docs/mcp/",
+  "repository": "https://github.com/DocSpring/skills",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "docspring": {
+      "url": "https://${DOCSPRING_MCP_HOST:-mcp.docspring.com}/mcp",
+      "urlOptions": [
+        {
+          "label": "US",
+          "url": "https://mcp.docspring.com/mcp"
+        },
+        {
+          "label": "EU",
+          "url": "https://mcp-eu.docspring.com/mcp"
+        }
+      ]
+    }
+  }
+}
