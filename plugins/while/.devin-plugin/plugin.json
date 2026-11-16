@@ -1,0 +1,17 @@
+{
+  "name": "while",
+  "displayName": "while.sh",
+  "description": "Deploy apps with their PostgreSQL databases, caches, S3 storage and scheduled jobs, then read their logs and roll back, hosted in France",
+  "shortDescription": "Apps, databases and deployments",
+  "homepage": "https://while.sh/en/",
+  "repository": "https://github.com/while-sh/while",
+  "logo": "logo.svg",
+  "keywords": [
+    "Cloud & Infrastructure"
+  ],
+  "mcpServers": {
+    "while": {
+      "url": "https://app.while.sh/mcp"
+    }
+  }
+}

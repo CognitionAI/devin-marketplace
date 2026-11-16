@@ -221,6 +221,7 @@
     "./plugins/vanta-eu",
     "./plugins/vercel",
     "./plugins/webull",
+    "./plugins/while",
     "./plugins/windsor-ai",
     "./plugins/wingspan",
     "./plugins/wispr-flow",
