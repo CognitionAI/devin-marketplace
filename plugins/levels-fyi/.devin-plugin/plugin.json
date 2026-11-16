@@ -1,0 +1,17 @@
+{
+  "name": "levels-fyi",
+  "displayName": "Levels.fyi",
+  "description": "Check what a role or level pays, evaluate job offers, compare company levels and search open jobs with Levels.fyi data",
+  "shortDescription": "Salaries, levels and job search",
+  "homepage": "https://www.levels.fyi",
+  "repository": "https://github.com/Levels-fyi/levels-fyi-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "levels-fyi": {
+      "url": "https://mcp.levels.fyi/"
+    }
+  }
+}
