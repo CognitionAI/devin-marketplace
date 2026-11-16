@@ -1,7 +1,7 @@
 {
   "name": "cognition-mssql",
   "displayName": "SQL Server",
-  "description": "SQL Server integration for data management and T-SQL operations",
+  "description": "Query SQL Server with T-SQL and inspect database records",
   "shortDescription": "SQL Server queries and data management",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",

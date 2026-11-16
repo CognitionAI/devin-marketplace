@@ -1,7 +1,7 @@
 {
   "name": "azure",
   "displayName": "Azure",
-  "description": "Azure integration for cloud services and resource management",
+  "description": "Manage Azure cloud services and resources",
   "shortDescription": "Cloud resources and service management",
   "homepage": "https://azure.microsoft.com",
   "logo": "logo.svg",

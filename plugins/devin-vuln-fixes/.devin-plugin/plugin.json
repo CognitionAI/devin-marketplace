@@ -1,0 +1,11 @@
+{
+  "name": "devin-vuln-fixes",
+  "displayName": "Vulnerability Fixes",
+  "description": "Find and patch vulnerable PHP, Node.js, and self-managed GitLab runtimes, with a read-only inventory, approval before edits, and one PR per repo",
+  "shortDescription": "Fix vulnerable PHP, Node and GitLab",
+  "logo": "logo.svg",
+  "keywords": [
+    "Security",
+    "Remediation"
+  ]
+}

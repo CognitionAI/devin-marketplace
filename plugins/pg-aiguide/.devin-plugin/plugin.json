@@ -1,7 +1,7 @@
 {
   "name": "pg-aiguide",
   "displayName": "pg-aiguide",
-  "description": "pg-aiguide integration to search Postgres and Tiger docs and learn database skills",
+  "description": "Search Postgres and Tiger documentation and learn database skills with pg-aiguide",
   "shortDescription": "PostgreSQL docs and database skills",
   "homepage": "https://www.tigerdata.com",
   "repository": "https://github.com/timescale/pg-aiguide",

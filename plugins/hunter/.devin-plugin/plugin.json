@@ -1,7 +1,7 @@
 {
   "name": "hunter",
   "displayName": "Hunter.io",
-  "description": "Hunter.io's hosted MCP server: find and verify professional email addresses, search contacts by domain and enrich company data.",
+  "description": "Find and verify professional email addresses, search domain contacts, and enrich company data with Hunter",
   "shortDescription": "Find and verify business emails",
   "homepage": "https://hunter.io",
   "logo": "logo.png",

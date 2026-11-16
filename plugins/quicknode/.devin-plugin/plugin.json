@@ -1,7 +1,7 @@
 {
   "name": "quicknode",
   "displayName": "QuickNode",
-  "description": "QuickNode integration to manage your blockchain infrastructure",
+  "description": "Manage QuickNode blockchain nodes and infrastructure",
   "shortDescription": "Blockchain nodes and infrastructure",
   "homepage": "https://www.quicknode.com",
   "logo": "logo.png",

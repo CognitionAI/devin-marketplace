@@ -1,7 +1,7 @@
 {
   "name": "hex",
   "displayName": "Hex",
-  "description": "Hex integration to answer questions about your data with the Hex agent",
+  "description": "Ask the Hex agent questions about your data and analyze the results",
   "shortDescription": "Data questions and notebook analytics",
   "homepage": "https://hex.tech",
   "logo": "logo.png",

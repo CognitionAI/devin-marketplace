@@ -1,7 +1,7 @@
 {
   "name": "similarweb",
   "displayName": "Similarweb",
-  "description": "Similarweb integration for real-time web, mobile app, and market data",
+  "description": "Research real-time web traffic, mobile app, and market data with Similarweb",
   "shortDescription": "Web, app and market analytics",
   "homepage": "https://www.similarweb.com",
   "logo": "logo.svg",

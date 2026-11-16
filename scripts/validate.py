@@ -10,11 +10,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / ".devin-plugin" / "plugin.json"
@@ -24,6 +26,8 @@ NAME_RE = re.compile(r"^[a-z0-9]+([.-][a-z0-9]+)*$")
 URL_RE = re.compile(r"^https://[^\s/]+/[^\s]+\.git$")
 LOCAL_RE = re.compile(r"^\./plugins/([a-z0-9]+([.-][a-z0-9]+)*)$")
 PLACEHOLDER_RE = re.compile(r"\$\{([^}]*)\}")
+# What a member may type into a `${NAME}` part of a URL: host-label characters.
+URL_VALUE_PATTERN = r"[A-Za-z0-9._-]+?"
 CREDENTIAL_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 RUNTIME_PLACEHOLDERS = {"CLAUDE_PLUGIN_ROOT", "PLUGIN_ROOT"}
 LOGO_RE = re.compile(r"^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*\.(svg|png|jpg|jpeg|webp)$")
@@ -34,6 +38,7 @@ PLUGIN_KEYS = {
     "displayName",
     "description",
     "shortDescription",
+    "setup",
     "homepage",
     "repository",
     "logo",
@@ -41,7 +46,10 @@ PLUGIN_KEYS = {
     "mcpServers",
 }
 STDIO_KEYS = {"command", "args", "env"}
-HTTP_KEYS = {"url", "headers", "transport", "oauthClientId", "oauthScopes"}
+HTTP_KEYS = {"url", "urlOptions", "headers", "transport", "oauthClientId", "oauthScopes"}
+# Other manifest/MCP locations the plugin loader would also read; authored
+# plugins declare everything in .devin-plugin/plugin.json so this validator sees it.
+SHADOW_FILES = ("plugin.json", ".mcp.json", "mcp.json")
 
 
 def identity(plugin: object) -> tuple[str, str]:
@@ -142,11 +150,57 @@ def check_server(where: str, slug: str, config: object, errors: list[str]) -> No
             errors.append(f"{where}: server '{slug}' headers must be an object")
             return
         strings = [url, *headers.values()]
+        if "urlOptions" in config:
+            check_url_options(where, slug, url, config["urlOptions"], errors)
     for value in strings:
         if not isinstance(value, str):
             errors.append(f"{where}: server '{slug}' has a non-string value")
             continue
         check_placeholders(f"{where} ({slug})", value, errors)
+
+
+def endpoint(url: str) -> tuple[str, str | None, int | None, str] | None:
+    try:
+        parts = urlsplit(url)
+        return (parts.scheme, parts.hostname, parts.port, parts.path)
+    except ValueError:
+        return None
+
+
+def check_url_options(where: str, slug: str, url: str, options: object, errors: list[str]) -> None:
+    # The installation's token goes to whichever option a member picks, so the
+    # options may differ from `url` (the default) only in the query, or only in
+    # the one `${NAME}` part of `url`, which a member may type in anyway.
+    if not isinstance(options, list) or not all(
+        isinstance(option, dict)
+        and set(option) == {"label", "url"}
+        and isinstance(option["label"], str)
+        and option["label"].strip()
+        and isinstance(option["url"], str)
+        for option in options
+    ):
+        errors.append(f"{where}: server '{slug}' urlOptions must be a list of {{label, url}} objects")
+        return
+    urls = [option["url"] for option in options]
+    typed = len(PLACEHOLDER_RE.findall(url)) == 1
+    if (not typed and url not in urls) or len(set(urls)) != len(urls):
+        errors.append(f"{where}: server '{slug}' urlOptions must list url once, and each URL once")
+    # Odd items of the split are the `${NAME}` references.
+    filled_in = "".join(
+        URL_VALUE_PATTERN if index % 2 else re.escape(text) for index, text in enumerate(PLACEHOLDER_RE.split(url))
+    )
+    for option_url in urls:
+        if PLACEHOLDER_RE.search(option_url):
+            fits = False
+        elif typed:
+            fits = re.fullmatch(filled_in, option_url) is not None
+        else:
+            fits = endpoint(option_url) is not None and endpoint(option_url) == endpoint(url)
+        if not fits:
+            errors.append(
+                f"{where}: server '{slug}' urlOptions entry {option_url} must "
+                + ("be url with its ${NAME} part filled in" if typed else "differ from url only in the query")
+            )
 
 
 def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
@@ -160,6 +214,14 @@ def check_logo(where: str, slug: str, logo: object, errors: list[str]) -> None:
         return
     if not (PLUGINS / slug / logo).is_file():
         errors.append(f"{where}: logo '{logo}' does not exist in the plugin directory")
+
+
+def check_symlinks(where: str, root: Path, errors: list[str]) -> None:
+    for parent, dirs, files in os.walk(root):
+        for name in dirs + files:
+            link = Path(parent) / name
+            if link.is_symlink() and not link.resolve().is_relative_to(root.resolve()):
+                errors.append(f"{where}: symlink {link.relative_to(root)} must point inside the plugin")
 
 
 def check_local_plugin(slug: str, errors: list[str]) -> None:
@@ -179,6 +241,26 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
         errors.append(f"{where}: shortDescription must be a non-empty string")
     elif len(short_description) > 40:
         errors.append(f"{where}: shortDescription must be 40 characters or fewer")
+    if "setup" in data:
+        setup = data["setup"]
+        if not isinstance(setup, dict):
+            errors.append(f"{where}: setup must be an object")
+        else:
+            extra = set(setup) - {"notice", "steps"}
+            if extra:
+                errors.append(f"{where}: setup has unexpected keys {sorted(extra)}")
+            if not {"notice", "steps"} & set(setup):
+                errors.append(f"{where}: setup needs notice or steps")
+            if "notice" in setup and (
+                not isinstance(setup["notice"], str) or not setup["notice"].strip()
+            ):
+                errors.append(f"{where}: setup notice must be a non-empty string")
+            if "steps" in setup and (
+                not isinstance(setup["steps"], list)
+                or not setup["steps"]
+                or any(not isinstance(step, str) or not step.strip() for step in setup["steps"])
+            ):
+                errors.append(f"{where}: setup steps must be a non-empty list of non-empty strings")
     display_name = data.get("displayName")
     if display_name is not None and (
         not isinstance(display_name, str)
@@ -190,11 +272,19 @@ def check_local_plugin(slug: str, errors: list[str]) -> None:
     logo = data.get("logo")
     if logo is not None:
         check_logo(where, slug, logo, errors)
-    servers = data.get("mcpServers")
-    if not isinstance(servers, dict) or len(servers) != 1 or slug not in servers:
-        errors.append(f"{where}: mcpServers must declare exactly one server named '{slug}'")
+    servers = data.get("mcpServers", {})
+    if not isinstance(servers, dict):
+        errors.append(f"{where}: mcpServers must be an object")
         return
-    check_server(where, slug, servers[slug], errors)
+    root = PLUGINS / slug
+    for name, config in servers.items():
+        check_server(where, name, config, errors)
+    if not servers and not any(f.is_file() for f in (root / "skills").glob("*/SKILL.md")):
+        errors.append(f"{where}: a plugin needs mcpServers or at least one skills/*/SKILL.md")
+    for shadow in SHADOW_FILES:
+        if (root / shadow).exists():
+            errors.append(f"{where}: {shadow} is not allowed; declare everything in .devin-plugin/plugin.json")
+    check_symlinks(where, root, errors)
 
 
 def canonical(data: dict) -> str:

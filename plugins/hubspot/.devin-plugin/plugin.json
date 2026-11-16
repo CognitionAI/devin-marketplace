@@ -1,8 +1,11 @@
 {
   "name": "hubspot",
   "displayName": "HubSpot",
-  "description": "List, retrieve, create, and update HubSpot CRM objects; manage associations, properties, and schemas; create notes and tasks; list workflows; fetch user or account context and more.",
+  "description": "Manage HubSpot CRM objects, associations, properties, and schemas, create notes and tasks, and list workflows",
   "shortDescription": "CRM records, workflows and tasks",
+  "setup": {
+    "notice": "Create a HubSpot private app to obtain the access token before connecting."
+  },
   "homepage": "https://www.hubspot.com",
   "logo": "logo.svg",
   "keywords": [

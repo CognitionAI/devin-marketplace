@@ -1,7 +1,7 @@
 {
   "name": "calendly",
   "displayName": "Calendly",
-  "description": "Calendly integration for scheduling meetings, managing events, and automating calendar workflows",
+  "description": "Schedule Calendly meetings, manage events, and automate booking workflows",
   "shortDescription": "Meeting scheduling and event management",
   "homepage": "https://calendly.com",
   "logo": "logo.svg",
