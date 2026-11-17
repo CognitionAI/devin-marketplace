@@ -190,6 +190,7 @@
     "./plugins/ref-tools",
     "./plugins/replicate",
     "./plugins/resend",
+    "./plugins/revyl",
     "./plugins/rootly",
     "./plugins/sanity",
     "./plugins/sentry",
