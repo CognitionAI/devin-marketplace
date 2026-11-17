@@ -1,5 +1,5 @@
 ---
-name: revyl-proof
+name: proof
 description: Prove a pull request on a Revyl cloud device using the build of its exact head commit, from Revyl's GitHub App preview build or a CI upload, without rebuilding, and draft the proof for the pull request. Use when asked to prove, verify or test a pull request on a device.
 argument-hint: "[pull request number or URL] [ios|android|web]"
 ---
@@ -8,7 +8,7 @@ argument-hint: "[pull request number or URL] [ios|android|web]"
 
 Prove a pull request with a build of its exact head commit and draft the
 evidence. This skill never builds or uploads: the proof is about the artifact
-the pull request produced. To check unpushed work, use `revyl-dev-loop`.
+the pull request produced. To check unpushed work, use `/revyl:dev-loop`.
 
 ## Revyl CLI
 
@@ -43,9 +43,9 @@ This plugin's `revyl` MCP server is Revyl's hosted workspace. Its tools find
 apps and builds, start, act on, screenshot and stop device sessions, and read
 Atlas. It signs in with Revyl's OAuth page, separately from the CLI: in Devin
 Cloud, connect it from **Customize → MCPs**; in the Devin CLI, use
-`devin mcp login`. Mention signing in only when the user wants something those
-tools do; every step below also has a CLI command. Check which tools are
-actually available before naming one.
+`devin mcp login revyl`. Mention signing in only when the user wants
+something those tools do; every step below also has a CLI command. Check which
+tools are actually available before naming one.
 
 The hosted tools can act on a session the CLI started, by its returned
 `session_id`. If they can't see it, the two sign-ins point at different

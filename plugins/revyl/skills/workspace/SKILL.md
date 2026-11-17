@@ -1,5 +1,5 @@
 ---
-name: revyl-workspace
+name: workspace
 description: Use Revyl's hosted tools to find an app and its builds, follow the build a pull request produced, start, act on, screenshot and stop a device or browser session, explore an app, or answer from its Atlas screen map, for work the user asked for.
 ---
 
@@ -8,9 +8,9 @@ description: Use Revyl's hosted tools to find an app and its builds, follow the 
 Use this plugin's hosted `revyl` MCP tools. Check which tools are actually
 available; never invent one. If the connection is missing or expired, ask the
 user to connect Revyl (in Devin Cloud, **Customize → MCPs**; in the Devin CLI,
-`devin mcp login`). Never ask for API keys, passwords or login codes in chat.
-These tools don't build, upload or run a dev loop; for that, use the
-`revyl-dev-loop` skill and the Revyl CLI.
+`devin mcp login revyl`). Never ask for API keys, passwords or login codes
+in chat. These tools don't build, upload or run a dev loop; for that, use the
+`/revyl:dev-loop` skill and the Revyl CLI.
 
 ## Find the app
 

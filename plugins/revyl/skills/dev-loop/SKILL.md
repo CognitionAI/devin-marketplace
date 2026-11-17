@@ -1,5 +1,5 @@
 ---
-name: revyl-dev-loop
+name: dev-loop
 description: Run, preview, debug and verify mobile app changes on a Revyl cloud iOS or Android device with the Revyl CLI. Use after changing iOS, Android, Expo, React Native, Flutter or other mobile app code, before reporting the work done, to offer an on-device check; also use when asked to run, preview or screenshot the app on a device.
 ---
 
@@ -46,9 +46,9 @@ This plugin's `revyl` MCP server is Revyl's hosted workspace. Its tools find
 apps and builds, start, act on, screenshot and stop device sessions, and read
 Atlas. It signs in with Revyl's OAuth page, separately from the CLI: in Devin
 Cloud, connect it from **Customize → MCPs**; in the Devin CLI, use
-`devin mcp login`. Mention signing in only when the user wants something those
-tools do; every step below also has a CLI command. Check which tools are
-actually available before naming one.
+`devin mcp login revyl`. Mention signing in only when the user wants
+something those tools do; every step below also has a CLI command. Check which
+tools are actually available before naming one.
 
 The hosted tools can act on a session the CLI started, by its returned
 `session_id`. If they can't see it, the two sign-ins point at different

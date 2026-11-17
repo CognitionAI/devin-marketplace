@@ -1,5 +1,5 @@
 ---
-name: revyl-headless
+name: headless
 description: Revyl conventions for Devin sessions nobody is watching live, such as scheduled, API-started or Slack-started sessions and CI jobs. Covers CLI sign-in with REVYL_API_KEY, finding or making builds without Xcode, bounded waits, device evidence and always stopping sessions. Use whenever Devin works with Revyl without a user who can answer in time.
 ---
 
@@ -56,7 +56,7 @@ the config) and report what you would run and what it would use.
 
 ## Builds
 
-- Look for an existing build of the exact commit first, as the `revyl-proof`
+- Look for an existing build of the exact commit first, as the `/revyl:proof`
   skill describes: a pull-request preview or a CI upload costs nothing.
 - Devin's Linux machine has no Xcode, so iOS builds run on Revyl's runners:
   `revyl build --profile <profile> --platform ios --detach --json`, then
