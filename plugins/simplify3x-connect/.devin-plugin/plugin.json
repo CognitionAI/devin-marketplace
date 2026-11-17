@@ -1,0 +1,30 @@
+{
+  "name": "simplify3x-connect",
+  "displayName": "simplify3x-connect",
+  "description": "Find, write, run and triage SimplifyQA test cases, suites, executions and defects without leaving Devin",
+  "shortDescription": "Test management and automation",
+  "setup": {
+    "notice": "Requires a SimplifyQA workspace reachable from the internet and an API token from your SimplifyQA profile. Live browser recording needs the local SimplifyQA agent and is not available in Devin."
+  },
+  "homepage": "https://simplifyqa.ai",
+  "repository": "https://github.com/Simplify3x/simplify3x-connect",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "simplify3x-connect": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "simplify3x-connect@0.28.1"
+      ],
+      "env": {
+        "QA_MCP_PROVIDER": "simplifyqa",
+        "QA_BASE_URL": "${QA_BASE_URL}",
+        "QA_MCP_TOKEN": "${QA_MCP_TOKEN}",
+        "QA_MCP_PROJECT_ID": "${QA_MCP_PROJECT_ID}"
+      }
+    }
+  }
+}
