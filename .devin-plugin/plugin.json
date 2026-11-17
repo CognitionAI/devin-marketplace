@@ -274,6 +274,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/gitranks/contribute.git",
+      "sha": "e0255d10d64b1c171c9da299900d72c713da86f1"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
     }
