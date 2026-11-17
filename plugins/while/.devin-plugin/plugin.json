@@ -1,8 +1,8 @@
 {
   "name": "while",
   "displayName": "while.sh",
-  "description": "Deploy apps with their PostgreSQL databases, caches, S3 storage and scheduled jobs, then read their logs and roll back, hosted in France",
-  "shortDescription": "Apps, databases and deployments",
+  "description": "Deploy the apps you build, for your team only or for everyone, with their PostgreSQL databases, scheduled jobs and storage, then read their logs and roll back, hosted in France",
+  "shortDescription": "Apps for your team or everyone",
   "homepage": "https://while.sh/en/",
   "repository": "https://github.com/while-sh/while",
   "logo": "logo.svg",
