@@ -1,0 +1,21 @@
+{
+  "name": "olostep",
+  "displayName": "Olostep",
+  "description": "Search the web, scrape pages, crawl sites and batch-scrape thousands of URLs into clean, LLM-ready markdown with Olostep",
+  "shortDescription": "Web search, scraping and crawling",
+  "homepage": "https://www.olostep.com",
+  "repository": "https://github.com/olostep/olostep-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "olostep": {
+      "url": "https://mcp.olostep.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${OLOSTEP_API_KEY}"
+      }
+    }
+  }
+}
