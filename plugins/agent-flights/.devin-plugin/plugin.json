@@ -1,0 +1,18 @@
+{
+  "name": "agent-flights",
+  "displayName": "Agent Flights",
+  "description": "Find the cheapest flights worldwide, strongest on African routes, with flexible dates and booking links",
+  "shortDescription": "Cheapest flight search, strong on Africa",
+  "homepage": "https://lowest.flights",
+  "repository": "https://github.com/lomiafrica/agent-flights-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Travel",
+    "Search"
+  ],
+  "mcpServers": {
+    "agent-flights": {
+      "url": "https://lowest.flights/mcp"
+    }
+  }
+}
