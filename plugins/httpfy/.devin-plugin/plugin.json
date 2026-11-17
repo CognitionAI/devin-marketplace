@@ -1,0 +1,17 @@
+{
+  "name": "httpfy",
+  "displayName": "HTTPfy",
+  "description": "Check DNS records, SPF/DKIM/DMARC, TLS certificates, WHOIS, IP/ASN, blocklists, ping, traceroute and open ports for any public domain or IP",
+  "shortDescription": "DNS, email and network diagnostics",
+  "homepage": "https://httpfy.io/agents",
+  "repository": "https://github.com/cloudaidnet/httpfy.io",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "httpfy": {
+      "url": "https://httpfy.io/mcp"
+    }
+  }
+}
