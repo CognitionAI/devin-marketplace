@@ -20,6 +20,7 @@
     "./plugins/atlassian",
     "./plugins/attio",
     "./plugins/aura",
+    "./plugins/autoshort",
     "./plugins/aws-agent-toolkit",
     "./plugins/aws-aurora-dsql",
     "./plugins/aws-aurora-postgresql",
