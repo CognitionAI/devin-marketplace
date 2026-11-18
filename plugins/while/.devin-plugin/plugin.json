@@ -1,8 +1,8 @@
 {
   "name": "while",
   "displayName": "while.sh",
-  "description": "Deploy the apps you build, for your team only or for everyone, with their PostgreSQL databases, scheduled jobs and storage, then read their logs and roll back, hosted in France. Free to try without an account.",
-  "shortDescription": "Apps for your team or everyone",
+  "description": "Tools built with your AI, online for your team, a client or everyone. No sign-up. Each tool keeps your data, backed up every day, and your files. Its automations run at a set time. Hosted in France.",
+  "shortDescription": "Share tools or put them online",
   "homepage": "https://while.sh/en/",
   "repository": "https://github.com/while-sh/while",
   "logo": "logo.svg",
