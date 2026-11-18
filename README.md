@@ -41,8 +41,9 @@ strings. No other keys are allowed. Do not repeat credential fields, placeholder
 names, OAuth sign-in instructions, or default domains already handled by the
 install form. Only add `setup` for external steps or meaningful connection caveats.
 
-Contributions are accepted under the [Contributor License Agreement](CLA.md);
-opening a pull request means you agree to it.
+Contributions are accepted under the
+[Cognition App Developer Terms](https://cognition.com/legal/app-terms); opening
+a pull request means you agree to them.
 
 ## License
 
