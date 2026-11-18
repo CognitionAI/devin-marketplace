@@ -1,8 +1,8 @@
 {
   "name": "while",
   "displayName": "while.sh",
-  "description": "Tools built with your AI, online for your team, a client or everyone. No sign-up. Each tool keeps your data, backed up every day, and your files. Its automations run at a set time. Hosted in France.",
-  "shortDescription": "Share tools or put them online",
+  "description": "Deploy and share tools built with your AI agent: your team, a client or everyone. No sign-up. Each tool has its PostgreSQL database backed up every day, storage and scheduled jobs. Hosted in France.",
+  "shortDescription": "Deploy and share your tools",
   "homepage": "https://while.sh/en/",
   "repository": "https://github.com/while-sh/while",
   "logo": "logo.svg",
