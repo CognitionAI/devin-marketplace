@@ -1,6 +1,6 @@
 {
   "name": "google-productivity",
-  "displayName": "Google",
+  "displayName": "Gmail & Google Calendar",
   "description": "Read and manage Gmail, Google Calendar, and Google Contacts through Devin",
   "shortDescription": "Gmail, Google Calendar and Contacts",
   "setup": {
