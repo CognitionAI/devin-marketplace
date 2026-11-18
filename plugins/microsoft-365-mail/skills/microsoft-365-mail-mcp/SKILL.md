@@ -15,6 +15,7 @@ Teams, tasks and people lookups live behind separate endpoints.
 | Check which account this endpoint is signed in as | `mail_me`                                     |
 | See recent or unread messages                     | `mail_list`                                   |
 | Read a message body                               | `mail_get`                                    |
+| Read several message bodies                       | `mail_get_messages`                           |
 | Find a folder id                                  | `mail_folders`                                |
 | Send a message now                                | `mail_send_mail`                              |
 | Leave a message for the user to send themselves   | `mail_create_draft`                           |
@@ -27,7 +28,8 @@ Teams, tasks and people lookups live behind separate endpoints.
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `mail_me()`                                                                                                                                | Signed-in user (`id`, `display_name`, `mail`, `user_principal_name`) and `tenant_id` for this endpoint's token. Other M365 endpoints have their own tokens and may be signed in as someone else. |
 | `mail_list(folder_id?, search?, unread_only=false, limit?, cursor?)`                                                                       | One page, newest first. `search` and `unread_only` cannot be combined.                                                                                                                           |
-| `mail_get(message_id)`                                                                                                                     | Full message including body.                                                                                                                                                                     |
+| `mail_get(message_id)`                                                                                                                     | Full message including body and `ccRecipients`. Only when the list fields are not enough.                                                                                                        |
+| `mail_get_messages(message_ids[])`                                                                                                         | Up to 20 ids in one Graph batch (Graph runs them 4 at a time). Returns `items` in request order, duplicates dropped; each has `message` or `error`.                                              |
 | `mail_folders(limit?, cursor?)`                                                                                                            | Folder ids, display names, unread counts.                                                                                                                                                        |
 | `mail_send_mail(subject, body, to[], body_type="Text"\|"HTML", cc?, bcc?, save_to_sent_items=true, confirm=false)`                         | Sends only with `confirm=true`.                                                                                                                                                                  |
 | `mail_create_draft(subject, body, to[], body_type?, cc?, bcc?, confirm=false)`                                                             | Creates a draft; it is never sent. Recipients are not validated.                                                                                                                                 |
@@ -64,24 +66,36 @@ Teams, tasks and people lookups live behind separate endpoints.
   capped.
 - Results are narrow projections in Graph's camelCase (`displayName`, `parentFolderId`,
   `isRead`, `receivedDateTime`); list items carry `body: null` — use `mail_get` for the body.
+- List items already carry `subject`, `from`, `toRecipients`, `receivedDateTime`, `isRead`,
+  `hasAttachments` and `bodyPreview` (the first 255 characters of the body, as text). Triage,
+  summarize and pick messages from those; call `mail_get` only for the messages whose full
+  body or `ccRecipients` you actually need.
+- A `mail_get_messages` item with `error.error: graph_throttled` → wait its `retry_after`, then
+  call again with only the failed ids. Other items in the same result are valid.
+- **At most 4 calls in flight per mailbox, in total across `mail_*` (contacts included) and
+  `calendar_*`.** Outlook allows only 4 concurrent requests per mailbox, shared by mail,
+  calendar and contacts; more fail with `graph_throttled` (429). Never fan out one `mail_get`
+  per listed message: put the ids in one `mail_get_messages` call, and run batches one after
+  another — one batch already uses the mailbox's 4 slots.
 
 ## Writing: preview → approval → confirm
 
 Every write takes `confirm` (default `false`).
 
 1. Call it **without** `confirm`. Nothing is sent; you get a non-PII preview (counts and
-   lengths, e.g. `{"to_count": 1, "body_length": 15}`).
+   lengths, e.g. `{"to_count": 1, "body_length": 15}`) with `status: rejected` and
+   `error.error == "confirmation_required"`.
 2. Show the user what will happen — recipients, subject, folder — and get explicit approval.
 3. Re-run the **identical** call with `confirm: true`.
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                              | Do                                                                                                       |
-| -------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | It happened.                                         | Report success using `body`.                                                                             |
-| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. Read back if you need details.                                       |
-| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | Fix the arguments and retry safely.                                                                      |
-| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not resend.** Check Sent Items or the folder with `mail_list`, then tell the user it is unverified. |
+| `status`                   | Meaning                                              | Do                                                                                                                                                            |
+| -------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | It happened.                                         | Report success using `body`.                                                                                                                                  |
+| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. Read back if you need details.                                                                                            |
+| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error`: fix the arguments and retry safely. |
+| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not resend.** Check Sent Items or the folder with `mail_list`, then tell the user it is unverified.                                                      |
 
 `mail_mark_read`, `mail_archive` and `mail_move` may be retried once after you verify state.
 `mail_send_mail` and `mail_create_draft` must never be blindly retried.
@@ -111,7 +125,7 @@ mail_list { "folder_id": "AAMk...Inbox", "unread_only": true, "limit": 25, "curs
 
 // Send: preview, ask, then confirm
 mail_send_mail { "subject": "Q3 review", "body": "Notes attached.", "to": ["ana@contoso.com"] }
-//  -> { "status": "rejected", "body": { "to_count": 1, "body_length": 15 } }   nothing sent
+//  -> { "status": "rejected", "body": { "to_count": 1, "body_length": 15 }, "error": { "error": "confirmation_required", ... } }   nothing sent
 mail_send_mail { "subject": "Q3 review", "body": "Notes attached.", "to": ["ana@contoso.com"], "confirm": true }
 //  -> { "status": "confirmed", "body": { "recipient_count": 1, "saved_to_sent_items": true } }
 
@@ -137,7 +151,9 @@ mail_archive { "message_id": "AAMk...", "confirm": true }
   (contacts). Calling it anyway returns `insufficient_scope` with `required_scopes`; do not look
   for a workaround.
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.
-- **429 / `retryable`** → wait `retry_after` before retrying, and retry reads only.
+- **429 / `graph_throttled`** → wait `retry_after` seconds (back off if it is missing), retry
+  reads only, and lower your parallelism to at most 4 calls at a time. Don't retry the other
+  parallel calls immediately: they share the same mailbox limit.
 - **`invalid_graph_url`** → the cursor was altered; restart from the first page.
 - **Validation errors** (`search` + `unread_only`, `limit: 0`) mean nothing was sent; fix the
   arguments. `mail_contacts_create` / `mail_contacts_update` with no fields fail as a tool error

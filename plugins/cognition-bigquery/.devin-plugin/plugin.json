@@ -1,7 +1,7 @@
 {
   "name": "cognition-bigquery",
   "displayName": "BigQuery",
-  "description": "BigQuery integration for analytics queries and dataset management",
+  "description": "Run BigQuery SQL analytics and manage datasets",
   "shortDescription": "BigQuery analytics queries and datasets",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",

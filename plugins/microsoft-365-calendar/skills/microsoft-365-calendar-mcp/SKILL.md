@@ -73,12 +73,12 @@ Every write takes `confirm` (default `false`).
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                              | Do                                                                                                                     |
-| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | It happened.                                         | Report success using `body` (contains the event id).                                                                   |
-| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `calendar_list_events` to recover the event.                                       |
-| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | Fix the arguments and retry safely.                                                                                    |
-| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not re-create the event** — you would duplicate invitations. List the range, then tell the user it is unverified. |
+| `status`                   | Meaning                                              | Do                                                                                                                                                                                       |
+| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | It happened.                                         | Report success using `body` (contains the event id).                                                                                                                                     |
+| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `calendar_list_events` to recover the event.                                                                                                         |
+| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`invalid_request`, a 4xx): fix the arguments and retry safely. |
+| `indeterminate`            | It **may** have happened (timeout / server error).   | **Do not re-create the event** — you would duplicate invitations. List the range, then tell the user it is unverified.                                                                   |
 
 `calendar_delete_event` may be retried once after verifying state. `calendar_create_event` must
 never be blindly retried.
@@ -147,7 +147,11 @@ calendar_update_event {
   it anyway returns `insufficient_scope` with `required_scopes`; report it instead of looking
   for a workaround.
 - **`401`** → the token is missing or expired; ask the caller for a fresh one.
-- **429 / `retryable`** → wait `retry_after`, and retry reads only.
+- **429 / `graph_throttled`** → wait `retry_after` seconds (back off if it is missing), retry
+  reads only, and keep at most 4 calls in flight per mailbox, in total across `calendar_*` and
+  `mail_*` (contacts included): Outlook allows only 4 concurrent requests per mailbox, shared
+  by calendar, mail and contacts. Prefer one `calendar_list_events` over a range to one
+  `calendar_get_event` per event.
 - **`invalid_graph_url`** → the cursor was altered; restart from the first page.
 - **Validation errors** (bad range, empty patch) mean nothing was sent; fix the arguments.
 - **Ambiguity** (which "Ana", which of two similar meetings) → ask the user before writing.

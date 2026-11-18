@@ -1,7 +1,7 @@
 {
   "name": "mapbox-devkit",
   "displayName": "Mapbox DevKit",
-  "description": "Mapbox's hosted DevKit MCP server: manage styles, tilesets, fonts, datasets and tokens in your Mapbox account.",
+  "description": "Manage Mapbox styles, tilesets, fonts, datasets, and tokens",
   "shortDescription": "Styles, tilesets and map data",
   "homepage": "https://www.mapbox.com",
   "repository": "https://github.com/mapbox/mapbox-agent-skills",

@@ -1,7 +1,7 @@
 {
   "name": "gitlab",
   "displayName": "GitLab",
-  "description": "GitLab integration to securely connect AI tools to your GitLab data",
+  "description": "Review GitLab repositories, merge requests, and CI pipelines",
   "shortDescription": "Repos, merge requests and CI pipelines",
   "homepage": "https://gitlab.com",
   "logo": "logo.svg",

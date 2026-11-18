@@ -1,7 +1,7 @@
 {
   "name": "cognition-cloud-sql-postgres",
   "displayName": "Cloud SQL (PostgreSQL)",
-  "description": "Cloud SQL for PostgreSQL integration for data management and SQL operations",
+  "description": "Query Cloud SQL for PostgreSQL with SQL and inspect database records",
   "shortDescription": "Cloud SQL for PostgreSQL databases",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",

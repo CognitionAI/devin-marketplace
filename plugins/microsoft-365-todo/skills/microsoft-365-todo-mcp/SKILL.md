@@ -82,12 +82,12 @@ Every write takes `confirm` (default `false`).
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                              | Do                                                                                                                                |
-| -------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | It happened.                                         | Report success using `body` (contains the task id).                                                                               |
-| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `todo_list_tasks` to recover the task.                                                        |
-| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | Fix the arguments and retry safely.                                                                                               |
-| `indeterminate`            | It **may** have happened (timeout / server error).   | For `create_task`, **do not retry** — you would create a duplicate. `todo_list_tasks` first, then tell the user it is unverified. |
+| `status`                   | Meaning                                              | Do                                                                                                                                                                                       |
+| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | It happened.                                         | Report success using `body` (contains the task id).                                                                                                                                      |
+| `confirmed_but_unreadable` | **It happened**; only the response was unreadable.   | Treat as success. Do **not** retry. `todo_list_tasks` to recover the task.                                                                                                               |
+| `rejected`                 | Nothing happened (no `confirm`, or invalid request). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`invalid_request`, a 4xx): fix the arguments and retry safely. |
+| `indeterminate`            | It **may** have happened (timeout / server error).   | For `create_task`, **do not retry** — you would create a duplicate. `todo_list_tasks` first, then tell the user it is unverified.                                                        |
 
 `todo_update_task`, `todo_complete_task` and `todo_delete_task` are idempotent enough to retry
 once after you verify state; `todo_create_task` is not.

@@ -1,7 +1,7 @@
 {
   "name": "aws-aurora-dsql",
   "displayName": "Amazon Aurora DSQL",
-  "description": "Amazon Aurora DSQL integration for serverless distributed SQL database operations",
+  "description": "Run SQL operations on Amazon Aurora DSQL distributed databases",
   "shortDescription": "Serverless distributed SQL queries",
   "homepage": "https://aws.amazon.com/rds/aurora/",
   "repository": "https://github.com/awslabs/mcp",

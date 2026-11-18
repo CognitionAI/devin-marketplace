@@ -1,7 +1,7 @@
 {
   "name": "atlan",
   "displayName": "Atlan",
-  "description": "Atlan's hosted MCP server: search, explore and govern your data catalog with semantic search, lineage traversal, glossary management and data-quality context.",
+  "description": "Search your Atlan data catalog, trace lineage, manage glossary terms, and check data quality",
   "shortDescription": "Data catalog search and governance",
   "homepage": "https://atlan.com",
   "repository": "https://github.com/atlanhq/agent-toolkit",

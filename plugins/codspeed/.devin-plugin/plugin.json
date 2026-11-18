@@ -1,7 +1,7 @@
 {
   "name": "codspeed",
   "displayName": "CodSpeed",
-  "description": "CodSpeed's hosted MCP server: dive into benchmark results, flamegraphs and performance comparisons to pinpoint bottlenecks and iterate on performance.",
+  "description": "Compare CodSpeed benchmarks and inspect flamegraphs to find performance bottlenecks",
   "shortDescription": "Benchmarks, flamegraphs and speed trends",
   "homepage": "https://codspeed.io",
   "repository": "https://github.com/CodSpeedHQ/codspeed",

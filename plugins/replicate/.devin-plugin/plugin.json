@@ -1,7 +1,7 @@
 {
   "name": "replicate",
   "displayName": "Replicate",
-  "description": "Run and deploy AI models from thousands of community-contributed models",
+  "description": "Run and deploy thousands of community AI models on Replicate",
   "shortDescription": "Run and deploy AI models",
   "homepage": "https://replicate.com",
   "repository": "https://github.com/replicate/mcp",

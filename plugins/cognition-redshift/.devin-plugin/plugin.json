@@ -1,7 +1,7 @@
 {
   "name": "cognition-redshift",
   "displayName": "Amazon Redshift (Password Auth)",
-  "description": "Amazon Redshift integration with username/password authentication for data warehouse operations",
+  "description": "Query Amazon Redshift warehouse data with username and password authentication",
   "shortDescription": "Data warehouse queries and analytics",
   "homepage": "https://aws.amazon.com/redshift/",
   "repository": "https://github.com/cognitionai/database-toolbox",

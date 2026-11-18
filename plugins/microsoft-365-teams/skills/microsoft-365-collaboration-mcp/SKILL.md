@@ -77,21 +77,21 @@ and do **not** ask the user to grant `Chat.Read`.
 
 Every send takes `confirm` (default `false`).
 
-1. Call it **without** `confirm`. Nothing is posted; you get a bare
-   `{"status": "rejected", "body": null, "error": null}` — no preview and no error code. That
-   is the expected answer to an unconfirmed call, not a failure.
+1. Call it **without** `confirm`. Nothing is posted; you get `rejected` with
+   `error.error == "confirmation_required"` and no preview body. That is the expected answer to an
+   unconfirmed call, not a failure.
 2. Show the user the exact destination (team + channel, or the chat / person) and the exact text
    you will post, and get explicit approval.
 3. Re-run the **identical** call with `confirm: true`.
 
 Read `status` on the result:
 
-| `status`                   | Meaning                                                            | Do                                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `confirmed`                | The message was posted.                                            | Report success using `body` (`web_url` is set for channel posts, `null` for chat and DM sends).                                           |
-| `confirmed_but_unreadable` | **The message was posted**; only the response was unreadable.      | Treat as success. Do **not** resend.                                                                                                      |
-| `rejected`                 | Nothing was posted (no `confirm`, unverified recipient, or a 4xx). | Fix the arguments (or the identity) and retry safely.                                                                                     |
-| `indeterminate`            | It **may** have been posted (timeout / server error).              | **Never resend** — you would double-post. Tell the user it is unverified and ask them to check Teams; you cannot read the chat to verify. |
+| `status`                   | Meaning                                                            | Do                                                                                                                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`                | The message was posted.                                            | Report success using `body` (`web_url` is set for channel posts, `null` for chat and DM sends).                                                                                                           |
+| `confirmed_but_unreadable` | **The message was posted**; only the response was unreadable.      | Treat as success. Do **not** resend.                                                                                                                                                                      |
+| `rejected`                 | Nothing was posted (no `confirm`, unverified recipient, or a 4xx). | `error.error == "confirmation_required"`: it was a preview — get approval, retry with `confirm: true`. Any other `error` (`dm_recipient_unverified`, a 4xx): fix the arguments/identity and retry safely. |
+| `indeterminate`            | It **may** have been posted (timeout / server error).              | **Never resend** — you would double-post. Tell the user it is unverified and ask them to check Teams; you cannot read the chat to verify.                                                                 |
 
 No send is idempotent: never blindly retry one.
 
@@ -120,7 +120,7 @@ collaboration_send_channel_message {
   "team_id": "20ffc60a-...-guid", "channel_id": "19:def...@thread.tacv2",
   "content": "Deploy finished, notes in Documents/2026/plan.md"
 }
-//  -> { "status": "rejected", "body": null, "error": null }   nothing posted
+//  -> { "status": "rejected", "body": null, "error": { "error": "confirmation_required", ... } }   nothing posted
 collaboration_send_channel_message { /* identical arguments */ "confirm": true }
 
 // DM a person (object id from the Directory MCP, if connected)

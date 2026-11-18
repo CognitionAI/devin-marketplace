@@ -1,7 +1,7 @@
 {
   "name": "elasticsearch",
   "displayName": "Elasticsearch",
-  "description": "Retrieve detailed information about Elasticsearch indices, field mappings, shard distribution, and ES|QL search results. Also perform Query DSL searches and inspect shards via natural‑language MCP calls.",
+  "description": "Inspect Elasticsearch indices, mappings, and shards, and run ES|QL or Query DSL searches",
   "shortDescription": "Search indexes, mappings and health",
   "homepage": "https://www.elastic.co",
   "logo": "logo.svg",
