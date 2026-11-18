@@ -1,0 +1,17 @@
+{
+  "name": "tldv",
+  "displayName": "tl;dv - AI Meeting Transcription",
+  "description": "Search, summarize, and extract action items from meeting transcripts and notes across Google Meet, Zoom, Teams, and in-person calls.",
+  "shortDescription": "Meeting transcripts, notes, action items",
+  "homepage": "https://tldv.io",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "tldv": {
+      "url": "https://mcp.tldv.io/mcp",
+      "transport": "http"
+    }
+  }
+}
