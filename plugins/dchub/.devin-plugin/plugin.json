@@ -11,7 +11,7 @@
   ],
   "mcpServers": {
     "dchub": {
-      "url": "https://dchub.cloud/mcp",
+      "url": "https://dchub.cloud/mcp?via=directory&src=devin",
       "headers": {
         "X-API-Key": "${X_API_KEY}"
       }
