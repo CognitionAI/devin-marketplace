@@ -1,0 +1,21 @@
+{
+  "name": "contextqa",
+  "displayName": "ContextQA",
+  "description": "Create and run software tests, inspect execution results, and investigate failures with evidence from ContextQA",
+  "shortDescription": "Create, run and debug software tests",
+  "setup": {
+    "notice": "Requires an active ContextQA account with workspace access. Running tests can consume existing execution credits."
+  },
+  "homepage": "https://contextqa.com/",
+  "repository": "https://github.com/indivatools/contextqa-skills",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools",
+    "Testing"
+  ],
+  "mcpServers": {
+    "contextqa": {
+      "url": "https://mcp.contextqa.com/mcp"
+    }
+  }
+}

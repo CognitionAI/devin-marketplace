@@ -68,6 +68,7 @@
     "./plugins/confidence-docs",
     "./plugins/contentsquare",
     "./plugins/context7",
+    "./plugins/contextqa",
     "./plugins/corridor",
     "./plugins/cortex",
     "./plugins/craft",
