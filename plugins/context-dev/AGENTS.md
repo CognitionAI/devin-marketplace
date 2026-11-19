@@ -1,0 +1,1 @@
+When using Context.dev, skip MCP tool listing for common tasks: call `context-dev`'s `web-search` with `query`, `numResults: 10`, and `responseMode: "compact"` for live research; call `web-scrape` with `url`, `formats: {"markdown": true}`, and `responseMode: "compact"` for a known page. List tools only for other Context capabilities.
