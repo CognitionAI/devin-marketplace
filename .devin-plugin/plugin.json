@@ -162,6 +162,7 @@
     "./plugins/newrelic",
     "./plugins/newrelic-remote",
     "./plugins/notion",
+    "./plugins/notra",
     "./plugins/omni-analytics",
     "./plugins/orion",
     "./plugins/otter",
