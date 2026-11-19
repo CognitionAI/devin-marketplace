@@ -222,6 +222,7 @@
     "./plugins/vanta-aus",
     "./plugins/vanta-eu",
     "./plugins/vercel",
+    "./plugins/wavegrain",
     "./plugins/webull",
     "./plugins/windsor-ai",
     "./plugins/wingspan",

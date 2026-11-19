@@ -1,0 +1,20 @@
+{
+  "name": "wavegrain",
+  "displayName": "Wavegrain",
+  "description": "Make TikTok slideshows and Instagram carousels in your brand's style, plan them on a calendar and post them after you confirm",
+  "shortDescription": "Branded slideshows and carousels",
+  "setup": {
+    "notice": "Making slides uses credits from your Wavegrain account; reading your brands, calendar and credits is free."
+  },
+  "homepage": "https://wavegrain.com/mcp",
+  "repository": "https://github.com/wavegrain/wavegrain-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "wavegrain": {
+      "url": "https://wavegrain.com/api/mcp"
+    }
+  }
+}
