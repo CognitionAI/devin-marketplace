@@ -1,0 +1,19 @@
+{
+  "name": "ganttchart-ai",
+  "displayName": "GanttChart.AI",
+  "description": "Create Gantt charts from a plan, check what is late, and move dates or record progress as the work happens",
+  "shortDescription": "Gantt charts, task dates and progress",
+  "setup": {
+    "notice": "Requires a GanttChart.AI account. The free plan holds two charts, and a chart Devin creates counts as one."
+  },
+  "homepage": "https://www.ganttchart.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "ganttchart-ai": {
+      "url": "https://www.ganttchart.ai/mcp"
+    }
+  }
+}
