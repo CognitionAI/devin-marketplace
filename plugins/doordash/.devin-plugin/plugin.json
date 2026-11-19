@@ -16,7 +16,8 @@
       "url": "https://openapi.doordash.com/mcp/consumer",
       "oauthClientId": "1878966994542657551",
       "oauthScopes": [
-        "mcp:consumer:write"
+        "mcp:consumer:write",
+        "consumer:addresses:read"
       ]
     }
   }
