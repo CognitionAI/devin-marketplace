@@ -82,6 +82,7 @@
     "./plugins/deepwiki",
     "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
+    "./plugins/docspring",
     "./plugins/dynatrace",
     "./plugins/elastic",
     "./plugins/elasticsearch",
