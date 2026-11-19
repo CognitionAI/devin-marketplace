@@ -253,6 +253,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/autorender/first-new-devin-plugin.git",
+      "sha": "beb817c538630ea6b6a0bfb96633599bdaade2a6"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
