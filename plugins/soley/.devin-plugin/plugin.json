@@ -1,0 +1,19 @@
+{
+  "name": "soley",
+  "displayName": "Sóley",
+  "description": "Book licensed Icelandic tours and stays, with live Iceland roads, weather, aurora and buses",
+  "shortDescription": "Iceland tours, stays and live conditions",
+  "setup": {
+    "notice": "Bookings are reserved first. The traveller confirms with a one-time code sent to their own email and pays the operator directly through one payment link."
+  },
+  "homepage": "https://soley.travel",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "soley": {
+      "url": "https://api.soley.travel/mcp"
+    }
+  }
+}

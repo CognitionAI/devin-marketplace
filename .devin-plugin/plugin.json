@@ -200,6 +200,7 @@
     "./plugins/similarweb",
     "./plugins/slack",
     "./plugins/slack-remote",
+    "./plugins/soley",
     "./plugins/splunk",
     "./plugins/sqlite",
     "./plugins/square",
