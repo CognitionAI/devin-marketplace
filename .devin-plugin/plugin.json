@@ -279,6 +279,11 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/wiroai/Wiro-Plugin.git",
+      "sha": "94bed5672ef63c66b9234e4fce25730f963365e7"
     }
   ]
 }
