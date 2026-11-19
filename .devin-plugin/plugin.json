@@ -253,6 +253,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/Till3005/devin-desktop-zh.git",
+      "sha": "da71d237d97e2da64956c5d8718f9128e7fa8fca"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
     },
