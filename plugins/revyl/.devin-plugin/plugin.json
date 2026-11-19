@@ -1,0 +1,23 @@
+{
+  "name": "revyl",
+  "displayName": "Revyl",
+  "description": "Run your mobile app on cloud iOS and Android devices, verify changes with AI checks, and explore its Atlas screen map",
+  "shortDescription": "Cloud mobile devices and AI app testing",
+  "setup": {
+    "notice": "Requires a Revyl account. The bundled skills build and run apps with the Revyl CLI, which signs in separately from this connection.",
+    "steps": [
+      "For sessions nobody watches, save a Revyl API key as a REVYL_API_KEY secret so the CLI can sign in without an approval link"
+    ]
+  },
+  "homepage": "https://revyl.com",
+  "repository": "https://github.com/RevylAI/revyl-cli",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "revyl": {
+      "url": "https://backend.revyl.ai/api/v1/mcp"
+    }
+  }
+}
