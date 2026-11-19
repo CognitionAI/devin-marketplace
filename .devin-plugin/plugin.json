@@ -96,6 +96,7 @@
     "./plugins/fireflies",
     "./plugins/fullstory",
     "./plugins/gamma",
+    "./plugins/ganttchart-ai",
     "./plugins/gc-ai",
     "./plugins/gitlab",
     "./plugins/godaddy",
