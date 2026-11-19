@@ -1,0 +1,21 @@
+{
+  "name": "desearch",
+  "displayName": "Desearch",
+  "description": "Search the web and X, look up X posts, users, replies and trends, and read public URLs with Desearch",
+  "shortDescription": "Web and X search for AI agents",
+  "homepage": "https://desearch.ai",
+  "repository": "https://github.com/Desearch-ai/mcp-desearch",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "desearch": {
+      "url": "https://mcp.desearch.ai/mcp",
+      "headers": {
+        "x-api-key": "${DESEARCH_API_KEY}"
+      }
+    }
+  }
+}
