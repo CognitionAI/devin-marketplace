@@ -1,0 +1,17 @@
+{
+  "name": "fuse",
+  "displayName": "Fuse",
+  "description": "Find prospects, enrich contacts with verified emails and phones, track buying signals, and draft email and LinkedIn campaigns",
+  "shortDescription": "B2B prospecting, enrichment and outreach",
+  "homepage": "https://fuseai.com",
+  "repository": "https://github.com/fuse-ai-mcp/fuse",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "fuse": {
+      "url": "https://mcp.fuseai.com"
+    }
+  }
+}
