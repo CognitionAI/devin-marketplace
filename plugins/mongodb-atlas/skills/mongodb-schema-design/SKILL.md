@@ -145,9 +145,9 @@ If the MCP server is running and connected, I can automatically run verification
 **⚠️ Security**: Use `--readOnly` for safety. Remove only if you need write operations.
 
 When connected, I can automatically:
-- Infer schema via `mcp__mongodb__collection-schema`
-- Measure document/array sizes via `mcp__mongodb__aggregate`
-- Check collection statistics via `mcp__mongodb__db-stats`
+- Infer schema via `mcp__mongodb-atlas__collection-schema`
+- Measure document/array sizes via `mcp__mongodb-atlas__aggregate`
+- Check collection statistics via `mcp__mongodb-atlas__db-stats`
 
 ### ⚠️ Action Policy
 
