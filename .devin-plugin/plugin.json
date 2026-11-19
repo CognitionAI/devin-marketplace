@@ -288,6 +288,12 @@
       "source": "url",
       "url": "https://github.com/quantummetric/qm-plugin-devin.git",
       "sha": "3a10cf3330dd916246d88bc7e33b74ad07375b07"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/vshulcz/deja-vu.git",
+      "path": "devin-plugin",
+      "sha": "a50e99f9d85630308926873f893100de48a7bf7c"
     }
   ]
 }
