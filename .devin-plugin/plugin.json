@@ -243,6 +243,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/Poptin-LTD/Poptin-MCP.git",
+      "path": "plugins/devin",
+      "sha": "fb5af253b1969d7da67e0ba41c18d0ba1e3a4fae"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
