@@ -1,7 +1,7 @@
 ---
 name: mrscraper
 description: |
-  Connect, authenticate, route, and troubleshoot MrScraper MCP, and check account usage with the status tool. For known public URLs, retrieve and preserve page content with mrscraper-fetch first; use mrscraper-serp for query-first discovery through web search.
+  Connect, authenticate, route, and troubleshoot MrScraper MCP, and check account usage with the status tool. For a known public URL, retrieve HTML, Markdown, a screenshot, brand data, or structured JSON with mrscraper-fetch; use mrscraper-serp for query-first discovery through web search.
 ---
 
 # MrScraper MCP
@@ -10,12 +10,24 @@ Use this skill for connection and authentication checks, tool selection, shared
 response handling, account status, and troubleshooting. Load the focused fetch
 or SERP skill for page retrieval and web search.
 
+MrScraper MCP has six scraping and search tools, plus account status:
+
+| Tool | Description |
+| --- | --- |
+| status | Return the raw account status API response without summarizing, redacting body fields, or adding calculated fields. |
+| scrapeHtml | Retrieve the raw HTML of a page. Browser rendering is optional. |
+| scrapeMarkdown | Retrieve a page as Markdown. Including HTML also enables browser rendering and returns both outputs as JSON. |
+| getScreenshot | Capture a base64 screenshot of the full page or top viewport. Browser rendering is always enabled. |
+| scrapeBrand | Extract a website's colors, typography, logos, and social links as JSON. |
+| scrapeJson | Extract structured JSON from a page using a natural-language prompt. Append Json Schema: and a JSON schema to shape the output. |
+| webSearch | Search the web and return ranked results with titles, URLs, descriptions, and sources. |
+
 ## Step 1 — Verify or Connect MrScraper MCP
 
-Check whether the current client exposes these three tools from the MrScraper
+Check whether the current client exposes these seven tools from the MrScraper
 MCP provider:
 
-    scraperAPI  webSearch  status
+    status  scrapeHtml  scrapeMarkdown  getScreenshot  scrapeBrand  scrapeJson  webSearch
 
 The client may display server-qualified names. Match the provider and
 unqualified tool name; do not assume a fixed namespace.
@@ -28,8 +40,10 @@ the managed Streamable HTTP endpoint:
 
 A self-managed deployment may expose the same tools over Streamable HTTP or
 stdio. Connection setup belongs to the MCP client. After setup or reconnection,
-list the available tools and confirm all three names before claiming the
-integration is ready.
+list the available tools and confirm all seven names before claiming the
+integration is ready. A client that still lists scraperAPI has cached the
+previous tool list; start a new session or reconnect so it loads the current
+tools.
 
 ## Step 2 — Authenticate
 
@@ -47,33 +61,41 @@ Never place credentials in tool arguments, print them, write them into project
 artifacts, or manually reproduce the OAuth exchange. Do not configure an
 API-key or bearer-token fallback from these skills.
 
-The connection uses three scopes: scrape:write for scraperAPI, scrape:read for
-webSearch, and account:read for status. A tool called without its scope returns
+The connection uses two scopes: scraper:read for the six scraping and search
+tools, and account:read for status. A tool called without its scope returns
 403 insufficient_scope; reauthorize the connection so the client requests it.
+Connections authorized with the older scrape:read and scrape:write scopes must
+be authorized again.
 
 Verify end-to-end access with status, which reads the account without
 retrieving a page:
 
     {}
 
-A successful account summary confirms that the connection can authenticate and
-reach MrScraper. If it fails, report the error and do not claim setup is
-complete.
+A successful response confirms that the connection can authenticate and reach
+MrScraper. If it fails, report the error and do not claim setup is complete.
 
 ## Step 3 — Route the Request
 
 | User outcome | MCP tool or skill |
 | --- | --- |
-| Retrieve and preserve a known public page as HTML, Markdown, or a screenshot | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scraperAPI |
+| Read, summarize, or preserve a known public page | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeMarkdown, or scrapeHtml when the page structure matters |
+| Capture what a page looks like | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with getScreenshot |
+| Extract specific fields from a page as JSON | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeJson, or local extraction from retrieved content |
+| Get a website's colors, typography, logos, and social links | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeBrand |
 | Discover relevant pages from a web search query | [mrscraper-serp](../mrscraper-serp/SKILL.md) with webSearch, then retrieve selected pages |
 | Check the plan, token usage, or remaining tokens | status |
 
 ### Retrieve first, extract locally
 
-scraperAPI returns raw page content. Produce summaries, tables, JSON, and other
-structured output from that content with local analysis or extraction logic.
-The raw response preserves complete page context for later questions,
-validation, and changes to the requested schema.
+scrapeHtml and scrapeMarkdown return raw page content. Produce summaries,
+tables, JSON, and other structured output from that content with local analysis
+or extraction logic. The raw response preserves complete page context for later
+questions, validation, and changes to the requested schema.
+
+Use scrapeJson when the user asks MrScraper to extract the data, or when a
+prompt-driven extraction is clearly simpler than local logic. Keep the raw page
+as well when later questions may need details that the extraction leaves out.
 
 Prefer this workflow for pages with a shared layout:
 
@@ -95,8 +117,8 @@ for those.
 
 ## Step 4 — Handle Output and Artifacts
 
-scraperAPI and webSearch return the same response envelope in MCP
-structuredContent and in a formatted JSON text block:
+Every tool returns the same response envelope in MCP structuredContent and in a
+formatted JSON text block:
 
     {
       "status_code": 200,
@@ -104,20 +126,25 @@ structuredContent and in a formatted JSON text block:
       "headers": {}
     }
 
-Prefer structuredContent when available. An API failure adds error and sets the
-MCP result's isError flag. An input-contract failure is returned as a tool
-error. Check those signals before trusting data. Credential-bearing headers and
-credential metadata are removed from responses.
+data holds the API response body: HTML or Markdown text from scrapeHtml and
+scrapeMarkdown, and JSON from the other tools. Prefer structuredContent when
+available. An HTTP or network failure adds error and sets the MCP result's
+isError flag; a network failure has status_code null. Invalid inputs are
+rejected before any request is sent. Check those signals before trusting data.
+Credential-bearing response headers are removed.
 
 MrScraper tools do not accept output paths. When the user requests an artifact,
 wait for a successful tool result, select the requested value, and save it with
-the environment's local file-writing capability. A screenshot is a base64 JPEG
-in data.screenshot; decode it before saving an image.
+the environment's local file-writing capability. A screenshot is base64 image
+data in data.screenshot; decode it before saving an image.
 
 Save substantial intermediate artifacts under the current project's
 .mrscraper directory unless the user specifies another location. This project
 artifact directory is unrelated to MCP connection credentials. Keep artifacts
 out of version control unless the user asks to commit them.
+
+saveResult defaults to false. Set it to true only when the user wants a
+scraping result kept in the MrScraper dashboard Result tab.
 
 ## Step 5 — Review Account Usage
 
@@ -125,37 +152,47 @@ Call status with an empty object:
 
     {}
 
-The result summarizes the subscription status, token limit, token usage,
-remaining tokens, usage percentage, rate limit, auto-renewal, renewal date,
-and the account's name, email, and verification state:
+data is the raw account status response, without summaries or calculated
+fields. Account details are in data.data, including tokenLimit, tokenUsage,
+subscriptionItem, and scraperAllowance:
 
     {
-      "kind": "mrscraper-cli-status-summary",
       "status_code": 200,
       "data": {
-        "account": {
-          "subscription_status": "active",
-          "token_usage": 250,
-          "token_limit": 1000,
-          "token_remaining": 750,
-          "usage_percent": 25
+        "message": "...",
+        "data": {
+          "tokenLimit": 100000,
+          "tokenUsage": 2500,
+          "stripeStatus": "active",
+          "subscriptionItem": {
+            "name": "...",
+            "tokenLimit": 100000
+          },
+          "scraperAllowance": {
+            "remaining": 97500
+          }
         }
-      }
+      },
+      "headers": {}
     }
 
+Report the fields the user asked about. The response also carries account
+identity and billing identifiers; do not repeat them unless the user asks.
 Check remaining tokens before a large batch of page retrievals. status reports
 account usage, not the progress of a request.
 
 ## Step 6 — Troubleshoot
 
 - Missing tools: enable or reconnect the MrScraper MCP connection, then confirm
-  scraperAPI, webSearch, and status are exposed.
+  all seven tools are exposed.
 - Unauthorized or expired authorization: reauthorize the OAuth 2.1 connection
   through the MCP client.
-- 403 insufficient_scope: reauthorize so the client requests the missing scope.
+- 403 insufficient_scope: reauthorize so the client requests scraper:read for
+  scraping and search, or account:read for status.
 - Input-contract error: inspect the tool schema and omit inputs that do not
-  apply. The previous fetch, scrape, serp, rerun, results, and result tools were
-  replaced by scraperAPI, webSearch, and status.
+  apply. scraperAPI was replaced by scrapeHtml, scrapeMarkdown, and
+  getScreenshot; brand and JSON extraction are scrapeBrand and scrapeJson; and
+  webSearch takes query, country, and numResults.
 - Page incomplete or missing dynamic content: load mrscraper-fetch and revise
   page-loading inputs deliberately.
 - Search results weak: load mrscraper-serp and refine the query, country, or
