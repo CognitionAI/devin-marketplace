@@ -38,6 +38,7 @@
     "./plugins/brex",
     "./plugins/browserless",
     "./plugins/buildkite",
+    "./plugins/cactal",
     "./plugins/calendly",
     "./plugins/canva",
     "./plugins/cdata-connect-ai",

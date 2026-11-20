@@ -1,0 +1,17 @@
+{
+  "name": "cactal",
+  "displayName": "Cactal",
+  "description": "Describe a website and publish it, then keep its pages, CMS content, forms and custom domains up to date",
+  "shortDescription": "Build and publish websites",
+  "homepage": "https://cactal.ai/docs/agents/mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Development Tools",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "cactal": {
+      "url": "https://api.cactal.ai/v1/mcp"
+    }
+  }
+}
