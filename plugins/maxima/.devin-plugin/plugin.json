@@ -1,0 +1,20 @@
+{
+  "name": "maxima",
+  "displayName": "Maxima",
+  "description": "Track your financial close, complete task sign-offs, and analyze accounting data with Maxima Sheets",
+  "shortDescription": "Financial close and accounting data",
+  "setup": {
+    "notice": "Requires an active Maxima account with access to the relevant workspace."
+  },
+  "homepage": "https://agate-spoon-bc6.notion.site/Maxima-MCP-406d99f0f42d815d9205e8702bedb620",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "maxima": {
+      "url": "https://mcp.maximahq.com/mcp"
+    }
+  }
+}
