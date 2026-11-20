@@ -1,0 +1,20 @@
+{
+  "name": "arkham",
+  "displayName": "Arkham",
+  "description": "Find who is behind any wallet, follow on-chain money flows, and check entity balances, token holders and Polymarket positions",
+  "shortDescription": "On-chain entity and wallet intelligence",
+  "setup": {
+    "notice": "Requires an Arkham API plan or trial. Tool calls use Arkham API credits, and each tool states its price."
+  },
+  "homepage": "https://arkm.com",
+  "repository": "https://github.com/arkhamintelligence/arkham-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "arkham": {
+      "url": "https://mcp.arkm.com/mcp"
+    }
+  }
+}
