@@ -61,11 +61,9 @@ Never place credentials in tool arguments, print them, write them into project
 artifacts, or manually reproduce the OAuth exchange. Do not configure an
 API-key or bearer-token fallback from these skills.
 
-The connection uses two scopes: scraper:read for the six scraping and search
+The connection uses two scopes: scrape:read for the six scraping and search
 tools, and account:read for status. A tool called without its scope returns
 403 insufficient_scope; reauthorize the connection so the client requests it.
-Connections authorized with the older scrape:read and scrape:write scopes must
-be authorized again.
 
 Verify end-to-end access with status, which reads the account without
 retrieving a page:
@@ -187,7 +185,7 @@ account usage, not the progress of a request.
   all seven tools are exposed.
 - Unauthorized or expired authorization: reauthorize the OAuth 2.1 connection
   through the MCP client.
-- 403 insufficient_scope: reauthorize so the client requests scraper:read for
+- 403 insufficient_scope: reauthorize so the client requests scrape:read for
   scraping and search, or account:read for status.
 - Input-contract error: inspect the tool schema and omit inputs that do not
   apply. scraperAPI was replaced by scrapeHtml, scrapeMarkdown, and
