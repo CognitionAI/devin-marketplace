@@ -1,0 +1,19 @@
+{
+  "name": "evuun",
+  "displayName": "EVUUN",
+  "description": "Turn agent requests into real-world bookings, confirmed by a named provider on terms you approve",
+  "shortDescription": "Real-world bookings for your agent",
+  "homepage": "https://evuun.com",
+  "repository": "https://github.com/silas-zhen/evuun",
+  "logo": "logo.png",
+  "keywords": [
+    "Travel",
+    "Bookings",
+    "Real-world services"
+  ],
+  "mcpServers": {
+    "evuun": {
+      "url": "https://evuun.com/mcp"
+    }
+  }
+}
