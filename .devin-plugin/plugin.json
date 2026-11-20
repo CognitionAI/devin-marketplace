@@ -279,6 +279,11 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/popnow-ai/popnow-mcp.git",
+      "sha": "ed2e3d8b72a2fe04c9bc30ba41e0f8d25c9f5c78"
     }
   ]
 }
