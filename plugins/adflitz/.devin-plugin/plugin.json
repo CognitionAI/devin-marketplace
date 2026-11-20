@@ -1,0 +1,38 @@
+{
+  "name": "adflitz",
+  "displayName": "Adflitz",
+  "description": "Report on and manage Meta, Google, LinkedIn, TikTok and ChatGPT ad campaigns, then publish changes after approval",
+  "shortDescription": "AI ad manager for Meta, Google, TikTok",
+  "setup": {
+    "notice": "Requires an Adflitz account with your ad accounts connected inside Adflitz. Changes are filed as drafts and published only after you approve them.",
+    "steps": [
+      "Create a free account at adflitz.com and connect your ad accounts",
+      "Authorize Adflitz when Devin prompts you to sign in"
+    ]
+  },
+  "homepage": "https://adflitz.com",
+  "repository": "https://github.com/Performancebude-PEBU-GmbH/adflitz-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales",
+    "Monitoring & Analytics",
+    "AI ad manager",
+    "Meta Ads",
+    "Facebook Ads",
+    "Google Ads",
+    "LinkedIn Ads",
+    "TikTok Ads",
+    "ChatGPT Ads",
+    "PPC",
+    "performance marketing",
+    "ad reporting",
+    "campaign management",
+    "ad automation",
+    "autopilot"
+  ],
+  "mcpServers": {
+    "adflitz": {
+      "url": "https://adflitz.com/api/mcp"
+    }
+  }
+}
