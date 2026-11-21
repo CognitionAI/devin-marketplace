@@ -1,0 +1,22 @@
+{
+  "name": "i2v",
+  "displayName": "I2v.ai",
+  "description": "Generate images and videos across 12 image and 16 video models, with the USD price quoted before every paid task",
+  "shortDescription": "Image and video generation",
+  "setup": {
+    "notice": "Tasks are paid for from the i2v.ai account you sign in with, and each one is quoted in USD before it is submitted."
+  },
+  "homepage": "https://i2v.ai",
+  "logo": "logo.png",
+  "keywords": [
+    "Design & Creative"
+  ],
+  "mcpServers": {
+    "i2v": {
+      "url": "https://i2v.ai/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${I2V_API_KEY}"
+      }
+    }
+  }
+}
