@@ -279,6 +279,12 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/moonlitnayeem/fairvalid-ai.git",
+      "path": "devin",
+      "sha": "40cac2883dc74f50f7bc8562b380782c4c6a4379"
     }
   ]
 }
