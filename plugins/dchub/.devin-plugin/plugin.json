@@ -1,0 +1,20 @@
+{
+  "name": "dchub",
+  "displayName": "DC Hub",
+  "description": "DC Hub: the orchestration layer for data center and energy intelligence. Find power. Find land. Find fiber. Find capacity. Includes the Data Center Power Index (DCPI) and live grid, fiber and site-selection tools; execute_plan returns one dated, cited answer. Endpoint: https://dchub.cloud/mcp. An API key is optional.",
+  "homepage": "https://dchub.cloud",
+  "repository": "https://github.com/azmartone67/dchub-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "dchub": {
+      "url": "https://dchub.cloud/mcp?via=directory&src=devin",
+      "headers": {
+        "X-API-Key": "${X_API_KEY}"
+      }
+    }
+  }
+}
