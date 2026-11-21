@@ -125,6 +125,7 @@
     "./plugins/klaviyo",
     "./plugins/kpler",
     "./plugins/launchdarkly",
+    "./plugins/levels-fyi",
     "./plugins/linear",
     "./plugins/logrocket",
     "./plugins/lovable",
