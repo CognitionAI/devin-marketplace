@@ -130,6 +130,7 @@
     "./plugins/lovable",
     "./plugins/lunarcrush",
     "./plugins/mailerlite",
+    "./plugins/mailtrap",
     "./plugins/mapbox",
     "./plugins/mapbox-devkit",
     "./plugins/mapbox-docs",
