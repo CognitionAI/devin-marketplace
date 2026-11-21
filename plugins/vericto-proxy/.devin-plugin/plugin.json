@@ -1,0 +1,38 @@
+{
+  "name": "vericto-proxy",
+  "displayName": "Vericto",
+  "description": "Query PostgreSQL, MySQL and MariaDB with every statement checked first and run read-only in a transaction that rolls back",
+  "shortDescription": "Guarded read-only SQL for agents",
+  "setup": {
+    "notice": "Docker is required and the database must be reachable from the container. Give the agent its own read-only database role: the credential stays with the server, and every statement is checked before it runs read-only in a transaction that always rolls back.",
+    "steps": [
+      "Create a read-only database role for the agent and note its connection URL.",
+      "Connect the plugin and paste that URL when asked for VERICTO_MCP_DATABASE_URL.",
+      "Ask the session to call whoami to confirm the database, the limits and that the role cannot write."
+    ]
+  },
+  "homepage": "https://github.com/vericto/vericto-proxy",
+  "repository": "https://github.com/vericto/vericto-proxy",
+  "logo": "logo.svg",
+  "keywords": [
+    "Databases"
+  ],
+  "mcpServers": {
+    "vericto-proxy": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "VERICTO_MCP_DATABASE_URL",
+        "vericto/vericto-proxy:5.2.0",
+        "/usr/local/bin/vericto-proxy",
+        "mcp"
+      ],
+      "env": {
+        "VERICTO_MCP_DATABASE_URL": "${VERICTO_MCP_DATABASE_URL}"
+      }
+    }
+  }
+}
