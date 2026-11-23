@@ -279,6 +279,11 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/venomlabs-dev/plugin.git",
+      "sha": "c988beb954636cfaa4b6eee5f7bbe0e3fa74c6f8"
     }
   ]
 }
