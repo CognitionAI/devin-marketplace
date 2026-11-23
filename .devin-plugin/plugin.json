@@ -279,6 +279,11 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/tedix-hq/tedix-plugins.git",
+      "sha": "1886bd774058dc80223f158b5f5bfc47688f8024"
     }
   ]
 }
