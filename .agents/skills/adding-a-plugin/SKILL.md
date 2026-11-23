@@ -13,8 +13,21 @@ this and CI runs it.
 1. Create `plugins/<slug>/.devin-plugin/plugin.json`, where `<slug>` is the
    marketplace server slug:
    * `name` is the slug; `displayName` is the server definition's `name`
-     (the human title, e.g. `"MySQL"`); `description`, `homepage`,
-     `repository`, `keywords` come from the server definition too.
+     (the human title, e.g. `"MySQL"`); `homepage`, `repository`, and
+     `keywords` come from the server definition too.
+   * Write `description` as one action-oriented sentence about what users
+     can do with the product and the value they get. Aim for 60–130 characters
+     (about 200 maximum), without a trailing period. Expand on
+     `shortDescription`; avoid filler such as "integration" or "MCP server".
+   * Put requirements outside the install form and connection caveats in optional
+     `setup`, immediately after `shortDescription`:
+     `{"notice": "...", "steps": ["..."]}`. Use a one- or two-sentence notice
+     and ordered setup steps without environment-specific URLs. At least one
+     key is required; `notice` must be a non-empty string and `steps` a
+     non-empty list of non-empty strings. No other keys are allowed. Only
+     add `setup` for external steps or meaningful connection caveats. Do not
+     repeat credential fields, placeholder names, OAuth sign-in instructions,
+     or default domains already handled by the install form.
    * Check the brand mark in as `plugins/<slug>/logo.svg` (or `.png`/`.jpg`)
      and set `"logo": "logo.svg"` — a path relative to the plugin directory,
      as in Cursor's plugin format. Prefer this over an absolute `https` URL so
@@ -23,6 +36,13 @@ this and CI runs it.
      slug): `command` + `args` + `env` for stdio, or `url` (+ `headers`) for
      HTTP. A plugin that only ships `skills/` omits it. Servers live only
      here: no `.mcp.json`, `mcp.json` or root `plugin.json`.
+   * An HTTP server whose URLs differ only in the query (Supabase's
+     `?read_only=true`) may add `urlOptions`, a list of `{label, url}` that
+     includes `url`. `url` stays the default; members pick another option in
+     the server's settings. A `url` with a `${<NAME>}` part a member types
+     (Datadog's site, `${DATADOG_DD_MCP_DOMAIN:-mcp.datadoghq.com}`) may list
+     instead that URL with the part filled in, one option per value; members
+     can still type a value no option lists.
    * Never check in a credential. Anything a user supplies is a plain
      `${<NAME>}` placeholder, resolved from the credentials saved on the
      user's installation (no `MCP_` prefix). A stdio `env` value must

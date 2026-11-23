@@ -1,7 +1,7 @@
 {
   "name": "eraser",
   "displayName": "Eraser",
-  "description": "Eraser integration to generate, manage, and update diagrams and docs",
+  "description": "Generate and update technical diagrams and documents in Eraser",
   "shortDescription": "Diagrams and technical documentation",
   "homepage": "https://www.eraser.io",
   "logo": "logo.svg",

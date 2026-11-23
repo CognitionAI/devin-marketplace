@@ -1,7 +1,7 @@
 {
   "name": "webull",
   "displayName": "Webull",
-  "description": "Webull's hosted MCP server: view accounts, positions, orders, watchlists and market data.",
+  "description": "Review Webull accounts, positions, orders, watchlists, and market data",
   "shortDescription": "Accounts, positions and market data",
   "homepage": "https://www.webull.com",
   "logo": "logo.png",

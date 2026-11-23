@@ -1,7 +1,7 @@
 {
   "name": "buildkite",
   "displayName": "Buildkite",
-  "description": "Buildkite's hosted MCP server: inspect pipelines, builds, jobs and logs, trigger and retry builds, and look up test analytics and cluster/agent status.",
+  "description": "Inspect Buildkite pipelines, builds, and job logs, trigger and retry builds, and check test analytics and agent status",
   "shortDescription": "Build pipelines, jobs and test results",
   "homepage": "https://buildkite.com",
   "repository": "https://github.com/buildkite/skills",

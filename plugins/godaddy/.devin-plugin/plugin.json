@@ -1,7 +1,7 @@
 {
   "name": "godaddy",
   "displayName": "GoDaddy",
-  "description": "GoDaddy's hosted domains MCP server: brainstorm domain names and check their availability.",
+  "description": "Brainstorm domain names and check their availability with GoDaddy",
   "shortDescription": "Domain ideas and availability checks",
   "homepage": "https://www.godaddy.com",
   "logo": "logo.svg",

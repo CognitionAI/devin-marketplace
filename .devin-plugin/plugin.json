@@ -42,10 +42,12 @@
     "./plugins/canva",
     "./plugins/cdata-connect-ai",
     "./plugins/cello",
+    "./plugins/checkmarx",
     "./plugins/chronosphere",
     "./plugins/circle",
     "./plugins/circleback",
     "./plugins/circleci",
+    "./plugins/claude-code",
     "./plugins/clerk",
     "./plugins/cloudinary",
     "./plugins/cockroachdb",
@@ -62,7 +64,6 @@
     "./plugins/cognition-mysql",
     "./plugins/cognition-postgres",
     "./plugins/cognition-redshift",
-    "./plugins/cognition-snowflake",
     "./plugins/cognition-spanner",
     "./plugins/confidence",
     "./plugins/confidence-docs",
@@ -81,6 +82,7 @@
     "./plugins/deepwiki",
     "./plugins/devin-vuln-fixes",
     "./plugins/dockerhub",
+    "./plugins/doordash",
     "./plugins/dynatrace",
     "./plugins/elastic",
     "./plugins/elasticsearch",
@@ -88,7 +90,6 @@
     "./plugins/eraser",
     "./plugins/exa",
     "./plugins/excalidraw",
-    "./plugins/expo",
     "./plugins/fathom",
     "./plugins/figma-remote",
     "./plugins/firecrawl",
@@ -97,19 +98,20 @@
     "./plugins/gamma",
     "./plugins/gc-ai",
     "./plugins/gitlab",
-    "./plugins/gmail",
     "./plugins/godaddy",
     "./plugins/google-analytics",
     "./plugins/google-calendar",
     "./plugins/google-cloud-monitoring",
-    "./plugins/google-drive",
     "./plugins/google-maps",
+    "./plugins/google-productivity",
+    "./plugins/google-workspace",
     "./plugins/grafana",
     "./plugins/grafana-remote",
     "./plugins/granola",
     "./plugins/graphos-tools",
     "./plugins/heroku",
     "./plugins/hex",
+    "./plugins/higgsfield",
     "./plugins/honeycomb",
     "./plugins/hubspot",
     "./plugins/hugging-face",
@@ -147,7 +149,7 @@
     "./plugins/mintlify-index",
     "./plugins/miro",
     "./plugins/mixpanel",
-    "./plugins/mobbin",
+    "./plugins/moderne",
     "./plugins/monday",
     "./plugins/mongodb",
     "./plugins/mongodb-atlas",
@@ -163,6 +165,7 @@
     "./plugins/omni-analytics",
     "./plugins/orion",
     "./plugins/otter",
+    "./plugins/paper",
     "./plugins/parallel",
     "./plugins/paypal",
     "./plugins/peec-ai",
@@ -191,12 +194,12 @@
     "./plugins/resend",
     "./plugins/rootly",
     "./plugins/sanity",
+    "./plugins/sazabi",
     "./plugins/sentry",
     "./plugins/shopify-dev",
     "./plugins/similarweb",
     "./plugins/slack",
     "./plugins/slack-remote",
-    "./plugins/sonarqube",
     "./plugins/splunk",
     "./plugins/sqlite",
     "./plugins/square",
@@ -233,6 +236,23 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/Crossmint/menta.git",
+      "path": "plugins/menta",
+      "sha": "891d4e8975ef824caceec0f6d456d34890cb966f"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
+      "path": "plugins/snowflake-mcp-devin",
+      "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/SonarSource/sonarqube-agent-plugins.git",
+      "sha": "a3b7b69dbb40234e6e0088d989b10072c8f4aedd"
+    },
+    {
       "source": "url",
       "url": "https://github.com/cloudflare/skills.git",
       "sha": "ff91b2df2ed968eca50b5982c277d13351ed93e8"
@@ -245,15 +265,25 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/expo/skills.git",
+      "path": "plugins/expo",
+      "sha": "a9e5bd3fa00b4e61f632e43f85da73aee1942582"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/forcedotcom/sf-skills.git",
       "path": "plugins/builder/salesforce-development",
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
     },
     {
-      "source": "git-subdir",
-      "url": "https://github.com/tedix-hq/tedix.git",
-      "path": "plugins/tedix",
-      "sha": "0a5be2bee6ac7f2ffe75bda7418ffb1048cf3c55"
+      "source": "url",
+      "url": "https://github.com/mobbin/skills.git",
+      "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/tedix-hq/tedix-plugins.git",
+      "sha": "1886bd774058dc80223f158b5f5bfc47688f8024"
     }
   ]
 }

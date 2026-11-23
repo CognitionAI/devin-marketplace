@@ -1,8 +1,8 @@
 {
   "name": "devin-vuln-fixes",
   "displayName": "Vulnerability Fixes",
-  "description": "Find and patch vulnerable PHP, Node.js and self-managed GitLab runtimes across your repos (Dockerfiles, distro packages, source builds, CI, Helm/IaC, config management). Read-only inventory first, explicit approval before edits, regression tests before and after, one focused PR per repo.",
-  "shortDescription": "Fix vulnerable PHP, Node and GitLab",
+  "description": "Find and patch vulnerable nginx, Java, PHP, Node.js, and self-managed GitLab deployments, with a read-only inventory, approval before edits, and one PR per repo",
+  "shortDescription": "Fix vulnerable nginx, Java, PHP and more",
   "logo": "logo.svg",
   "keywords": [
     "Security",

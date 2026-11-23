@@ -1,0 +1,16 @@
+{
+  "name": "sazabi",
+  "displayName": "Sazabi",
+  "description": "Ask questions about production logs, read Sazabi's root-cause analysis of an issue, and check whether a fix worked",
+  "shortDescription": "Production logs and issue analysis",
+  "homepage": "https://www.sazabi.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics"
+  ],
+  "mcpServers": {
+    "sazabi": {
+      "url": "https://mcp.sazabi.com/mcp"
+    }
+  }
+}

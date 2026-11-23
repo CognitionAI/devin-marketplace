@@ -1,7 +1,7 @@
 {
   "name": "meltwater",
   "displayName": "Meltwater",
-  "description": "Meltwater's hosted MCP server: search media and social mentions and pull media-intelligence analytics.",
+  "description": "Search media and social mentions in Meltwater and analyze coverage",
   "shortDescription": "Media mentions and social analytics",
   "homepage": "https://www.meltwater.com",
   "logo": "logo.png",

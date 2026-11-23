@@ -1,7 +1,7 @@
 {
   "name": "slack",
   "displayName": "Slack (STDIO)",
-  "description": "Manage Slack workspaces: list channels and users; post messages; reply in threads; add reactions; fetch channel history and thread replies.",
+  "description": "Find Slack channels and users, read history, and post messages, thread replies, and reactions",
   "shortDescription": "Team chat, channels and threads",
   "homepage": "https://slack.com",
   "logo": "logo.svg",

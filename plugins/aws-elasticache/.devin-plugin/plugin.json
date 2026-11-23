@@ -1,7 +1,7 @@
 {
   "name": "aws-elasticache",
   "displayName": "Amazon ElastiCache",
-  "description": "Amazon ElastiCache integration for managed Redis and Memcached operations",
+  "description": "Manage Redis and Memcached caches in Amazon ElastiCache",
   "shortDescription": "Redis and Memcached caching",
   "homepage": "https://aws.amazon.com/elasticache/",
   "repository": "https://github.com/awslabs/mcp",

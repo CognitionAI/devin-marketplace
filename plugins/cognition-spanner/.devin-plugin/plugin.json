@@ -1,7 +1,7 @@
 {
   "name": "cognition-spanner",
   "displayName": "Spanner",
-  "description": "Spanner integration for globally distributed relational operations",
+  "description": "Query and manage relational data in Spanner",
   "shortDescription": "Distributed SQL database",
   "homepage": "https://github.com/googleapis/genai-toolbox",
   "logo": "logo.svg",
