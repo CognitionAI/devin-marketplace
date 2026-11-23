@@ -1,11 +1,13 @@
 {
   "name": "browserless",
   "displayName": "Browserless",
-  "description": "Scrape, crawl, and search the web, run Lighthouse audits, and execute Puppeteer code in the cloud with Browserless",
-  "shortDescription": "Browser actions, scraping and automation",
+  "description": "Run a cloud browser agent, scrape bot-protected pages, search, map, and crawl sites, and reuse saved logins with Browserless",
+  "shortDescription": "Cloud browsers, scraping and automation",
   "homepage": "https://www.browserless.io",
+  "repository": "https://github.com/browserless/browserless-mcp",
   "logo": "logo.svg",
   "keywords": [
+    "AI & Machine Learning",
     "Development Tools"
   ],
   "mcpServers": {
