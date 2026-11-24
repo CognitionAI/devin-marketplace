@@ -41,9 +41,8 @@ the managed Streamable HTTP endpoint:
 A self-managed deployment may expose the same tools over Streamable HTTP or
 stdio. Connection setup belongs to the MCP client. After setup or reconnection,
 list the available tools and confirm all seven names before claiming the
-integration is ready. A client that still lists scraperAPI has cached the
-previous tool list; start a new session or reconnect so it loads the current
-tools.
+integration is ready. If the client lists other tools, start a new session or
+reconnect so it loads the current tools.
 
 ## Step 2 — Authenticate
 
@@ -190,11 +189,9 @@ account usage, not the progress of a request.
 - 403 insufficient_scope: reauthorize so the client requests scrape:read for
   scraping and search, or account:read for status.
 - Input-contract error: inspect the tool schema and omit inputs that do not
-  apply. scraperAPI was replaced by scrapeHtml, scrapeMarkdown, and
-  getScreenshot; brand and JSON extraction are scrapeBrand and scrapeJson; and
-  webSearch takes query, country, and numResults. mrscraper-fetch lists the
-  inputs of each page tool. A client that offers other inputs has cached an
-  earlier tool list; start a new session or reconnect.
+  apply. mrscraper-fetch lists the inputs of each page tool, and webSearch
+  takes query, country, and numResults. If the client's schemas show other
+  inputs, start a new session or reconnect so it loads the current tools.
 - Page incomplete or missing dynamic content: load mrscraper-fetch and revise
   page-loading inputs deliberately.
 - Search results weak: load mrscraper-serp and refine the query, country, or
