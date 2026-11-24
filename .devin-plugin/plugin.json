@@ -244,8 +244,14 @@
     {
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
+      "path": "plugins/cortex-code",
+      "sha": "c5836529084eea3c97cc61be3948d925689227ad"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
-      "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
+      "sha": "c5836529084eea3c97cc61be3948d925689227ad"
     },
     {
       "source": "url",
