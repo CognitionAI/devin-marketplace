@@ -1,0 +1,17 @@
+{
+  "name": "worktable",
+  "displayName": "Worktable",
+  "description": "Find, cite and update your team's Docs, Records and HTML Docs, and pick up comments and threads left for Devin",
+  "shortDescription": "Shared workspace for your agents",
+  "homepage": "https://www.worktable.cloud",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity",
+    "Communication"
+  ],
+  "mcpServers": {
+    "worktable": {
+      "url": "https://app.worktable.cloud/api/mcp"
+    }
+  }
+}

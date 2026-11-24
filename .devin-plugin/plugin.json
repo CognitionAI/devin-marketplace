@@ -231,6 +231,7 @@
     "./plugins/wordpress-com",
     "./plugins/workable",
     "./plugins/workos",
+    "./plugins/worktable",
     "./plugins/you-com",
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
