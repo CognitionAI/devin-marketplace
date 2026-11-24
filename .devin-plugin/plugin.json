@@ -243,6 +243,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/PodcastAPI/skills.git",
+      "path": "plugins/podcast-search-devin",
+      "sha": "cd33ad197461313ac28c2a79b2a3bbda0a575fe1"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
