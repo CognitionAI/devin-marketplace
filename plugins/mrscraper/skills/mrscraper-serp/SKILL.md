@@ -24,15 +24,15 @@ location, or date:
 ## Step 2 — Set the Country and Result Count
 
 Set country to a two-letter country code when results must come from one
-country. It defaults to us:
+country. Left out, the search runs from the United States:
 
     {
       "query": "running shoes",
       "country": "id"
     }
 
-The search returns 10 results by default. Ask for more, up to 100, only when
-the user needs broader coverage:
+The search returns 10 results unless numResults asks for more, up to 100. Set
+numResults only when the user needs broader coverage:
 
     {
       "query": "site:example.com documentation",
@@ -42,11 +42,15 @@ the user needs broader coverage:
 
 ### Parameters
 
-| MCP input | Default | Description |
+| MCP input | Left out | Description |
 | --- | --- | --- |
-| query | Required | Search query text, trimmed before sending, containing 1 to 1000 characters. |
-| country | "us" | Two-letter country code to search from, sent in lowercase. |
-| numResults | 10 | Number of search results to request, as an integer from 10 to 100. Fewer results may be returned. |
+| query | Required | The search query, from 1 to 1000 characters. |
+| country | Not sent | Two-letter country code to run the search from. Defaults to the United States. |
+| numResults | Not sent | How many results to return, from 10 to 100. The search may return fewer. Defaults to 10. |
+
+query is trimmed before sending, and country is sent in lowercase. An input
+marked Not sent reaches MrScraper only when you set it; left out, MrScraper's
+own default applies.
 
 A search waits up to 120 seconds. Authentication is handled by the MCP client's
 OAuth 2.1 connection and is never a tool input.

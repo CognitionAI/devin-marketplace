@@ -1,7 +1,7 @@
 ---
 name: mrscraper-fetch
 description: |
-  Retrieve a known public URL with MrScraper MCP as HTML, Markdown, a screenshot, brand data, or structured JSON. Use for reading, summarizing, archiving, or extracting a page; supports browser rendering, page and proxy countries, selector waits, and retry limits. Use mrscraper-serp when no URL is known.
+  Retrieve a known public URL with MrScraper MCP as HTML, Markdown, a screenshot, brand data, or structured JSON. Use for reading, summarizing, archiving, or extracting a page; supports browser rendering, page countries, selector waits, cached results, and retry limits. Use mrscraper-serp when no URL is known.
 ---
 
 # Retrieve Page Content with MrScraper MCP
@@ -37,10 +37,10 @@ and apply the same extractor to every saved response.
 
 | Tool | Description | data in the response |
 | --- | --- | --- |
-| scrapeHtml | Retrieve the raw HTML of a page. Browser rendering is optional. | HTML text. |
-| scrapeMarkdown | Retrieve a page as Markdown. Including HTML also enables browser rendering and returns both outputs as JSON. | Markdown text; with html set to true, an object with html and markdown. |
-| getScreenshot | Capture a base64 screenshot of the full page or top viewport. Browser rendering is always enabled. | An object with screenshot and the requested html and markdown. |
-| scrapeJson | Extract structured JSON from a page using a natural-language prompt. Append Json Schema: and a JSON schema to shape the output. | The extracted data in data.data, with run metadata. |
+| scrapeHtml | Retrieve the raw HTML of a page. Browser rendering and a screenshot are optional. | HTML text; with screenshot set, an object with html and screenshot. |
+| scrapeMarkdown | Retrieve a page as Markdown. Browser rendering is optional. | Markdown text. |
+| getScreenshot | Capture a base64 PNG screenshot of the full page, the top viewport, or a custom viewport size. Browser rendering is always enabled. | An object with screenshot. |
+| scrapeJson | Extract structured JSON from a page using a natural-language prompt. Append Json Schema: and a JSON schema to shape the output. | The extracted data in data.data, the page HTML in data.html unless html is false, and data.screenshot when screenshot is true. |
 | scrapeBrand | Extract a website's colors, typography, logos, and social links as JSON. | The brand in data.data.brand. |
 
 The client may namespace the tool names; select the tool from the MrScraper MCP
@@ -57,27 +57,26 @@ scrapeHtml rendered in a browser, waiting for an element:
     {
       "url": "https://example.com",
       "browserRendering": true,
-      "waitForSelector": "body"
+      "waitForSelector": "#results"
     }
 
-scrapeMarkdown with the page HTML as well:
+scrapeHtml with a screenshot of the first viewport as well:
 
     {
       "url": "https://example.com",
-      "html": true
+      "screenshot": "top"
     }
 
-getScreenshot of the top viewport, with Markdown instead of HTML:
+getScreenshot of a 1280 by 800 pixel viewport; without screenshot, it captures
+the full page:
 
     {
       "url": "https://example.com",
-      "screenshot": "top",
-      "html": false,
-      "markdown": true
+      "screenshot": "1280x800"
     }
 
-A screenshot is base64 image data that can be large. Request it only when the
-user needs an image, and save it to a file rather than reading it into the
+A screenshot is a base64 PNG that can be large. Request it only when the user
+needs an image, and save it to a file rather than reading it into the
 conversation.
 
 scrapeJson with a prompt; append Json Schema: and a JSON schema to shape the
@@ -90,7 +89,9 @@ output:
 
 The prompt describes the data to extract from the loaded page; it does not
 navigate, click, or sign in. Without a prompt, scrapeJson extracts all data as
-completely as possible. Long prompts are sent in a request body automatically.
+completely as possible. The response also carries the page HTML; set html to
+false when only the extracted data is needed. Long prompts are sent in a
+request body automatically.
 
 scrapeBrand takes only the URL:
 
@@ -103,34 +104,48 @@ has no usable brand data.
 
 ## Step 3 — Choose Page-Loading Options
 
-scrapeHtml, scrapeMarkdown, getScreenshot, and scrapeJson share the page
-inputs. scrapeBrand accepts only url.
+Each tool accepts only these inputs, and url is the only required one:
 
-| MCP input | Tools | Default | Description |
+| Tool | Inputs |
+| --- | --- |
+| scrapeHtml | url, browserRendering, timeout, warmStart, blockResources, waitForSelector, geoCode, maxAge, maxRetries, screenshot |
+| scrapeMarkdown | url, browserRendering, timeout, geoCode, warmStart, blockResources, waitForSelector, maxAge, maxRetries |
+| getScreenshot | url, screenshot, timeout, geoCode, waitForSelector, maxAge, maxRetries |
+| scrapeJson | url, prompt, html, screenshot, browserRendering, waitForSelector, warmStart, blockResources, timeout, geoCode, maxAge, maxRetries |
+| scrapeBrand | url |
+
+Set only the inputs the outcome needs. An input marked Not sent reaches
+MrScraper only when you set it; left out, MrScraper's own default applies, as
+its description says. A value in the Left out column is sent when you leave
+that input out.
+
+| MCP input | Tools | Left out | Description |
 | --- | --- | --- | --- |
-| url | All | Required | Absolute HTTP or HTTPS URL of the page to process. |
-| timeout | HTML, Markdown, screenshot, JSON | 300 | Page load timeout in seconds, from 1 to 300. The HTTP request allows 30 additional seconds. |
-| geoCode | HTML, Markdown, screenshot, JSON | "us" | Two-letter country code to load the page from, sent in lowercase. |
-| proxyCountry | HTML, Markdown, screenshot, JSON | "us" | Two-letter country code of the proxy server, sent in lowercase. |
-| super | HTML, Markdown, screenshot, JSON | false | Whether to route the request through real devices. |
-| waitUntil | HTML, Markdown, screenshot, JSON | "domcontentloaded" | Navigation completion event to wait for: domcontentloaded, load, networkidle0, or networkidle2. |
-| proxy | HTML, Markdown, screenshot, JSON | Omitted | Custom proxy URL used to load the page. |
-| maxRetries | HTML, Markdown, screenshot, JSON | Omitted | Maximum number of retries, as a nonnegative integer. Omit this parameter for no limit. |
-| saveResult | HTML, Markdown, screenshot, JSON | false | Whether to save the result to the dashboard Result tab. |
-| blockResources | HTML, Markdown, screenshot | false | Whether to block images, fonts, and stylesheets while loading the page. |
-| waitForSelector | HTML, Markdown, screenshot | Omitted | Wait for the page to contain the specified CSS selector before returning the result. |
-| returnCookie | HTML, Markdown, screenshot | false | Whether to include browser session cookies in the response. |
-| browserRendering | HTML, Markdown, JSON | false | Whether to render the page in a browser before returning the result. |
-| warmStart | HTML, Markdown | false | Whether to enable warm start for more reliable scraping, at the cost of additional latency. |
-| html | Markdown, JSON | false | Whether to include the page HTML in the response. |
-| html | Screenshot | true | Whether to include the page HTML in the response. |
-| markdown | Screenshot | false | Whether to include the page Markdown in the response. |
-| screenshot | Screenshot | "full" | Screenshot area to capture: full for the entire page or top for the top viewport. |
-| screenshot | JSON | false | Whether to include a base64 screenshot in the response. |
-| prompt | JSON | "Extract all data as complete as possible." | Instructions describing the data to extract. Append Json Schema: and a JSON schema to shape the output. |
+| url | All | Required | URL of the page to scrape. Must include the protocol (https://). |
+| browserRendering | HTML, Markdown, JSON | Not sent | Controls whether the page is loaded in a browser. Leave it out to load the page without a browser first and switch to a browser automatically if the request is blocked. Set true to always load the page in a browser, which JavaScript-heavy sites, SPAs, and pages that load content dynamically need. Set false to never use a browser. |
+| timeout | HTML, Markdown, screenshot, JSON | Not sent | Maximum seconds to wait for the scrape before the request times out, from 1 to 330. Increase for slow or complex pages. Defaults to 300. |
+| warmStart | HTML, Markdown, JSON | Not sent | Opens the site's home page first to warm the session before loading the target URL. Useful for sites that expect a normal browsing session before deeper pages. |
+| blockResources | HTML, Markdown, JSON | Not sent | Blocks images, fonts, and stylesheets from loading. Speeds up scraping and reduces bandwidth usage. |
+| waitForSelector | HTML, Markdown, screenshot, JSON | Not sent | Waits until a specific CSS selector or text appears on the page before returning it, such as #results. Up to 500 characters. Useful for content that loads asynchronously after the initial page load. |
+| geoCode | HTML, Markdown, screenshot, JSON | Not sent | Two-letter country code to load the page from, such as us or gb. Defaults to the United States. |
+| maxAge | HTML, Markdown, screenshot, JSON | 0 | Serves a cached result of the same request when it is newer than this age, in milliseconds, such as 86400000 for 1 day. Up to 604800000 (7 days). 0, the default, always scrapes fresh. A cached result costs the same tokens as the original scrape. |
+| maxRetries | HTML, Markdown, screenshot, JSON | Not sent | Maximum number of retries for the request. Omit for no limit. |
+| screenshot | HTML | Not sent | Also captures a screenshot of the rendered page as a base64-encoded PNG: full captures the entire scroll height, top captures the first viewport, and <width>x<height> sets the viewport size in pixels with an optional -<zoom> percent, such as 1280x800 or 1920x1080-75. Width and height range from 100 to 3840, zoom from 25 to 300. Setting it forces browser rendering. Leave it out for no screenshot. |
+| screenshot | Screenshot | "full" | Screenshot area: full captures the entire scroll height (the default), top captures the first viewport, and <width>x<height> sets the viewport size in pixels with an optional -<zoom> percent, such as 1280x800 or 1920x1080-75. Width and height range from 100 to 3840, zoom from 25 to 300. The image is a base64-encoded PNG. |
+| screenshot | JSON | false | Captures a screenshot of the rendered page as a base64-encoded image. Useful for verifying what the scraper actually saw. Off by default. |
+| html | JSON | true | Returns the raw HTML of the scraped page in the response. On by default; set false to leave it out. |
+| prompt | JSON | Not sent | Description of the data shape you want back, for example fields like title, price, and rating. The prompt only parses the scraped content; it cannot instruct the scraper itself. To shape the output with a JSON schema, append it to the prompt as a Json Schema: section. Defaults to "Extract all data as complete as possible." |
 
 In the Tools column, HTML is scrapeHtml, Markdown is scrapeMarkdown, screenshot
 is getScreenshot, and JSON is scrapeJson.
+
+Leaving browserRendering out is not the same as setting it to false. Country
+codes are sent in lowercase. getScreenshot always loads the page in a browser.
+A page tool waits for the response up to 30 seconds longer than timeout, or 330
+seconds when timeout is left out.
+
+scrapeHtml, scrapeMarkdown, getScreenshot, and scrapeJson always save the
+result to the MrScraper dashboard Result tab; no input turns this off.
 
 Authentication is handled by the MCP client's OAuth 2.1 connection and is
 never a tool input.
@@ -142,16 +157,27 @@ headers["x-status-code"] (the target page's status) before using data. If the
 response fails, is blocked, incomplete, or missing dynamic content:
 
 1. Inspect status_code, error, headers["x-status-code"], and the content.
-2. Change one input at a time: set browserRendering, wait for a later
-   waitUntil event, or add waitForSelector for content that loads late.
-3. Set geoCode or proxyCountry only when evidence shows that the page differs
-   by country. Set super or warmStart when routing or a cold start may be the
-   problem.
+2. Change one input at a time: set browserRendering to true for
+   JavaScript-heavy pages, add waitForSelector for content that loads late, or
+   raise timeout for slow pages.
+3. Set warmStart when the site expects a normal browsing session before deeper
+   pages. Set geoCode only when evidence shows that the page differs by
+   country.
 4. Stop after a usable response unless the user requests a comparison.
 
-Do not repeat an identical request. Treat waitForSelector as a CSS selector,
-not a duration. Omitting maxRetries means no retry limit; set a small number
-when the user wants to bound retries.
+Do not retry with an identical request. Treat waitForSelector as a CSS
+selector or text, not a duration. Omitting maxRetries means no retry limit;
+set a small number when the user wants to bound retries.
+
+When a recent copy is good enough, set maxAge to reuse a cached result of the
+same request instead of scraping the page again, here up to one day old:
+
+    {
+      "url": "https://example.com",
+      "maxAge": 86400000
+    }
+
+A cached result costs the same tokens as the original scrape.
 
 ## Step 5 — Deliver the Result
 

@@ -15,9 +15,9 @@ MrScraper MCP has six scraping and search tools, plus account status:
 | Tool | Description |
 | --- | --- |
 | status | Return the raw account status API response without summarizing, redacting body fields, or adding calculated fields. |
-| scrapeHtml | Retrieve the raw HTML of a page. Browser rendering is optional. |
-| scrapeMarkdown | Retrieve a page as Markdown. Including HTML also enables browser rendering and returns both outputs as JSON. |
-| getScreenshot | Capture a base64 screenshot of the full page or top viewport. Browser rendering is always enabled. |
+| scrapeHtml | Retrieve the raw HTML of a page. Browser rendering and a screenshot are optional. |
+| scrapeMarkdown | Retrieve a page as Markdown. Browser rendering is optional. |
+| getScreenshot | Capture a base64 PNG screenshot of the full page, the top viewport, or a custom viewport size. Browser rendering is always enabled. |
 | scrapeBrand | Extract a website's colors, typography, logos, and social links as JSON. |
 | scrapeJson | Extract structured JSON from a page using a natural-language prompt. Append Json Schema: and a JSON schema to shape the output. |
 | webSearch | Search the web and return ranked results with titles, URLs, descriptions, and sources. |
@@ -78,7 +78,7 @@ MrScraper. If it fails, report the error and do not claim setup is complete.
 | User outcome | MCP tool or skill |
 | --- | --- |
 | Read, summarize, or preserve a known public page | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeMarkdown, or scrapeHtml when the page structure matters |
-| Capture what a page looks like | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with getScreenshot |
+| Capture what a page looks like | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with getScreenshot, or scrapeHtml with a screenshot when the HTML is needed too |
 | Extract specific fields from a page as JSON | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeJson, or local extraction from retrieved content |
 | Get a website's colors, typography, logos, and social links | [mrscraper-fetch](../mrscraper-fetch/SKILL.md) with scrapeBrand |
 | Discover relevant pages from a web search query | [mrscraper-serp](../mrscraper-serp/SKILL.md) with webSearch, then retrieve selected pages |
@@ -124,8 +124,9 @@ formatted JSON text block:
       "headers": {}
     }
 
-data holds the API response body: HTML or Markdown text from scrapeHtml and
-scrapeMarkdown, and JSON from the other tools. Prefer structuredContent when
+data holds the API response body: HTML text from scrapeHtml, or an object with
+html and screenshot when a screenshot is requested; Markdown text from
+scrapeMarkdown; and JSON from the other tools. Prefer structuredContent when
 available. An HTTP or network failure adds error and sets the MCP result's
 isError flag; a network failure has status_code null. Invalid inputs are
 rejected before any request is sent. Check those signals before trusting data.
@@ -133,16 +134,17 @@ Credential-bearing response headers are removed.
 
 MrScraper tools do not accept output paths. When the user requests an artifact,
 wait for a successful tool result, select the requested value, and save it with
-the environment's local file-writing capability. A screenshot is base64 image
-data in data.screenshot; decode it before saving an image.
+the environment's local file-writing capability. A screenshot is a base64 PNG
+in data.screenshot; decode it before saving an image.
 
 Save substantial intermediate artifacts under the current project's
 .mrscraper directory unless the user specifies another location. This project
 artifact directory is unrelated to MCP connection credentials. Keep artifacts
 out of version control unless the user asks to commit them.
 
-saveResult defaults to false. Set it to true only when the user wants a
-scraping result kept in the MrScraper dashboard Result tab.
+scrapeHtml, scrapeMarkdown, getScreenshot, and scrapeJson always save their
+result to the MrScraper dashboard Result tab; no input turns this off.
+scrapeBrand, webSearch, and status save nothing.
 
 ## Step 5 — Review Account Usage
 
@@ -190,7 +192,9 @@ account usage, not the progress of a request.
 - Input-contract error: inspect the tool schema and omit inputs that do not
   apply. scraperAPI was replaced by scrapeHtml, scrapeMarkdown, and
   getScreenshot; brand and JSON extraction are scrapeBrand and scrapeJson; and
-  webSearch takes query, country, and numResults.
+  webSearch takes query, country, and numResults. mrscraper-fetch lists the
+  inputs of each page tool. A client that offers other inputs has cached an
+  earlier tool list; start a new session or reconnect.
 - Page incomplete or missing dynamic content: load mrscraper-fetch and revise
   page-loading inputs deliberately.
 - Search results weak: load mrscraper-serp and refine the query, country, or
