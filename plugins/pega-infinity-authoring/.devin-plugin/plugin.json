@@ -22,7 +22,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "--package=@pega/infinity-authoring-plugin@latest",
+        "--package=@pega/infinity-authoring-plugin@0.2.2",
         "infinity-authoring-plugin",
         "run-server"
       ],
