@@ -242,6 +242,11 @@
       "sha": "891d4e8975ef824caceec0f6d456d34890cb966f"
     },
     {
+      "source": "url",
+      "url": "https://github.com/GeminiGeorge22/publicrecords-skills.git",
+      "sha": "a09bf698cfdfd943769a4e3dbfb442959b963c5d"
+    },
+    {
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
