@@ -1,0 +1,21 @@
+{
+  "name": "1toolring",
+  "displayName": "1ToolRing",
+  "description": "Search the web and pull live prices, maps, market data, and images from thousands of tools on one prepaid balance",
+  "shortDescription": "Pay-per-call tool catalog",
+  "homepage": "https://1toolring.com",
+  "repository": "https://github.com/khmuhtadin/1toolring-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "setup": {
+    "notice": "Every paid call is billed from your prepaid 1ToolRing balance, the price is shown before the call runs, and failed calls are not charged."
+  },
+  "mcpServers": {
+    "1toolring": {
+      "url": "https://mcp.1toolring.com/mcp"
+    }
+  }
+}
