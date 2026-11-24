@@ -1,0 +1,24 @@
+{
+  "name": "robodebut",
+  "displayName": "RoboDebut",
+  "description": "Propose websites and startups for RoboDebut's reviewed directory; run by Boon, who also builds LinkBunny",
+  "shortDescription": "Website and startup submissions",
+  "setup": {
+    "notice": "Ordinary submissions require a visible RoboDebut link on the project's homepage and a private maker contact email. Proposals require operator approval before publication.",
+    "steps": [
+      "Review the public submission guide at https://robodebut.com/submit-with-a-coding-agent and obtain the maker's authorization to submit",
+      "Ensure the project's homepage has a visible link to https://robodebut.com before submitting"
+    ]
+  },
+  "homepage": "https://robodebut.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools",
+    "Marketing"
+  ],
+  "mcpServers": {
+    "robodebut": {
+      "url": "https://robodebut.com/api/mcp"
+    }
+  }
+}

@@ -192,6 +192,7 @@
     "./plugins/ref-tools",
     "./plugins/replicate",
     "./plugins/resend",
+    "./plugins/robodebut",
     "./plugins/rootly",
     "./plugins/sanity",
     "./plugins/sazabi",
