@@ -288,6 +288,11 @@
       "source": "url",
       "url": "https://github.com/quantummetric/qm-plugin-devin.git",
       "sha": "3a10cf3330dd916246d88bc7e33b74ad07375b07"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/wiroai/Wiro-Plugin.git",
+      "sha": "94bed5672ef63c66b9234e4fce25730f963365e7"
     }
   ]
 }
