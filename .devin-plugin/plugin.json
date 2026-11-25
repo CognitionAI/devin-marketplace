@@ -94,6 +94,7 @@
     "./plugins/firecrawl",
     "./plugins/fireflies",
     "./plugins/fullstory",
+    "./plugins/fuse",
     "./plugins/gamma",
     "./plugins/gc-ai",
     "./plugins/gitlab",
