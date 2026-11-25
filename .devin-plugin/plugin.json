@@ -235,6 +235,12 @@
     "./plugins/you-com-research",
     "./plugins/zapier",
     {
+      "source": "git-subdir",
+      "url": "https://github.com/Hourtick/hourtick-plugin.git",
+      "path": "devin",
+      "sha": "589dfa7c15ff87d54b9473122b2a68aebdb22dfe"
+    },
+    {
       "source": "url",
       "url": "https://github.com/CognitionAI/claude-code-on-devin.git",
       "sha": "6b6f0d7034ff05031193af4335a440c9e09bc981"
