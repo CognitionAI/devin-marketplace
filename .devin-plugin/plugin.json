@@ -247,6 +247,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/HasData/hasdata-cursor-plugin.git",
+      "path": "plugins/hasdata",
+      "sha": "268d377ae4ed994769881af48724b62d66192105"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
