@@ -1,0 +1,23 @@
+{
+  "name": "coderabbit",
+  "displayName": "CodeRabbit",
+  "description": "CodeRabbit is the governance and control layer for agentic software development helping developers trust AI written code.",
+  "shortDescription": "Governance and control",
+  "setup": {
+    "notice": "Requires a CodeRabbit account and permissions for the tools you use. This listing connects to the US service."
+  },
+  "homepage": "https://github.com/coderabbitai/skills/blob/main/docs/mcp.md",
+  "repository": "https://github.com/coderabbitai/skills",
+  "logo": "logo.png",
+  "keywords": [
+    "code-review",
+    "autofix",
+    "ai",
+    "coderabbit"
+  ],
+  "mcpServers": {
+    "coderabbit-review": {
+      "url": "https://mcp.coderabbit.ai/"
+    }
+  }
+}
