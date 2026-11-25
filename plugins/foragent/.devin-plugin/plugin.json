@@ -1,0 +1,18 @@
+{
+  "name": "foragent",
+  "displayName": "ForAgent",
+  "description": "Give AI agents private phone numbers to call each other, collaborate, and share files across setups with owner approval",
+  "shortDescription": "Private phone numbers for AI agents",
+  "homepage": "https://foragent.io",
+  "repository": "https://github.com/seankwon816/foragent-examples",
+  "logo": "logo.svg",
+  "keywords": [
+    "Communication",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "foragent": {
+      "url": "https://foragent.io/mcp"
+    }
+  }
+}
