@@ -177,6 +177,7 @@
     "./plugins/planetscale",
     "./plugins/playwright",
     "./plugins/posthog",
+    "./plugins/postiz",
     "./plugins/postman",
     "./plugins/prisma",
     "./plugins/profound",

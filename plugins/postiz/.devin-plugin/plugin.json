@@ -1,0 +1,21 @@
+{
+  "name": "postiz",
+  "displayName": "Postiz",
+  "description": "Schedule and publish social media posts across your channels, manage media, and read post and channel analytics",
+  "shortDescription": "Social media scheduling and analytics",
+  "setup": {
+    "notice": "Acts on the Postiz organization that is active when you authorize. Scheduling tools can publish to your connected social channels immediately."
+  },
+  "homepage": "https://postiz.com",
+  "repository": "https://github.com/gitroomhq/postiz-app",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales",
+    "Communication"
+  ],
+  "mcpServers": {
+    "postiz": {
+      "url": "https://mcp.postiz.com/mcp-oauth-dynamic"
+    }
+  }
+}
