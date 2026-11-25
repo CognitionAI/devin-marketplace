@@ -47,7 +47,6 @@
     "./plugins/circle",
     "./plugins/circleback",
     "./plugins/circleci",
-    "./plugins/claude-code",
     "./plugins/clerk",
     "./plugins/cloudinary",
     "./plugins/cockroachdb",
@@ -235,6 +234,11 @@
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
     "./plugins/zapier",
+    {
+      "source": "url",
+      "url": "https://github.com/CognitionAI/claude-code-on-devin.git",
+      "sha": "6b6f0d7034ff05031193af4335a440c9e09bc981"
+    },
     {
       "source": "git-subdir",
       "url": "https://github.com/Crossmint/menta.git",
