@@ -169,6 +169,7 @@
     "./plugins/paypal",
     "./plugins/peec-ai",
     "./plugins/pendo",
+    "./plugins/penfield",
     "./plugins/perplexity",
     "./plugins/pg-aiguide",
     "./plugins/phoenix",
