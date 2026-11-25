@@ -237,7 +237,7 @@
     {
       "source": "url",
       "url": "https://github.com/CognitionAI/claude-code-on-devin.git",
-      "sha": "dff52bd8f9181dd85b768d66b7cd8762362cf80d"
+      "sha": "6b6f0d7034ff05031193af4335a440c9e09bc981"
     },
     {
       "source": "git-subdir",
