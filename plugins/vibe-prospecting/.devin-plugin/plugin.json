@@ -1,0 +1,17 @@
+{
+  "name": "vibe-prospecting",
+  "displayName": "Vibe Prospecting",
+  "description": "Power your chat with B2B data to create lead lists, research companies, personalize your outreach, and more. Search any company or professional to access emails, phone numbers, roles, growth signals, tech stack details, business events, website changes, and more.",
+  "shortDescription": "B2B company and contact data",
+  "homepage": "https://vibeprospecting.ai",
+  "repository": "https://github.com/explorium-ai/vibeprospecting-plugin",
+  "logo": "logo.png",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "vibe-prospecting": {
+      "url": "https://vibeprospecting.explorium.ai/mcp"
+    }
+  }
+}
