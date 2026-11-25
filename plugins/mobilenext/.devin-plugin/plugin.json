@@ -1,0 +1,16 @@
+{
+  "name": "mobilenext",
+  "displayName": "Mobile Next",
+  "description": "Drive real iOS and Android devices in the cloud to install, tap through, and debug your apps",
+  "shortDescription": "Automate real mobile devices",
+  "homepage": "https://mobilenext.ai",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "mobilenext": {
+      "url": "https://app.mobilenext.ai/mcp"
+    }
+  }
+}

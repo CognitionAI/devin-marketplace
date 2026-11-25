@@ -148,6 +148,7 @@
     "./plugins/mintlify-index",
     "./plugins/miro",
     "./plugins/mixpanel",
+    "./plugins/mobilenext",
     "./plugins/moderne",
     "./plugins/monday",
     "./plugins/mongodb",

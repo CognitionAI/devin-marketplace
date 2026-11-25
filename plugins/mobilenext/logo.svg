@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Mobile Next logo">
+  <defs>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#57e2a6"/>
+      <stop offset=".55" stop-color="#42dc87"/>
+      <stop offset="1" stop-color="#2ec760"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#green)" d="M 79,87 H 136 Q 143,87 148,94 L 300,266 452,94 Q 458,87 465,87 H 520 Q 532,87 532,99 V 497 Q 532,511 520,506 L 464,476 Q 451,469 451,457 V 215 L 309,379 Q 300,390 291,379 L 149,215 V 457 Q 149,469 137,476 L 80,506 Q 68,512 68,498 V 99 Q 68,87 79,87 Z"/>
+</svg>
