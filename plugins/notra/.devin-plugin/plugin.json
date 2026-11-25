@@ -1,0 +1,21 @@
+{
+  "name": "notra",
+  "displayName": "Notra",
+  "description": "See how ChatGPT, Claude, and Gemini mention your brand, find content gaps against competitors, and draft posts in your brand voice",
+  "shortDescription": "AI search visibility and content",
+  "setup": {
+    "notice": "Devin works in the one Notra organization and access level you pick when you sign in. GEO tools need a Notra plan that includes GEO."
+  },
+  "homepage": "https://www.usenotra.com",
+  "repository": "https://github.com/usenotra/notra-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Monitoring & Analytics",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "notra": {
+      "url": "https://mcp.usenotra.com/mcp"
+    }
+  }
+}
