@@ -283,6 +283,11 @@
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/quantummetric/qm-plugin-devin.git",
+      "sha": "3a10cf3330dd916246d88bc7e33b74ad07375b07"
     }
   ]
 }
