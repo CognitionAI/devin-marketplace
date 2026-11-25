@@ -1,17 +1,19 @@
 {
   "name": "coderabbit",
   "displayName": "CodeRabbit",
-  "description": "Read CodeRabbit pull request reviews and findings to plan fixes and verify review status in your coding workflow",
-  "shortDescription": "Pull request reviews and findings",
+  "description": "CodeRabbit is the governance and control layer for agentic software development helping developers trust AI written code.",
+  "shortDescription": "Governance and control",
   "setup": {
-    "notice": "Requires an existing CodeRabbit account with access to the repositories you want to inspect. This listing connects to the US service."
+    "notice": "Requires a CodeRabbit account and permissions for the tools you use. This listing connects to the US service."
   },
-  "homepage": "https://www.coderabbit.ai/",
+  "homepage": "https://github.com/coderabbitai/skills/blob/main/docs/mcp.md",
   "repository": "https://github.com/coderabbitai/skills",
-  "logo": "logo.svg",
+  "logo": "logo.png",
   "keywords": [
-    "Developer Tools",
-    "Code Review"
+    "code-review",
+    "autofix",
+    "ai",
+    "coderabbit"
   ],
   "mcpServers": {
     "coderabbit-review": {
