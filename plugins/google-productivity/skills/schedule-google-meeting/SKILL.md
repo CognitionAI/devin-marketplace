@@ -79,5 +79,7 @@ already says.
 - `suggest_time` does not move anything. Moving takes one of the update calls afterwards.
 - A time change passes both `startDateTime` and `endDateTime`.
 - Every update above emails the guests, so confirm any cancellation or change to a meeting with
-  other people first, and do not send several small updates when one will do.
+  other people first, and do not send several small updates when one will do. The one exception is
+  `delete_event` with `sendUpdates: "none"`, which cancels without emailing anyone; use it only
+  when the user asks for a quiet delete, since the default still notifies every guest.
 - Replying to an invitation the user received is `rsvp_event`, not an update.

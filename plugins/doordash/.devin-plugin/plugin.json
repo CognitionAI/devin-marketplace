@@ -1,0 +1,23 @@
+{
+  "name": "doordash",
+  "displayName": "DoorDash",
+  "description": "Find restaurants and stores, build carts, preview totals, and place and track DoorDash orders from your own account",
+  "shortDescription": "Food and grocery ordering and delivery",
+  "setup": {
+    "notice": "Orders are placed on and charged to the DoorDash account you connect."
+  },
+  "homepage": "https://www.doordash.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "doordash": {
+      "url": "https://openapi.doordash.com/mcp/consumer",
+      "oauthClientId": "1878966994542657551",
+      "oauthScopes": [
+        "mcp:consumer:write"
+      ]
+    }
+  }
+}
