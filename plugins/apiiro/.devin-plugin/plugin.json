@@ -1,0 +1,21 @@
+{
+  "name": "apiiro",
+  "displayName": "Apiiro",
+  "description": "Find, prioritize and fix code security risks, exposed secrets and vulnerable dependencies using your organization's Apiiro context",
+  "shortDescription": "Application security risks and fixes",
+  "setup": {
+    "notice": "Requires an Apiiro account. Devin sees only the repositories and risks your Apiiro role allows."
+  },
+  "homepage": "https://apiiro.com",
+  "repository": "https://github.com/apiiro/marketplace",
+  "logo": "logo.png",
+  "keywords": [
+    "Security",
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "apiiro": {
+      "url": "https://mcp.apiiro.com/mcp"
+    }
+  }
+}
