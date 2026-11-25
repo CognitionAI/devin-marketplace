@@ -245,7 +245,7 @@
       "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/cortex-code",
-      "sha": "c5836529084eea3c97cc61be3948d925689227ad"
+      "sha": "4d77f66bd51fab2e8a707839ef013fb3974ff756"
     },
     {
       "source": "git-subdir",
