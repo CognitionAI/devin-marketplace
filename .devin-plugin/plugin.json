@@ -243,6 +243,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/Octen-Team/octen-js.git",
+      "path": "integrations/devin-plugin",
+      "sha": "7efc449ddb921af8fdfaa6e65046aeb9444cc0fb"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
       "path": "plugins/snowflake-mcp-devin",
       "sha": "4d5ed2e1470ebe2160347125efe1ccd57b1c83f7"
