@@ -93,6 +93,7 @@
     "./plugins/figma-remote",
     "./plugins/firecrawl",
     "./plugins/fireflies",
+    "./plugins/foragent",
     "./plugins/fullstory",
     "./plugins/gamma",
     "./plugins/gc-ai",
