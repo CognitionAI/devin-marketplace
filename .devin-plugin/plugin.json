@@ -115,6 +115,7 @@
     "./plugins/hubspot",
     "./plugins/hugging-face",
     "./plugins/hunter",
+    "./plugins/i2v",
     "./plugins/incident-io",
     "./plugins/interactive-brokers",
     "./plugins/intercom",
