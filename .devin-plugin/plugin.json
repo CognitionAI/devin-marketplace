@@ -155,6 +155,7 @@
     "./plugins/monte-carlo",
     "./plugins/motherduck",
     "./plugins/motion",
+    "./plugins/myeline",
     "./plugins/navan",
     "./plugins/neon",
     "./plugins/netlify",
