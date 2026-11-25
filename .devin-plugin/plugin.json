@@ -234,6 +234,7 @@
     "./plugins/you-com-finance",
     "./plugins/you-com-research",
     "./plugins/zapier",
+    "./plugins/zite",
     {
       "source": "url",
       "url": "https://github.com/CognitionAI/claude-code-on-devin.git",
