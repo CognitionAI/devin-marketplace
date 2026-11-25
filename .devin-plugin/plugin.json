@@ -51,6 +51,7 @@
     "./plugins/clerk",
     "./plugins/cloudinary",
     "./plugins/cockroachdb",
+    "./plugins/coderabbit",
     "./plugins/codspeed",
     "./plugins/cognition-alloydb",
     "./plugins/cognition-bigquery",

@@ -1,0 +1,21 @@
+{
+  "name": "coderabbit",
+  "displayName": "CodeRabbit",
+  "description": "Read CodeRabbit pull request reviews and findings to plan fixes and verify review status in your coding workflow",
+  "shortDescription": "Pull request reviews and findings",
+  "setup": {
+    "notice": "Requires an existing CodeRabbit account with access to the repositories you want to inspect. This listing connects to the US service."
+  },
+  "homepage": "https://www.coderabbit.ai/",
+  "repository": "https://github.com/coderabbitai/skills",
+  "logo": "logo.svg",
+  "keywords": [
+    "Developer Tools",
+    "Code Review"
+  ],
+  "mcpServers": {
+    "coderabbit-review": {
+      "url": "https://mcp.coderabbit.ai/"
+    }
+  }
+}
