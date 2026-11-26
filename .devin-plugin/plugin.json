@@ -158,6 +158,7 @@
     "./plugins/navan",
     "./plugins/neon",
     "./plugins/netlify",
+    "./plugins/neverapply",
     "./plugins/newrelic",
     "./plugins/newrelic-remote",
     "./plugins/notion",

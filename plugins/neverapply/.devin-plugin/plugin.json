@@ -1,0 +1,17 @@
+{
+  "name": "neverapply",
+  "displayName": "NeverApply",
+  "description": "Search and match jobs, tailor resumes, prep for interviews, and apply to jobs with your approval",
+  "shortDescription": "AI job search and applications",
+  "homepage": "https://neverapply.co/features/mcp",
+  "repository": "https://github.com/kasovy/neverapply-mcp",
+  "logo": "logo.png",
+  "keywords": [
+    "Productivity"
+  ],
+  "mcpServers": {
+    "neverapply": {
+      "url": "https://neverapply.co/mcp"
+    }
+  }
+}
