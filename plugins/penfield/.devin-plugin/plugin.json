@@ -1,0 +1,18 @@
+{
+  "name": "penfield",
+  "displayName": "Penfield",
+  "description": "Save project decisions and recall relevant context from earlier sessions using Penfield’s knowledge graph",
+  "shortDescription": "Persistent memory for AI agents",
+  "homepage": "https://www.penfield.app",
+  "repository": "https://github.com/penfieldlabs/penfield-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "mcpServers": {
+    "penfield": {
+      "url": "https://mcp.penfield.app"
+    }
+  }
+}
