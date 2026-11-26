@@ -280,6 +280,12 @@
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
     },
     {
+      "source": "git-subdir",
+      "url": "https://github.com/maps-agent/mcp.git",
+      "path": "devin/maps-agent",
+      "sha": "2a531c23a741727f17cf68ec5216c07aeaf9d8c9"
+    },
+    {
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
