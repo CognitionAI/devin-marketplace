@@ -288,6 +288,12 @@
       "source": "url",
       "url": "https://github.com/quantummetric/qm-plugin-devin.git",
       "sha": "3a10cf3330dd916246d88bc7e33b74ad07375b07"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/sulihuli/mcp.git",
+      "path": "devin/sulihuli",
+      "sha": "f5c47dde643de5670dbed81b3961459a3db18c5d"
     }
   ]
 }
