@@ -281,6 +281,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/hboon/linkbunny-placement-checker-devin.git",
+      "sha": "78aaad21c0cd701a9ffccae2a7f6c2ca3cd91f23"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
     },
