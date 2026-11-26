@@ -286,6 +286,11 @@
     },
     {
       "source": "url",
+      "url": "https://github.com/qualityclouds/norma-mcp.git",
+      "sha": "d2b672be7d2eb7b1abfa3749087e797ea7a8397b"
+    },
+    {
+      "source": "url",
       "url": "https://github.com/quantummetric/qm-plugin-devin.git",
       "sha": "3a10cf3330dd916246d88bc7e33b74ad07375b07"
     }
