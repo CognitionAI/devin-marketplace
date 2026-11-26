@@ -1,0 +1,16 @@
+{
+  "name": "roceebo",
+  "displayName": "Roceebo",
+  "description": "Read Roceebo receipts and expenses, then edit records, receipts and budgets you approve in Roceebo",
+  "shortDescription": "Receipts and expenses in Roceebo",
+  "homepage": "https://roceebo.com",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "roceebo": {
+      "url": "https://roceebo.com/mcp"
+    }
+  }
+}
