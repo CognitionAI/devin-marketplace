@@ -1,0 +1,30 @@
+{
+  "name": "mailtrap",
+  "displayName": "Mailtrap",
+  "description": "Send transactional and bulk email, test it in Email Sandbox, manage templates and contacts, and handle inbound mail",
+  "shortDescription": "Email sending, sandbox and inbound",
+  "setup": {
+    "notice": "Sending live email needs a verified sending domain in Mailtrap."
+  },
+  "homepage": "https://mailtrap.io",
+  "repository": "https://github.com/mailtrap/mailtrap-mcp",
+  "logo": "logo.svg",
+  "keywords": [
+    "Communication"
+  ],
+  "mcpServers": {
+    "mailtrap": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-mailtrap"
+      ],
+      "env": {
+        "MAILTRAP_API_TOKEN": "${MAILTRAP_API_TOKEN}",
+        "MAILTRAP_ACCOUNT_ID": "${MAILTRAP_ACCOUNT_ID:-}",
+        "DEFAULT_FROM_EMAIL": "${DEFAULT_FROM_EMAIL:-}",
+        "MAILTRAP_SANDBOX_ID": "${MAILTRAP_SANDBOX_ID:-}"
+      }
+    }
+  }
+}
