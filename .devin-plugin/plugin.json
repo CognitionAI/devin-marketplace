@@ -280,6 +280,12 @@
       "sha": "d1bc26df9827fdc0a4d50ef474b0c8798ae7bac2"
     },
     {
+      "source": "git-subdir",
+      "url": "https://github.com/locus-technologies/locus-pro-plugin.git",
+      "path": "agents/devin",
+      "sha": "17bf15f6af96cdeafed8101df97fc6648c6ff5ca"
+    },
+    {
       "source": "url",
       "url": "https://github.com/mobbin/skills.git",
       "sha": "cac338357d596415773874f06a6c16e862c195e4"
