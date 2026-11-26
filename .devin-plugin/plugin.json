@@ -191,6 +191,7 @@
     "./plugins/ref-tools",
     "./plugins/replicate",
     "./plugins/resend",
+    "./plugins/roceebo",
     "./plugins/rootly",
     "./plugins/sanity",
     "./plugins/sazabi",
