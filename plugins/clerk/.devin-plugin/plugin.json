@@ -1,7 +1,7 @@
 {
   "name": "clerk",
   "displayName": "Clerk",
-  "description": "Clerk integration to add authentication, organizations, and billing",
+  "description": "Configure Clerk authentication, organizations, and billing",
   "shortDescription": "Sign-in, organizations and billing",
   "homepage": "https://clerk.com",
   "logo": "logo.svg",

@@ -1,7 +1,7 @@
 {
   "name": "attio",
   "displayName": "Attio",
-  "description": "Attio CRM integration for managing contacts, companies, deals, tasks, notes, and pipeline data through natural language",
+  "description": "Manage Attio contacts, companies, deals, notes, and tasks across your sales pipeline",
   "shortDescription": "CRM contacts, companies and deals",
   "homepage": "https://attio.com",
   "logo": "logo.svg",

@@ -1,7 +1,7 @@
 {
   "name": "arcade",
   "displayName": "Arcade",
-  "description": "Arcade AI platform integration for building and deploying AI-powered tools and workflows",
+  "description": "Build and deploy AI tools and run workflows in Arcade",
   "shortDescription": "Build and run AI workflows",
   "homepage": "https://arcade.dev",
   "logo": "logo.jpg",

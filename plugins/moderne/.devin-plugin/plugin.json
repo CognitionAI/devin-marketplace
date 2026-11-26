@@ -1,0 +1,26 @@
+{
+  "name": "moderne",
+  "displayName": "Moderne",
+  "description": "Find and run OpenRewrite recipes and search code across your Moderne organizations, with guidance for writing recipes and reading Prethink context",
+  "shortDescription": "OpenRewrite recipes and code search",
+  "setup": {
+    "notice": "Requires a Moderne account and works only on repositories already ingested into your Moderne tenant. The server is in beta, and its tools do not commit code or open pull requests.",
+    "steps": [
+      "In the Moderne Platform, open Account settings, select Access Tokens, and generate a personal access token."
+    ]
+  },
+  "homepage": "https://www.moderne.ai/",
+  "logo": "logo.svg",
+  "keywords": [
+    "Development Tools"
+  ],
+  "mcpServers": {
+    "moderne": {
+      "url": "https://${MODERNE_API_HOST:-api.app.moderne.io}/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MODERNE_TOKEN}",
+        "X-Moderne-Platform-Version": "v2"
+      }
+    }
+  }
+}

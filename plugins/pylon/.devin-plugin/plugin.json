@@ -1,7 +1,7 @@
 {
   "name": "pylon",
   "displayName": "Pylon",
-  "description": "Pylon customer support integration for searching, reading, and updating issues, accounts, and contacts through natural language",
+  "description": "Find and update Pylon issues, accounts, and contacts to investigate customer problems",
   "shortDescription": "Support issues, accounts and contacts",
   "homepage": "https://usepylon.com",
   "logo": "logo.svg",

@@ -1,7 +1,7 @@
 {
   "name": "craft",
   "displayName": "Craft",
-  "description": "Craft's hosted MCP server: search, create and update documents and daily notes in your Craft workspace.",
+  "description": "Search, create, and update Craft documents and daily notes",
   "shortDescription": "Workspace documents and daily notes",
   "homepage": "https://www.craft.do",
   "logo": "logo.png",

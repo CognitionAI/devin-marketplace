@@ -1,7 +1,7 @@
 {
   "name": "planetscale",
   "displayName": "PlanetScale",
-  "description": "PlanetScale integration for authenticated access to your Postgres and MySQL databases",
+  "description": "Query PlanetScale Postgres and MySQL databases",
   "shortDescription": "PostgreSQL and MySQL databases",
   "homepage": "https://planetscale.com",
   "logo": "logo.svg",

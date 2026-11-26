@@ -1,7 +1,7 @@
 {
   "name": "sqlite",
   "displayName": "SQLite",
-  "description": "SQLite database integration for data management and business intelligence",
+  "description": "Query and inspect SQLite databases with SQL",
   "shortDescription": "SQLite queries and database inspection",
   "homepage": "https://www.sqlite.org",
   "logo": "logo.svg",

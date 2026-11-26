@@ -1,7 +1,7 @@
 {
   "name": "paypal",
   "displayName": "PayPal",
-  "description": "Manage PayPal commerce operations; handle disputes; issue and send invoices; create orders, captures, and refunds; list transactions; track shipments; and manage subscriptions.",
+  "description": "Create PayPal orders, captures, and refunds, send invoices, handle disputes, list transactions, track shipments, and manage subscriptions",
   "shortDescription": "Orders, refunds and subscriptions",
   "homepage": "https://www.paypal.com",
   "logo": "logo.svg",

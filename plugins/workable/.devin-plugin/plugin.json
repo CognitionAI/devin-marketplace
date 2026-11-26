@@ -1,7 +1,7 @@
 {
   "name": "workable",
   "displayName": "Workable",
-  "description": "Workable's hosted MCP server: search candidates, move them through hiring pipelines and manage HR records.",
+  "description": "Find Workable candidates, move them through hiring pipelines, and manage HR records",
   "shortDescription": "Hiring pipelines and candidate records",
   "homepage": "https://www.workable.com",
   "logo": "logo.png",

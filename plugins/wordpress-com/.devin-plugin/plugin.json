@@ -1,7 +1,7 @@
 {
   "name": "wordpress-com",
   "displayName": "WordPress.com",
-  "description": "WordPress.com's hosted MCP server: manage your WordPress.com sites, create and edit posts, pages and media, manage plugins, users and site settings, view stats, and search domains.",
+  "description": "Manage WordPress.com posts, pages, media, plugins, users, and settings, view stats, and search domains",
   "shortDescription": "Sites, posts, pages and media",
   "homepage": "https://wordpress.com",
   "logo": "logo.png",
