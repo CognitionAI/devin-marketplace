@@ -197,6 +197,7 @@
     "./plugins/sentry",
     "./plugins/shopify-dev",
     "./plugins/similarweb",
+    "./plugins/simplify3x-connect",
     "./plugins/slack",
     "./plugins/slack-remote",
     "./plugins/splunk",
