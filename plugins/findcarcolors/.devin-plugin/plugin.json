@@ -1,0 +1,19 @@
+{
+  "name": "findcarcolors",
+  "displayName": "FindCarColors",
+  "shortDescription": "Find car paint names and codes",
+  "description": "Look up car paints by manufacturer, name, or code and read catalog details and available sources",
+  "homepage": "https://www.findcarcolors.com/",
+  "repository": "https://github.com/findcarcolors/fcc",
+  "keywords": [
+    "automotive",
+    "car paint",
+    "paint codes"
+  ],
+  "logo": "logo.png",
+  "mcpServers": {
+    "findcarcolors": {
+      "url": "https://mcp.findcarcolors.com/mcp"
+    }
+  }
+}
