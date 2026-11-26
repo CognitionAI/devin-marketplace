@@ -269,6 +269,12 @@
     },
     {
       "source": "git-subdir",
+      "url": "https://github.com/electroatlas/mcp.git",
+      "path": "devin/electroatlas",
+      "sha": "781dfd5e619f9096c14ad34582a044f14865ca0f"
+    },
+    {
+      "source": "git-subdir",
       "url": "https://github.com/expo/skills.git",
       "path": "plugins/expo",
       "sha": "a9e5bd3fa00b4e61f632e43f85da73aee1942582"
