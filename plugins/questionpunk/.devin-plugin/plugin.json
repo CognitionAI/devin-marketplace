@@ -1,0 +1,16 @@
+{
+  "name": "questionpunk",
+  "displayName": "QuestionPunk",
+  "description": "Draft surveys and AI-moderated interviews, publish them when you ask, and read responses, reports and cross-tabs",
+  "shortDescription": "Surveys and AI-moderated interviews",
+  "homepage": "https://www.questionpunk.com",
+  "logo": "logo.svg",
+  "keywords": [
+    "Customer & Sales"
+  ],
+  "mcpServers": {
+    "questionpunk": {
+      "url": "https://app.questionpunk.com/api/v1"
+    }
+  }
+}
