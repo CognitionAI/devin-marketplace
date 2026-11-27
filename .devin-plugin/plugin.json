@@ -215,7 +215,6 @@
     "./plugins/todoist",
     "./plugins/trellis",
     "./plugins/twilio-docs",
-    "./plugins/unleash",
     "./plugins/val-town",
     "./plugins/vanta",
     "./plugins/vanta-aus",
@@ -255,6 +254,11 @@
       "source": "url",
       "url": "https://github.com/SonarSource/sonarqube-agent-plugins.git",
       "sha": "a3b7b69dbb40234e6e0088d989b10072c8f4aedd"
+    },
+    {
+      "source": "url",
+      "url": "https://github.com/Unleash/unleash-claude-skills.git",
+      "sha": "afdf2d631625fc213094611277bb082479d10be3"
     },
     {
       "source": "url",
