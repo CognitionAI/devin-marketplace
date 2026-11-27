@@ -87,6 +87,7 @@
     "./plugins/elasticsearch",
     "./plugins/enterpret",
     "./plugins/eraser",
+    "./plugins/evuun",
     "./plugins/exa",
     "./plugins/excalidraw",
     "./plugins/fathom",
