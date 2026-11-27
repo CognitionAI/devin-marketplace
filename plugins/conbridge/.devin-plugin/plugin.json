@@ -1,0 +1,19 @@
+{
+  "name": "conbridge",
+  "displayName": "ConBridge",
+  "description": "Read known vulnerabilities, confirm one with a read-only check, and fix it on the target you select",
+  "shortDescription": "Vulnerability checks and targeted fixes",
+  "setup": {
+    "notice": "Requires a ConBridge account (free to start) with at least one computer, server or site connected."
+  },
+  "homepage": "https://conbridge.app",
+  "logo": "logo.svg",
+  "keywords": [
+    "Security"
+  ],
+  "mcpServers": {
+    "conbridge": {
+      "url": "https://mcp.conbridge.app/mcp"
+    }
+  }
+}
