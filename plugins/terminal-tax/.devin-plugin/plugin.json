@@ -1,0 +1,17 @@
+{
+  "name": "terminal-tax",
+  "displayName": "Terminal Tax",
+  "description": "Let your AI agent file your taxes directly with the IRS. Tax software: your AI agent sends the return, you review and sign it, we e-file. No account, nothing to install: agents call the endpoint directly. $19.99, charged only if the IRS accepts it.",
+  "shortDescription": "File your taxes with the IRS",
+  "homepage": "https://terminal.tax",
+  "repository": "https://github.com/terminaltax/terminal-tax-mcp-server",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "terminal-tax": {
+      "url": "https://mcp.terminal.tax/v1/hosted-mcp"
+    }
+  }
+}
