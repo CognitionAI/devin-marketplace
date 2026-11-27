@@ -183,6 +183,7 @@
     "./plugins/pulumi",
     "./plugins/pylon",
     "./plugins/qt-docs",
+    "./plugins/questionpunk",
     "./plugins/quicknode",
     "./plugins/raindrop-ai",
     "./plugins/ramp",
