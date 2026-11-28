@@ -182,6 +182,7 @@
     "./plugins/profound",
     "./plugins/pulumi",
     "./plugins/pylon",
+    "./plugins/qie-wallet",
     "./plugins/qt-docs",
     "./plugins/quicknode",
     "./plugins/raindrop-ai",
