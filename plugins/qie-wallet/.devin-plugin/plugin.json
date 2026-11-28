@@ -1,0 +1,17 @@
+{
+  "name": "qie-wallet",
+  "displayName": "QIE Wallet",
+  "description": "Look up QIE balances, transaction status, token lists, network facts and .qie names on QIE mainnet and testnet",
+  "shortDescription": "Read-only QIE chain data and QIE IDs",
+  "homepage": "https://mcp.qie.digital",
+  "repository": "https://github.com/qieadmin/qie-wallet-mcp-listing",
+  "logo": "logo.png",
+  "keywords": [
+    "Finance"
+  ],
+  "mcpServers": {
+    "qie-wallet": {
+      "url": "https://mcp.qie.digital/mcp"
+    }
+  }
+}
